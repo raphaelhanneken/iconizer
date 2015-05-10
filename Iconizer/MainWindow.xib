@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="Iconizer" customModuleProvider="target">
+            <connections>
+                <outlet property="combined" destination="aoH-5m-8C9" id="A16-3o-3tI"/>
+                <outlet property="imageView" destination="a1k-ol-dvx" id="p86-Nk-6JC"/>
+                <outlet property="ipad" destination="W1y-2U-a6c" id="ykz-fl-6lH"/>
+                <outlet property="iphone" destination="Zh4-O0-42y" id="ZzX-RO-AcK"/>
+                <outlet property="mac" destination="ZBA-jM-pP8" id="rND-mO-Jwd"/>
+                <outlet property="watch" destination="fon-mP-ces" id="l3l-es-5yH"/>
+                <outlet property="window" destination="zq5-tq-OcR" id="0Hn-X4-rU2"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Iconizer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="zq5-tq-OcR">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="109" y="131" width="295" height="388"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <value key="minSize" type="size" width="313" height="358"/>
+            <view key="contentView" id="dHQ-wJ-Gg8">
+                <rect key="frame" x="0.0" y="-4" width="295" height="388"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rd6-rb-mdd">
+                        <rect key="frame" x="220" y="18" width="55" height="25"/>
+                        <buttonCell key="cell" type="roundTextured" title="Export" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wP8-Dk-eoy">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="export:" target="-2" id="JdY-ho-n9u"/>
+                        </connections>
+                    </button>
+                    <box autoresizesSubviews="NO" title="Platforms" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-lJ-3Mp">
+                        <rect key="frame" x="17" y="46" width="261" height="75"/>
+                        <view key="contentView">
+                            <rect key="frame" x="1" y="1" width="259" height="59"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W1y-2U-a6c">
+                                    <rect key="frame" x="138" y="33" width="50" height="18"/>
+                                    <buttonCell key="cell" type="check" title="iPad" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="QeT-Df-W1F">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zh4-O0-42y">
+                                    <rect key="frame" x="16" y="33" width="65" height="18"/>
+                                    <buttonCell key="cell" type="check" title="iPhone" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="d3K-1i-s9r">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fon-mP-ces">
+                                    <rect key="frame" x="16" y="12" width="61" height="18"/>
+                                    <buttonCell key="cell" type="check" title="Watch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dng-aO-CvA">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZBA-jM-pP8">
+                                    <rect key="frame" x="138" y="12" width="49" height="18"/>
+                                    <buttonCell key="cell" type="check" title="Mac" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="gLv-Up-g6q">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                            </subviews>
+                        </view>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="71" id="a6U-y7-8nm"/>
+                        </constraints>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a1k-ol-dvx">
+                        <rect key="frame" x="17" y="126" width="261" height="245"/>
+                        <imageCell key="cell" selectable="YES" editable="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="OMw-MU-rRL"/>
+                    </imageView>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="aoH-5m-8C9">
+                        <rect key="frame" x="18" y="22" width="196" height="18"/>
+                        <buttonCell key="cell" type="check" title="Export as combined catalog" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="AVl-jB-FOq">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="rd6-rb-mdd" secondAttribute="bottom" constant="20" id="2wZ-xH-H6U"/>
+                    <constraint firstItem="a1k-ol-dvx" firstAttribute="top" secondItem="dHQ-wJ-Gg8" secondAttribute="top" constant="20" id="FGJ-Zk-5vK"/>
+                    <constraint firstItem="aoH-5m-8C9" firstAttribute="top" secondItem="AeP-lJ-3Mp" secondAttribute="bottom" constant="12" id="Mc1-DA-uQG"/>
+                    <constraint firstItem="AeP-lJ-3Mp" firstAttribute="leading" secondItem="dHQ-wJ-Gg8" secondAttribute="leading" constant="20" id="PPr-dc-VtU"/>
+                    <constraint firstItem="rd6-rb-mdd" firstAttribute="top" secondItem="AeP-lJ-3Mp" secondAttribute="bottom" constant="8" id="UUI-yc-HVr"/>
+                    <constraint firstItem="AeP-lJ-3Mp" firstAttribute="top" secondItem="a1k-ol-dvx" secondAttribute="bottom" constant="8" id="gLY-Wp-H42"/>
+                    <constraint firstItem="AeP-lJ-3Mp" firstAttribute="top" secondItem="a1k-ol-dvx" secondAttribute="bottom" constant="8" id="pc0-AX-2fu"/>
+                    <constraint firstItem="rd6-rb-mdd" firstAttribute="top" secondItem="AeP-lJ-3Mp" secondAttribute="bottom" constant="8" id="qiA-z2-xe7"/>
+                    <constraint firstAttribute="trailing" secondItem="rd6-rb-mdd" secondAttribute="trailing" constant="20" id="rFo-Jc-dMa"/>
+                    <constraint firstAttribute="trailing" secondItem="a1k-ol-dvx" secondAttribute="trailing" constant="20" id="uMj-q6-00m"/>
+                    <constraint firstAttribute="bottom" secondItem="aoH-5m-8C9" secondAttribute="bottom" constant="24" id="ud1-On-ZMQ"/>
+                    <constraint firstItem="a1k-ol-dvx" firstAttribute="leading" secondItem="dHQ-wJ-Gg8" secondAttribute="leading" constant="20" id="vKZ-wS-Jd2"/>
+                    <constraint firstAttribute="trailing" secondItem="AeP-lJ-3Mp" secondAttribute="trailing" constant="20" id="vnR-Xg-kwO"/>
+                    <constraint firstItem="aoH-5m-8C9" firstAttribute="leading" secondItem="dHQ-wJ-Gg8" secondAttribute="leading" constant="20" id="zGp-mW-bNa"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="fdr-JF-i66"/>
+            </connections>
+            <point key="canvasLocation" x="77.5" y="214"/>
+        </window>
+    </objects>
+</document>

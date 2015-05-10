@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		20A9A5D71AFEB83B00D07AA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A9A5D61AFEB83B00D07AA1 /* AppDelegate.swift */; };
+		20A9A5DC1AFEB83B00D07AA1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A9A5DA1AFEB83B00D07AA1 /* MainMenu.xib */; };
+		20A9A5E81AFEB83C00D07AA1 /* IconizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A9A5E71AFEB83C00D07AA1 /* IconizerTests.swift */; };
+		20A9A5F31AFEB8C100D07AA1 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A9A5F21AFEB8C100D07AA1 /* MainWindowController.swift */; };
+		20A9A5F51AFEB8EA00D07AA1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A9A5F41AFEB8EA00D07AA1 /* MainWindow.xib */; };
+		20A9A5F91AFEB95400D07AA1 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A9A5F61AFEB95400D07AA1 /* FileManager.swift */; };
+		20A9A5FA1AFEB95400D07AA1 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A9A5F71AFEB95400D07AA1 /* ImageGenerator.swift */; };
+		20A9A5FB1AFEB95400D07AA1 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A9A5F81AFEB95400D07AA1 /* PreferenceManager.swift */; };
+		20A9A5FD1AFEB9E500D07AA1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20A9A5FC1AFEB9E500D07AA1 /* Images.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		20A9A5E21AFEB83C00D07AA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20A9A5C91AFEB83B00D07AA1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20A9A5D01AFEB83B00D07AA1;
+			remoteInfo = Iconizer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		20A9A5D11AFEB83B00D07AA1 /* Iconizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iconizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		20A9A5D51AFEB83B00D07AA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20A9A5D61AFEB83B00D07AA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		20A9A5DB1AFEB83B00D07AA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		20A9A5E11AFEB83C00D07AA1 /* IconizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IconizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		20A9A5E61AFEB83C00D07AA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20A9A5E71AFEB83C00D07AA1 /* IconizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconizerTests.swift; sourceTree = "<group>"; };
+		20A9A5F21AFEB8C100D07AA1 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		20A9A5F41AFEB8EA00D07AA1 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		20A9A5F61AFEB95400D07AA1 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		20A9A5F71AFEB95400D07AA1 /* ImageGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGenerator.swift; sourceTree = "<group>"; };
+		20A9A5F81AFEB95400D07AA1 /* PreferenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
+		20A9A5FC1AFEB9E500D07AA1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		20A9A5FE1AFEBAA500D07AA1 /* Iconizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Iconizer.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		20A9A5CE1AFEB83B00D07AA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20A9A5DE1AFEB83C00D07AA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20A9A5C81AFEB83B00D07AA1 = {
+			isa = PBXGroup;
+			children = (
+				20A9A5D31AFEB83B00D07AA1 /* Iconizer */,
+				20A9A5E41AFEB83C00D07AA1 /* IconizerTests */,
+				20A9A5D21AFEB83B00D07AA1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		20A9A5D21AFEB83B00D07AA1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				20A9A5D11AFEB83B00D07AA1 /* Iconizer.app */,
+				20A9A5E11AFEB83C00D07AA1 /* IconizerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20A9A5D31AFEB83B00D07AA1 /* Iconizer */ = {
+			isa = PBXGroup;
+			children = (
+				20A9A5D61AFEB83B00D07AA1 /* AppDelegate.swift */,
+				20A9A5F21AFEB8C100D07AA1 /* MainWindowController.swift */,
+				20A9A5F71AFEB95400D07AA1 /* ImageGenerator.swift */,
+				20A9A5F61AFEB95400D07AA1 /* FileManager.swift */,
+				20A9A5F81AFEB95400D07AA1 /* PreferenceManager.swift */,
+				20A9A5F11AFEB89000D07AA1 /* UI */,
+				20A9A5D41AFEB83B00D07AA1 /* Supporting Files */,
+			);
+			path = Iconizer;
+			sourceTree = "<group>";
+		};
+		20A9A5D41AFEB83B00D07AA1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				20A9A5FE1AFEBAA500D07AA1 /* Iconizer.entitlements */,
+				20A9A5FC1AFEB9E500D07AA1 /* Images.xcassets */,
+				20A9A5D51AFEB83B00D07AA1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		20A9A5E41AFEB83C00D07AA1 /* IconizerTests */ = {
+			isa = PBXGroup;
+			children = (
+				20A9A5E71AFEB83C00D07AA1 /* IconizerTests.swift */,
+				20A9A5E51AFEB83C00D07AA1 /* Supporting Files */,
+			);
+			path = IconizerTests;
+			sourceTree = "<group>";
+		};
+		20A9A5E51AFEB83C00D07AA1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				20A9A5E61AFEB83C00D07AA1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		20A9A5F11AFEB89000D07AA1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				20A9A5F41AFEB8EA00D07AA1 /* MainWindow.xib */,
+				20A9A5DA1AFEB83B00D07AA1 /* MainMenu.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		20A9A5D01AFEB83B00D07AA1 /* Iconizer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20A9A5EB1AFEB83C00D07AA1 /* Build configuration list for PBXNativeTarget "Iconizer" */;
+			buildPhases = (
+				20A9A5CD1AFEB83B00D07AA1 /* Sources */,
+				20A9A5CE1AFEB83B00D07AA1 /* Frameworks */,
+				20A9A5CF1AFEB83B00D07AA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Iconizer;
+			productName = Iconizer;
+			productReference = 20A9A5D11AFEB83B00D07AA1 /* Iconizer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		20A9A5E01AFEB83C00D07AA1 /* IconizerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20A9A5EE1AFEB83C00D07AA1 /* Build configuration list for PBXNativeTarget "IconizerTests" */;
+			buildPhases = (
+				20A9A5DD1AFEB83C00D07AA1 /* Sources */,
+				20A9A5DE1AFEB83C00D07AA1 /* Frameworks */,
+				20A9A5DF1AFEB83C00D07AA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20A9A5E31AFEB83C00D07AA1 /* PBXTargetDependency */,
+			);
+			name = IconizerTests;
+			productName = IconizerTests;
+			productReference = 20A9A5E11AFEB83C00D07AA1 /* IconizerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20A9A5C91AFEB83B00D07AA1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Raphael Hanneken";
+				TargetAttributes = {
+					20A9A5D01AFEB83B00D07AA1 = {
+						CreatedOnToolsVersion = 6.3.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+					20A9A5E01AFEB83C00D07AA1 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 20A9A5D01AFEB83B00D07AA1;
+					};
+				};
+			};
+			buildConfigurationList = 20A9A5CC1AFEB83B00D07AA1 /* Build configuration list for PBXProject "Iconizer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 20A9A5C81AFEB83B00D07AA1;
+			productRefGroup = 20A9A5D21AFEB83B00D07AA1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				20A9A5D01AFEB83B00D07AA1 /* Iconizer */,
+				20A9A5E01AFEB83C00D07AA1 /* IconizerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		20A9A5CF1AFEB83B00D07AA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20A9A5FD1AFEB9E500D07AA1 /* Images.xcassets in Resources */,
+				20A9A5DC1AFEB83B00D07AA1 /* MainMenu.xib in Resources */,
+				20A9A5F51AFEB8EA00D07AA1 /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20A9A5DF1AFEB83C00D07AA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		20A9A5CD1AFEB83B00D07AA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20A9A5FB1AFEB95400D07AA1 /* PreferenceManager.swift in Sources */,
+				20A9A5F91AFEB95400D07AA1 /* FileManager.swift in Sources */,
+				20A9A5FA1AFEB95400D07AA1 /* ImageGenerator.swift in Sources */,
+				20A9A5F31AFEB8C100D07AA1 /* MainWindowController.swift in Sources */,
+				20A9A5D71AFEB83B00D07AA1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20A9A5DD1AFEB83C00D07AA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20A9A5E81AFEB83C00D07AA1 /* IconizerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		20A9A5E31AFEB83C00D07AA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 20A9A5D01AFEB83B00D07AA1 /* Iconizer */;
+			targetProxy = 20A9A5E21AFEB83C00D07AA1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		20A9A5DA1AFEB83B00D07AA1 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20A9A5DB1AFEB83B00D07AA1 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		20A9A5E91AFEB83C00D07AA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		20A9A5EA1AFEB83C00D07AA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		20A9A5EC1AFEB83C00D07AA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Iconizer/Iconizer.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Iconizer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		20A9A5ED1AFEB83C00D07AA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Iconizer/Iconizer.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Iconizer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		20A9A5EF1AFEB83C00D07AA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = IconizerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Iconizer.app/Contents/MacOS/Iconizer";
+			};
+			name = Debug;
+		};
+		20A9A5F01AFEB83C00D07AA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = IconizerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Iconizer.app/Contents/MacOS/Iconizer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		20A9A5CC1AFEB83B00D07AA1 /* Build configuration list for PBXProject "Iconizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20A9A5E91AFEB83C00D07AA1 /* Debug */,
+				20A9A5EA1AFEB83C00D07AA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20A9A5EB1AFEB83C00D07AA1 /* Build configuration list for PBXNativeTarget "Iconizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20A9A5EC1AFEB83C00D07AA1 /* Debug */,
+				20A9A5ED1AFEB83C00D07AA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		20A9A5EE1AFEB83C00D07AA1 /* Build configuration list for PBXNativeTarget "IconizerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20A9A5EF1AFEB83C00D07AA1 /* Debug */,
+				20A9A5F01AFEB83C00D07AA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20A9A5C91AFEB83B00D07AA1 /* Project object */;
+}
