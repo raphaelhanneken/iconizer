@@ -96,6 +96,11 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                     // ...or as individual assets
                     self.fileManager.saveImageAssetToDirectoryURL(saveModal.URL, usingImages: self.imageGenerator.icnImages)
                 }
+                
+                if let url = saveModal.URL {
+                    let openURL = url.URLByAppendingPathComponent("/Iconizer Assets", isDirectory: true)
+                    NSWorkspace.sharedWorkspace().openURL(openURL)
+                }
             }
         }
     }
