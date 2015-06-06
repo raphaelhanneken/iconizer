@@ -11,13 +11,14 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="F0z-JX-Cv5">
+        <window title="Iconizer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+            <rect key="contentRect" x="196" y="240" width="410" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <value key="minSize" type="size" width="410" height="270"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <rect key="frame" x="0.0" y="0.0" width="410" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>
             <toolbar key="toolbar" implicitIdentifier="9EA0F9F7-1BC5-4CC5-890E-7255E5FD3BB3" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="O6M-DG-oxe">
@@ -26,19 +27,38 @@
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="0T7-9F-hUI"/>
                     <toolbarItem implicitItemIdentifier="E5B00F72-3A4A-4A92-9D7E-0BA52EAEC522" label="Export" paletteLabel="Export" image="NSShareTemplate" id="Nwv-YM-0IP">
                         <nil key="toolTip"/>
-                        <size key="minSize" width="35" height="28"/>
-                        <size key="maxSize" width="36" height="29"/>
+                        <size key="minSize" width="32" height="20"/>
+                        <size key="maxSize" width="32" height="20"/>
                         <button key="view" verticalHuggingPriority="750" id="RnJ-UJ-oLn">
-                            <rect key="frame" x="3" y="14" width="35" height="28"/>
+                            <rect key="frame" x="3" y="14" width="32" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" image="NSShareTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oCk-Jg-CwY">
+                            <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" image="NSShareTemplate" imagePosition="overlaps" alignment="center" controlSize="small" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oCk-Jg-CwY">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
+                                <font key="font" metaFont="smallSystem"/>
                             </buttonCell>
                         </button>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="20EEBF86-3D97-4B14-B42B-F4C359347BE2" label="Export Type" paletteLabel="Export Type" id="LGf-aY-fRE">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="254" height="20"/>
+                        <size key="maxSize" width="254" height="28"/>
+                        <segmentedControl key="view" verticalHuggingPriority="750" id="LLY-Re-IdR">
+                            <rect key="frame" x="0.0" y="15" width="254" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="4Yl-K6-sx3">
+                                <font key="font" metaFont="smallSystem"/>
+                                <segments>
+                                    <segment label="App Icon" width="84" selected="YES"/>
+                                    <segment label="Launch Image" width="83" tag="1"/>
+                                    <segment label="Image Set" width="83"/>
+                                </segments>
+                            </segmentedCell>
+                        </segmentedControl>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
+                    <toolbarItem reference="0T7-9F-hUI"/>
+                    <toolbarItem reference="LGf-aY-fRE"/>
                     <toolbarItem reference="0T7-9F-hUI"/>
                     <toolbarItem reference="Nwv-YM-0IP"/>
                 </defaultToolbarItems>
@@ -46,6 +66,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
+            <point key="canvasLocation" x="244" y="337"/>
         </window>
     </objects>
     <resources>
