@@ -1,5 +1,5 @@
 //
-// AppDelegate.swift
+// MainWindowController.swift
 // Iconizer
 // https://github.com/behoernchen/Iconizer
 //
@@ -25,29 +25,20 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import Cocoa
 
-@NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class MainWindowController: NSWindowController {
     
-        /// Handle the window via MainWindowController
-    var mainWindowController: MainWindowController?
-    
-    
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Create a new WindowController instance
-        let mainWindowController = MainWindowController()
-        
-        // Display the associated window on screen
-        mainWindowController.showWindow(self)
-        
-        // Point the instance variable to the created MainWindowController object
-        self.mainWindowController = mainWindowController
+    // Override the windowNibName property.
+    override var windowNibName: String {
+        return "MainWindow"
     }
-    
-    func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
-        return true
-    }
-}
 
+    override func windowDidLoad() {
+        super.windowDidLoad()
+
+        // Hide the window title, to get the unified toolbar.
+        self.window!.titleVisibility = .Hidden
+    }
+    
+}

@@ -10,6 +10,8 @@
 		8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */; };
 		8E3F8F701B23488F0096E9EC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6E1B23488F0096E9EC /* MainMenu.xib */; };
 		8E3F8F891B2348E30096E9EC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F881B2348E30096E9EC /* Images.xcassets */; };
+		8E3F8F8D1B236A5C0096E9EC /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F8B1B236A5C0096E9EC /* MainWindowController.swift */; };
+		8E3F8F8E1B236A5C0096E9EC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F8C1B236A5C0096E9EC /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		8E3F8F6F1B23488F0096E9EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8E3F8F881B2348E30096E9EC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8E3F8F8A1B2349090096E9EC /* Iconizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Iconizer.entitlements; sourceTree = "<group>"; };
+		8E3F8F8B1B236A5C0096E9EC /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		8E3F8F8C1B236A5C0096E9EC /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				8E3F8F6E1B23488F0096E9EC /* MainMenu.xib */,
+				8E3F8F8C1B236A5C0096E9EC /* MainWindow.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -81,6 +86,7 @@
 		8E3F8F861B2348A10096E9EC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8E3F8F8B1B236A5C0096E9EC /* MainWindowController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -155,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E3F8F701B23488F0096E9EC /* MainMenu.xib in Resources */,
+				8E3F8F8E1B236A5C0096E9EC /* MainWindow.xib in Resources */,
 				8E3F8F891B2348E30096E9EC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E3F8F8D1B236A5C0096E9EC /* MainWindowController.swift in Sources */,
 				8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
