@@ -18,6 +18,7 @@
 		8E3F8F961B23744E0096E9EC /* LaunchImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F941B23744E0096E9EC /* LaunchImageView.xib */; };
 		8E3F8F991B23746E0096E9EC /* ImageSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F971B23746E0096E9EC /* ImageSetViewController.swift */; };
 		8E3F8F9A1B23746E0096E9EC /* ImageSetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F981B23746E0096E9EC /* ImageSetView.xib */; };
+		8E3F8F9C1B239D140096E9EC /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F9B1B239D140096E9EC /* AppIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		8E3F8F941B23744E0096E9EC /* LaunchImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchImageView.xib; sourceTree = "<group>"; };
 		8E3F8F971B23746E0096E9EC /* ImageSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSetViewController.swift; sourceTree = "<group>"; };
 		8E3F8F981B23746E0096E9EC /* ImageSetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSetView.xib; sourceTree = "<group>"; };
+		8E3F8F9B1B239D140096E9EC /* AppIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		8E3F8F871B2348A80096E9EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8E3F8F9B1B239D140096E9EC /* AppIcon.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			files = (
 				8E3F8F911B2374300096E9EC /* AppIconViewController.swift in Sources */,
 				8E3F8F8D1B236A5C0096E9EC /* MainWindowController.swift in Sources */,
+				8E3F8F9C1B239D140096E9EC /* AppIcon.swift in Sources */,
 				8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */,
 				8E3F8F951B23744E0096E9EC /* LaunchImageViewController.swift in Sources */,
 				8E3F8F991B23746E0096E9EC /* ImageSetViewController.swift in Sources */,
