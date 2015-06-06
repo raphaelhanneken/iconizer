@@ -20,6 +20,7 @@
 		8E3F8F9A1B23746E0096E9EC /* ImageSetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F981B23746E0096E9EC /* ImageSetView.xib */; };
 		8E3F8F9C1B239D140096E9EC /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F9B1B239D140096E9EC /* AppIcon.swift */; };
 		8E3F8F9F1B23ACF40096E9EC /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F9E1B23ACF40096E9EC /* NSImageExtensions.swift */; };
+		8E3F8FA11B23B6BF0096E9EC /* JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8FA01B23B6BF0096E9EC /* JSONFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		8E3F8F981B23746E0096E9EC /* ImageSetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSetView.xib; sourceTree = "<group>"; };
 		8E3F8F9B1B239D140096E9EC /* AppIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		8E3F8F9E1B23ACF40096E9EC /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
+		8E3F8FA01B23B6BF0096E9EC /* JSONFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				8E3F8F9B1B239D140096E9EC /* AppIcon.swift */,
+				8E3F8FA01B23B6BF0096E9EC /* JSONFile.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				8E3F8F911B2374300096E9EC /* AppIconViewController.swift in Sources */,
 				8E3F8F8D1B236A5C0096E9EC /* MainWindowController.swift in Sources */,
 				8E3F8F9F1B23ACF40096E9EC /* NSImageExtensions.swift in Sources */,
+				8E3F8FA11B23B6BF0096E9EC /* JSONFile.swift in Sources */,
 				8E3F8F9C1B239D140096E9EC /* AppIcon.swift in Sources */,
 				8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */,
 				8E3F8F951B23744E0096E9EC /* LaunchImageViewController.swift in Sources */,
