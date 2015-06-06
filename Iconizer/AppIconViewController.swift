@@ -28,7 +28,49 @@
 
 import Cocoa
 
+// Constants for each platform name.
+private let kAppleWatchPlatformName = "Watch"
+private let kIPadPlatformName       = "iPad"
+private let kIPhonePlatformName     = "iPhone"
+private let kOSXPlatformName        = "Mac"
+private let kCarPlayPlatformName    = "Car"
+
+///  Handles the AppIconView
 class AppIconViewController: NSViewController {
+    
+     /// Export for Car Play?
+    @IBOutlet weak var carPlay: NSButton!
+     /// Export for iPad?
+    @IBOutlet weak var iPad: NSButton!
+     /// Export for iPhone?
+    @IBOutlet weak var iPhone: NSButton!
+     /// Export for OS X?
+    @IBOutlet weak var osx: NSButton!
+     /// Export for Apple Watch?
+    @IBOutlet weak var watch: NSButton!
+     /// Export as combined asset?
+    @IBOutlet weak var combined: NSButton!
+     /// Progress indicator.
+    @IBOutlet weak var processing: NSProgressIndicator!
+     /// Image Well.
+    @IBOutlet weak var imageView: NSImageView!
+    
+     /// Which platforms are actually selected?
+    var enabledPlatforms: [String] {
+        get {
+            // String array of selected platforms.
+            var tmp: [String] = []
+            if self.carPlay == NSOnState { tmp.append(kCarPlayPlatformName) }
+            if self.iPad    == NSOnState { tmp.append(kIPadPlatformName) }
+            if self.iPhone  == NSOnState { tmp.append(kIPhonePlatformName) }
+            if self.osx     == NSOnState { tmp.append(kOSXPlatformName ) }
+            
+            return tmp
+        }
+    }
+    
+     /// Holds the AppIcon model
+    let appIcon = AppIcon()
     
     override var nibName: String {
         return "AppIconView"
@@ -39,4 +81,63 @@ class AppIconViewController: NSViewController {
         // Do view setup here.
     }
     
+    ///  Tells the model to generate the required images.
+    ///
+    ///  :returns: Returns true on success, false on failure.
+    func generateRequiredImages() -> Bool {
+        // Unwrap the image from imageView
+        if let image = self.imageView.image {
+            // Check if at least one platform is selected.
+            if self.enabledPlatforms.count > 0 {
+                // Since we definetly can do something here,
+                // start the progress indicator.
+                self.toggleProgressIndicator()
+                
+                // Tell the model to generate it's images
+                self.appIcon.generateImagesForPlatforms(self.enabledPlatforms, fromImage: image)
+                
+                // Finished generating images, so stop the progress indicator.
+                self.toggleProgressIndicator()
+                
+                // We're alright here, so return true
+                return true
+            } else {
+                // Whoops! We have no platforms.
+                self.beginSheetModalWithMessage("No Platform!", andText: "You haven't selected any platforms yet.")
+            }
+        } else {
+            // Oh snap! Forgot the image.
+            self.beginSheetModalWithMessage("No Image!", andText: "You haven't dropped any image to convert.")
+        }
+        
+        // We have a problem here, captain!
+        return false
+    }
+    
+    ///  Toggles the animation status and visibility of the progress indicator.
+    func toggleProgressIndicator() {
+        if self.processing.hidden {
+            self.processing.startAnimation(self)
+            self.processing.hidden = false
+        } else {
+            self.processing.hidden = true
+            self.processing.stopAnimation(self)
+        }
+    }
+    
+    ///  Opens an NSAlert panel ontop of MainWindow.
+    ///
+    ///  :param: message messageText for the NSAlert.
+    ///  :param: text    informativeText for the NSAlert.
+    func beginSheetModalWithMessage(message: String, andText text: String) {
+        // Create a new NSAlert message.
+        let alert = NSAlert()
+        
+        // Configure the NSAlert.
+        alert.messageText     = message
+        alert.informativeText = text
+        
+        // Display!
+        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+    }
 }

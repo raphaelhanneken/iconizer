@@ -28,5 +28,7 @@
 import Cocoa
 
 class AppIcon: NSObject {
-    
+    func generateImagesForPlatforms(platforms: [String], fromImage image: NSImage) {
+        
+    }
 }
