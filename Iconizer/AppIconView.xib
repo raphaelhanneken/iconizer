@@ -1,19 +1,94 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5023"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="AppIconViewController" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="AppIconViewController" customModule="Iconizer" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <rect key="frame" x="0.0" y="-5" width="349" height="452"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y4m-ks-fHe">
+                    <rect key="frame" x="17" y="120" width="315" height="315"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="9GB-jD-Fdy"/>
+                </imageView>
+                <box autoresizesSubviews="NO" title="Platforms" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="2hQ-CQ-YIT">
+                    <rect key="frame" x="17" y="38" width="315" height="77"/>
+                    <view key="contentView">
+                        <rect key="frame" x="1" y="1" width="313" height="61"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aOl-TX-AxG">
+                                <rect key="frame" x="16" y="35" width="106" height="18"/>
+                                <buttonCell key="cell" type="check" title="iPhone" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="6cl-GW-7FA">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2TL-6u-4T2">
+                                <rect key="frame" x="126" y="12" width="93" height="18"/>
+                                <buttonCell key="cell" type="check" title="Mac" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ZDX-fw-iiO">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C6B-hx-8ZR">
+                                <rect key="frame" x="219" y="35" width="94" height="18"/>
+                                <buttonCell key="cell" type="check" title="Car Play" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="q0f-sA-0Ke">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eih-Bw-XzT">
+                                <rect key="frame" x="16" y="12" width="106" height="18"/>
+                                <buttonCell key="cell" type="check" title="Watch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="98X-ft-Tqg">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbD-KW-pvm">
+                                <rect key="frame" x="126" y="35" width="93" height="18"/>
+                                <buttonCell key="cell" type="check" title="iPad" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="eQw-F8-Nwe">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="73" id="0N7-md-Wz0"/>
+                    </constraints>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </box>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="aki-cs-5RM">
+                    <rect key="frame" x="18" y="18" width="181" height="18"/>
+                    <buttonCell key="cell" type="check" title="Export as Combined Asset" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Mvv-oF-t9p">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="2hQ-CQ-YIT" firstAttribute="top" secondItem="Y4m-ks-fHe" secondAttribute="bottom" constant="8" id="KLp-tF-kgr"/>
+                <constraint firstAttribute="bottom" secondItem="aki-cs-5RM" secondAttribute="bottom" constant="20" id="O3F-pM-Yag"/>
+                <constraint firstItem="aki-cs-5RM" firstAttribute="top" secondItem="2hQ-CQ-YIT" secondAttribute="bottom" constant="8" id="Vcm-mh-v0g"/>
+                <constraint firstAttribute="trailing" secondItem="Y4m-ks-fHe" secondAttribute="trailing" constant="20" id="WVq-cL-9e2"/>
+                <constraint firstItem="Y4m-ks-fHe" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="ZCY-AB-ATU"/>
+                <constraint firstItem="2hQ-CQ-YIT" firstAttribute="top" secondItem="Y4m-ks-fHe" secondAttribute="bottom" constant="8" id="aZW-bz-5Si"/>
+                <constraint firstAttribute="trailing" secondItem="2hQ-CQ-YIT" secondAttribute="trailing" constant="20" id="m9D-ZW-nZE"/>
+                <constraint firstItem="2hQ-CQ-YIT" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="uGQ-ok-7gb"/>
+                <constraint firstItem="Y4m-ks-fHe" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="vee-2d-IdS"/>
+                <constraint firstItem="aki-cs-5RM" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="xG4-Pn-HRT"/>
+            </constraints>
+            <point key="canvasLocation" x="214.5" y="458"/>
         </customView>
     </objects>
 </document>
