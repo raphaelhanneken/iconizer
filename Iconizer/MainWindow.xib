@@ -6,6 +6,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="Iconizer" customModuleProvider="target">
             <connections>
+                <outlet property="exportType" destination="LLY-Re-IdR" id="xPc-8w-sZC"/>
+                <outlet property="mainView" destination="se5-gp-TjO" id="2fc-Hq-K3I"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -36,6 +38,9 @@
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="smallSystem"/>
                             </buttonCell>
+                            <connections>
+                                <action selector="export:" target="-2" id="6X2-Wr-Kf7"/>
+                            </connections>
                         </button>
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="20EEBF86-3D97-4B14-B42B-F4C359347BE2" label="Export Type" paletteLabel="Export Type" id="LGf-aY-fRE">
@@ -53,6 +58,9 @@
                                     <segment label="Image Set" width="83"/>
                                 </segments>
                             </segmentedCell>
+                            <connections>
+                                <action selector="selectView:" target="-2" id="SFz-dw-KyR"/>
+                            </connections>
                         </segmentedControl>
                     </toolbarItem>
                 </allowedToolbarItems>
