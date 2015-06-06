@@ -74,6 +74,11 @@ class MainWindowController: NSWindowController {
         changeView(ViewControllerTag(rawValue: sender.selectedSegment))
     }
     
+    /**
+    * Kick off exporting for the selected export type.
+    * 
+    * :param: sender Export button
+    */
     @IBAction func export(sender: NSButton) {
         println("Export")
     }
