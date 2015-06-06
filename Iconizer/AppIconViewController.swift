@@ -81,6 +81,9 @@ class AppIconViewController: NSViewController {
         // Do view setup here.
     }
     
+    
+    // MARK: - Methods
+    
     ///  Tells the model to generate the required images.
     ///
     ///  :returns: Returns true on success, false on failure.
@@ -112,6 +115,17 @@ class AppIconViewController: NSViewController {
         
         // We have a problem here, captain!
         return false
+    }
+    
+    ///  Tells the model to save itself to the given url.
+    ///
+    ///  :param: url File path to save the asset catalog to.
+    func saveToURL(url: NSURL) {
+        if self.combined == NSOnState {
+            self.appIcon.saveAssetCatalogToURL(url, asCombinedAsset: true)
+        } else {
+            self.appIcon.saveAssetCatalogToURL(url, asCombinedAsset: false)
+        }
     }
     
     ///  Toggles the animation status and visibility of the progress indicator.

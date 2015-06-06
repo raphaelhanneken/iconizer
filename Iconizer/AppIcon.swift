@@ -31,4 +31,8 @@ class AppIcon: NSObject {
     func generateImagesForPlatforms(platforms: [String], fromImage image: NSImage) {
         
     }
+    
+    func saveAssetCatalogToURL(url: NSURL, asCombinedAsset combined: Bool) {
+        
+    }
 }
