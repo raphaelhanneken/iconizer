@@ -27,6 +27,10 @@
 
 import Cocoa
 
+/// Name of the directory, where Iconizer saves the asset catalogs.
+let dirName = "Iconizer Assets"
+
+
 class AppIcon: NSObject {
     
      /// Holds the resized images.
@@ -95,10 +99,10 @@ class AppIcon: NSObject {
             // Check wether we'll generate a combined assert or not.
             if combined {
                 // For a combined asset catalog save the .xcasset directory into "Iconizer Assets"...
-                iconsetURL = url.URLByAppendingPathComponent("/Iconizer Assets/Images.xcasset/AppIcon.appiconset", isDirectory: true)
+                iconsetURL = url.URLByAppendingPathComponent("/\(dirName)/Images.xcasset/AppIcon.appiconset", isDirectory: true)
             } else {
                 // ...otherwise create a folder for each platform.
-                iconsetURL = url.URLByAppendingPathComponent("/Iconizer Asstets/\(platform)/Images.xcasset/AppIcon.appiconset", isDirectory: true)
+                iconsetURL = url.URLByAppendingPathComponent("/\(dirName)/\(platform)/Images.xcasset/AppIcon.appiconset", isDirectory: true)
             }
             
             // Create the required folder structure.
