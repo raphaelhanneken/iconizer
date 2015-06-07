@@ -25,7 +25,7 @@
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y4m-ks-fHe">
                     <rect key="frame" x="17" y="120" width="315" height="315"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="9GB-jD-Fdy"/>
+                    <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="9GB-jD-Fdy"/>
                 </imageView>
                 <box autoresizesSubviews="NO" title="Platforms" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="2hQ-CQ-YIT">
                     <rect key="frame" x="17" y="38" width="315" height="77"/>
