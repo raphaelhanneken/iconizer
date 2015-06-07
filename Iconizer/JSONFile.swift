@@ -31,4 +31,92 @@ import Cocoa
 ///  Builds and saves the Contents.json for the given asset catalog.
 class JSONFile : NSObject {
     
+     ///  Author property of the contents.json
+    let author = "Iconizer"
+     ///  Version property of the contents.json
+    let version = "1.0"
+     ///  Holds the information for each image of the asset catalog.
+    var images: [[String : String]] = []
+     /// Holds the complete JSON object
+    var data: [String : AnyObject]  = [:]
+    
+    
+    ///  Builds a dictionary with the needed image information.
+    ///
+    ///  :param: name     Name of the given image
+    ///  :param: platform The platform this image was generated for
+    ///  :param: size     The size of the given image
+    ///
+    ///  :returns: A dictionary with the necessary information for the contents.json
+    func buildDictForImageNamed(name: String, forPlatform platform: String, sized size: NSSize) {
+        // Holds the icon information; Gets appendet to self.images.
+        var imageData: [String : String] = [:]
+        
+        // Set the filename property.
+        imageData["filename"] = name
+        // Set the idiom property.
+        imageData["idiom"] = platform.lowercaseString
+        
+        // Special case Apple Watch: Determine which subtype and role the current icon is for.
+        // Either 42mm or 38mm.
+        if platform == "Watch" {
+            if name.rangeOfString("42mm") != nil {
+                imageData["subtype"] = "42mm"
+            } else if name.rangeOfString("38mm") != nil{
+                imageData["subtype"] = "38mm"
+            }
+            
+            // Set the role (e.g. notificationCenter, appLauncher, ...).
+            if let index = name.rangeOfString("-") {
+                imageData["role"] = name.substringToIndex(advance(index.endIndex, -1))
+            }
+        }
+        
+        // Determine which scale we're having here.
+        if name.rangeOfString("@2x") != nil {
+            imageData["scale"] = "2x"
+            
+            // And again a special favor for Apple Watch: The icon for the notificationCenter, 42mm needs an image
+            // with the size of 27.5px, the ONLY icon that needs and accepts a floating point number...
+            if imageData["subtype"] == "42mm" && imageData["role"] == "notificationCenter" {
+                // ...so we don't cast to Int here...
+                imageData["size"] = "\(size.width / 2)x\(size.height / 2)"
+            } else {
+                // ...but for every other image.
+                imageData["size"] = "\(Int(size.width / 2))x\(Int(size.height / 2))"
+            }
+            
+        } else if name.rangeOfString("@3x") != nil {
+            imageData["scale"] = "3x"
+            imageData["size"] = "\(Int(size.width / 3))x\(Int(size.height / 3))"
+        } else {
+            imageData["scale"] = "1x"
+            imageData["size"] = "\(Int(size.width))x\(Int(size.height))"
+        }
+        
+        // Append the imageData dictionary to the images array.
+        self.images.append(imageData)
+    }
+    
+    ///  Writes the jsonData to the given file url.
+    ///
+    ///  :param: url File path to the folder to save the 'contents.json' to.
+    func writeJSONFileToURL(url: NSURL) {
+        // Append the file name to the given url
+        let completeURL = url.URLByAppendingPathComponent("Contents.json", isDirectory: false)
+        
+        // Build the json data object.
+        self.data["author"]  = self.author
+        self.data["version"] = self.version
+        self.data["images"]  = self.images
+
+        // Generate actual json data from the jsonFile object
+        let jsonData    = NSJSONSerialization.dataWithJSONObject(self.data, options: .PrettyPrinted, error: nil)
+        
+        // Unwrap the data object...
+        if let json = jsonData {
+            // and write them to the specified location
+            json.writeToURL(completeURL, atomically: true)
+        }
+    }
 }
