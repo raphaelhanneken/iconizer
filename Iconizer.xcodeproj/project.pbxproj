@@ -21,6 +21,7 @@
 		8E3F8F9C1B239D140096E9EC /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F9B1B239D140096E9EC /* AppIcon.swift */; };
 		8E3F8F9F1B23ACF40096E9EC /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F9E1B23ACF40096E9EC /* NSImageExtensions.swift */; };
 		8E3F8FA11B23B6BF0096E9EC /* JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8FA01B23B6BF0096E9EC /* JSONFile.swift */; };
+		8E73B4551B24814600FD7AF9 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */; };
 		8EBD14F21B24588100500F03 /* ExportTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD14F11B24588100500F03 /* ExportTypeController.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		8E3F8F9B1B239D140096E9EC /* AppIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		8E3F8F9E1B23ACF40096E9EC /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
 		8E3F8FA01B23B6BF0096E9EC /* JSONFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFile.swift; sourceTree = "<group>"; };
+		8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		8EBD14F11B24588100500F03 /* ExportTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportTypeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 			children = (
 				8E3F8F9B1B239D140096E9EC /* AppIcon.swift */,
 				8E3F8FA01B23B6BF0096E9EC /* JSONFile.swift */,
+				8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E73B4551B24814600FD7AF9 /* PreferenceManager.swift in Sources */,
 				8E3F8F911B2374300096E9EC /* AppIconViewController.swift in Sources */,
 				8E3F8F8D1B236A5C0096E9EC /* MainWindowController.swift in Sources */,
 				8E3F8F9F1B23ACF40096E9EC /* NSImageExtensions.swift in Sources */,
