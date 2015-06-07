@@ -39,9 +39,6 @@ class AppIcon: NSObject {
      /// Holds the required image sizes for each platform.
     var sizes: [String : [String : Int]] = [:]
     
-     /// Manages building and saving of the contents.json
-    let jsonFile = JSONFile()
-    
     
     override init() {
         // required icon sizes for OS X
@@ -91,8 +88,16 @@ class AppIcon: NSObject {
     ///  :param: url      NSURL to save the asset catalog to.
     ///  :param: combined Save as combined catalog?
     func saveAssetCatalogToURL(url: NSURL, asCombinedAsset combined: Bool) {
+        // Manage the Contents.json
+        var jsonFile: JSONFile = JSONFile()
+        
         // Loop through the platforms, we generated images for.
         for (platform, images) in self.images {
+            // Unless we generate a combined asset, create a new jsonFile for each platform.
+            if !combined {
+                // Manages building and saving of the contents.json
+                jsonFile = JSONFile()
+            }
             // Holds the complete file url.
             let iconsetURL: NSURL
             
@@ -130,12 +135,12 @@ class AppIcon: NSObject {
                         }
                         
                         // Save the image information to the JSON object.
-                        self.jsonFile.buildDictForImageNamed(filename, forPlatform: platform, sized: icon.size)
+                        jsonFile.buildDictForImageNamed(filename, forPlatform: platform, sized: icon.size)
                     }
                 }
             }
-            
-            self.jsonFile.writeJSONFileToURL(iconsetURL)
+            // Tell the JSON object to write itself to the given file url.
+            jsonFile.writeJSONFileToURL(iconsetURL)
         }
     }
 }
