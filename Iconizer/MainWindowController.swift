@@ -40,7 +40,7 @@ enum ViewControllerTag: Int {
 }
 
 ///  Handles the MainWindow view.
-class MainWindowController: NSWindowController {
+class MainWindowController: NSWindowController, NSWindowDelegate {
     
      /// Holds the main view of the MainWindow.
     @IBOutlet weak var mainView: NSView!
@@ -61,7 +61,17 @@ class MainWindowController: NSWindowController {
         self.window!.titleVisibility = .Hidden
         
         // Set the default view.
-        self.changeView(.kAppIconViewControllerTag)
+        let prefManager = PreferenceManager()
+        // Select the correct view...
+        self.changeView(ViewControllerTag(rawValue: prefManager.selectedExportType))
+        // ...and set the selectedSegment of NSSegmentedControl to the corresponding value.
+        self.exportType.selectedSegment = prefManager.selectedExportType
+    }
+    
+    // Save the user preferences before the application terminates.
+    func windowWillClose(notification: NSNotification) {
+        let prefManager = PreferenceManager()
+        prefManager.selectedExportType = self.exportType.selectedSegment
     }
     
     
