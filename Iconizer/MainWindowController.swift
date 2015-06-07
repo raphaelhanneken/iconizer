@@ -42,9 +42,9 @@ enum ViewControllerTag: Int {
 ///  Handles the MainWindow view.
 class MainWindowController: NSWindowController {
     
-        /// Holds the main view of the MainWindow.
+     /// Holds the main view of the MainWindow.
     @IBOutlet weak var mainView: NSView!
-        /// Points to the SegmentedControl, which determines which view is currently selected.
+     /// Points to the SegmentedControl, which determines which view is currently selected.
     @IBOutlet weak var exportType: NSSegmentedControl!
      /// Represents the currently selected view.
     var currentView: ExportTypeController?
@@ -65,29 +65,49 @@ class MainWindowController: NSWindowController {
     }
     
     
-    /**
-    * Select the export type.
-    *
-    * :param: sender NSSegmentedControl; 'Mode' set to 'Select One'.
-    */
+    ///  Select the export type.
+    ///
+    ///  :param: sender NSSegmentedControl; 'Mode' set to 'Select One'.
     @IBAction func selectView(sender: NSSegmentedControl) {
         changeView(ViewControllerTag(rawValue: sender.selectedSegment))
     }
     
-    /**
-    * Kick off exporting for the selected export type.
-    * 
-    * :param: sender Export button
-    */
+    ///  Kick off exporting for the selected export type.
+    ///
+    ///  :param: sender NSButton responsible for exporting.
     @IBAction func export(sender: NSButton) {
-        println("Export")
+        // Unwrap the export view.
+        if let currentView = self.currentView {
+            // Generate the required images.
+            if currentView.generateRequiredImages() {
+                // Misuse an NSOpenPanel as export panel.
+                let exportSheet = NSOpenPanel()
+                
+                // Configure the "export sheet".
+                exportSheet.canChooseDirectories = true
+                exportSheet.canChooseFiles       = false
+                exportSheet.prompt               = "Export"
+                
+                // Open the export panel.
+                exportSheet.beginSheetModalForWindow(self.window!) { (result: Int) in
+                    // The user clicked "Export".
+                    if result == NSFileHandlingPanelOKButton {
+                        // Unwrap the file url.
+                        if let url = exportSheet.URL {
+                            // Save the currently selected asset to the selected file url.
+                            currentView.saveToURL(url)
+                            // Open the generated folders in finder.
+                            NSWorkspace.sharedWorkspace().openURL(url.URLByAppendingPathComponent("/\(dirName)/"))
+                        }
+                    }
+                }
+            }
+        }
     }
     
-    /**
-    * Swaps the current ViewController with a new one.
-    *
-    * :param: view Takes a ViewControllerTag.
-    */
+    ///  Swaps the current ViewController with a new one.
+    ///
+    ///  :param: view Takes a ViewControllerTag.
     func changeView(view: ViewControllerTag?) {
         // Unwrap the current view, if any...
         if let currentView = self.currentView {
