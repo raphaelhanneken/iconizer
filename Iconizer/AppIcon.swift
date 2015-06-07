@@ -48,7 +48,7 @@ class AppIcon: NSObject {
         self.sizes["Mac"] = ["appicon-16@1x": 16, "appicon-16@2x": 32, "appicon-32@1x": 32, "appicon-32@2x": 64, "appicon-128@1x": 128, "appicon-128@2x": 256, "appicon-256@1x": 256, "appicon-256@2x": 512, "appicon-512@1x": 512, "appicon-512@2x": 1024]
         
         // required icon sizes for iPhone
-        self.sizes["iPhone"] = ["settings-@1x": 29, "ettings-@2x": 58, "settings-@3x": 87, "spotlight-@2x": 80, "spotlight-@3x": 120, "appicon-@2x": 120, "appicon-@3x": 180, "oldAppicon-@1x": 57, "oldAppicon-@2x": 114]
+        self.sizes["iPhone"] = ["settings-@1x": 29, "settings-@2x": 58, "settings-@3x": 87, "spotlight-@2x": 80, "spotlight-@3x": 120, "appicon-@2x": 120, "appicon-@3x": 180, "oldAppicon-@1x": 57, "oldAppicon-@2x": 114]
         
         // required icon sizes for Apple Watch
         self.sizes["Watch"] = ["notificationCenter-38mm@2x": 48, "notificationCenter-42mm@2x": 55, "companionSettings-@2x": 58, "companionSettings-@3x": 87, "appLauncher-38mm@2x": 80, "longLook-42mm@2x": 88, "quickLook-38mm@2x": 172, "quickLook-42mm@2x": 196]
@@ -134,6 +134,8 @@ class AppIcon: NSObject {
                     }
                 }
             }
+            
+            self.jsonFile.writeJSONFileToURL(iconsetURL)
         }
     }
 }
