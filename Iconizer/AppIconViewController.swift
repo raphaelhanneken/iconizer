@@ -36,7 +36,7 @@ private let kOSXPlatformName        = "Mac"
 private let kCarPlayPlatformName    = "Car"
 
 ///  Handles the AppIconView
-class AppIconViewController: NSViewController {
+class AppIconViewController: ExportTypeController {
     
      /// Export for Car Play?
     @IBOutlet weak var carPlay: NSButton!

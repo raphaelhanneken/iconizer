@@ -28,7 +28,7 @@
 
 import Cocoa
 
-class ImageSetViewController: NSViewController {
+class ImageSetViewController: ExportTypeController {
     
     override var nibName: String {
         return "ImageSetView"

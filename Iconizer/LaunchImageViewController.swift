@@ -28,7 +28,7 @@
 
 import Cocoa
 
-class LaunchImageViewController: NSViewController {
+class LaunchImageViewController: ExportTypeController {
     
     override var nibName: String {
         return "LaunchImageView"
