@@ -60,10 +60,10 @@ class AppIconViewController: ExportTypeController {
         get {
             // String array of selected platforms.
             var tmp: [String] = []
-            if self.carPlay == NSOnState { tmp.append(kCarPlayPlatformName) }
-            if self.iPad    == NSOnState { tmp.append(kIPadPlatformName) }
-            if self.iPhone  == NSOnState { tmp.append(kIPhonePlatformName) }
-            if self.osx     == NSOnState { tmp.append(kOSXPlatformName ) }
+            if self.carPlay.state == NSOnState { tmp.append(kCarPlayPlatformName) }
+            if self.iPad.state    == NSOnState { tmp.append(kIPadPlatformName) }
+            if self.iPhone.state  == NSOnState { tmp.append(kIPhonePlatformName) }
+            if self.osx.state     == NSOnState { tmp.append(kOSXPlatformName ) }
             
             return tmp
         }
@@ -87,7 +87,7 @@ class AppIconViewController: ExportTypeController {
     ///  Tells the model to generate the required images.
     ///
     ///  :returns: Returns true on success, false on failure.
-    func generateRequiredImages() -> Bool {
+    override func generateRequiredImages() -> Bool {
         // Unwrap the image from imageView
         if let image = self.imageView.image {
             // Check if at least one platform is selected.
@@ -120,8 +120,8 @@ class AppIconViewController: ExportTypeController {
     ///  Tells the model to save itself to the given url.
     ///
     ///  :param: url File path to save the asset catalog to.
-    func saveToURL(url: NSURL) {
-        if self.combined == NSOnState {
+    override func saveToURL(url: NSURL) {
+        if self.combined.state == NSOnState {
             self.appIcon.saveAssetCatalogToURL(url, asCombinedAsset: true)
         } else {
             self.appIcon.saveAssetCatalogToURL(url, asCombinedAsset: false)
