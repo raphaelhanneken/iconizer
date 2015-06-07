@@ -64,6 +64,7 @@ class AppIconViewController: ExportTypeController {
             if self.iPad.state    == NSOnState { tmp.append(kIPadPlatformName) }
             if self.iPhone.state  == NSOnState { tmp.append(kIPhonePlatformName) }
             if self.osx.state     == NSOnState { tmp.append(kOSXPlatformName ) }
+            if self.watch.state   == NSOnState { tmp.append(kAppleWatchPlatformName) }
             
             return tmp
         }
