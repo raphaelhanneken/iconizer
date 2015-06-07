@@ -79,7 +79,30 @@ class AppIconViewController: ExportTypeController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        
+        // Get the user defaults.
+        let prefManager = PreferenceManager()
+        
+        // Set the checkbox states.
+        watch.state     = prefManager.generateForAppleWatch
+        iPhone.state    = prefManager.generateForIPhone
+        iPad.state      = prefManager.generateForIPad
+        osx.state       = prefManager.generateForMac
+        carPlay.state   = prefManager.generateForCar
+        combined.state  = prefManager.combinedAsset
+    }
+    
+    override func viewWillDisappear() {
+        // Get the user defaults
+        let prefManager = PreferenceManager()
+        
+        // Save the checkbox states.
+        prefManager.generateForAppleWatch = watch.state
+        prefManager.generateForIPad       = iPad.state
+        prefManager.generateForIPhone     = iPhone.state
+        prefManager.generateForMac        = osx.state
+        prefManager.generateForCar        = carPlay.state
+        prefManager.combinedAsset         = combined.state
     }
     
     
