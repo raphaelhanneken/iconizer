@@ -69,9 +69,9 @@ class JSONFile : NSObject {
             // Extract the role (e.g. notificationCenter, appLauncher, and so on) from the filename.
             // Since we have filenames like "watch_appLauncher-38mm@2x.png", we want to extract the part 
             // between watch_ and -38mm...
-            if let start = name.rangeOfString("_"), let end = name.rangeOfString("-") {
+            if let role = name.substringFromCharacter("_", to: "-") {
                 // ...and set it as role.
-                imageData["role"] = name.substringWithRange(Range(start: start.endIndex, end: end.startIndex))
+                imageData["role"] = role
             }
         }
         

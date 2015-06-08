@@ -22,6 +22,7 @@
 		8E3F8FA11B23B6BF0096E9EC /* JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8FA01B23B6BF0096E9EC /* JSONFile.swift */; };
 		8E73B4551B24814600FD7AF9 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */; };
 		8E73B4571B248A3000FD7AF9 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */; };
+		8E911A521B2577280042ECEA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E911A511B2577280042ECEA /* StringExtensions.swift */; };
 		8EBD14F21B24588100500F03 /* ExportTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD14F11B24588100500F03 /* ExportTypeController.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		8E3F8FA01B23B6BF0096E9EC /* JSONFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFile.swift; sourceTree = "<group>"; };
 		8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSImageExtensions.swift; path = Iconizer/NSImageExtensions.swift; sourceTree = "<group>"; };
+		8E911A511B2577280042ECEA /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		8EBD14F11B24588100500F03 /* ExportTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportTypeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */,
+				8E911A511B2577280042ECEA /* StringExtensions.swift */,
 			);
 			name = Helper;
 			path = ..;
@@ -224,6 +227,7 @@
 				8E3F8FA11B23B6BF0096E9EC /* JSONFile.swift in Sources */,
 				8E3F8F9C1B239D140096E9EC /* AppIcon.swift in Sources */,
 				8EBD14F21B24588100500F03 /* ExportTypeController.swift in Sources */,
+				8E911A521B2577280042ECEA /* StringExtensions.swift in Sources */,
 				8E73B4571B248A3000FD7AF9 /* NSImageExtensions.swift in Sources */,
 				8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */,
 				8E3F8F951B23744E0096E9EC /* LaunchImageViewController.swift in Sources */,
