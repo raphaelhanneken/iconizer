@@ -41,14 +41,14 @@ class JSONFile : NSObject {
     var data: [String : AnyObject]  = [:]
     
     
-    ///  Builds a dictionary with the needed image information.
+    ///  Builds a dictionary, for an app icon, with the needed image information.
     ///
     ///  :param: name     Name of the given image
     ///  :param: platform The platform this image was generated for
     ///  :param: size     The size of the given image
     ///
     ///  :returns: A dictionary with the necessary information for the contents.json
-    func buildDictForImageNamed(name: String, forPlatform platform: String, sized size: NSSize) {
+    func buildAppIconDictForImageNamed(name: String, forPlatform platform: String, sized size: NSSize) {
         // Holds the icon information; Gets appendet to self.images.
         var imageData: [String : String] = [:]
         

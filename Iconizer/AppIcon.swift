@@ -135,7 +135,7 @@ class AppIcon: NSObject {
                         }
                         
                         // Save the image information to the JSON object.
-                        jsonFile.buildDictForImageNamed(filename, forPlatform: platform, sized: icon.size)
+                        jsonFile.buildAppIconDictForImageNamed(filename, forPlatform: platform, sized: icon.size)
                     }
                 }
             }
