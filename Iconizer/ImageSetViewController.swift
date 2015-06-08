@@ -30,6 +30,17 @@ import Cocoa
 
 class ImageSetViewController: ExportTypeController {
     
+     /// Reference to the Image Well.
+    @IBOutlet weak var imageView: NSImageView!
+     /// Checkbox: Export @3x version.
+    @IBOutlet weak var export3x: NSButton!
+     /// Checkbox: Export @2x version.
+    @IBOutlet weak var export2x: NSButton!
+     /// Checkbox: Export @1x version.
+    @IBOutlet weak var export1x: NSButton!
+     /// Name of the generated image asset.
+    @IBOutlet weak var imageName: NSTextField!
+    
     override var nibName: String {
         return "ImageSetView"
     }
@@ -39,4 +50,11 @@ class ImageSetViewController: ExportTypeController {
         // Do view setup here.
     }
     
+    override func generateRequiredImages() -> Bool {
+        return false
+    }
+    
+    override func saveToURL(url: NSURL) {
+        
+    }
 }

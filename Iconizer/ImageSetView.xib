@@ -6,6 +6,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ImageSetViewController" customModule="Iconizer" customModuleProvider="target">
             <connections>
+                <outlet property="export1x" destination="Gqc-NZ-cgW" id="CMw-YA-sPe"/>
+                <outlet property="export2x" destination="tb7-rs-nF1" id="GM1-51-THI"/>
+                <outlet property="export3x" destination="LJ6-HY-1pc" id="VFm-Mq-hsP"/>
+                <outlet property="imageName" destination="n0R-S1-PJ4" id="3XK-Vm-Roe"/>
+                <outlet property="imageView" destination="DwK-b6-DPa" id="5yT-i0-nJc"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
