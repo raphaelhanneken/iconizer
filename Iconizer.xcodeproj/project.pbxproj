@@ -45,7 +45,7 @@
 		8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSImageExtensions.swift; path = Iconizer/NSImageExtensions.swift; sourceTree = "<group>"; };
 		8E911A511B2577280042ECEA /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		8E911A551B2593E40042ECEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8E911A551B2593E40042ECEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		8EBD14F11B24588100500F03 /* ExportTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportTypeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +92,7 @@
 		8E3F8F681B23488F0096E9EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8E911A551B2593E40042ECEA /* Images.xcassets */,
 				8E3F8F8A1B2349090096E9EC /* Iconizer.entitlements */,
 				8E3F8F691B23488F0096E9EC /* Info.plist */,
 			);
@@ -135,7 +136,6 @@
 		8E3F8F9D1B23ACC20096E9EC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				8E911A551B2593E40042ECEA /* Images.xcassets */,
 				8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */,
 				8E911A511B2577280042ECEA /* StringExtensions.swift */,
 			);
