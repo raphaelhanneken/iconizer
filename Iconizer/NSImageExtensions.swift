@@ -30,6 +30,16 @@ import Cocoa
 
 extension NSImage {
     
+     /// Returns the height of the current image.
+    var height: CGFloat {
+        return self.size.height
+    }
+    
+     /// Returns the width of the current image.
+    var width: CGFloat {
+        return self.size.width
+    }
+    
     ///  Copies the current image and resizes it to the size of the given NSSize.
     ///
     ///  :param: size The size of the image copy.
