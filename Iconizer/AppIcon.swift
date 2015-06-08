@@ -107,7 +107,7 @@ class AppIcon: NSObject {
                 iconsetURL = url.URLByAppendingPathComponent("/\(dirName)/Images.xcasset/AppIcon.appiconset", isDirectory: true)
             } else {
                 // ...otherwise create a folder for each platform.
-                iconsetURL = url.URLByAppendingPathComponent("/\(dirName)/\(platform)/Images.xcasset/AppIcon.appiconset", isDirectory: true)
+                iconsetURL = url.URLByAppendingPathComponent("/\(dirName)/\(platform)/Images.xcassets/AppIcon.appiconset", isDirectory: true)
             }
             
             // Create the required folder structure.
