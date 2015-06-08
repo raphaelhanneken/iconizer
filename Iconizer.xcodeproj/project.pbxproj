@@ -22,7 +22,7 @@
 		8E73B4551B24814600FD7AF9 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */; };
 		8E73B4571B248A3000FD7AF9 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */; };
 		8E911A521B2577280042ECEA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E911A511B2577280042ECEA /* StringExtensions.swift */; };
-		8E911A561B2593E40042ECEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E911A551B2593E40042ECEA /* Images.xcassets */; };
+		8E911A581B25956A0042ECEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E911A571B25956A0042ECEA /* Images.xcassets */; };
 		8EBD14F21B24588100500F03 /* ExportTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD14F11B24588100500F03 /* ExportTypeController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,7 @@
 		8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSImageExtensions.swift; path = Iconizer/NSImageExtensions.swift; sourceTree = "<group>"; };
 		8E911A511B2577280042ECEA /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		8E911A551B2593E40042ECEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
+		8E911A571B25956A0042ECEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8EBD14F11B24588100500F03 /* ExportTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportTypeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +92,7 @@
 		8E3F8F681B23488F0096E9EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8E911A551B2593E40042ECEA /* Images.xcassets */,
+				8E911A571B25956A0042ECEA /* Images.xcassets */,
 				8E3F8F8A1B2349090096E9EC /* Iconizer.entitlements */,
 				8E3F8F691B23488F0096E9EC /* Info.plist */,
 			);
@@ -208,7 +208,7 @@
 				8E3F8F701B23488F0096E9EC /* MainMenu.xib in Resources */,
 				8E3F8F961B23744E0096E9EC /* LaunchImageView.xib in Resources */,
 				8E3F8F8E1B236A5C0096E9EC /* MainWindow.xib in Resources */,
-				8E911A561B2593E40042ECEA /* Images.xcassets in Resources */,
+				8E911A581B25956A0042ECEA /* Images.xcassets in Resources */,
 				8E3F8F921B2374300096E9EC /* AppIconView.xib in Resources */,
 				8E3F8F9A1B23746E0096E9EC /* ImageSetView.xib in Resources */,
 			);
