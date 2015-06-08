@@ -162,20 +162,4 @@ class AppIconViewController: ExportTypeController {
             self.processing.stopAnimation(self)
         }
     }
-    
-    ///  Opens an NSAlert panel ontop of MainWindow.
-    ///
-    ///  :param: message messageText for the NSAlert.
-    ///  :param: text    informativeText for the NSAlert.
-    func beginSheetModalWithMessage(message: String, andText text: String) {
-        // Create a new NSAlert message.
-        let alert = NSAlert()
-        
-        // Configure the NSAlert.
-        alert.messageText     = message
-        alert.informativeText = text
-        
-        // Display!
-        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
-    }
 }
