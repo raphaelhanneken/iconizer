@@ -68,7 +68,7 @@ extension NSImage {
     ///  :param: height The height of the image copy.
     ///
     ///  :returns: The resized image.
-    func copyWithWidth(width: Double, height: Double) -> NSImage? {
+    func copyWithWidth(width: CGFloat, height: CGFloat) -> NSImage? {
         let size = NSSize(width: width, height: height)
         return self.copyWithSize(size)
     }
