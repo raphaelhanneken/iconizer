@@ -49,7 +49,7 @@ class JSONFile : NSObject {
     ///
     ///  :returns: A dictionary with the necessary information for the contents.json
     func buildAppIconDictForImageNamed(name: String, forPlatform platform: String, sized size: NSSize) {
-        // Holds the icon information; Gets appendet to self.images.
+        // Holds the icon information; Gets appended to self.images.
         var imageData: [String : String] = [:]
         
         // Set the filename property.
@@ -98,6 +98,22 @@ class JSONFile : NSObject {
         }
         
         // Append the imageData dictionary to the images array.
+        self.images.append(imageData)
+    }
+    
+    func buildImageSetDictForImageNamed(imageName: String, #scale: String) {
+        // Holds the image information; Gets appended to self.images.
+        var imageData: [String : String] = [:]
+        
+        // Set the idiom property to universal. It's the same for every image.
+        imageData["idiom"] = "universal"
+        
+        // Set the scale
+        imageData["scale"] = scale
+        
+        // Set the filename
+        imageData["filename"] = imageName
+        
         self.images.append(imageData)
     }
     
