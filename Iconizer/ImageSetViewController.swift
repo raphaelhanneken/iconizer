@@ -53,9 +53,9 @@ class ImageSetViewController: ExportTypeController {
         get {
             // Build an array filled with selected image resolution.
             var tmp: [String] = []
-            if export3x.state == NSOnState { tmp.append("@3x") }
-            if export2x.state == NSOnState { tmp.append("@2x") }
-            if export1x.state == NSOnState { tmp.append("@1x") }
+            if export3x.state == NSOnState { tmp.append("3x") }
+            if export2x.state == NSOnState { tmp.append("2x") }
+            if export1x.state == NSOnState { tmp.append("1x") }
             
             return tmp
         }

@@ -50,27 +50,27 @@ class ImageSet: NSObject {
             }
             
             // Calculate the resolutions for 2x and 1x
-            if resolutions[i] == "@2x" {
+            if resolutions[i] == "2x" {
                 // Calculate the 2x image from the 3x image
-                if let image = images["@3x"] {
-                    images["@2x"] = image.copyWithSize(NSSize(width: image.width / 2, height: image.height / 2))
+                if let image = images["3x"] {
+                    images["2x"] = image.copyWithSize(NSSize(width: image.width / 2, height: image.height / 2))
                 }
             }
-            else if resolutions[i] == "@1x" {
+            else if resolutions[i] == "1x" {
                 // Calculate the 1x from the 2x image.
-                if let image = images["@2x"] {
-                    images["@1x"] = image.copyWithSize(NSSize(width: image.width / 2, height: image.height / 2))
+                if let image = images["2x"] {
+                    images["1x"] = image.copyWithSize(NSSize(width: image.width / 2, height: image.height / 2))
                 } else {
                     // In case we don't have a 2x image.
-                    if let image = images["@3x"] {
+                    if let image = images["3x"] {
                         // Calculate the 1x from the 3x image.
-                        images["@1x"] = image.copyWithSize(NSSize(width: image.width / 3, height: image.height / 3))
+                        images["1x"] = image.copyWithSize(NSSize(width: image.width / 3, height: image.height / 3))
                     }
                 }
             }
         }
         
-        
+        // Dewy-eyed, as we are, we simply return true no matter what. Anyway: What could possibly go wrong...
         return true
     }
     
