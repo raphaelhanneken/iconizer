@@ -73,4 +73,35 @@ class ImageSet: NSObject {
         
         return true
     }
+    
+    ///  Saves the generated images to the HD.
+    ///
+    ///  :param: url File url to save the images to.
+    func saveAssetCatalogToURL(url: NSURL) {
+        // Manage the Contents.json
+        let jsonFile = JSONFile()
+        
+        // Create the necessary folders.
+        NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: nil)
+        
+        // Loop through the generated images.
+        for (resolution, image) in self.images {
+            // Create a png representation of the current image.
+            if let pngRep = image.PNGRepresentation() {
+                // Create the filename.
+                let filename = "image\(resolution).png"
+                
+                // Write the image data to the given url.
+                if pngRep.writeToURL(url.URLByAppendingPathComponent(filename, isDirectory: false), atomically: true) {
+                    println(filename)
+                    jsonFile.buildImageSetDictForImageNamed(filename, scale: resolution)
+                } else {
+                    println("ERR: \(filename)")
+                }
+            }
+        }
+        
+        // Tell the json object to write itself to the HD
+        jsonFile.writeJSONFileToURL(url)
+    }
 }
