@@ -64,7 +64,7 @@ class ImageSet: NSObject {
                     // In case we don't have a 2x image.
                     if let image = images["3x"] {
                         // Calculate the 1x from the 3x image.
-                        images["1x"] = image.copyWithSize(NSSize(width: image.width / 3, height: image.height / 3))
+                        images["1x"] = image.copyWithWidth(image.width / 4, height: image.height / 4)
                     }
                 }
             }
