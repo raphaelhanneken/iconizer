@@ -22,7 +22,7 @@
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DwK-b6-DPa">
                     <rect key="frame" x="17" y="121" width="315" height="316"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="uS2-UD-8RE"/>
+                    <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="uS2-UD-8RE"/>
                 </imageView>
                 <box autoresizesSubviews="NO" title="Settings" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="nFi-qz-6aT">
                     <rect key="frame" x="17" y="16" width="315" height="100"/>
