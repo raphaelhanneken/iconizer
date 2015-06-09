@@ -93,7 +93,6 @@ class ImageSet: NSObject {
                 
                 // Write the image data to the given url.
                 if pngRep.writeToURL(url.URLByAppendingPathComponent(filename, isDirectory: false), atomically: true) {
-                    println(filename)
                     jsonFile.buildImageSetDictForImageNamed(filename, scale: resolution)
                 } else {
                     println("ERR: \(filename)")

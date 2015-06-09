@@ -104,7 +104,7 @@ class AppIcon: NSObject {
             // Check wether we'll generate a combined assert or not.
             if combined {
                 // For a combined asset catalog save the .xcasset directory into "Iconizer Assets"...
-                iconsetURL = url.URLByAppendingPathComponent("/\(dirName)/Images.xcasset/AppIcon.appiconset", isDirectory: true)
+                iconsetURL = url.URLByAppendingPathComponent("/\(dirName)/Images.xcassets/AppIcon.appiconset", isDirectory: true)
             } else {
                 // ...otherwise create a folder for each platform.
                 iconsetURL = url.URLByAppendingPathComponent("/\(dirName)/\(platform)/Images.xcassets/AppIcon.appiconset", isDirectory: true)
@@ -129,13 +129,11 @@ class AppIcon: NSObject {
                         
                         // ...and save it to the given url.
                         if pngRep.writeToURL(fileURL, atomically: true) {
-                            println(filename)
+                            // Save the image information to the JSON object.
+                            jsonFile.buildAppIconDictForImageNamed(filename, forPlatform: platform, sized: icon.size)
                         } else {
                             println("ERR: \(filename)")
                         }
-                        
-                        // Save the image information to the JSON object.
-                        jsonFile.buildAppIconDictForImageNamed(filename, forPlatform: platform, sized: icon.size)
                     }
                 }
             }
