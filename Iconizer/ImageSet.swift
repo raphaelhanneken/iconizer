@@ -53,7 +53,7 @@ class ImageSet: NSObject {
             if resolutions[i] == "2x" {
                 // Calculate the 2x image from the 3x image
                 if let image = images["3x"] {
-                    images["2x"] = image.copyWithSize(NSSize(width: image.width / 2, height: image.height / 2))
+                    images["2x"] = image.copyWithSize(NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5)))
                 }
             }
             else if resolutions[i] == "1x" {
