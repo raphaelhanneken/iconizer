@@ -7,6 +7,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="LaunchImageViewController" customModule="Iconizer" customModuleProvider="target">
             <connections>
+                <outlet property="horizontalImage" destination="nYq-WU-GWd" id="lf8-Zg-XZW"/>
+                <outlet property="ipad" destination="r2F-2H-h1Q" id="LBa-k5-nQG"/>
+                <outlet property="iphone" destination="Lf6-a9-1AF" id="Std-61-WPF"/>
+                <outlet property="portraitImage" destination="qam-7h-3JG" id="g0F-1h-9JT"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>

@@ -30,6 +30,19 @@ import Cocoa
 
 class LaunchImageViewController: ExportTypeController {
     
+    /// Reference to the horizontal image view
+    @IBOutlet weak var horizontalImage: NSImageView!
+    
+    /// Reference to the portrait image view
+    @IBOutlet weak var portraitImage: NSImageView!
+    
+    /// Checkbox to export for iPhone
+    @IBOutlet weak var iphone: NSButton!
+    
+    /// Checkbox to export for iPad
+    @IBOutlet weak var ipad: NSButton!
+    
+    
     override var nibName: String {
         return "LaunchImageView"
     }
