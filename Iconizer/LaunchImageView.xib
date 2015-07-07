@@ -1,19 +1,119 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5023"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="LaunchImageViewController" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="LaunchImageViewController" customModule="Iconizer" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <rect key="frame" x="0.0" y="0.0" width="319" height="459"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nYq-WU-GWd">
+                    <rect key="frame" x="17" y="240" width="134" height="134"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="nYq-WU-GWd" secondAttribute="height" multiplier="1:1" id="jN0-7y-QXF"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="F1g-h3-FoO"/>
+                </imageView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qam-7h-3JG">
+                    <rect key="frame" x="167" y="240" width="134" height="134"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="qam-7h-3JG" secondAttribute="height" multiplier="1:1" id="WQI-Br-eI4"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Qbc-z7-SmH"/>
+                </imageView>
+                <box horizontalHuggingPriority="244" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="8Re-6b-lUb">
+                    <rect key="frame" x="20" y="232" width="128" height="5"/>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <font key="titleFont" metaFont="system"/>
+                </box>
+                <box horizontalHuggingPriority="242" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="s8i-WK-h81">
+                    <rect key="frame" x="170" y="232" width="128" height="5"/>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <font key="titleFont" metaFont="system"/>
+                </box>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F9b-qi-0zT">
+                    <rect key="frame" x="209" y="209" width="50" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Portrait" id="gX1-ih-rqw">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <box autoresizesSubviews="NO" title="Platforms" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="nsQ-t7-zGv">
+                    <rect key="frame" x="17" y="16" width="285" height="54"/>
+                    <view key="contentView">
+                        <rect key="frame" x="1" y="1" width="283" height="38"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="Lf6-a9-1AF">
+                                <rect key="frame" x="16" y="12" width="65" height="18"/>
+                                <buttonCell key="cell" type="check" title="iPhone" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GRz-3e-Ok5">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="r2F-2H-h1Q">
+                                <rect key="frame" x="126" y="12" width="50" height="18"/>
+                                <buttonCell key="cell" type="check" title="iPad" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="EP6-fE-bb6">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                    </view>
+                    <constraints>
+                        <constraint firstItem="Lf6-a9-1AF" firstAttribute="leading" secondItem="nsQ-t7-zGv" secondAttribute="leading" constant="16" id="FkL-2c-yeB"/>
+                        <constraint firstItem="Lf6-a9-1AF" firstAttribute="top" secondItem="nsQ-t7-zGv" secondAttribute="top" constant="25" id="K02-rA-fZ8"/>
+                        <constraint firstItem="r2F-2H-h1Q" firstAttribute="leading" secondItem="Lf6-a9-1AF" secondAttribute="trailing" constant="49" id="OKL-Qd-rAT"/>
+                        <constraint firstAttribute="bottom" secondItem="Lf6-a9-1AF" secondAttribute="bottom" constant="11" id="UDa-bK-Hmy"/>
+                        <constraint firstItem="r2F-2H-h1Q" firstAttribute="baseline" secondItem="Lf6-a9-1AF" secondAttribute="baseline" id="k6L-Ee-sZU"/>
+                    </constraints>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </box>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NE7-vi-dMn">
+                    <rect key="frame" x="51" y="209" width="67" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Horizontal" id="DzG-Tm-Z8O">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="8Re-6b-lUb" firstAttribute="trailing" secondItem="nYq-WU-GWd" secondAttribute="trailing" id="33E-cM-sIV"/>
+                <constraint firstItem="s8i-WK-h81" firstAttribute="top" secondItem="qam-7h-3JG" secondAttribute="bottom" constant="8" id="4yb-EA-46n"/>
+                <constraint firstItem="s8i-WK-h81" firstAttribute="trailing" secondItem="qam-7h-3JG" secondAttribute="trailing" id="8I6-8d-eRR"/>
+                <constraint firstItem="NE7-vi-dMn" firstAttribute="centerX" secondItem="8Re-6b-lUb" secondAttribute="centerX" id="9dk-pV-dLZ"/>
+                <constraint firstAttribute="trailing" secondItem="qam-7h-3JG" secondAttribute="trailing" constant="21" id="FgL-Du-06O"/>
+                <constraint firstItem="s8i-WK-h81" firstAttribute="leading" secondItem="qam-7h-3JG" secondAttribute="leading" id="H1u-0s-Q6X"/>
+                <constraint firstItem="qam-7h-3JG" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="88" id="HBX-Oc-L8g"/>
+                <constraint firstItem="qam-7h-3JG" firstAttribute="leading" secondItem="nYq-WU-GWd" secondAttribute="trailing" constant="22" id="IHo-hC-YBC"/>
+                <constraint firstItem="qam-7h-3JG" firstAttribute="leading" secondItem="nYq-WU-GWd" secondAttribute="trailing" constant="22" id="LPH-lx-oNH"/>
+                <constraint firstItem="nYq-WU-GWd" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="88" id="NPX-eG-DoD"/>
+                <constraint firstItem="8Re-6b-lUb" firstAttribute="top" secondItem="s8i-WK-h81" secondAttribute="top" id="RQd-7D-JXh"/>
+                <constraint firstItem="nYq-WU-GWd" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="Uke-46-L2j"/>
+                <constraint firstItem="NE7-vi-dMn" firstAttribute="top" secondItem="8Re-6b-lUb" secondAttribute="bottom" constant="8" symbolic="YES" id="Ytz-Wt-7G3"/>
+                <constraint firstItem="F9b-qi-0zT" firstAttribute="top" secondItem="s8i-WK-h81" secondAttribute="bottom" constant="8" symbolic="YES" id="ZRA-6c-0xj"/>
+                <constraint firstItem="nsQ-t7-zGv" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="hr0-x8-TG9"/>
+                <constraint firstItem="F9b-qi-0zT" firstAttribute="centerX" secondItem="s8i-WK-h81" secondAttribute="centerX" id="jhK-jf-GZ9"/>
+                <constraint firstItem="8Re-6b-lUb" firstAttribute="leading" secondItem="nYq-WU-GWd" secondAttribute="leading" id="lgf-vk-Oef"/>
+                <constraint firstAttribute="trailing" secondItem="nsQ-t7-zGv" secondAttribute="trailing" constant="20" symbolic="YES" id="oQS-FH-y0S"/>
+                <constraint firstItem="8Re-6b-lUb" firstAttribute="top" secondItem="nYq-WU-GWd" secondAttribute="bottom" constant="8" id="vmN-x8-a41"/>
+                <constraint firstAttribute="bottom" secondItem="nsQ-t7-zGv" secondAttribute="bottom" constant="20" symbolic="YES" id="zdm-ZR-Uvk"/>
+            </constraints>
+            <point key="canvasLocation" x="279.5" y="334.5"/>
         </customView>
     </objects>
 </document>
