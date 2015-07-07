@@ -32,12 +32,6 @@ class ImageSetViewController: ExportTypeController {
     
      /// Reference to the Image Well.
     @IBOutlet weak var imageView: NSImageView!
-     /// Checkbox: Export @3x version.
-    @IBOutlet weak var export3x: NSButton!
-     /// Checkbox: Export @2x version.
-    @IBOutlet weak var export2x: NSButton!
-     /// Checkbox: Export @1x version.
-    @IBOutlet weak var export1x: NSButton!
      /// Name of the generated image asset.
     @IBOutlet weak var imageName: NSTextField!
     
@@ -48,19 +42,6 @@ class ImageSetViewController: ExportTypeController {
         return "ImageSetView"
     }
     
-    ///  Holds all selected image resolution.
-    var selectedImageSizes: [String] {
-        get {
-            // Build an array filled with selected image resolution.
-            var tmp: [String] = []
-            if export3x.state == NSOnState { tmp.append("3x") }
-            if export2x.state == NSOnState { tmp.append("2x") }
-            if export1x.state == NSOnState { tmp.append("1x") }
-            
-            return tmp
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -69,21 +50,15 @@ class ImageSetViewController: ExportTypeController {
     override func generateRequiredImages() -> Bool {
         // Unwrap the image object from the view.
         if let image = self.imageView.image {
-            // Check if at least one image resolution is selected.
-            if self.selectedImageSizes.count > 0 {
-                if self.imageName.stringValue.isEmpty {
-                    // The user hasn't provided any image name!
-                    self.beginSheetModalWithMessage("No image name!", andText: "You forgot to specify an image name.")
-                } else {
-                    // Everything alright here!
-                    // Tell the model to generate the required images
-                    if imageSet.generateImagesFromImage(image, withResolutions: self.selectedImageSizes) {
-                        return true
-                    }
-                }
+            if self.imageName.stringValue.isEmpty {
+                // The user hasn't provided any image name!
+                self.beginSheetModalWithMessage("No image name!", andText: "You forgot to specify an image name.")
             } else {
-                // No selected resolutions...
-                self.beginSheetModalWithMessage("No Resolution!", andText: "You haven't selected any image resolutions.")
+                // Everything alright here!
+                // Tell the model to generate the required images
+                if imageSet.generateScaledImagesFromImage(image) {
+                    return true
+                }
             }
         } else {
             // We forgot the image here.

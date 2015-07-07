@@ -39,36 +39,15 @@ class ImageSet: NSObject {
     ///  :param: resolutions Resolutions to resize the given image to.
     ///
     ///  :returns: Returns true on success; False on failure.
-    func generateImagesFromImage(image: NSImage, withResolutions resolutions: [String]) -> Bool {
-        // Loop through the resolutions. The old fashioned way...
-        for var i = 0; i < resolutions.count; i++ {
-            // ...since the highest resolution is always the first,
-            // we can just save the original image as the highest selected resolution.
-            if i == 0 {
-                images[resolutions[i]] = image
-                continue;
-            }
-            
-            // Calculate the resolutions for 2x and 1x
-            if resolutions[i] == "2x" {
-                // Calculate the 2x image from the 3x image
-                if let image = images["3x"] {
-                    images["2x"] = image.copyWithSize(NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5)))
-                }
-            }
-            else if resolutions[i] == "1x" {
-                // Calculate the 1x from the 2x image.
-                if let image = images["2x"] {
-                    images["1x"] = image.copyWithSize(NSSize(width: image.width / 2, height: image.height / 2))
-                } else {
-                    // In case we don't have a 2x image.
-                    if let image = images["3x"] {
-                        // Calculate the 1x from the 3x image.
-                        images["1x"] = image.copyWithWidth(image.width / 4, height: image.height / 4)
-                    }
-                }
-            }
-        }
+    func generateScaledImagesFromImage(image: NSImage) -> Bool {
+        // Use the original image as 3x
+        self.images["3x"] = image
+        
+        // Calculate the 2x image
+        self.images["2x"] = image.copyWithSize(NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5)))
+        
+        // Calculate the 1x image
+        self.images["1x"] = image.copyWithSize(NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3)))
         
         // Dewy-eyed, as we are, we simply return true no matter what. Anyway: What could possibly go wrong...
         return true
