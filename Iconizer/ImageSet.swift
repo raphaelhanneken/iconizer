@@ -49,8 +49,12 @@ class ImageSet: NSObject {
         // Calculate the 1x image
         self.images["1x"] = image.copyWithSize(NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3)))
         
-        // Dewy-eyed, as we are, we simply return true no matter what. Anyway: What could possibly go wrong...
-        return true
+        // Check that the images are properly copied.
+        if let image3x = self.images["3x"], let image2x = self.images["2x"], let image1x = self.images["1x"] {
+            return true
+        } else {
+            return false
+        }
     }
     
     ///  Saves the generated images to the HD.
