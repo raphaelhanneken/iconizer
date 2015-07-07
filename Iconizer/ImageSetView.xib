@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ImageSetViewController" customModule="Iconizer" customModuleProvider="target">
             <connections>
+                <outlet property="imageName" destination="Kfm-t1-COa" id="Ofh-Lv-txL"/>
                 <outlet property="imageView" destination="DwK-b6-DPa" id="5yT-i0-nJc"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
