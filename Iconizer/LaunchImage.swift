@@ -29,5 +29,15 @@ import Cocoa
 
 ///  LaunchImage model. Generates necessary images and saves itself to the HD.
 class LaunchImage: NSObject {
-
+    ///  Generates the necessary images for the selected platforms.
+    ///
+    ///  :param: platforms Platforms to generate the images for.
+    ///  :param: portrait  Portrait image that should be used.
+    ///  :param: landscape Landscape image that should be used.
+    func generateImagesForPlatforms(platforms: [String], fromPortrait portrait: NSImage?, andLandscape landscape: NSImage?) {  }
+    
+    ///  Saves the asset catalog to the HD.
+    ///
+    ///  :param: url File path to save the launch image to.
+    func saveToURL(url: NSURL) {  }
 }
