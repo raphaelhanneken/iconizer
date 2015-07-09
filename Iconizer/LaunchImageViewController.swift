@@ -42,6 +42,21 @@ class LaunchImageViewController: ExportTypeController {
     /// Checkbox to export for iPad
     @IBOutlet weak var ipad: NSButton!
     
+    /// Returns the selected platforms
+    var enabledPlatforms: [String] {
+        get {
+            var tmp: [String] = []
+            
+            if iphone.state == NSOnState { tmp.append("iPhone") }
+            if ipad.state   == NSOnState { tmp.append("iPad") }
+            
+            return tmp
+        }
+    }
+    
+    /// Holds the LaunchImage model
+    var launchImage = LaunchImage()
+    
     
     override var nibName: String {
         return "LaunchImageView"
@@ -52,4 +67,25 @@ class LaunchImageViewController: ExportTypeController {
         // Do view setup here.
     }
     
+    ///  Tells the model to generate the required images.
+    ///
+    ///  :returns: True on successful generation, false otherwise.
+    override func generateRequiredImages() -> Bool {
+        // Verify that both images are available
+        if let landscapeImage = self.horizontal.image, let portraitImage = self.portrait.image {
+            if self.enabledPlatforms.count > 0 {
+                if self.launchImage.generateImagesForPlatforms(enabledPlatforms, fromPortrait: portraitImage, andLandscape: landscapeImage)
+            } else {
+                beginSheetModalWithMessage("No Platform selected!", andText: "You have to select at least one platform.")
+            }
+        } else {
+            beginSheetModalWithMessage("Missing Image!", andText: "You have to provide a landscape and a portrait image.")
+        }
+        
+        return false
+    }
+    
+    override func saveToURL(url: NSURL) {
+        self.launchImage.saveToURL(url)
+    }
 }
