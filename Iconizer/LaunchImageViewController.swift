@@ -74,7 +74,9 @@ class LaunchImageViewController: ExportTypeController {
         // Verify that both images are available
         if let landscapeImage = self.horizontal.image, let portraitImage = self.portrait.image {
             if self.enabledPlatforms.count > 0 {
-                if self.launchImage.generateImagesForPlatforms(enabledPlatforms, fromPortrait: portraitImage, andLandscape: landscapeImage)
+                if self.launchImage.generateImagesForPlatforms(enabledPlatforms, fromPortrait: portraitImage, andLandscape: landscapeImage) {
+                    return true
+                }
             } else {
                 beginSheetModalWithMessage("No Platform selected!", andText: "You have to select at least one platform.")
             }

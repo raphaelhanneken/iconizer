@@ -34,7 +34,9 @@ class LaunchImage: NSObject {
     ///  :param: platforms Platforms to generate the images for.
     ///  :param: portrait  Portrait image that should be used.
     ///  :param: landscape Landscape image that should be used.
-    func generateImagesForPlatforms(platforms: [String], fromPortrait portrait: NSImage?, andLandscape landscape: NSImage?) {  }
+    ///
+    ///  :returns: True on success, false otherwise.
+    func generateImagesForPlatforms(platforms: [String], fromPortrait portrait: NSImage?, andLandscape landscape: NSImage?) -> Bool { return false }
     
     ///  Saves the asset catalog to the HD.
     ///
