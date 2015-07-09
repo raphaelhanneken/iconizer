@@ -31,10 +31,10 @@ import Cocoa
 class LaunchImageViewController: ExportTypeController {
     
     /// Reference to the horizontal image view
-    @IBOutlet weak var horizontalImage: NSImageView!
+    @IBOutlet weak var horizontal: NSImageView!
     
     /// Reference to the portrait image view
-    @IBOutlet weak var portraitImage: NSImageView!
+    @IBOutlet weak var portrait: NSImageView!
     
     /// Checkbox to export for iPhone
     @IBOutlet weak var iphone: NSButton!

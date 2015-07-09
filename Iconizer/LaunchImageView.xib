@@ -7,10 +7,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="LaunchImageViewController" customModule="Iconizer" customModuleProvider="target">
             <connections>
-                <outlet property="horizontalImage" destination="nYq-WU-GWd" id="lf8-Zg-XZW"/>
+                <outlet property="horizontal" destination="nYq-WU-GWd" id="b9p-qe-1ao"/>
                 <outlet property="ipad" destination="r2F-2H-h1Q" id="LBa-k5-nQG"/>
                 <outlet property="iphone" destination="Lf6-a9-1AF" id="Std-61-WPF"/>
-                <outlet property="portraitImage" destination="qam-7h-3JG" id="g0F-1h-9JT"/>
+                <outlet property="portrait" destination="qam-7h-3JG" id="h6V-6t-mf3"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -87,8 +87,8 @@
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NE7-vi-dMn">
-                    <rect key="frame" x="51" y="209" width="67" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Horizontal" id="DzG-Tm-Z8O">
+                    <rect key="frame" x="48" y="209" width="72" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Landscape" id="DzG-Tm-Z8O">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
