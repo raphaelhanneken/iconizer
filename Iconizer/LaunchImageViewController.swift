@@ -71,22 +71,29 @@ class LaunchImageViewController: ExportTypeController {
     ///
     ///  :returns: True on successful generation, false otherwise.
     override func generateRequiredImages() -> Bool {
-        // Verify that both images are available
+        // Verify that both images are available.
         if let landscapeImage = self.horizontal.image, let portraitImage = self.portrait.image {
+            // Make sure at least one platform is selected.
             if self.enabledPlatforms.count > 0 {
+                // Generate the necessary images.
                 if self.launchImage.generateImagesForPlatforms(enabledPlatforms, fromPortrait: portraitImage, andLandscape: landscapeImage) {
                     return true
                 }
             } else {
+                // No platforms to generate images for.
                 beginSheetModalWithMessage("No Platform selected!", andText: "You have to select at least one platform.")
             }
         } else {
+            // At least on image is missing!
             beginSheetModalWithMessage("Missing Image!", andText: "You have to provide a landscape and a portrait image.")
         }
         
         return false
     }
     
+    ///  Tell the model to save the generated asset catalog to the HD.
+    ///
+    ///  :param: url File URL to save the catalog to.
     override func saveToURL(url: NSURL) {
         self.launchImage.saveToURL(url)
     }
