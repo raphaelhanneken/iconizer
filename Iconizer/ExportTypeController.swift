@@ -28,8 +28,10 @@
 import Cocoa
 
 ///  Base class for the export types. Provides methods for generating and saving asset catalogs.
-///  This class only exist, to call generateRequiredImages() and saveToURL(_:) from the MainWindowController
-///  Since NSViewController doesn't provide these methods, we get a compiler error when defining 'var currentView'
+///  This class only exist, to call generateRequiredImages() and saveToURL(_:) from 
+///  the MainWindowController
+///  Since NSViewController doesn't provide these methods, we get a compiler error when 
+///  defining 'var currentView'
 ///  as NSViewController.
 class ExportTypeController: NSViewController {
     ///  Base method for generating the required images.
