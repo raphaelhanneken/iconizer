@@ -20,7 +20,7 @@
       "scale" : "3x",
       "expected-width" : "2208",
       "expected-height" : "1242",
-      "filename": "iphone_landscape:v8@3x.png"
+      "filename": "iphone_landscape_v8@3x.png"
     },
     {
       "orientation" : "portrait",
