@@ -101,22 +101,6 @@ class JSONFile : NSObject {
         self.images.append(imageData)
     }
     
-    func buildImageSetDictForImageNamed(imageName: String, #scale: String) {
-        // Holds the image information; Gets appended to self.images.
-        var imageData: [String : String] = [:]
-        
-        // Set the idiom property to universal. It's the same for every image.
-        imageData["idiom"] = "universal"
-        
-        // Set the scale
-        imageData["scale"] = scale
-        
-        // Set the filename
-        imageData["filename"] = imageName
-        
-        self.images.append(imageData)
-    }
-    
     ///  Writes the jsonData to the given file url.
     ///
     ///  :param: url File path to the folder to save the 'contents.json' to.
