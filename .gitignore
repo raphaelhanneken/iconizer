@@ -24,3 +24,6 @@ build/
 *~
 *.dat
 *.dep
+
+# Sparkle DSAKey
+dsa_pub.pem

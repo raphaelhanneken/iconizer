@@ -29,6 +29,9 @@
 		8E9360FE1B5433130084ECD2 /* LaunchImage_iphone.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E9360FD1B5433130084ECD2 /* LaunchImage_iphone.json */; };
 		8E98C7AF1B4C617A0049AD45 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C7AE1B4C617A0049AD45 /* LaunchImage.swift */; };
 		8EBD14F21B24588100500F03 /* ExportTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD14F11B24588100500F03 /* ExportTypeController.swift */; };
+		8EBD6F4D1B544A570062D62C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EBD6F4C1B544A570062D62C /* Sparkle.framework */; };
+		8EBD6F4E1B544AA90062D62C /* Sparkle.framework in Resources */ = {isa = PBXBuildFile; fileRef = 8EBD6F4C1B544A570062D62C /* Sparkle.framework */; };
+		8EBD6F501B544C890062D62C /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8EBD6F4F1B544C890062D62C /* dsa_pub.pem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,8 @@
 		8E9360FD1B5433130084ECD2 /* LaunchImage_iphone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaunchImage_iphone.json; sourceTree = "<group>"; };
 		8E98C7AE1B4C617A0049AD45 /* LaunchImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchImage.swift; sourceTree = "<group>"; };
 		8EBD14F11B24588100500F03 /* ExportTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportTypeController.swift; sourceTree = "<group>"; };
+		8EBD6F4C1B544A570062D62C /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		8EBD6F4F1B544C890062D62C /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EBD6F4D1B544A570062D62C /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				8E3F8F671B23488F0096E9EC /* Iconizer */,
+				8EBD6F4B1B5449CF0062D62C /* Frameworks */,
 				8E3F8F661B23488F0096E9EC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,6 +114,7 @@
 				8E9360FD1B5433130084ECD2 /* LaunchImage_iphone.json */,
 				8E07B1CC1B527E9E0058A0F6 /* LaunchImage_ipad.json */,
 				8E3F8F691B23488F0096E9EC /* Info.plist */,
+				8EBD6F4F1B544C890062D62C /* dsa_pub.pem */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -156,6 +164,15 @@
 			);
 			name = Helper;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		8EBD6F4B1B5449CF0062D62C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EBD6F4C1B544A570062D62C /* Sparkle.framework */,
+			);
+			name = Frameworks;
+			path = Iconizer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,10 +237,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EBD6F4E1B544AA90062D62C /* Sparkle.framework in Resources */,
 				8E3F8F701B23488F0096E9EC /* MainMenu.xib in Resources */,
 				8E3F8F961B23744E0096E9EC /* LaunchImageView.xib in Resources */,
 				8E3F8F8E1B236A5C0096E9EC /* MainWindow.xib in Resources */,
 				8E911A581B25956A0042ECEA /* Images.xcassets in Resources */,
+				8EBD6F501B544C890062D62C /* dsa_pub.pem in Resources */,
 				8E3F8F921B2374300096E9EC /* AppIconView.xib in Resources */,
 				8E3F8F9A1B23746E0096E9EC /* ImageSetView.xib in Resources */,
 				8E07B1CD1B527E9E0058A0F6 /* LaunchImage_ipad.json in Resources */,
@@ -355,8 +374,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Iconizer/Iconizer.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/dot/Desktop/Sparkle-1.10.0",
+					"$(PROJECT_DIR)/Iconizer",
+				);
 				INFOPLIST_FILE = Iconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -367,8 +392,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Iconizer/Iconizer.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/dot/Desktop/Sparkle-1.10.0",
+					"$(PROJECT_DIR)/Iconizer",
+				);
 				INFOPLIST_FILE = Iconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
