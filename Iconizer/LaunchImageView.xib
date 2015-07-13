@@ -25,14 +25,14 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="nYq-WU-GWd" secondAttribute="height" multiplier="1:1" id="jN0-7y-QXF"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="F1g-h3-FoO"/>
+                    <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="F1g-h3-FoO"/>
                 </imageView>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qam-7h-3JG">
                     <rect key="frame" x="167" y="240" width="134" height="134"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="qam-7h-3JG" secondAttribute="height" multiplier="1:1" id="WQI-Br-eI4"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Qbc-z7-SmH"/>
+                    <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Qbc-z7-SmH"/>
                 </imageView>
                 <box horizontalHuggingPriority="244" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="8Re-6b-lUb">
                     <rect key="frame" x="20" y="232" width="128" height="5"/>
