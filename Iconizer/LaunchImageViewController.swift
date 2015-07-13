@@ -47,8 +47,8 @@ class LaunchImageViewController: ExportTypeController {
         get {
             var tmp: [String] = []
             
-            if iphone.state == NSOnState { tmp.append("iPhone") }
-            if ipad.state   == NSOnState { tmp.append("iPad") }
+            if iphone.state == NSOnState { tmp.append("iphone") }
+            if ipad.state   == NSOnState { tmp.append("ipad") }
             
             return tmp
         }
@@ -95,6 +95,6 @@ class LaunchImageViewController: ExportTypeController {
     ///
     ///  :param: url File URL to save the catalog to.
     override func saveToURL(url: NSURL) {
-        self.launchImage.saveToURL(url)
+        self.launchImage.saveToURL(url.URLByAppendingPathComponent("\(dirName)/Images.xcassets/LaunchImage.launchimage/", isDirectory: true))
     }
 }
