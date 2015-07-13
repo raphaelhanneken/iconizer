@@ -81,5 +81,18 @@ class LaunchImage: NSObject {
     ///  Saves the asset catalog to the HD.
     ///
     ///  :param: url File path to save the launch image to.
-    func saveToURL(url: NSURL) {  }
+    func saveToURL(url: NSURL) {
+        // Create the necessary folders.
+        NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: nil)
+        
+        for (filename, image) in self.images {
+            if let png = image.PNGRepresentation() {
+                if !png.writeToURL(url.URLByAppendingPathComponent(filename, isDirectory: false), atomically: true) {
+                    print("ERR: \(filename)")
+                }
+            }
+        }
+        
+        jsonData.saveToURL(url)
+    }
 }
