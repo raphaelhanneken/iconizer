@@ -29,6 +29,13 @@ import Cocoa
 
 ///  LaunchImage model. Generates necessary images and saves itself to the HD.
 class LaunchImage: NSObject {
+    
+    /// Holds the information from LaunchImage.json
+    var images: Dictionary<String, NSImage> = [:]
+    
+    /// Holds the image information for the contents.json
+    var jsonData : ContentsJSON!
+    
     ///  Generates the necessary images for the selected platforms.
     ///
     ///  :param: platforms Platforms to generate the images for.
@@ -36,7 +43,40 @@ class LaunchImage: NSObject {
     ///  :param: landscape Landscape image that should be used.
     ///
     ///  :returns: True on success, false otherwise.
-    func generateImagesForPlatforms(platforms: [String], fromPortrait portrait: NSImage?, andLandscape landscape: NSImage?) -> Bool { return false }
+    func generateImagesForPlatforms(platforms: [String], fromPortrait portrait: NSImage?, andLandscape landscape: NSImage?) -> Bool {
+        // Unwrapt both images.
+        if let portrait = portrait, let landscape = landscape {
+            // Get the JSON data for LaunchImage.
+            self.jsonData = ContentsJSON(forType: AssetType.LaunchImage, andPlatforms: platforms)
+            
+            // Loop through the image data.
+            for imgData in jsonData.images {
+                // Unwrap the required information.
+                if let width = imgData["expected-width"]?.toInt(), let height = imgData["expected-height"]?.toInt(), let filename = imgData["filename"], let orientation = imgData["orientation"] {
+                    
+                    if let idiom = imgData["idiom"] {
+                        if contains(platforms, idiom) {
+                            // Check wether we have a portrait or landscape image
+                            switch(orientation) {
+                            case "portrait":
+                                self.images[filename] = portrait.copyWithSize(NSSize(width: width, height: height))
+                                
+                            case "landscape":
+                                self.images[filename] = landscape.copyWithSize(NSSize(width: width, height: height))
+                                
+                            default:
+                                continue
+                            }
+                        }
+                    }
+                }
+            }
+            
+            return true
+        }
+        
+        return false
+    }
     
     ///  Saves the asset catalog to the HD.
     ///
