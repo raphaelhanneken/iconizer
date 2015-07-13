@@ -61,6 +61,14 @@ class ContentsJSON {
         }
     }
     
+    init(forType type: AssetType) {
+        self.images   = []
+        self.contents = [:]
+        
+        // Initialize the data object.
+        self.images = JSONObjectForType(type, andPlatform: "")
+    }
+    
     ///  Gets the JSON data for the given AssetType.
     ///
     ///  :param: type AssetType to get the json file for.
@@ -76,7 +84,7 @@ class ContentsJSON {
                 path = NSBundle.mainBundle().pathForResource("AppIcon_" + platform, ofType: "json")
                 
             case .ImageSet:
-                path = NSBundle.mainBundle().pathForResource("ImageSet_" + platform, ofType: "json")
+                path = NSBundle.mainBundle().pathForResource("ImageSet", ofType: "json")
                 
             case .LaunchImage:
                 path = NSBundle.mainBundle().pathForResource("LaunchImage_" + platform, ofType: "json")

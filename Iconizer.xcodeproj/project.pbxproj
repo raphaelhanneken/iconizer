@@ -25,6 +25,7 @@
 		8E73B4551B24814600FD7AF9 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */; };
 		8E73B4571B248A3000FD7AF9 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */; };
 		8E85121D1B25D35C0064F113 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E85121C1B25D35C0064F113 /* ImageSet.swift */; };
+		8E859E431B5462840052CDBC /* ImageSet.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E859E421B5462840052CDBC /* ImageSet.json */; };
 		8E911A521B2577280042ECEA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E911A511B2577280042ECEA /* StringExtensions.swift */; };
 		8E911A581B25956A0042ECEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E911A571B25956A0042ECEA /* Images.xcassets */; };
 		8E9360FE1B5433130084ECD2 /* LaunchImage_iphone.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E9360FD1B5433130084ECD2 /* LaunchImage_iphone.json */; };
@@ -67,6 +68,7 @@
 		8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSImageExtensions.swift; path = Iconizer/NSImageExtensions.swift; sourceTree = "<group>"; };
 		8E85121C1B25D35C0064F113 /* ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSet.swift; sourceTree = "<group>"; };
+		8E859E421B5462840052CDBC /* ImageSet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ImageSet.json; sourceTree = "<group>"; };
 		8E911A511B2577280042ECEA /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		8E911A571B25956A0042ECEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8E9360FD1B5433130084ECD2 /* LaunchImage_iphone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaunchImage_iphone.json; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				8E911A571B25956A0042ECEA /* Images.xcassets */,
 				8E9360FD1B5433130084ECD2 /* LaunchImage_iphone.json */,
 				8E07B1CC1B527E9E0058A0F6 /* LaunchImage_ipad.json */,
+				8E859E421B5462840052CDBC /* ImageSet.json */,
 				8E3F8F691B23488F0096E9EC /* Info.plist */,
 				8EBD6F4F1B544C890062D62C /* dsa_pub.pem */,
 			);
@@ -255,6 +258,7 @@
 				8E911A581B25956A0042ECEA /* Images.xcassets in Resources */,
 				8EBD6F501B544C890062D62C /* dsa_pub.pem in Resources */,
 				8E3F8F921B2374300096E9EC /* AppIconView.xib in Resources */,
+				8E859E431B5462840052CDBC /* ImageSet.json in Resources */,
 				8E3F8F9A1B23746E0096E9EC /* ImageSetView.xib in Resources */,
 				8E07B1CD1B527E9E0058A0F6 /* LaunchImage_ipad.json in Resources */,
 				8E9360FE1B5433130084ECD2 /* LaunchImage_iphone.json in Resources */,
