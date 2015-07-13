@@ -6,6 +6,8 @@
 	<string>dsa_pub.pem</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>SUFeedURL</key>
+	<string>http://behoernchen.github.io/iconizer/sparkle/IconizerAppcast.xml</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconFile</key>
