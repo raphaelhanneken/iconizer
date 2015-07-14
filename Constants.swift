@@ -69,17 +69,21 @@ enum AssetType : Int {
 // MARK: - Keys to access the user defaults
 
 /// Generate an AppIcon for the Apple Watch.
-let generateForAppleWatchKey = "generateForAppleWatch"
+let generateAppIconForAppleWatchKey = "generateAppIconForAppleWatch"
 /// Generate an AppIcon for the iPhone.
-let generateForIPhoneKey     = "generateForIPhone"
+let generateAppIconForIPhoneKey     = "generateAppIconForIPhone"
 /// Generate an AppIcon for the iPad.
-let generateForIPadKey       = "generateForIPad"
+let generateAppIconForIPadKey       = "generateAppIconForIPad"
 /// Generate an AppIcon for OS X.
-let generateForMacKey        = "generateForMac"
+let generateAppIconForMacKey        = "generateAppIconForMac"
 /// Generate an AppIcon for CarPlay
-let generateForCarKey        = "generateForCar"
+let generateAppIconForCarKey        = "generateAppIconForCar"
 /// Generate an AppIcon with multiple platforms (combined asset)
-let combinedAssetKey         = "combinedAsset"
+let combinedAssetKey                = "combinedAsset"
 /// Selected ExportTypeViewController (NSSegmentedControl)
-let selectedExportTypeKey    = "selectedExportType"
+let selectedExportTypeKey           = "selectedExportType"
+/// Generate a LaunchImage for the iPhone.
+let generateLaunchImageForIPhoneKey = "generateLaunchImageForIPhone"
+/// Generate a LaunchImage for the iPad.
+let generateLaunchImageForIPadKey   = "generateLaunchImageForIPad"
 

@@ -35,29 +35,39 @@ class PreferenceManager {
      /// Holds the standart user defaults.
     private let userDefaults = NSUserDefaults.standardUserDefaults()
     
-    var generateForAppleWatch: Int {
-        get            { return userDefaults.integerForKey(generateForAppleWatchKey) }
-        set (newValue) { userDefaults.setInteger(newValue, forKey: generateForAppleWatchKey) }
+    var generateAppIconForAppleWatch: Int {
+        get            { return userDefaults.integerForKey(generateAppIconForAppleWatchKey) }
+        set (newValue) { userDefaults.setInteger(newValue, forKey: generateAppIconForAppleWatchKey) }
     }
     
-    var generateForIPhone: Int {
-        get            { return userDefaults.integerForKey(generateForIPhoneKey) }
-        set (newValue) { userDefaults.setInteger(newValue, forKey: generateForIPhoneKey) }
+    var generateAppIconForIPhone: Int {
+        get            { return userDefaults.integerForKey(generateAppIconForIPhoneKey) }
+        set (newValue) { userDefaults.setInteger(newValue, forKey: generateAppIconForIPhoneKey) }
     }
     
-    var generateForIPad: Int {
-        get            { return userDefaults.integerForKey(generateForIPadKey) }
-        set (newValue) { userDefaults.setInteger(newValue, forKey: generateForIPadKey) }
+    var generateAppIconForIPad: Int {
+        get            { return userDefaults.integerForKey(generateAppIconForIPadKey) }
+        set (newValue) { userDefaults.setInteger(newValue, forKey: generateAppIconForIPadKey) }
     }
     
-    var generateForMac: Int {
-        get            { return userDefaults.integerForKey(generateForMacKey) }
-        set (newValue) { userDefaults.setInteger(newValue, forKey: generateForMacKey) }
+    var generateAppIconForMac: Int {
+        get            { return userDefaults.integerForKey(generateAppIconForMacKey) }
+        set (newValue) { userDefaults.setInteger(newValue, forKey: generateAppIconForMacKey) }
     }
     
-    var generateForCar: Int {
-        get            { return userDefaults.integerForKey(generateForCarKey) }
-        set (newValue) { userDefaults.setInteger(newValue, forKey: generateForCarKey) }
+    var generateAppIconForCar: Int {
+        get            { return userDefaults.integerForKey(generateAppIconForCarKey) }
+        set (newValue) { userDefaults.setInteger(newValue, forKey: generateAppIconForCarKey) }
+    }
+    
+    var generateLaunchImageForIPhone: Int {
+        get            { return userDefaults.integerForKey(generateLaunchImageForIPhoneKey) }
+        set (newValue) { userDefaults.setInteger(newValue, forKey: generateLaunchImageForIPhoneKey) }
+    }
+    
+    var generateLaunchImageForIPad: Int {
+        get            { return userDefaults.integerForKey(generateLaunchImageForIPadKey) }
+        set (newValue) { userDefaults.setInteger(newValue, forKey: generateLaunchImageForIPadKey) }
     }
     
     var combinedAsset: Int {
@@ -77,11 +87,13 @@ class PreferenceManager {
     
     ///  Register the default preferences.
     func registerDefaultPreferences() {
-        let defaults = [ generateForMacKey: NSOnState,
-                         generateForIPhoneKey: NSOnState,
-                         generateForIPadKey: NSOnState,
-                         generateForAppleWatchKey: NSOnState,
-                         generateForCarKey: NSOnState,
+        let defaults = [ generateAppIconForMacKey: NSOnState,
+                         generateAppIconForIPhoneKey: NSOnState,
+                         generateAppIconForIPadKey: NSOnState,
+                         generateAppIconForAppleWatchKey: NSOnState,
+                         generateAppIconForCarKey: NSOnState,
+                         generateLaunchImageForIPhoneKey: NSOnState,
+                         generateLaunchImageForIPadKey: NSOnState,
                          combinedAssetKey: NSOffState ]
         
         self.userDefaults.registerDefaults(defaults)
