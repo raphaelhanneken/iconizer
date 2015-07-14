@@ -81,7 +81,7 @@ class AppIconViewController: ExportTypeController {
         iPad.state      = prefManager.generateAppIconForIPad
         osx.state       = prefManager.generateAppIconForMac
         carPlay.state   = prefManager.generateAppIconForCar
-        combined.state  = prefManager.combinedAsset
+        combined.state  = prefManager.combinedAppIconAsset
     }
     
     override func viewWillDisappear() {
@@ -94,7 +94,7 @@ class AppIconViewController: ExportTypeController {
         prefManager.generateAppIconForIPhone     = iPhone.state
         prefManager.generateAppIconForMac        = osx.state
         prefManager.generateAppIconForCar        = carPlay.state
-        prefManager.combinedAsset                = combined.state
+        prefManager.combinedAppIconAsset         = combined.state
     }
     
     

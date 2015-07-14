@@ -79,7 +79,7 @@ let generateAppIconForMacKey        = "generateAppIconForMac"
 /// Generate an AppIcon for CarPlay
 let generateAppIconForCarKey        = "generateAppIconForCar"
 /// Generate an AppIcon with multiple platforms (combined asset)
-let combinedAssetKey                = "combinedAsset"
+let combinedAppIconAssetKey         = "combinedAppIconAsset"
 /// Selected ExportTypeViewController (NSSegmentedControl)
 let selectedExportTypeKey           = "selectedExportType"
 /// Generate a LaunchImage for the iPhone.

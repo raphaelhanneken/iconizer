@@ -70,9 +70,9 @@ class PreferenceManager {
         set (newValue) { userDefaults.setInteger(newValue, forKey: generateLaunchImageForIPadKey) }
     }
     
-    var combinedAsset: Int {
-        get            { return userDefaults.integerForKey(combinedAssetKey) }
-        set (newValue) { userDefaults.setInteger(newValue, forKey: combinedAssetKey) }
+    var combinedAppIconAsset: Int {
+        get            { return userDefaults.integerForKey(combinedAppIconAssetKey) }
+        set (newValue) { userDefaults.setInteger(newValue, forKey: combinedAppIconAssetKey) }
     }
     
     var selectedExportType: Int {
@@ -94,7 +94,7 @@ class PreferenceManager {
                          generateAppIconForCarKey: NSOnState,
                          generateLaunchImageForIPhoneKey: NSOnState,
                          generateLaunchImageForIPadKey: NSOnState,
-                         combinedAssetKey: NSOffState ]
+                         combinedAppIconAssetKey: NSOffState ]
         
         self.userDefaults.registerDefaults(defaults)
     }
