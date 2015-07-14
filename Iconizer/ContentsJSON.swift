@@ -39,12 +39,12 @@ enum AssetType : Int {
 }
 
 /// Reads and writes JSON files.
-class ContentsJSON {
+struct ContentsJSON {
     /// Holds the image data from <AssetType>.json
     var images: Array<[String : String]>
     
     /// Holds the complete information required for Contents.json
-    var contents: [String : AnyObject]
+    var contents: [String : AnyObject] = [:]
     
     ///  Initializes the JSONData struct
     ///
@@ -52,21 +52,16 @@ class ContentsJSON {
     ///
     ///  :returns: The initialized JSONData.
     init(forType type: AssetType, andPlatforms platforms: [String]) {
-        self.images   = []
-        self.contents = [:]
+        self.images              = []
+        self.contents["images"]  = []
+        self.contents["author"]  = "Iconizer"
+        self.contents["version"] = "1.0"
         
         // Initialize the data object.
         for platform in platforms {
+            // Add the image information for each platform to our images array.
             self.images += JSONObjectForType(type, andPlatform: platform)
         }
-    }
-    
-    init(forType type: AssetType) {
-        self.images   = []
-        self.contents = [:]
-        
-        // Initialize the data object.
-        self.images = JSONObjectForType(type, andPlatform: "")
     }
     
     ///  Gets the JSON data for the given AssetType.
@@ -74,7 +69,7 @@ class ContentsJSON {
     ///  :param: type AssetType to get the json file for.
     ///
     ///  :returns: The JSON data for the given AssetType.
-    private func JSONObjectForType(type: AssetType, andPlatform platform: String) -> Array<[String : String]> {
+    func JSONObjectForType(type: AssetType, andPlatform platform: String) -> Array<[String : String]> {
         // Holds the path to the required JSON file.
         let path : String?
         
@@ -95,19 +90,17 @@ class ContentsJSON {
         
         // Unwrap the JSON file path.
         if let path = path {
-            // Create a new NSData object from the JSON file.
+            // Create a new NSData object from the contents of the selected JSON file.
             if let data = NSData(contentsOfFile: path) {
-                // Create a new JSONObject from the Data object and cast it down to an NSDictionary.
-                let json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil) as! Dictionary<String, AnyObject>
+                // Create a new JSON object from the given data and cast it to a Dictionary.
+                let json = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: nil) as! Dictionary<String, AnyObject>
                 
-                // Get the image information.
+                // Get the image information as Array.
                 if let images = json["images"] as? Array<[String : String]> {
+                    // Return the new array with image information.
                     return images
                 }
             }
-        } else {
-            // DEBUG!
-            println("Could not unwrap file path!")
         }
         
         return []
@@ -116,13 +109,14 @@ class ContentsJSON {
     ///  Saves the Contents.json to the appropriate folder.
     ///
     ///  :param: url File url to save the Contents.json to.
-    func saveToURL(url: NSURL) {
-        self.contents["author"]  = "Iconizer"
-        self.contents["version"] = "1.0"
+    mutating func saveToURL(url: NSURL) {
+        // Add the images to the contents dictionaries.
         self.contents["images"]  = self.images
         
+        // Serialize the contents as JSON object.
         let JSONData = NSJSONSerialization.dataWithJSONObject(self.contents, options: .PrettyPrinted, error: nil)
         
+        // Save the JSON object to the HD.
         if let data = JSONData {
             data.writeToURL(url.URLByAppendingPathComponent("Contents.json", isDirectory: false), atomically: true)
         }
