@@ -1,0 +1,11 @@
+{
+  "images" : [
+    {
+      "idiom" : "car",
+      "size" : "120x120",
+      "scale" : "1x",
+      "filename" : "carplay@1x.png",
+      "expected-size": "120"
+    }
+  ]
+}
