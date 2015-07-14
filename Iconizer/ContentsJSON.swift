@@ -46,16 +46,29 @@ struct ContentsJSON {
     /// Holds the complete information required for Contents.json
     var contents: [String : AnyObject] = [:]
     
-    ///  Initializes the JSONData struct
+    ///  Initializes the JSONData struct.
     ///
-    ///  :param: type The AssetType for the required JSON data
-    ///
-    ///  :returns: The initialized JSONData.
-    init(forType type: AssetType, andPlatforms platforms: [String]) {
-        self.images              = []
-        self.contents["images"]  = []
+    ///  :returns: The initialized JSONData struct.
+    init() {
+        // Init the images array.
+        self.images = []
+        
+        // Init the contents array, with general information.
         self.contents["author"]  = "Iconizer"
         self.contents["version"] = "1.0"
+        self.contents["images"]  = []
+    }
+    
+    ///  Initializes the JSONData struct with a specified AssetType and
+    ///  selected platforms.
+    ///
+    ///  :param: type The AssetType for the required JSON data
+    ///  :param: platforms Selected platforms
+    ///
+    ///  :returns: The initialized JSONData specified for an AssetType and platforms.
+    init(forType type: AssetType, andPlatforms platforms: [String]) {
+        // Basic initialization.
+        self.init()
         
         // Initialize the data object.
         for platform in platforms {
@@ -104,6 +117,13 @@ struct ContentsJSON {
         }
         
         return []
+    }
+    
+    ///  Appends images for another AssetType.
+    ///
+    ///  :param: images Images array for other AssetTypes.
+    mutating func appendImages(images: Array<[String : String]>) {
+        self.images += images
     }
     
     ///  Saves the Contents.json to the appropriate folder.
