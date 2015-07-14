@@ -50,8 +50,6 @@ class AppIconViewController: ExportTypeController {
     @IBOutlet weak var watch: NSButton!
      /// Export as combined asset?
     @IBOutlet weak var combined: NSButton!
-     /// Progress indicator.
-    @IBOutlet weak var processing: NSProgressIndicator!
      /// Image Well.
     @IBOutlet weak var imageView: NSImageView!
     
@@ -116,16 +114,8 @@ class AppIconViewController: ExportTypeController {
         if let image = self.imageView.image {
             // Check if at least one platform is selected.
             if self.enabledPlatforms.count > 0 {
-                // Since we definetly can do something here,
-                // start the progress indicator.
-                self.toggleProgressIndicator()
-                
                 // Tell the model to generate it's images
                 self.appIcon.generateImagesForPlatforms(self.enabledPlatforms, fromImage: image)
-                
-                // Finished generating images, so stop the progress indicator.
-                self.toggleProgressIndicator()
-                
                 // We're alright here, so return true
                 return true
             } else {
@@ -149,17 +139,6 @@ class AppIconViewController: ExportTypeController {
             self.appIcon.saveAssetCatalogToURL(url, asCombinedAsset: true)
         } else {
             self.appIcon.saveAssetCatalogToURL(url, asCombinedAsset: false)
-        }
-    }
-    
-    ///  Toggles the animation status and visibility of the progress indicator.
-    func toggleProgressIndicator() {
-        if self.processing.hidden {
-            self.processing.startAnimation(self)
-            self.processing.hidden = false
-        } else {
-            self.processing.hidden = true
-            self.processing.stopAnimation(self)
         }
     }
 }

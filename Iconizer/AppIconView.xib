@@ -12,7 +12,6 @@
                 <outlet property="iPhone" destination="aOl-TX-AxG" id="WCp-3V-dtO"/>
                 <outlet property="imageView" destination="Y4m-ks-fHe" id="Fx7-Pd-fX4"/>
                 <outlet property="osx" destination="2TL-6u-4T2" id="3Ll-5g-naw"/>
-                <outlet property="processing" destination="c8x-dm-42O" id="IjL-0E-HVW"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
                 <outlet property="watch" destination="eih-Bw-XzT" id="8rb-qs-1Uv"/>
             </connections>
@@ -83,20 +82,15 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="c8x-dm-42O">
-                    <rect key="frame" x="313" y="19" width="16" height="16"/>
-                </progressIndicator>
             </subviews>
             <constraints>
                 <constraint firstItem="2hQ-CQ-YIT" firstAttribute="top" secondItem="Y4m-ks-fHe" secondAttribute="bottom" constant="8" id="KLp-tF-kgr"/>
                 <constraint firstAttribute="bottom" secondItem="aki-cs-5RM" secondAttribute="bottom" constant="20" id="O3F-pM-Yag"/>
-                <constraint firstAttribute="bottom" secondItem="c8x-dm-42O" secondAttribute="bottom" constant="19" id="UZM-DZ-4kP"/>
                 <constraint firstItem="aki-cs-5RM" firstAttribute="top" secondItem="2hQ-CQ-YIT" secondAttribute="bottom" constant="8" id="Vcm-mh-v0g"/>
                 <constraint firstAttribute="trailing" secondItem="Y4m-ks-fHe" secondAttribute="trailing" constant="20" id="WVq-cL-9e2"/>
                 <constraint firstItem="Y4m-ks-fHe" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="ZCY-AB-ATU"/>
                 <constraint firstItem="2hQ-CQ-YIT" firstAttribute="top" secondItem="Y4m-ks-fHe" secondAttribute="bottom" constant="8" id="aZW-bz-5Si"/>
                 <constraint firstAttribute="trailing" secondItem="2hQ-CQ-YIT" secondAttribute="trailing" constant="20" id="m9D-ZW-nZE"/>
-                <constraint firstAttribute="trailing" secondItem="c8x-dm-42O" secondAttribute="trailing" constant="20" id="nrm-wq-5fD"/>
                 <constraint firstItem="2hQ-CQ-YIT" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="uGQ-ok-7gb"/>
                 <constraint firstItem="Y4m-ks-fHe" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="vee-2d-IdS"/>
                 <constraint firstItem="aki-cs-5RM" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="xG4-Pn-HRT"/>
