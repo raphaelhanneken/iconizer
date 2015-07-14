@@ -30,12 +30,12 @@ import Cocoa
 
 extension NSImage {
     
-     /// Returns the height of the current image.
+    /// Returns the height of the current image.
     var height: CGFloat {
         return self.size.height
     }
     
-     /// Returns the width of the current image.
+    /// Returns the width of the current image.
     var width: CGFloat {
         return self.size.width
     }

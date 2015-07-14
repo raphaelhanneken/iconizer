@@ -29,6 +29,7 @@
 import Cocoa
 
 
+/// Handles the ImageSet view.
 class ImageSetViewController: ExportTypeController {
     
     /// Reference to the Image Well.
@@ -48,6 +49,9 @@ class ImageSetViewController: ExportTypeController {
         // Do view setup here.
     }
     
+    ///  Tells the model to generate the necessary images.
+    ///
+    ///  :returns: True on success, false otherwise.
     override func generateRequiredImages() -> Bool {
         // Unwrap the image object from the view.
         if let image = self.imageView.image {
@@ -69,6 +73,9 @@ class ImageSetViewController: ExportTypeController {
         return false
     }
     
+    ///  Tells the model to save itself to the given file url.
+    ///
+    ///  :param: url File url to where to save the ImageSet.
     override func saveToURL(url: NSURL) {
         self.imageSet.saveAssetCatalogToURL(url.URLByAppendingPathComponent("\(dirName)/Images.xcassets/\(self.imageName.stringValue).imageset/", isDirectory: true))
     }

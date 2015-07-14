@@ -29,7 +29,7 @@
 import Cocoa
 
 
-/// Manage the user default settings.
+/// Manage the user defaults.
 class PreferenceManager {
     
      /// Holds the standart user defaults.

@@ -28,7 +28,7 @@
 import Cocoa
 
 
-///  ImageSet model. Generates necessary images and saves itself to the HD.
+/// Generates the necessary images for an ImageSet and saves them to the HD.
 class ImageSet: NSObject {
     
     /// Holds the recalculated images.

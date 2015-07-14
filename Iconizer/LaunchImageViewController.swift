@@ -28,7 +28,7 @@
 
 import Cocoa
 
-
+/// Handles the LaunchImage view.
 class LaunchImageViewController: ExportTypeController {
     
     /// Reference to the horizontal image view
@@ -92,7 +92,7 @@ class LaunchImageViewController: ExportTypeController {
         return false
     }
     
-    ///  Tell the model to save the generated asset catalog to the HD.
+    ///  Tells the model to save the generated asset catalog to the HD.
     ///
     ///  :param: url File URL to save the catalog to.
     override func saveToURL(url: NSURL) {
