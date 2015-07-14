@@ -62,7 +62,7 @@ class ImageSet: NSObject {
     ///  :param: url File url to save the images to.
     func saveAssetCatalogToURL(url: NSURL) {
         // Manage the Contents.json
-        let jsonFile = ContentsJSON(forType: AssetType.ImageSet)
+        var jsonFile = ContentsJSON(forType: AssetType.ImageSet, andPlatforms: [])
         
         // Create the necessary folders.
         NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: nil)
