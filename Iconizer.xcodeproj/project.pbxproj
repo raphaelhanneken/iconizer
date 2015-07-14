@@ -390,7 +390,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/dot/Desktop/Sparkle-1.10.0",
 					"$(PROJECT_DIR)/Iconizer",
 				);
 				INFOPLIST_FILE = Iconizer/Info.plist;
@@ -407,7 +406,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/dot/Desktop/Sparkle-1.10.0",
 					"$(PROJECT_DIR)/Iconizer",
 				);
 				INFOPLIST_FILE = Iconizer/Info.plist;
