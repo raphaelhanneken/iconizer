@@ -28,32 +28,26 @@
 
 import Cocoa
 
-// Constants for each platform name.
-private let kAppleWatchPlatformName = "Watch"
-private let kIPadPlatformName       = "iPad"
-private let kIPhonePlatformName     = "iPhone"
-private let kOSXPlatformName        = "Mac"
-private let kCarPlayPlatformName    = "Car"
 
 ///  Handles the AppIconView
 class AppIconViewController: ExportTypeController {
     
-     /// Export for Car Play?
+    /// Export for Car Play?
     @IBOutlet weak var carPlay: NSButton!
-     /// Export for iPad?
+    /// Export for iPad?
     @IBOutlet weak var iPad: NSButton!
-     /// Export for iPhone?
+    /// Export for iPhone?
     @IBOutlet weak var iPhone: NSButton!
-     /// Export for OS X?
+    /// Export for OS X?
     @IBOutlet weak var osx: NSButton!
-     /// Export for Apple Watch?
+    /// Export for Apple Watch?
     @IBOutlet weak var watch: NSButton!
-     /// Export as combined asset?
+    /// Export as combined asset?
     @IBOutlet weak var combined: NSButton!
-     /// Image Well.
+    /// Image Well.
     @IBOutlet weak var imageView: NSImageView!
     
-     /// Which platforms are actually selected?
+    /// Which platforms are actually selected?
     var enabledPlatforms: [String] {
         get {
             // String array of selected platforms.
@@ -68,7 +62,7 @@ class AppIconViewController: ExportTypeController {
         }
     }
     
-     /// Holds the AppIcon model
+    /// Holds the AppIcon model
     let appIcon = AppIcon()
     
     override var nibName: String {

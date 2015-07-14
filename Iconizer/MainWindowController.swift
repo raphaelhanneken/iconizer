@@ -28,25 +28,15 @@
 
 import Cocoa
 
-///  Nicely wrap up the integers from NSSegmentedControl.
-///
-///  - kAppIconViewControllerTag:     Represents the tag for the AppIconView.
-///  - kLaunchImageViewControllerTag: Represents the tag for the LaunchImageView.
-///  - kImageSetViewControllerTag:    Represents the tag for the ImageSetView.
-enum ViewControllerTag: Int {
-    case kAppIconViewControllerTag     = 0
-    case kLaunchImageViewControllerTag = 1
-    case kImageSetViewControllerTag    = 2
-}
 
 ///  Handles the MainWindow view.
 class MainWindowController: NSWindowController, NSWindowDelegate {
     
-     /// Holds the main view of the MainWindow.
+    /// Holds the main view of the MainWindow.
     @IBOutlet weak var mainView: NSView!
-     /// Points to the SegmentedControl, which determines which view is currently selected.
+    /// Points to the SegmentedControl, which determines which view is currently selected.
     @IBOutlet weak var exportType: NSSegmentedControl!
-     /// Represents the currently selected view.
+    /// Represents the currently selected view.
     var currentView: ExportTypeController?
     
     // Override the windowNibName property.

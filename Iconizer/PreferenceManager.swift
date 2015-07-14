@@ -28,15 +28,6 @@
 
 import Cocoa
 
-// Keys to access the userDefaults
-private let generateForAppleWatchKey = "generateForAppleWatch"      // Generate icons for Apple Watch?
-private let generateForIPhoneKey     = "generateForIPhone"          // Generate icons for iPhone?
-private let generateForIPadKey       = "generateForIPad"            // Generate icons for iPad?
-private let generateForMacKey        = "generateForMac"             // Generate icons for Mac OS?
-private let generateForCarKey        = "generateForCar"             // Generate icons for CarPlay?
-private let combinedAssetKey         = "combinedAsset"              // Export selected Platforms into one asset catalog
-private let selectedExportTypeKey    = "selectedExportType"         // Selected export type
-
 
 /// Manage the user default settings.
 class PreferenceManager {

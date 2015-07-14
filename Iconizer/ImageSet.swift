@@ -27,11 +27,13 @@
 
 import Cocoa
 
+
 ///  ImageSet model. Generates necessary images and saves itself to the HD.
 class ImageSet: NSObject {
     
-     /// Holds the recalculated images.
+    /// Holds the recalculated images.
     var images: [String : NSImage] = [:]
+    
     
     ///  Creates images with the given resolutions from the given image.
     ///

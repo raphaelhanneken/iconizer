@@ -27,10 +27,8 @@
 
 import Cocoa
 
-/// Name of the directory, where Iconizer saves the asset catalogs.
-let dirName = "Iconizer Assets"
 
-
+/// Generates the necessary images for an AppIcon and saves them onto the HD.
 class AppIcon: NSObject {
     
     /// Holds the resized images.

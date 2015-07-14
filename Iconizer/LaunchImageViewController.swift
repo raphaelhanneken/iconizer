@@ -28,6 +28,7 @@
 
 import Cocoa
 
+
 class LaunchImageViewController: ExportTypeController {
     
     /// Reference to the horizontal image view
@@ -47,8 +48,8 @@ class LaunchImageViewController: ExportTypeController {
         get {
             var tmp: [String] = []
             
-            if iphone.state == NSOnState { tmp.append("iphone") }
-            if ipad.state   == NSOnState { tmp.append("ipad") }
+            if iphone.state == NSOnState { tmp.append(kIPhonePlatformName) }
+            if ipad.state   == NSOnState { tmp.append(kIPadPlatformName) }
             
             return tmp
         }

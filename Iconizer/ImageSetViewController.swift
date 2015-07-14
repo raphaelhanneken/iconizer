@@ -28,14 +28,15 @@
 
 import Cocoa
 
+
 class ImageSetViewController: ExportTypeController {
     
-     /// Reference to the Image Well.
+    /// Reference to the Image Well.
     @IBOutlet weak var imageView: NSImageView!
-     /// Name of the generated image asset.
+    /// Name of the generated image asset.
     @IBOutlet weak var imageName: NSTextField!
     
-     /// Holds the ImageSet model
+    /// Holds the ImageSet model
     let imageSet = ImageSet()
     
     override var nibName: String {

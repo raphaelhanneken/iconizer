@@ -27,18 +27,8 @@
 
 import Cocoa
 
-///  Wrap the different types into an enum, for nicer code.
-///
-///  - AppIcon:     Represents the AppIcon model
-///  - ImageSet:    Represents the ImageSet model
-///  - LaunchImage: Represents the LaunchImage model
-enum AssetType : Int {
-    case AppIcon     = 0
-    case ImageSet    = 1
-    case LaunchImage = 2
-}
 
-/// Reads and writes JSON files.
+/// Reads and writes the Contents JSON files.
 struct ContentsJSON {
     /// Holds the image data from <AssetType>.json
     var images: Array<[String : String]>
