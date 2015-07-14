@@ -65,7 +65,18 @@ class LaunchImageViewController: ExportTypeController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        
+        // Set user defaults.
+        let userPrefs     = PreferenceManager()
+        self.iphone.state = userPrefs.generateLaunchImageForIPhone
+        self.ipad.state   = userPrefs.generateLaunchImageForIPad
+    }
+    
+    override func viewWillDisappear() {
+        // Save user defaults.
+        let userPrefs = PreferenceManager()
+        userPrefs.generateLaunchImageForIPad   = self.ipad.state
+        userPrefs.generateLaunchImageForIPhone = self.iphone.state
     }
     
     ///  Tells the model to generate the required images.

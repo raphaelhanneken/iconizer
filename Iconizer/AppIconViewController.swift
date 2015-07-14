@@ -76,11 +76,11 @@ class AppIconViewController: ExportTypeController {
         let prefManager = PreferenceManager()
         
         // Set the checkbox states.
-        watch.state     = prefManager.generateForAppleWatch
-        iPhone.state    = prefManager.generateForIPhone
-        iPad.state      = prefManager.generateForIPad
-        osx.state       = prefManager.generateForMac
-        carPlay.state   = prefManager.generateForCar
+        watch.state     = prefManager.generateAppIconForAppleWatch
+        iPhone.state    = prefManager.generateAppIconForIPhone
+        iPad.state      = prefManager.generateAppIconForIPad
+        osx.state       = prefManager.generateAppIconForMac
+        carPlay.state   = prefManager.generateAppIconForCar
         combined.state  = prefManager.combinedAsset
     }
     
@@ -89,12 +89,12 @@ class AppIconViewController: ExportTypeController {
         let prefManager = PreferenceManager()
         
         // Save the checkbox states.
-        prefManager.generateForAppleWatch = watch.state
-        prefManager.generateForIPad       = iPad.state
-        prefManager.generateForIPhone     = iPhone.state
-        prefManager.generateForMac        = osx.state
-        prefManager.generateForCar        = carPlay.state
-        prefManager.combinedAsset         = combined.state
+        prefManager.generateAppIconForAppleWatch = watch.state
+        prefManager.generateAppIconForIPad       = iPad.state
+        prefManager.generateAppIconForIPhone     = iPhone.state
+        prefManager.generateAppIconForMac        = osx.state
+        prefManager.generateAppIconForCar        = carPlay.state
+        prefManager.combinedAsset                = combined.state
     }
     
     
