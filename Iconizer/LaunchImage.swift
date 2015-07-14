@@ -27,6 +27,7 @@
 
 import Cocoa
 
+
 ///  LaunchImage model. Generates necessary images and saves itself to the HD.
 class LaunchImage: NSObject {
     
@@ -35,6 +36,7 @@ class LaunchImage: NSObject {
     
     /// Holds the image information for the contents.json
     var jsonData : ContentsJSON!
+    
     
     ///  Generates the necessary images for the selected platforms.
     ///
@@ -53,9 +55,9 @@ class LaunchImage: NSObject {
             for imgData in jsonData.images {
                 // Unwrap the required information.
                 if let width = imgData["expected-width"]?.toInt(), let height = imgData["expected-height"]?.toInt(), let filename = imgData["filename"], let orientation = imgData["orientation"] {
-                    
+                    // Check if the current platform was selected by the user
                     if let idiom = imgData["idiom"] {
-                        if contains(platforms, idiom) {
+                        if contains(platforms, {$0.caseInsensitiveCompare(idiom) == .OrderedSame}) {
                             // Check wether we have a portrait or landscape image
                             switch(orientation) {
                             case "portrait":
