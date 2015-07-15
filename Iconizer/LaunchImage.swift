@@ -61,10 +61,10 @@ class LaunchImage: NSObject {
                             // Check wether we have a portrait or landscape image
                             switch(orientation) {
                             case "portrait":
-                                self.images[filename] = portrait.copyWithSize(NSSize(width: width, height: height))
+                                self.images[filename] = portrait.cropToSize(NSSize(width: width, height: height))
                                 
                             case "landscape":
-                                self.images[filename] = landscape.copyWithSize(NSSize(width: width, height: height))
+                                self.images[filename] = landscape.cropToSize(NSSize(width: width, height: height))
                                 
                             default:
                                 continue
