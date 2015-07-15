@@ -109,13 +109,6 @@ struct ContentsJSON {
         return []
     }
     
-    ///  Appends images for another AssetType.
-    ///
-    ///  :param: images Images array for other AssetTypes.
-    mutating func appendImages(images: Array<[String : String]>) {
-        self.images += images
-    }
-    
     ///  Saves the Contents.json to the appropriate folder.
     ///
     ///  :param: url File url to save the Contents.json to.
