@@ -97,9 +97,7 @@ extension NSImage {
     ///  :returns: Cropped image.
     func cropToSize(size: NSSize) -> NSImage? {
         // Resize the current image, while preserving the aspect ratio.
-        let resized = self.resizeToSize(size, whileMaintainingAspectRatio: true)
-        
-        if let resized = resized {
+        if let resized = self.resizeToSize(size, whileMaintainingAspectRatio: true) {
             // Get some points to center the cropping area.
             let x = floor((resized.width - size.width) / 2)
             let y = floor((resized.height - size.height) / 2)

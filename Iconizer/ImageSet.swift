@@ -83,5 +83,8 @@ class ImageSet: NSObject {
         
         // Save the Contents.json to the HD.
         jsonFile.saveToURL(url)
+        
+        // Reset the images array
+        self.images = [:]
     }
 }

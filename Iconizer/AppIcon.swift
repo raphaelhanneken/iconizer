@@ -109,5 +109,8 @@ class AppIcon: NSObject {
             // ...and save it to the given file url.
             jsonFile.saveToURL(setURL)
         }
+        
+        // Reset the images array
+        self.images = [:]
     }
 }

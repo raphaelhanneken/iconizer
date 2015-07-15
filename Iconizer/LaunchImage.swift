@@ -95,6 +95,10 @@ class LaunchImage: NSObject {
             }
         }
         
+        // Save the Contents.json
         jsonData.saveToURL(url)
+        
+        // Reset the images array
+        self.images = [:]
     }
 }
