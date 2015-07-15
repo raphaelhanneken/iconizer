@@ -48,29 +48,85 @@ extension NSImage {
     func copyWithSize(size: NSSize) -> NSImage? {
         // Create a new rect with given width and height
         let frame    = NSMakeRect(0, 0, size.width, size.height)
-        // Extract an image representation for the frame rect
-        let imageRep = self.bestRepresentationForRect(frame, context: nil, hints: nil)
-        // Create an empty NSImage with the given size
-        let newImage = NSImage(size: size)
         
-        // Draw the newly sized image
-        newImage.lockFocus()
-        imageRep?.drawInRect(frame)
-        newImage.unlockFocus()
+        // Get the best representation for the new size.
+        if let rep = self.bestRepresentationForRect(frame, context: nil, hints: nil) {
+            // Create an empty NSImage with the given size.
+            let img = NSImage(size: size)
+            
+            // Draw the image.
+            img.lockFocus()
+            rep.drawInRect(frame)
+            img.unlockFocus()
+            
+            // Return the resized image
+            return img
+        }
         
-        // Return the resized image
-        return newImage
+        return nil
     }
     
-    ///  Copies the current image and resizes it to the given width and height.
+    ///  Copies the current image and resizes it to the size of the given NSSize, while
+    ///  maintaining the aspect ratio of the original image.
     ///
-    ///  :param: width  The width of the image copy.
-    ///  :param: height The height of the image copy.
+    ///  :param: size          The size of the new image.
+    ///  :param: preserveRatio true/false Either maintain the aspect ratio or not.
     ///
     ///  :returns: The resized image.
-    func copyWithWidth(width: CGFloat, height: CGFloat) -> NSImage? {
-        let size = NSSize(width: width, height: height)
-        return self.copyWithSize(size)
+    func resizeToSize(size: NSSize, whileMaintainingAspectRatio preserveRatio: Bool) -> NSImage? {
+        var newSize = size
+        
+        if preserveRatio {
+            let widthRatio  = size.width / self.width
+            let heightRatio = size.height / self.height
+            
+            if widthRatio > heightRatio {
+                newSize = NSSize(width: floor(self.width * widthRatio), height: floor(self.height * widthRatio))
+            } else {
+                newSize = NSSize(width: floor(self.width * heightRatio), height: floor(self.height * heightRatio))
+            }
+        }
+        
+        return self.copyWithSize(newSize)
+    }
+    
+    ///  Crops an image to the given size.
+    ///
+    ///  :param: size The size of the new image.
+    ///
+    ///  :returns: Cropped image.
+    func cropToSize(size: NSSize) -> NSImage? {
+        // Resize the current image, while preserving the aspect ratio.
+        let resized = self.resizeToSize(size, whileMaintainingAspectRatio: true)
+        
+        if let resized = resized {
+            // Get some points to center the cropping area.
+            let x = floor((resized.width - size.width) / 2)
+            let y = floor((resized.height - size.height) / 2)
+            
+            // Create the cropping frame.
+            let frame = NSMakeRect(x, y, size.width, size.height)
+            
+            // Get the image representation for the cropping frame.
+            if let rep = resized.bestRepresentationForRect(frame, context: nil, hints: nil) {
+                // Create a new image with the new size
+                let img = NSImage(size: size)
+                
+                img.lockFocus()
+                rep.drawInRect(NSMakeRect(0, 0, size.width, size.height),
+                    fromRect: frame,
+                    operation: NSCompositingOperation.CompositeCopy,
+                    fraction: 1.0,
+                    respectFlipped: false,
+                    hints: [:])
+                
+                img.unlockFocus()
+                
+                return img
+            }
+        }
+        
+        return nil
     }
     
     ///  Builds a PNGRepresentation of the current image.
