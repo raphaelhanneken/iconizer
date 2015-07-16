@@ -56,7 +56,7 @@ class LaunchImageViewController: ExportTypeController {
     }
     
     /// Holds the LaunchImage model
-    var launchImage = LaunchImage()
+    let launchImage = LaunchImage()
     
     
     override var nibName: String {
