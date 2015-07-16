@@ -64,13 +64,13 @@ class ImageSet: NSObject {
     ///  :param: url File url to save the images to.
     func saveAssetCatalogToURL(url: NSURL, withName name: String) {
         // Create the correct file path.
-        let url = url.URLByAppendingPathComponent("\(imageSetDirectory)/Images.xcassets/\(name).imageset/", isDirectory: true)
+        let url = url.URLByAppendingPathComponent("\(imageSetDirectory)/\(name).imageset", isDirectory: true)
         
         // Create the necessary folders.
         NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: nil)
         
         // Manage the Contents.json
-        var jsonFile = ContentsJSON(forType: AssetType.ImageSet, andPlatforms: [])
+        var jsonFile = ContentsJSON(forType: AssetType.ImageSet, andPlatforms: [""])
         
         // Loop through the necessary images.
         for image in jsonFile.images {
@@ -79,8 +79,14 @@ class ImageSet: NSObject {
                 // Get a PNG representation of the correct image.
                 if let png = self.images[scale]?.PNGRepresentation() {
                     // Save the PNG representation to the HD.
-                    png.writeToURL(url.URLByAppendingPathComponent(filename, isDirectory: false), atomically: true)
+                    if !png.writeToURL(url.URLByAppendingPathComponent(filename, isDirectory: false), atomically: true) {
+                        println("Error writing file: \(filename)")
+                    }
+                } else {
+                    println("Getting PNG Representation for file \(filename) failed!")
                 }
+            } else {
+                println("Reading JSON File failed!")
             }
         }
         

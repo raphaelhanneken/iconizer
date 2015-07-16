@@ -85,7 +85,7 @@ class LaunchImage: NSObject {
     ///  :param: url File path to save the launch image to.
     func saveAssetCatalogToURL(url: NSURL) {
         // Create the correct file path.
-        let url = url.URLByAppendingPathComponent("\(launchImageDirectory)/Images.xcassets/LaunchImage.launchimage/", isDirectory: true)
+        let url = url.URLByAppendingPathComponent("\(launchImageDirectory)/LaunchImage.launchimage/", isDirectory: true)
         
         // Create the necessary folders.
         NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: nil)
@@ -93,8 +93,10 @@ class LaunchImage: NSObject {
         for (filename, image) in self.images {
             if let png = image.PNGRepresentation() {
                 if !png.writeToURL(url.URLByAppendingPathComponent(filename, isDirectory: false), atomically: true) {
-                    print("ERR: \(filename)")
+                    println("Error writing file: \(filename)!")
                 }
+            } else {
+                println("Getting PNG Representation for file \(filename) failed!")
             }
         }
         

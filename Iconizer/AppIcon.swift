@@ -67,13 +67,13 @@ class AppIcon: NSObject {
         var jsonFile: ContentsJSON
         
         // Define where to save the asset catalog.
-        var setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/Images.xcassets/AppIcon.appiconset", isDirectory: true)
+        var setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/Combined/AppIcon.appiconset", isDirectory: true)
         
         // Loop through the selected platforms.
         for (platform, images) in self.images {
             // Override the setURL in case we don't generate a combined asset.
             if !combined {
-                setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/\(platform)/Images.xcassets/AppIcon.appiconset", isDirectory: true)
+                setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/\(platform)/AppIcon.appiconset", isDirectory: true)
             }
             
             // Create the necessary folders.
@@ -88,7 +88,11 @@ class AppIcon: NSObject {
                     
                     // Unwrap the image
                     if let icon = image?.PNGRepresentation() {
-                        icon.writeToURL(fileURL, atomically: true)
+                        if !icon.writeToURL(fileURL, atomically: true) {
+                            println("Error writing file: \(filename)!")
+                        }
+                    } else {
+                        println("Getting PNG Representation for file \(filename) failed!")
                     }
                 }
             }

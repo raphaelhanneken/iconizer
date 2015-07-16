@@ -50,9 +50,9 @@ let kCarPlayPlatformName    = "Car"
 // MARK: - Directory names
 
 /// Defines the name of the directory, where Iconizer saves the asset catalogs.
-let appIconDirectory     = "/Iconizer Assets/App Icons"
-let launchImageDirectory = "/Iconizer Assets/Launch Images"
-let imageSetDirectory    = "/Iconizer Assets/Image Sets"
+let appIconDirectory     = "Iconizer Assets/App Icons"
+let launchImageDirectory = "Iconizer Assets/Launch Images"
+let imageSetDirectory    = "Iconizer Assets/Image Sets"
 
 
 // MARK: - Asset Types
