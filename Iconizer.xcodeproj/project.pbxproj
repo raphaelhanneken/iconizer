@@ -25,7 +25,6 @@
 		8E73B4571B248A3000FD7AF9 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */; };
 		8E85121D1B25D35C0064F113 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E85121C1B25D35C0064F113 /* ImageSet.swift */; };
 		8E859E431B5462840052CDBC /* ImageSet.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E859E421B5462840052CDBC /* ImageSet.json */; };
-		8E911A521B2577280042ECEA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E911A511B2577280042ECEA /* StringExtensions.swift */; };
 		8E911A581B25956A0042ECEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E911A571B25956A0042ECEA /* Images.xcassets */; };
 		8E9360FE1B5433130084ECD2 /* LaunchImage_iPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E9360FD1B5433130084ECD2 /* LaunchImage_iPhone.json */; };
 		8E973B151B5588180038577A /* AppIcon_Car.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E973B101B5588180038577A /* AppIcon_Car.json */; };
@@ -33,11 +32,12 @@
 		8E973B171B5588180038577A /* AppIcon_iPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E973B121B5588180038577A /* AppIcon_iPhone.json */; };
 		8E973B181B5588180038577A /* AppIcon_Mac.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E973B131B5588180038577A /* AppIcon_Mac.json */; };
 		8E973B191B5588180038577A /* AppIcon_Watch.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E973B141B5588180038577A /* AppIcon_Watch.json */; };
-		8E973B1D1B55B8470038577A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E973B1C1B55B8470038577A /* Constants.swift */; };
 		8E98C7AF1B4C617A0049AD45 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C7AE1B4C617A0049AD45 /* LaunchImage.swift */; };
 		8EBD14F21B24588100500F03 /* ExportTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBD14F11B24588100500F03 /* ExportTypeController.swift */; };
 		8EBD6F4D1B544A570062D62C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EBD6F4C1B544A570062D62C /* Sparkle.framework */; };
 		8EBD6F501B544C890062D62C /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8EBD6F4F1B544C890062D62C /* dsa_pub.pem */; };
+		8EE498681B57E7ED00FEFD1B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE498671B57E7ED00FEFD1B /* StringExtensions.swift */; };
+		8EE4986A1B57E7FB00FEFD1B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE498691B57E7FB00FEFD1B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,7 +73,6 @@
 		8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSImageExtensions.swift; path = Iconizer/NSImageExtensions.swift; sourceTree = "<group>"; };
 		8E85121C1B25D35C0064F113 /* ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSet.swift; sourceTree = "<group>"; };
 		8E859E421B5462840052CDBC /* ImageSet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ImageSet.json; sourceTree = "<group>"; };
-		8E911A511B2577280042ECEA /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		8E911A571B25956A0042ECEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8E9360FD1B5433130084ECD2 /* LaunchImage_iPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaunchImage_iPhone.json; sourceTree = "<group>"; };
 		8E973B101B5588180038577A /* AppIcon_Car.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppIcon_Car.json; sourceTree = "<group>"; };
@@ -81,11 +80,12 @@
 		8E973B121B5588180038577A /* AppIcon_iPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppIcon_iPhone.json; sourceTree = "<group>"; };
 		8E973B131B5588180038577A /* AppIcon_Mac.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppIcon_Mac.json; sourceTree = "<group>"; };
 		8E973B141B5588180038577A /* AppIcon_Watch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppIcon_Watch.json; sourceTree = "<group>"; };
-		8E973B1C1B55B8470038577A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E98C7AE1B4C617A0049AD45 /* LaunchImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchImage.swift; sourceTree = "<group>"; };
 		8EBD14F11B24588100500F03 /* ExportTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportTypeController.swift; sourceTree = "<group>"; };
 		8EBD6F4C1B544A570062D62C /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		8EBD6F4F1B544C890062D62C /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		8EE498671B57E7ED00FEFD1B /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = Iconizer/StringExtensions.swift; sourceTree = "<group>"; };
+		8EE498691B57E7FB00FEFD1B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Iconizer/Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,8 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */,
-				8E911A511B2577280042ECEA /* StringExtensions.swift */,
-				8E973B1C1B55B8470038577A /* Constants.swift */,
+				8EE498671B57E7ED00FEFD1B /* StringExtensions.swift */,
+				8EE498691B57E7FB00FEFD1B /* Constants.swift */,
 			);
 			name = Helper;
 			path = ..;
@@ -299,11 +299,11 @@
 				8E98C7AF1B4C617A0049AD45 /* LaunchImage.swift in Sources */,
 				8E4FDDC21B53D3AC0096713B /* ContentsJSON.swift in Sources */,
 				8E3F8F9C1B239D140096E9EC /* AppIcon.swift in Sources */,
+				8EE4986A1B57E7FB00FEFD1B /* Constants.swift in Sources */,
 				8EBD14F21B24588100500F03 /* ExportTypeController.swift in Sources */,
-				8E911A521B2577280042ECEA /* StringExtensions.swift in Sources */,
 				8E73B4571B248A3000FD7AF9 /* NSImageExtensions.swift in Sources */,
 				8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */,
-				8E973B1D1B55B8470038577A /* Constants.swift in Sources */,
+				8EE498681B57E7ED00FEFD1B /* StringExtensions.swift in Sources */,
 				8E3F8F951B23744E0096E9EC /* LaunchImageViewController.swift in Sources */,
 				8E3F8F991B23746E0096E9EC /* ImageSetViewController.swift in Sources */,
 			);
