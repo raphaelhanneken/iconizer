@@ -24,16 +24,13 @@ July 16, 2015 - __v2.0__
 - Added support for Image Sets
 - Added auto update via the Sparkle framework
 
-May 21, 2015 - __v1.1__
+May 21, 2015 - __v1.1__ [Download old version](https://bitbucket.org/behoernchen/iconizer_v1/downloads/Iconizer.dmg)
 - Fixed a bug with iDevices [Issue #2](https://github.com/behoernchen/Iconizer/issues/2)
 
 May 19, 2015 - __v1.1__
 - Added CarPlay support
 - Added support for older iOS versions
 - Moved the 'Export' button into the toolbar
-
-May 16, 2015 - __v1.0__
-- Added a progress indicator
 
 May 13, 2015 - __v1.0__
 - Initial commit
