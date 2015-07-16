@@ -83,7 +83,10 @@ class LaunchImage: NSObject {
     ///  Saves the asset catalog to the HD.
     ///
     ///  :param: url File path to save the launch image to.
-    func saveToURL(url: NSURL) {
+    func saveAssetCatalogToURL(url: NSURL) {
+        // Create the correct file path.
+        let url = url.URLByAppendingPathComponent("\(launchImageDirectory)/Images.xcassets/LaunchImage.launchimage/", isDirectory: true)
+        
         // Create the necessary folders.
         NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: nil)
         

@@ -97,7 +97,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                             // Save the currently selected asset to the selected file url.
                             currentView.saveToURL(url)
                             // Open the generated folders in finder.
-                            NSWorkspace.sharedWorkspace().openURL(url.URLByAppendingPathComponent("/\(dirName)/"))
+                            NSWorkspace.sharedWorkspace().openURL(url.URLByAppendingPathComponent("Iconizer Assets", isDirectory: true))
                         }
                     }
                 }

@@ -107,6 +107,6 @@ class LaunchImageViewController: ExportTypeController {
     ///
     ///  :param: url File URL to save the catalog to.
     override func saveToURL(url: NSURL) {
-        self.launchImage.saveToURL(url.URLByAppendingPathComponent("\(dirName)/Images.xcassets/LaunchImage.launchimage/", isDirectory: true))
+        self.launchImage.saveAssetCatalogToURL(url)
     }
 }

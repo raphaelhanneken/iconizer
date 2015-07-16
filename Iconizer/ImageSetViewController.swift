@@ -77,6 +77,6 @@ class ImageSetViewController: ExportTypeController {
     ///
     ///  :param: url File url to where to save the ImageSet.
     override func saveToURL(url: NSURL) {
-        self.imageSet.saveAssetCatalogToURL(url.URLByAppendingPathComponent("\(dirName)/Images.xcassets/\(self.imageName.stringValue).imageset/", isDirectory: true))
+        self.imageSet.saveAssetCatalogToURL(url, withName: self.imageName.stringValue)
     }
 }

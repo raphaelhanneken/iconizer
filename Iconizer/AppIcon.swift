@@ -67,13 +67,13 @@ class AppIcon: NSObject {
         var jsonFile: ContentsJSON
         
         // Define where to save the asset catalog.
-        var setURL = url.URLByAppendingPathComponent("/\(dirName)/AppIcon/Images.xcassets/AppIcon.appiconset", isDirectory: true)
+        var setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/Images.xcassets/AppIcon.appiconset", isDirectory: true)
         
         // Loop through the selected platforms.
         for (platform, images) in self.images {
             // Override the setURL in case we don't generate a combined asset.
             if !combined {
-                setURL = url.URLByAppendingPathComponent("/\(dirName)/\(platform)/Images.xcassets/AppIcon.appiconset", isDirectory: true)
+                setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/\(platform)/Images.xcassets/AppIcon.appiconset", isDirectory: true)
             }
             
             // Create the necessary folders.
