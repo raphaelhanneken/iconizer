@@ -36,8 +36,8 @@ class AppIcon: NSObject {
     
     ///  Generate all necessary images for each selected platform.
     ///
-    ///  :param: platforms Platforms to generate icons for.
-    ///  :param: image     The image to Iconize.
+    ///  - parameter platforms: Platforms to generate icons for.
+    ///  - parameter image:     The image to Iconize.
     func generateImagesForPlatforms(platforms: [String], fromImage image: NSImage) {
         // Loop through the selected platforms
         for platform in platforms {
@@ -48,7 +48,7 @@ class AppIcon: NSObject {
             let jsonData = ContentsJSON(forType: AssetType.AppIcon, andPlatforms: [platform])
             
             for imageData in jsonData.images {
-                if let size = imageData["expected-size"]?.toInt(), let filename = imageData["filename"] {
+                if let size = Int(imageData["expected-size"]!), let filename = imageData["filename"] {
                     images.append([filename : image.copyWithSize(NSSize(width: size, height: size))])
                 }
             }
@@ -60,8 +60,8 @@ class AppIcon: NSObject {
     
     ///  Writes the generated images to the given file url.
     ///
-    ///  :param: url      NSURL to save the asset catalog to.
-    ///  :param: combined Save as combined catalog?
+    ///  - parameter url:      NSURL to save the asset catalog to.
+    ///  - parameter combined: Save as combined catalog?
     func saveAssetCatalogToURL(url: NSURL, asCombinedAsset combined: Bool) {
         // Manage the Contents.json
         var jsonFile: ContentsJSON
@@ -76,8 +76,11 @@ class AppIcon: NSObject {
                 setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/\(platform)/AppIcon.appiconset", isDirectory: true)
             }
             
-            // Create the necessary folders.
-            NSFileManager.defaultManager().createDirectoryAtURL(setURL, withIntermediateDirectories: true, attributes: nil, error: nil)
+            do {
+                // Create the necessary folders.
+                try NSFileManager.defaultManager().createDirectoryAtURL(setURL, withIntermediateDirectories: true, attributes: nil)
+            } catch _ {
+            }
             
             // Loop through the images of the current platform.
             for image in images {
@@ -89,10 +92,10 @@ class AppIcon: NSObject {
                     // Unwrap the image
                     if let icon = image?.PNGRepresentation() {
                         if !icon.writeToURL(fileURL, atomically: true) {
-                            println("Error writing file: \(filename)!")
+                            print("Error writing file: \(filename)!")
                         }
                     } else {
-                        println("Getting PNG Representation for file \(filename) failed!")
+                        print("Getting PNG Representation for file \(filename) failed!")
                     }
                 }
             }

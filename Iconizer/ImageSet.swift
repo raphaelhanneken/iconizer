@@ -37,10 +37,10 @@ class ImageSet: NSObject {
     
     ///  Creates images with the given resolutions from the given image.
     ///
-    ///  :param: image       Base image.
-    ///  :param: resolutions Resolutions to resize the given image to.
+    ///  - parameter image:       Base image.
+    ///  - parameter resolutions: Resolutions to resize the given image to.
     ///
-    ///  :returns: Returns true on success; False on failure.
+    ///  - returns: Returns true on success; False on failure.
     func generateScaledImagesFromImage(image: NSImage) -> Bool {
         // Use the original image as 3x
         self.images["3x"] = image
@@ -51,23 +51,22 @@ class ImageSet: NSObject {
         // Calculate the 1x image
         self.images["1x"] = image.copyWithSize(NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3)))
         
-        // Check that the images are properly copied.
-        if let image3x = self.images["3x"], let image2x = self.images["2x"], let image1x = self.images["1x"] {
-            return true
-        } else {
-            return false
-        }
+        // Go for it.
+        return true
     }
     
     ///  Saves the generated images to the HD.
     ///
-    ///  :param: url File url to save the images to.
+    ///  - parameter url: File url to save the images to.
     func saveAssetCatalogToURL(url: NSURL, withName name: String) {
         // Create the correct file path.
         let url = url.URLByAppendingPathComponent("\(imageSetDirectory)/\(name).imageset", isDirectory: true)
         
-        // Create the necessary folders.
-        NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: nil)
+        do {
+            // Create the necessary folders.
+            try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
+        } catch _ {
+        }
         
         // Manage the Contents.json
         var jsonFile = ContentsJSON(forType: AssetType.ImageSet, andPlatforms: [""])
@@ -80,13 +79,13 @@ class ImageSet: NSObject {
                 if let png = self.images[scale]?.PNGRepresentation() {
                     // Save the PNG representation to the HD.
                     if !png.writeToURL(url.URLByAppendingPathComponent(filename, isDirectory: false), atomically: true) {
-                        println("Error writing file: \(filename)")
+                        print("Error writing file: \(filename)")
                     }
                 } else {
-                    println("Getting PNG Representation for file \(filename) failed!")
+                    print("Getting PNG Representation for file \(filename) failed!")
                 }
             } else {
-                println("Reading JSON File failed!")
+                print("Reading JSON File failed!")
             }
         }
         

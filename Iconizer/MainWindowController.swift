@@ -67,14 +67,14 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     
     ///  Select the export type.
     ///
-    ///  :param: sender NSSegmentedControl; 'Mode' set to 'Select One'.
+    ///  - parameter sender: NSSegmentedControl; 'Mode' set to 'Select One'.
     @IBAction func selectView(sender: NSSegmentedControl) {
         changeView(ViewControllerTag(rawValue: sender.selectedSegment))
     }
     
     ///  Kick off exporting for the selected export type.
     ///
-    ///  :param: sender NSButton responsible for exporting.
+    ///  - parameter sender: NSButton responsible for exporting.
     @IBAction func export(sender: NSButton) {
         // Unwrap the export view.
         if let currentView = self.currentView {
@@ -107,7 +107,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     
     ///  Swaps the current ViewController with a new one.
     ///
-    ///  :param: view Takes a ViewControllerTag.
+    ///  - parameter view: Takes a ViewControllerTag.
     func changeView(view: ViewControllerTag?) {
         // Unwrap the current view, if any...
         if let currentView = self.currentView {
@@ -127,9 +127,6 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                 
             case .kLaunchImageViewControllerTag:
                 self.currentView = LaunchImageViewController()
-                
-            default:
-                return
             }
         }
         
@@ -137,7 +134,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         if let currentView = self.currentView {
             self.mainView.addSubview(currentView.view)
             currentView.view.frame = self.mainView.bounds
-            currentView.view.autoresizingMask = .ViewWidthSizable | .ViewHeightSizable
+            currentView.view.autoresizingMask = [.ViewWidthSizable, .ViewHeightSizable]
         }
     }
 }

@@ -102,7 +102,7 @@ class AppIconViewController: ExportTypeController {
     
     ///  Tells the model to generate the required images.
     ///
-    ///  :returns: Returns true on success, false on failure.
+    ///  - returns: Returns true on success, false on failure.
     override func generateRequiredImages() -> Bool {
         // Unwrap the image from imageView
         if let image = self.imageView.image {
@@ -127,7 +127,7 @@ class AppIconViewController: ExportTypeController {
     
     ///  Tells the model to save itself to the given url.
     ///
-    ///  :param: url File path to save the asset catalog to.
+    ///  - parameter url: File path to save the asset catalog to.
     override func saveToURL(url: NSURL) {
         if self.combined.state == NSOnState {
             self.appIcon.saveAssetCatalogToURL(url, asCombinedAsset: true)
