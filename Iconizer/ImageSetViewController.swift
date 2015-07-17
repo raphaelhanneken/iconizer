@@ -51,7 +51,7 @@ class ImageSetViewController: ExportTypeController {
     
     ///  Tells the model to generate the necessary images.
     ///
-    ///  :returns: True on success, false otherwise.
+    ///  - returns: True on success, false otherwise.
     override func generateRequiredImages() -> Bool {
         // Unwrap the image object from the view.
         if let image = self.imageView.image {
@@ -75,7 +75,7 @@ class ImageSetViewController: ExportTypeController {
     
     ///  Tells the model to save itself to the given file url.
     ///
-    ///  :param: url File url to where to save the ImageSet.
+    ///  - parameter url: File url to where to save the ImageSet.
     override func saveToURL(url: NSURL) {
         self.imageSet.saveAssetCatalogToURL(url, withName: self.imageName.stringValue)
     }

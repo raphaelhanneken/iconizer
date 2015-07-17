@@ -40,11 +40,11 @@ class LaunchImage: NSObject {
     
     ///  Generates the necessary images for the selected platforms.
     ///
-    ///  :param: platforms Platforms to generate the images for.
-    ///  :param: portrait  Portrait image that should be used.
-    ///  :param: landscape Landscape image that should be used.
+    ///  - parameter platforms: Platforms to generate the images for.
+    ///  - parameter portrait:  Portrait image that should be used.
+    ///  - parameter landscape: Landscape image that should be used.
     ///
-    ///  :returns: True on success, false otherwise.
+    ///  - returns: True on success, false otherwise.
     func generateImagesForPlatforms(platforms: [String], fromPortrait portrait: NSImage?, andLandscape landscape: NSImage?) -> Bool {
         // Unwrapt both images.
         if let portrait = portrait, let landscape = landscape {
@@ -54,10 +54,10 @@ class LaunchImage: NSObject {
             // Loop through the image data.
             for imgData in jsonData.images {
                 // Unwrap the required information.
-                if let width = imgData["expected-width"]?.toInt(), let height = imgData["expected-height"]?.toInt(), let filename = imgData["filename"], let orientation = imgData["orientation"] {
+                if let width = Int(imgData["expected-width"]!), let height = Int(imgData["expected-height"]!), let filename = imgData["filename"], let orientation = imgData["orientation"] {
                     // Check if the current platform was selected by the user
                     if let idiom = imgData["idiom"] {
-                        if contains(platforms, {$0.caseInsensitiveCompare(idiom) == .OrderedSame}) {
+                        if platforms.contains({$0.caseInsensitiveCompare(idiom) == .OrderedSame}) {
                             // Check wether we have a portrait or landscape image
                             switch(orientation) {
                             case "portrait":
@@ -82,21 +82,24 @@ class LaunchImage: NSObject {
     
     ///  Saves the asset catalog to the HD.
     ///
-    ///  :param: url File path to save the launch image to.
+    ///  - parameter url: File path to save the launch image to.
     func saveAssetCatalogToURL(url: NSURL) {
         // Create the correct file path.
         let url = url.URLByAppendingPathComponent("\(launchImageDirectory)/LaunchImage.launchimage/", isDirectory: true)
         
-        // Create the necessary folders.
-        NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: nil)
+        do {
+            // Create the necessary folders.
+            try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
+        } catch _ {
+        }
         
         for (filename, image) in self.images {
             if let png = image.PNGRepresentation() {
                 if !png.writeToURL(url.URLByAppendingPathComponent(filename, isDirectory: false), atomically: true) {
-                    println("Error writing file: \(filename)!")
+                    print("Error writing file: \(filename)!")
                 }
             } else {
-                println("Getting PNG Representation for file \(filename) failed!")
+                print("Getting PNG Representation for file \(filename) failed!")
             }
         }
         

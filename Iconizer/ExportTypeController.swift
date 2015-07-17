@@ -37,7 +37,7 @@ class ExportTypeController: NSViewController {
     ///  Base method for generating the required images.
     ///  Needs to be overridden by subclasses!
     ///
-    ///  :returns: returns always false.
+    ///  - returns: returns always false.
     func generateRequiredImages() -> Bool {
         return false
     }
@@ -45,15 +45,15 @@ class ExportTypeController: NSViewController {
     ///  Base method for saving the currently selected asset catalog.
     ///  Needs to be overridden by subclasses!
     ///
-    ///  :param: url File path to the directory to save the asset to.
+    ///  - parameter url: File path to the directory to save the asset to.
     func saveToURL(url: NSURL) {
         
     }
     
     ///  Opens an NSAlert panel ontop of MainWindow.
     ///
-    ///  :param: message messageText for the NSAlert.
-    ///  :param: text    informativeText for the NSAlert.
+    ///  - parameter message: messageText for the NSAlert.
+    ///  - parameter text:    informativeText for the NSAlert.
     func beginSheetModalWithMessage(message: String, andText text: String) {
         // Create a new NSAlert message.
         let alert = NSAlert()

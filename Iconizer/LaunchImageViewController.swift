@@ -81,7 +81,7 @@ class LaunchImageViewController: ExportTypeController {
     
     ///  Tells the model to generate the required images.
     ///
-    ///  :returns: True on successful generation, false otherwise.
+    ///  - returns: True on successful generation, false otherwise.
     override func generateRequiredImages() -> Bool {
         // Verify that both images are available.
         if let landscapeImage = self.horizontal.image, let portraitImage = self.portrait.image {
@@ -105,7 +105,7 @@ class LaunchImageViewController: ExportTypeController {
     
     ///  Tells the model to save the generated asset catalog to the HD.
     ///
-    ///  :param: url File URL to save the catalog to.
+    ///  - parameter url: File URL to save the catalog to.
     override func saveToURL(url: NSURL) {
         self.launchImage.saveAssetCatalogToURL(url)
     }

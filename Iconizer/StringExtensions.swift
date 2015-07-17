@@ -33,10 +33,10 @@ extension String {
     ///  given start and end characters. Excluding the given start and end
     ///  characters.
     ///
-    ///  :param: start Starting point.
-    ///  :param: end   End point.
+    ///  - parameter start: Starting point.
+    ///  - parameter end:   End point.
     ///
-    ///  :returns: Characters between the given start and end charaters.
+    ///  - returns: Characters between the given start and end charaters.
     func substringFromCharacter(start: String, to end: String) -> String? {
         let startIndex = self.rangeOfString(start)
         let endIndex   = self.rangeOfString(end)

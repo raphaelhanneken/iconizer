@@ -42,9 +42,9 @@ extension NSImage {
     
     ///  Copies the current image and resizes it to the size of the given NSSize.
     ///
-    ///  :param: size The size of the image copy.
+    ///  - parameter size: The size of the image copy.
     ///
-    ///  :returns: The resized image.
+    ///  - returns: The resized image.
     func copyWithSize(size: NSSize) -> NSImage? {
         // Create a new rect with given width and height
         let frame    = NSMakeRect(0, 0, size.width, size.height)
@@ -69,10 +69,10 @@ extension NSImage {
     ///  Copies the current image and resizes it to the size of the given NSSize, while
     ///  maintaining the aspect ratio of the original image.
     ///
-    ///  :param: size          The size of the new image.
-    ///  :param: preserveRatio true/false Either maintain the aspect ratio or not.
+    ///  - parameter size:          The size of the new image.
+    ///  - parameter preserveRatio: true/false Either maintain the aspect ratio or not.
     ///
-    ///  :returns: The resized image.
+    ///  - returns: The resized image.
     func resizeToSize(size: NSSize, whileMaintainingAspectRatio preserveRatio: Bool) -> NSImage? {
         var newSize = size
         
@@ -92,9 +92,9 @@ extension NSImage {
     
     ///  Crops an image to the given size.
     ///
-    ///  :param: size The size of the new image.
+    ///  - parameter size: The size of the new image.
     ///
-    ///  :returns: Cropped image.
+    ///  - returns: Cropped image.
     func cropToSize(size: NSSize) -> NSImage? {
         // Resize the current image, while preserving the aspect ratio.
         if let resized = self.resizeToSize(size, whileMaintainingAspectRatio: true) {
@@ -129,7 +129,7 @@ extension NSImage {
     
     ///  Builds a PNGRepresentation of the current image.
     ///
-    ///  :returns: NSData object of the png representation.
+    ///  - returns: NSData object of the png representation.
     func PNGRepresentation() -> NSData? {
         // Create an empty NSBitmapImageRep.
         var bitmap: NSBitmapImageRep
