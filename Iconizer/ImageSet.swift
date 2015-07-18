@@ -41,56 +41,53 @@ class ImageSet: NSObject {
     ///  - parameter resolutions: Resolutions to resize the given image to.
     ///
     ///  - returns: Returns true on success; False on failure.
-    func generateScaledImagesFromImage(image: NSImage) -> Bool {
-        // Use the original image as 3x
-        self.images["3x"] = image
+    func generateScaledImagesFromImage(image: NSImage) throws {
+        // Define the new image sizes.
+        let x1 = NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3))
+        let x2 = NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5))
         
-        // Calculate the 2x image
-        self.images["2x"] = image.copyWithSize(NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5)))
+        // Calculate the 2x and 1x images.
+        images["1x"] = image.copyWithSize(x1)
+        images["2x"] = image.copyWithSize(x2)
         
-        // Calculate the 1x image
-        self.images["1x"] = image.copyWithSize(NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3)))
-        
-        // Go for it.
-        return true
+        // Assign the original images as the 3x image.
+        images["3x"] = image
     }
     
     ///  Saves the generated images to the HD.
     ///
     ///  - parameter url: File url to save the images to.
-    func saveAssetCatalogToURL(url: NSURL, withName name: String) {
+    func saveAssetCatalogToURL(url: NSURL, withName name: String) throws {
         // Create the correct file path.
         let url = url.URLByAppendingPathComponent("\(imageSetDirectory)/\(name).imageset", isDirectory: true)
         
-        do {
-            // Create the necessary folders.
-            try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
-        } catch _ {
-        }
+        // Create the necessary folders.
+        try! NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
         
-        // Manage the Contents.json
+        // Manage the Contents.json with an empty platforms array since we don't care
+        // about platforms for Image Sets.
         var jsonFile = ContentsJSON(forType: AssetType.ImageSet, andPlatforms: [""])
         
-        // Loop through the necessary images.
+        // Loop through the image data.
         for image in jsonFile.images {
             // Unwrap the information we need.
-            if let scale = image["scale"], let filename = image["filename"] {
-                // Get a PNG representation of the correct image.
-                if let png = self.images[scale]?.PNGRepresentation() {
-                    // Save the PNG representation to the HD.
-                    if !png.writeToURL(url.URLByAppendingPathComponent(filename, isDirectory: false), atomically: true) {
-                        print("Error writing file: \(filename)")
-                    }
-                } else {
-                    print("Getting PNG Representation for file \(filename) failed!")
-                }
-            } else {
-                print("Reading JSON File failed!")
+            guard let scale = image["scale"], let filename = image["filename"] else {
+                throw ImageSetError.GettingJSONDataFailed
+            }
+            
+            // Get the correct image.
+            guard let img = self.images[scale] else {
+                throw ImageSetError.ImageNotFound
+            }
+            
+            // Create a PNG representation and write it to the HD.
+            if let png = img.PNGRepresentation() {
+                try! png.writeToURL(url.URLByAppendingPathComponent(filename), options: .DataWritingAtomic)
             }
         }
         
         // Save the Contents.json to the HD.
-        jsonFile.saveToURL(url)
+        try! jsonFile.saveToURL(url)
         
         // Reset the images array
         self.images = [:]

@@ -64,7 +64,7 @@ struct ContentsJSON {
         for platform in platforms {
             // Add the image information for each platform to our images array.
             do {
-                self.images += try JSONObjectForType(type, andPlatform: platform)
+                images += try JSONObjectForType(type, andPlatform: platform)
             } catch {
                 print(error)
             }
@@ -122,7 +122,7 @@ struct ContentsJSON {
     ///  - parameter url: File url to save the Contents.json to.
     mutating func saveToURL(url: NSURL) throws {
         // Add the image information to the contents dictionary.
-        self.contents["images"]  = self.images
+        contents["images"]  = images
         
         // Serialize the contents as JSON object.
         let data = try! NSJSONSerialization.dataWithJSONObject(self.contents, options: .PrettyPrinted)
