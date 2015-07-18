@@ -63,7 +63,11 @@ struct ContentsJSON {
         // Initialize the data object.
         for platform in platforms {
             // Add the image information for each platform to our images array.
-            self.images += JSONObjectForType(type, andPlatform: platform)
+            do {
+                self.images += try JSONObjectForType(type, andPlatform: platform)
+            } catch {
+                print(error)
+            }
         }
     }
     
@@ -72,66 +76,60 @@ struct ContentsJSON {
     ///  - parameter type: AssetType to get the json file for.
     ///
     ///  - returns: The JSON data for the given AssetType.
-    func JSONObjectForType(type: AssetType, andPlatform platform: String) -> Array<[String : String]> {
+    func JSONObjectForType(type: AssetType, andPlatform platform: String) throws -> Array<[String : String]> {
         // Holds the path to the required JSON file.
-        let path : String?
+        let resourcePath : String?
         
         // Get the correct JSON file for the given AssetType.
         switch (type) {
             case .AppIcon:
-                path = NSBundle.mainBundle().pathForResource("AppIcon_" + platform, ofType: "json")
+                resourcePath = NSBundle.mainBundle().pathForResource("AppIcon_" + platform, ofType: "json")
                 
             case .ImageSet:
-                path = NSBundle.mainBundle().pathForResource("ImageSet", ofType: "json")
+                resourcePath = NSBundle.mainBundle().pathForResource("ImageSet", ofType: "json")
                 
             case .LaunchImage:
-                path = NSBundle.mainBundle().pathForResource("LaunchImage_" + platform, ofType: "json")
+                resourcePath = NSBundle.mainBundle().pathForResource("LaunchImage_" + platform, ofType: "json")
         }
         
         // Unwrap the JSON file path.
-        if let path = path {
-            // Create a new NSData object from the contents of the selected JSON file.
-            if let data = NSData(contentsOfFile: path) {
-                // Create a new JSON object from the given data and cast it to a Dictionary.
-                var json: AnyObject? = nil
-                
-                do {
-                    json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-                } catch _ {
-                    
-                }
-                
-                if let json = json as? Dictionary<String, AnyObject> {
-                    // Get the image information as Array.
-                    if let images = json["images"] as? Array<[String : String]> {
-                        // Return the new array with image information.
-                        return images
-                    }
-                }
-            }
+        guard let filePath = resourcePath else {
+            throw ContentsJSONError.FileNotFound
         }
         
-        return []
+        // Create a new NSData object from the contents of the selected JSON file.
+        let JSONData = try! NSData(contentsOfFile: filePath, options: NSDataReadingOptions.DataReadingMappedAlways)
+        
+        // Create a new JSON object from the given data.
+        let JSONObject = try! NSJSONSerialization.JSONObjectWithData(JSONData, options: .AllowFragments)
+        
+        // Convert the JSON object into a Dictionary.
+        guard let contentsDict = JSONObject as? Dictionary<String, AnyObject> else {
+            throw ContentsJSONError.CastingJSONToDictionaryFailed
+        }
+        
+        // Get the image information from the JSON dictionary.
+        guard let images = contentsDict["images"] as? Array<[String : String]> else {
+            throw ContentsJSONError.GettingImagesArrayFailed
+        }
+        
+        // Return image information.
+        return images
     }
     
     ///  Saves the Contents.json to the appropriate folder.
     ///
     ///  - parameter url: File url to save the Contents.json to.
-    mutating func saveToURL(url: NSURL) {
-        // Add the images to the contents dictionaries.
+    mutating func saveToURL(url: NSURL) throws {
+        // Add the image information to the contents dictionary.
         self.contents["images"]  = self.images
         
         // Serialize the contents as JSON object.
-        let JSONData: NSData?
-        do {
-            JSONData = try NSJSONSerialization.dataWithJSONObject(self.contents, options: .PrettyPrinted)
-        } catch _ {
-            JSONData = nil
-        }
+        let data = try! NSJSONSerialization.dataWithJSONObject(self.contents, options: .PrettyPrinted)
         
         // Save the JSON object to the HD.
-        if let data = JSONData {
-            data.writeToURL(url.URLByAppendingPathComponent("Contents.json", isDirectory: false), atomically: true)
+        guard data.writeToURL(url.URLByAppendingPathComponent("Contents.json", isDirectory: false), atomically: true) else {
+            throw ContentsJSONError.WritingContentsJSONFailed
         }
     }
 }
