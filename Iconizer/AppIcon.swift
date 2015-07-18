@@ -80,14 +80,14 @@ class AppIcon: NSObject {
             if !combined {
                 setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/\(platform)/AppIcon.appiconset", isDirectory: true)
                 
+                // Create the necessary folders.
+                try NSFileManager.defaultManager().createDirectoryAtURL(setURL, withIntermediateDirectories: true, attributes: nil)
+                
                 // Get the Contents.json for the current platform...
                 var jsonFile = ContentsJSON(forType: AssetType.AppIcon, andPlatforms: [platform])
                 // ...and save it to the given file url.
                 try jsonFile.saveToURL(setURL)
             }
-            
-            // Create the necessary folders.
-            try NSFileManager.defaultManager().createDirectoryAtURL(setURL, withIntermediateDirectories: true, attributes: nil)
             
             // Loop through the images of the current platform.
             for image in images {
@@ -115,8 +115,10 @@ class AppIcon: NSObject {
             }
         }
         
-        // Handle the Contents.json for all platforms at once.
+        // Handle the Contents.json for a combined asset catalog.
         if combined {
+            // Create the necessary folders for a combined asset catalog.
+            try NSFileManager.defaultManager().createDirectoryAtURL(setURL, withIntermediateDirectories: true, attributes: nil)
             // Get the Contents.json for all selected platforms...
             var jsonFile = ContentsJSON(forType: AssetType.AppIcon, andPlatforms: self.images.keys.array)
             // ...and save it to the given file url.
