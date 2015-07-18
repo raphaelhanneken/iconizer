@@ -38,7 +38,7 @@ enum ContentsJSONError: ErrorType {
 enum ImageSetError: ErrorType {
     case RescalingImageFailed
     case GettingJSONDataFailed
-    case ImageNotFound
+    case MissingImage
     case GettingPNGRepresentationFailed
 }
 
@@ -47,7 +47,7 @@ enum LaunchImageError: ErrorType {
     case MissingImage
     case MissingDataForImageWidth
     case MissingDataForImageHeight
-    case MissingDataForFilename
+    case MissingDataForImageName
     case MissingDataForImageOrientation
     case MissingDataForImageIdiom
 }
