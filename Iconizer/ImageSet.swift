@@ -62,14 +62,14 @@ class ImageSet: NSObject {
         let url = url.URLByAppendingPathComponent("\(imageSetDirectory)/\(name).imageset", isDirectory: true)
         
         // Create the necessary folders.
-        try! NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
+        try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
         
         // Manage the Contents.json with an empty platforms array since we don't care
         // about platforms for Image Sets.
         var jsonFile = ContentsJSON(forType: AssetType.ImageSet, andPlatforms: [""])
         
         // Save the Contents.json to the HD.
-        try! jsonFile.saveToURL(url)
+        try jsonFile.saveToURL(url)
         
         // Loop through the image data.
         for image in jsonFile.images {
@@ -80,7 +80,7 @@ class ImageSet: NSObject {
             
             // Get the correct image.
             guard let img = self.images[scale] else {
-                throw ImageSetError.ImageNotFound
+                throw ImageSetError.MissingImage
             }
             
             // Create a PNG representation and write it to the HD.
@@ -88,6 +88,8 @@ class ImageSet: NSObject {
                 do {
                     try png.writeToURL(url.URLByAppendingPathComponent(filename), options: .DataWritingAtomic)
                 } catch {
+                    print("ERROR: Writing file \(filename) failed!")
+                    print("----------\n")
                     print(error)
                 }
             }

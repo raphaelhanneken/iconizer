@@ -103,10 +103,10 @@ class LaunchImage: NSObject {
         let url = url.URLByAppendingPathComponent("\(launchImageDirectory)/LaunchImage.launchimage/", isDirectory: true)
         
         // Create the necessary folders.
-        try! NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
+        try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
         
         // Save the Contents.json
-        try! json.saveToURL(url)
+        try json.saveToURL(url)
         
         for (filename, img) in images {
             // Create a PNG representation and write it to the HD.
@@ -114,6 +114,8 @@ class LaunchImage: NSObject {
                 do {
                     try png.writeToURL(url.URLByAppendingPathComponent(filename), options: .DataWritingAtomic)
                 } catch {
+                    print("ERROR: Writing file \(filename) failed!\n")
+                    print("----------\n")
                     print(error)
                 }
             }
