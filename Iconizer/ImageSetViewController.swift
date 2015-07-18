@@ -61,7 +61,7 @@ class ImageSetViewController: NSViewController {
             beginSheetModalWithMessage("No image name!", andText: "You forgot to specify an image name.")
         } else {
             // Tell the model to generate the required images.
-            try! imageSet.generateScaledImagesFromImage(image)
+            try imageSet.generateScaledImagesFromImage(image)
         }
     }
     
@@ -69,6 +69,6 @@ class ImageSetViewController: NSViewController {
     ///
     ///  - parameter url: File url to save the ImageSet to.
     override func saveToURL(url: NSURL) throws {
-        try! imageSet.saveAssetCatalogToURL(url, withName: imageName.stringValue)
+        try imageSet.saveAssetCatalogToURL(url, withName: imageName.stringValue)
     }
 }
