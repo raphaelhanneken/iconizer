@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E068A9D1B5A817F00B3E762 /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E068A9C1B5A817F00B3E762 /* ErrorTypes.swift */; };
 		8E07B1CD1B527E9E0058A0F6 /* LaunchImage_iPad.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E07B1CC1B527E9E0058A0F6 /* LaunchImage_iPad.json */; };
 		8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */; };
 		8E3F8F701B23488F0096E9EC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6E1B23488F0096E9EC /* MainMenu.xib */; };
@@ -54,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8E068A9C1B5A817F00B3E762 /* ErrorTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTypes.swift; sourceTree = "<group>"; };
 		8E07B1CC1B527E9E0058A0F6 /* LaunchImage_iPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaunchImage_iPad.json; sourceTree = "<group>"; };
 		8E3F8F651B23488F0096E9EC /* Iconizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iconizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3F8F691B23488F0096E9EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */,
 				8EE498671B57E7ED00FEFD1B /* StringExtensions.swift */,
 				8EE498691B57E7FB00FEFD1B /* Constants.swift */,
+				8E068A9C1B5A817F00B3E762 /* ErrorTypes.swift */,
 			);
 			name = Helper;
 			path = ..;
@@ -301,6 +304,7 @@
 				8E98C7AF1B4C617A0049AD45 /* LaunchImage.swift in Sources */,
 				8E4FDDC21B53D3AC0096713B /* ContentsJSON.swift in Sources */,
 				8E3F8F9C1B239D140096E9EC /* AppIcon.swift in Sources */,
+				8E068A9D1B5A817F00B3E762 /* ErrorTypes.swift in Sources */,
 				8EE4986A1B57E7FB00FEFD1B /* Constants.swift in Sources */,
 				8EBD14F21B24588100500F03 /* ExportTypeController.swift in Sources */,
 				8E73B4571B248A3000FD7AF9 /* NSImageExtensions.swift in Sources */,
