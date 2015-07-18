@@ -35,7 +35,7 @@ class LaunchImage: NSObject {
     var images: Dictionary<String, NSImage> = [:]
     
     /// Holds the image information for the contents.json
-    var jsonData : ContentsJSON!
+    var json : ContentsJSON!
     
     
     ///  Generates the necessary images for the selected platforms.
@@ -45,66 +45,79 @@ class LaunchImage: NSObject {
     ///  - parameter landscape: Landscape image that should be used.
     ///
     ///  - returns: True on success, false otherwise.
-    func generateImagesForPlatforms(platforms: [String], fromPortrait portrait: NSImage?, andLandscape landscape: NSImage?) -> Bool {
-        // Unwrapt both images.
-        if let portrait = portrait, let landscape = landscape {
-            // Get the JSON data for LaunchImage.
-            self.jsonData = ContentsJSON(forType: AssetType.LaunchImage, andPlatforms: platforms)
-            
-            // Loop through the image data.
-            for imgData in jsonData.images {
-                // Unwrap the required information.
-                if let width = Int(imgData["expected-width"]!), let height = Int(imgData["expected-height"]!), let filename = imgData["filename"], let orientation = imgData["orientation"] {
-                    // Check if the current platform was selected by the user
-                    if let idiom = imgData["idiom"] {
-                        if platforms.contains({$0.caseInsensitiveCompare(idiom) == .OrderedSame}) {
-                            // Check wether we have a portrait or landscape image
-                            switch(orientation) {
-                            case "portrait":
-                                self.images[filename] = portrait.cropToSize(NSSize(width: width, height: height))
-                                
-                            case "landscape":
-                                self.images[filename] = landscape.cropToSize(NSSize(width: width, height: height))
-                                
-                            default:
-                                continue
-                            }
-                        }
-                    }
-                }
-            }
-            
-            return true
+    func generateImagesForPlatforms(platforms: [String], fromPortrait portrait: NSImage?, andLandscape landscape: NSImage?) throws {
+        // Unwrap both images.
+        guard let portrait = portrait, let landscape = landscape else {
+            throw LaunchImageError.MissingImage
         }
         
-        return false
+        // Get the JSON data for LaunchImage.
+        json = ContentsJSON(forType: AssetType.LaunchImage, andPlatforms: platforms)
+        
+        // Loop through the image data.
+        for imgData in json.images {
+            // Get the expected width.
+            guard let width = imgData["expected-width"] else {
+                throw LaunchImageError.MissingDataForImageWidth
+            }
+            
+            // Get the expected height.
+            guard let height = imgData["expected-height"] else {
+                throw LaunchImageError.MissingDataForImageHeight
+            }
+            
+            // Get the filename.
+            guard let filename = imgData["filename"] else {
+                throw LaunchImageError.MissingDataForFilename
+            }
+            
+            // Get the image orientation.
+            guard let orientation = imgData["orientation"] else {
+                throw LaunchImageError.MissingDataForImageOrientation
+            }
+            
+            // Get the idiom.
+            guard let idiom = imgData["idiom"] else {
+                throw LaunchImageError.MissingDataForImageIdiom
+            }
+            
+            // Is the current platform selected by the user?
+            if platforms.contains({ $0.caseInsensitiveCompare(idiom) == .OrderedSame }) {
+                // Check which image to create. And crop the original image to the required size.
+                switch(ImageOrientation(rawValue: orientation)!) {
+                    case ImageOrientation.Portrait:
+                        images[filename] = portrait.cropToSize(NSSize(width: Int(width)!, height: Int(height)!))
+                    
+                    case ImageOrientation.Landscape:
+                        images[filename] = landscape.cropToSize(NSSize(width: Int(width)!, height: Int(height)!))
+                }
+            }
+        }
     }
     
     ///  Saves the asset catalog to the HD.
     ///
     ///  - parameter url: File path to save the launch image to.
-    func saveAssetCatalogToURL(url: NSURL) {
+    func saveAssetCatalogToURL(url: NSURL) throws {
         // Create the correct file path.
         let url = url.URLByAppendingPathComponent("\(launchImageDirectory)/LaunchImage.launchimage/", isDirectory: true)
         
-        do {
-            // Create the necessary folders.
-            try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
-        } catch _ {
-        }
-        
-        for (filename, image) in self.images {
-            if let png = image.PNGRepresentation() {
-                if !png.writeToURL(url.URLByAppendingPathComponent(filename, isDirectory: false), atomically: true) {
-                    print("Error writing file: \(filename)!")
-                }
-            } else {
-                print("Getting PNG Representation for file \(filename) failed!")
-            }
-        }
+        // Create the necessary folders.
+        try! NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
         
         // Save the Contents.json
-        jsonData.saveToURL(url)
+        try! json.saveToURL(url)
+        
+        for (filename, img) in images {
+            // Create a PNG representation and write it to the HD.
+            if let png = img.PNGRepresentation() {
+                do {
+                    try png.writeToURL(url.URLByAppendingPathComponent(filename), options: .DataWritingAtomic)
+                } catch {
+                    print(error)
+                }
+            }
+        }
         
         // Reset the images array
         self.images = [:]
