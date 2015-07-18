@@ -106,6 +106,8 @@ class AppIcon: NSObject {
                         do {
                             try png.writeToURL(fileURL, options: .DataWritingAtomic)
                         } catch {
+                            print("ERROR: Writing file \(filename) failed!\n")
+                            print("----------\n")
                             print(error)
                         }
                     }
