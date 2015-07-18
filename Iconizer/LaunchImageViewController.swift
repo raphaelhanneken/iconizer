@@ -29,7 +29,7 @@
 import Cocoa
 
 /// Handles the LaunchImage view.
-class LaunchImageViewController: ExportTypeController {
+class LaunchImageViewController: NSViewController {
     
     /// Reference to the horizontal image view
     @IBOutlet weak var horizontal: NSImageView!
@@ -74,39 +74,35 @@ class LaunchImageViewController: ExportTypeController {
     
     override func viewWillDisappear() {
         // Save user defaults.
-        let userPrefs = PreferenceManager()
+        let userPrefs                          = PreferenceManager()
         userPrefs.generateLaunchImageForIPad   = self.ipad.state
         userPrefs.generateLaunchImageForIPhone = self.iphone.state
     }
     
     ///  Tells the model to generate the required images.
-    ///
-    ///  - returns: True on successful generation, false otherwise.
-    override func generateRequiredImages() -> Bool {
+    override func generateRequiredImages() throws {
         // Verify that both images are available.
-        if let landscapeImage = self.horizontal.image, let portraitImage = self.portrait.image {
-            // Make sure at least one platform is selected.
-            if self.enabledPlatforms.count > 0 {
-                // Generate the necessary images.
-                if self.launchImage.generateImagesForPlatforms(enabledPlatforms, fromPortrait: portraitImage, andLandscape: landscapeImage) {
-                    return true
-                }
-            } else {
-                // No platforms to generate images for.
-                beginSheetModalWithMessage("No Platform selected!", andText: "You have to select at least one platform.")
-            }
-        } else {
+        guard let landscapeImage = horizontal.image, let portraitImage = portrait.image else {
             // At least on image is missing!
             beginSheetModalWithMessage("Missing Image!", andText: "You have to provide a landscape and a portrait image.")
+            
+            return
         }
-        
-        return false
+
+        // Make sure at least one platform is selected.
+        if enabledPlatforms.count > 0 {
+            // Generate the necessary images.
+            try launchImage.generateImagesForPlatforms(enabledPlatforms, fromPortrait: portraitImage, andLandscape: landscapeImage)
+        } else {
+            // No platforms to generate images for.
+            beginSheetModalWithMessage("No Platform selected!", andText: "You have to select at least one platform.")
+        }
     }
     
     ///  Tells the model to save the generated asset catalog to the HD.
     ///
     ///  - parameter url: File URL to save the catalog to.
-    override func saveToURL(url: NSURL) {
-        self.launchImage.saveAssetCatalogToURL(url)
+    override func saveToURL(url: NSURL) throws {
+        try launchImage.saveAssetCatalogToURL(url)
     }
 }
