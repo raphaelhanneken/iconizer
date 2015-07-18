@@ -25,8 +25,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import Foundation
 
+/// Error Types for ContentsJSON.swift
 enum ContentsJSONError: ErrorType {
     case FileNotFound
     case CastingJSONToDictionaryFailed
@@ -35,6 +35,7 @@ enum ContentsJSONError: ErrorType {
 }
 
 
+/// Error Types for ImageSet.swift
 enum ImageSetError: ErrorType {
     case RescalingImageFailed
     case GettingJSONDataFailed
@@ -43,6 +44,7 @@ enum ImageSetError: ErrorType {
 }
 
 
+/// Error Types for LaunchImage.swift
 enum LaunchImageError: ErrorType {
     case MissingImage
     case MissingDataForImageWidth
@@ -53,6 +55,7 @@ enum LaunchImageError: ErrorType {
 }
 
 
+/// Error Types for AppIcon.swift
 enum AppIconError: ErrorType {
     case MissingImage
     case MissingDataForImageSize
