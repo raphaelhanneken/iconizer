@@ -51,3 +51,10 @@ enum LaunchImageError: ErrorType {
     case MissingDataForImageOrientation
     case MissingDataForImageIdiom
 }
+
+
+enum AppIconError: ErrorType {
+    case MissingImage
+    case MissingDataForImageSize
+    case MissingDataForImageName
+}
