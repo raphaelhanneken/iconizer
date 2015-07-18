@@ -31,7 +31,7 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>http://behoernchen.github.io/iconizer/sparkle/IconizerAppcast.xml</string>
+	<string>https://behoernchen.github.io/iconizer/sparkle/IconizerAppcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 </dict>
