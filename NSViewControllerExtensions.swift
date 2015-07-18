@@ -1,5 +1,5 @@
 //
-// ExportTypeController.swift
+// NSViewControllerExtensions.swift
 // Iconizer
 // https://github.com/behoernchen/Iconizer
 //
@@ -27,28 +27,18 @@
 
 import Cocoa
 
-///  Base class for the export types. Provides methods for generating and saving asset catalogs.
-///  This class only exist, to call generateRequiredImages() and saveToURL(_:) from 
-///  the MainWindowController
-///  Since NSViewController doesn't provide these methods, we get a compiler error when 
-///  defining 'var currentView'
-///  as NSViewController.
-class ExportTypeController: NSViewController {
+extension NSViewController {
     ///  Base method for generating the required images.
     ///  Needs to be overridden by subclasses!
     ///
     ///  - returns: returns always false.
-    func generateRequiredImages() -> Bool {
-        return false
-    }
+    func generateRequiredImages() throws { }
     
     ///  Base method for saving the currently selected asset catalog.
     ///  Needs to be overridden by subclasses!
     ///
     ///  - parameter url: File path to the directory to save the asset to.
-    func saveToURL(url: NSURL) {
-        
-    }
+    func saveToURL(url: NSURL) throws { }
     
     ///  Opens an NSAlert panel ontop of MainWindow.
     ///
