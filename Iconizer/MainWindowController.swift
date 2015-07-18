@@ -37,7 +37,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     /// Points to the SegmentedControl, which determines which view is currently selected.
     @IBOutlet weak var exportType: NSSegmentedControl!
     /// Represents the currently selected view.
-    var currentView: ExportTypeController?
+    var currentView: NSViewController?
     
     // Override the windowNibName property.
     override var windowNibName: String {
