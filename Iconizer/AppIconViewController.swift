@@ -30,7 +30,7 @@ import Cocoa
 
 
 ///  Handles the AppIconView
-class AppIconViewController: ExportTypeController {
+class AppIconViewController: NSViewController {
     
     /// Export for Car Play?
     @IBOutlet weak var carPlay: NSButton!
@@ -64,6 +64,7 @@ class AppIconViewController: ExportTypeController {
     
     /// Holds the AppIcon model
     let appIcon = AppIcon()
+    
     
     override var nibName: String {
         return "AppIconView"
@@ -103,36 +104,32 @@ class AppIconViewController: ExportTypeController {
     ///  Tells the model to generate the required images.
     ///
     ///  - returns: Returns true on success, false on failure.
-    override func generateRequiredImages() -> Bool {
+    override func generateRequiredImages() throws {
         // Unwrap the image from imageView
-        if let image = self.imageView.image {
-            // Check if at least one platform is selected.
-            if self.enabledPlatforms.count > 0 {
-                // Tell the model to generate it's images
-                self.appIcon.generateImagesForPlatforms(self.enabledPlatforms, fromImage: image)
-                // We're alright here, so return true
-                return true
-            } else {
-                // Whoops! We have no platforms.
-                self.beginSheetModalWithMessage("No Platform!", andText: "You haven't selected any platforms yet.")
-            }
-        } else {
+        guard let image = imageView.image else {
             // Oh snap! Forgot the image.
-            self.beginSheetModalWithMessage("No Image!", andText: "You haven't dropped any image to convert.")
+            beginSheetModalWithMessage("No Image!", andText: "You haven't dropped any image to convert.")
+            return
         }
-        
-        // We have a problem here, captain!
-        return false
+
+        // Check if at least one platform is selected.
+        if enabledPlatforms.count > 0 {
+            // Tell the model to generate it's images
+            try appIcon.generateImagesForPlatforms(enabledPlatforms, fromImage: image)
+        } else {
+            // Whoops! We have no platforms.
+            beginSheetModalWithMessage("No Platform!", andText: "You haven't selected any platforms yet.")
+        }
     }
     
     ///  Tells the model to save itself to the given url.
     ///
     ///  - parameter url: File path to save the asset catalog to.
-    override func saveToURL(url: NSURL) {
+    override func saveToURL(url: NSURL) throws {
         if self.combined.state == NSOnState {
-            self.appIcon.saveAssetCatalogToURL(url, asCombinedAsset: true)
+            try appIcon.saveAssetCatalogToURL(url, asCombinedAsset: true)
         } else {
-            self.appIcon.saveAssetCatalogToURL(url, asCombinedAsset: false)
+            try appIcon.saveAssetCatalogToURL(url, asCombinedAsset: false)
         }
     }
 }
