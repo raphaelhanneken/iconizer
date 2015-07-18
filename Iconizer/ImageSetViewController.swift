@@ -30,7 +30,7 @@ import Cocoa
 
 
 /// Handles the ImageSet view.
-class ImageSetViewController: ExportTypeController {
+class ImageSetViewController: NSViewController {
     
     /// Reference to the Image Well.
     @IBOutlet weak var imageView: NSImageView!
@@ -40,43 +40,35 @@ class ImageSetViewController: ExportTypeController {
     /// Holds the ImageSet model
     let imageSet = ImageSet()
     
+    
     override var nibName: String {
         return "ImageSetView"
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
     }
     
     ///  Tells the model to generate the necessary images.
     ///
     ///  - returns: True on success, false otherwise.
-    override func generateRequiredImages() -> Bool {
+    override func generateRequiredImages() throws {
         // Unwrap the image object from the view.
-        if let image = self.imageView.image {
-            if self.imageName.stringValue.isEmpty {
-                // The user hasn't provided any image name!
-                self.beginSheetModalWithMessage("No image name!", andText: "You forgot to specify an image name.")
-            } else {
-                // Everything alright here!
-                // Tell the model to generate the required images
-                if imageSet.generateScaledImagesFromImage(image) {
-                    return true
-                }
-            }
-        } else {
+        guard let image = imageView.image else {
             // We forgot the image here.
-            self.beginSheetModalWithMessage("No Image!", andText: "You haven't dropped any image to convert.")
+            beginSheetModalWithMessage("No Image!", andText: "You haven't dropped any image to convert.")
+            return
         }
-        
-        return false
+
+        if imageName.stringValue.isEmpty {
+            // The user hasn't provided any image name.
+            beginSheetModalWithMessage("No image name!", andText: "You forgot to specify an image name.")
+        } else {
+            // Tell the model to generate the required images.
+            try! imageSet.generateScaledImagesFromImage(image)
+        }
     }
     
     ///  Tells the model to save itself to the given file url.
     ///
-    ///  - parameter url: File url to where to save the ImageSet.
-    override func saveToURL(url: NSURL) {
-        self.imageSet.saveAssetCatalogToURL(url, withName: self.imageName.stringValue)
+    ///  - parameter url: File url to save the ImageSet to.
+    override func saveToURL(url: NSURL) throws {
+        try! imageSet.saveAssetCatalogToURL(url, withName: imageName.stringValue)
     }
 }
