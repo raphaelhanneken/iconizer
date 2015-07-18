@@ -77,31 +77,43 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     ///  - parameter sender: NSButton responsible for exporting.
     @IBAction func export(sender: NSButton) {
         // Unwrap the export view.
-        if let currentView = self.currentView {
+        guard let currentView = self.currentView else {
+            return
+        }
+        
+        do {
             // Generate the required images.
-            if currentView.generateRequiredImages() {
-                // Misuse an NSOpenPanel as export panel.
-                let exportSheet = NSOpenPanel()
-                
-                // Configure the "export sheet".
-                exportSheet.canChooseDirectories = true
-                exportSheet.canChooseFiles       = false
-                exportSheet.prompt               = "Export"
-                
-                // Open the export panel.
-                exportSheet.beginSheetModalForWindow(self.window!) { (result: Int) in
-                    // The user clicked "Export".
-                    if result == NSFileHandlingPanelOKButton {
-                        // Unwrap the file url.
-                        if let url = exportSheet.URL {
-                            // Save the currently selected asset to the selected file url.
-                            currentView.saveToURL(url)
-                            // Open the generated folders in finder.
-                            NSWorkspace.sharedWorkspace().openURL(url.URLByAppendingPathComponent("Iconizer Assets", isDirectory: true))
-                        }
+            try currentView.generateRequiredImages()
+            
+            // Misuse an NSOpenPanel as export panel.
+            let exportSheet = NSOpenPanel()
+            
+            // Configure the "export sheet".
+            exportSheet.canChooseDirectories = true
+            exportSheet.canChooseFiles       = false
+            exportSheet.prompt               = "Export"
+            
+            // Open the export panel.
+            exportSheet.beginSheetModalForWindow(self.window!) { (result: Int) in
+                // The user clicked "Export".
+                if result == NSFileHandlingPanelOKButton {
+                    // Unwrap the file url.
+                    guard let url = exportSheet.URL else {
+                        return
+                    }
+                    
+                    do {
+                        // Save the currently selected asset to the selected file url.
+                        try currentView.saveToURL(url)
+                        // Open the generated folders in finder.
+                        NSWorkspace.sharedWorkspace().openURL(url.URLByAppendingPathComponent("Iconizer Assets", isDirectory: true))
+                    } catch {
+                        print(error)
                     }
                 }
             }
+        } catch {
+            print(error)
         }
     }
     
