@@ -93,15 +93,15 @@ struct ContentsJSON {
         }
         
         // Unwrap the JSON file path.
-        guard let filePath = resourcePath else {
+        guard let path = resourcePath else {
             throw ContentsJSONError.FileNotFound
         }
         
         // Create a new NSData object from the contents of the selected JSON file.
-        let JSONData = try! NSData(contentsOfFile: filePath, options: NSDataReadingOptions.DataReadingMappedAlways)
+        let JSONData = try NSData(contentsOfFile: path, options: .DataReadingMappedAlways)
         
         // Create a new JSON object from the given data.
-        let JSONObject = try! NSJSONSerialization.JSONObjectWithData(JSONData, options: .AllowFragments)
+        let JSONObject = try NSJSONSerialization.JSONObjectWithData(JSONData, options: .AllowFragments)
         
         // Convert the JSON object into a Dictionary.
         guard let contentsDict = JSONObject as? Dictionary<String, AnyObject> else {
@@ -125,11 +125,9 @@ struct ContentsJSON {
         contents["images"]  = images
         
         // Serialize the contents as JSON object.
-        let data = try! NSJSONSerialization.dataWithJSONObject(self.contents, options: .PrettyPrinted)
+        let data = try NSJSONSerialization.dataWithJSONObject(self.contents, options: .PrettyPrinted)
         
-        // Save the JSON object to the HD.
-        guard data.writeToURL(url.URLByAppendingPathComponent("Contents.json", isDirectory: false), atomically: true) else {
-            throw ContentsJSONError.WritingContentsJSONFailed
-        }
+        // Write the JSON object to the HD.
+        try data.writeToURL(url.URLByAppendingPathComponent("Contents.json", isDirectory: false), options: .DataWritingAtomic)
     }
 }
