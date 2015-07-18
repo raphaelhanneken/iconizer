@@ -68,7 +68,7 @@ class LaunchImage: NSObject {
             
             // Get the filename.
             guard let filename = imgData["filename"] else {
-                throw LaunchImageError.MissingDataForFilename
+                throw LaunchImageError.MissingDataForImageName
             }
             
             // Get the image orientation.
