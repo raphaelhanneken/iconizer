@@ -42,19 +42,27 @@ class AppIcon: NSObject {
         // Loop through the selected platforms
         for platform in platforms {
             // Temporary array to hold the generated images.
-            var images: [[String : NSImage?]] = []
+            var tmpImages: [[String : NSImage?]] = []
             
             // Create a new JSON object for the current platform.
             let jsonData = ContentsJSON(forType: AssetType.AppIcon, andPlatforms: [platform])
             
             for imageData in jsonData.images {
-                if let size = Int(imageData["expected-size"]!), let filename = imageData["filename"] {
-                    images.append([filename : image.copyWithSize(NSSize(width: size, height: size))])
+                // Get the expected size, since App Icons are quadratic we only need one value.
+                guard let size = imageData["expected-size"] else {
+                    AppIconError.MissingDataForImageSize
                 }
+                // Get the filename.
+                guard let filename = imageData["filename"] else {
+                    AppIconError.MissingDataForImageName
+                }
+                
+                // Append the generated image to the temporary images array.
+                tmpImages.append([filename : image.copyWithSize(NSSize(width: Int(size)!, height: Int(size)!))])
             }
             
             // Write back the images to self.images
-            self.images[platform] = images
+            self.images[platform] = tmpImages
         }
     }
     
@@ -62,59 +70,55 @@ class AppIcon: NSObject {
     ///
     ///  - parameter url:      NSURL to save the asset catalog to.
     ///  - parameter combined: Save as combined catalog?
-    func saveAssetCatalogToURL(url: NSURL, asCombinedAsset combined: Bool) {
-        // Manage the Contents.json
-        var jsonFile: ContentsJSON
-        
+    func saveAssetCatalogToURL(url: NSURL, asCombinedAsset combined: Bool) throws {
         // Define where to save the asset catalog.
         var setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/Combined/AppIcon.appiconset", isDirectory: true)
+        
+        // Handle the Contents.json for all platforms at once.
+        if combined {
+            // Get the Contents.json for all selected platforms...
+            var jsonFile = ContentsJSON(forType: AssetType.AppIcon, andPlatforms: self.images.keys.array)
+            // ...and save it to the given file url.
+            try! jsonFile.saveToURL(setURL)
+        }
         
         // Loop through the selected platforms.
         for (platform, images) in self.images {
             // Override the setURL in case we don't generate a combined asset.
             if !combined {
                 setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/\(platform)/AppIcon.appiconset", isDirectory: true)
+                
+                // Get the Contents.json for the current platform...
+                var jsonFile = ContentsJSON(forType: AssetType.AppIcon, andPlatforms: [platform])
+                // ...and save it to the given file url.
+                try! jsonFile.saveToURL(setURL)
             }
             
-            do {
-                // Create the necessary folders.
-                try NSFileManager.defaultManager().createDirectoryAtURL(setURL, withIntermediateDirectories: true, attributes: nil)
-            } catch _ {
-            }
+            // Create the necessary folders.
+            try! NSFileManager.defaultManager().createDirectoryAtURL(setURL, withIntermediateDirectories: true, attributes: nil)
             
             // Loop through the images of the current platform.
             for image in images {
-                // Get each image + filename.
+                // Get each image object + filename.
                 for (filename, image) in image {
                     // Append the filename to the appiconset url.
                     let fileURL = setURL.URLByAppendingPathComponent(filename, isDirectory: false)
                     
-                    // Unwrap the image
-                    if let icon = image?.PNGRepresentation() {
-                        if !icon.writeToURL(fileURL, atomically: true) {
-                            print("Error writing file: \(filename)!")
+                    // Unwrap the image object.
+                    guard let img = image else {
+                        throw AppIconError.MissingImage
+                    }
+                    
+                    // Get a PNG representation of the current image.
+                    if let png = img.PNGRepresentation() {
+                        do {
+                            try png.writeToURL(fileURL, options: .DataWritingAtomic)
+                        } catch {
+                            print(error)
                         }
-                    } else {
-                        print("Getting PNG Representation for file \(filename) failed!")
                     }
                 }
             }
-            
-            // Handle the Contents.json for each platform.
-            if !combined {
-                // Get the Contents.json for the current platform...
-                jsonFile = ContentsJSON(forType: AssetType.AppIcon, andPlatforms: [platform])
-                // ...and save it to the given file url.
-                jsonFile.saveToURL(setURL)
-            }
-        }
-        
-        // Handle the Contents.json for all platforms at once.
-        if combined {
-            // Get the Contents.json for all selected platforms...
-            jsonFile = ContentsJSON(forType: AssetType.AppIcon, andPlatforms: self.images.keys.array)
-            // ...and save it to the given file url.
-            jsonFile.saveToURL(setURL)
         }
         
         // Reset the images array
