@@ -47,6 +47,15 @@ let kOSXPlatformName        = "Mac"
 let kCarPlayPlatformName    = "Car"
 
 
+// MARK: - Image Orientation names
+
+/// Wrap the different image orientations into an enum.
+enum ImageOrientation: String {
+    case Portrait  = "portrait"
+    case Landscape = "landscape"
+}
+
+
 // MARK: - Directory names
 
 /// Defines the name of the directory, where Iconizer saves the asset catalogs.
