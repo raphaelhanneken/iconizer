@@ -38,7 +38,7 @@ class AppIcon: NSObject {
     ///
     ///  - parameter platforms: Platforms to generate icons for.
     ///  - parameter image:     The image to Iconize.
-    func generateImagesForPlatforms(platforms: [String], fromImage image: NSImage) {
+    func generateImagesForPlatforms(platforms: [String], fromImage image: NSImage) throws {
         // Loop through the selected platforms
         for platform in platforms {
             // Temporary array to hold the generated images.
@@ -50,11 +50,11 @@ class AppIcon: NSObject {
             for imageData in jsonData.images {
                 // Get the expected size, since App Icons are quadratic we only need one value.
                 guard let size = imageData["expected-size"] else {
-                    AppIconError.MissingDataForImageSize
+                    throw AppIconError.MissingDataForImageSize
                 }
                 // Get the filename.
                 guard let filename = imageData["filename"] else {
-                    AppIconError.MissingDataForImageName
+                    throw AppIconError.MissingDataForImageName
                 }
                 
                 // Append the generated image to the temporary images array.
