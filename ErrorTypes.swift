@@ -33,3 +33,11 @@ enum ContentsJSONError: ErrorType {
     case GettingImagesArrayFailed
     case WritingContentsJSONFailed
 }
+
+
+enum ImageSetError: ErrorType {
+    case RescalingImageFailed
+    case GettingJSONDataFailed
+    case ImageNotFound
+    case GettingPNGRepresentationFailed
+}
