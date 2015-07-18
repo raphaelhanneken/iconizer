@@ -68,6 +68,9 @@ class ImageSet: NSObject {
         // about platforms for Image Sets.
         var jsonFile = ContentsJSON(forType: AssetType.ImageSet, andPlatforms: [""])
         
+        // Save the Contents.json to the HD.
+        try! jsonFile.saveToURL(url)
+        
         // Loop through the image data.
         for image in jsonFile.images {
             // Unwrap the information we need.
@@ -82,12 +85,13 @@ class ImageSet: NSObject {
             
             // Create a PNG representation and write it to the HD.
             if let png = img.PNGRepresentation() {
-                try! png.writeToURL(url.URLByAppendingPathComponent(filename), options: .DataWritingAtomic)
+                do {
+                    try png.writeToURL(url.URLByAppendingPathComponent(filename), options: .DataWritingAtomic)
+                } catch {
+                    print(error)
+                }
             }
         }
-        
-        // Save the Contents.json to the HD.
-        try! jsonFile.saveToURL(url)
         
         // Reset the images array
         self.images = [:]
