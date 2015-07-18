@@ -41,3 +41,13 @@ enum ImageSetError: ErrorType {
     case ImageNotFound
     case GettingPNGRepresentationFailed
 }
+
+
+enum LaunchImageError: ErrorType {
+    case MissingImage
+    case MissingDataForImageWidth
+    case MissingDataForImageHeight
+    case MissingDataForFilename
+    case MissingDataForImageOrientation
+    case MissingDataForImageIdiom
+}
