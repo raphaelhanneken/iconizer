@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E068A9D1B5A817F00B3E762 /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E068A9C1B5A817F00B3E762 /* ErrorTypes.swift */; };
-		8E068A9F1B5AADED00B3E762 /* NSViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E068A9E1B5AADED00B3E762 /* NSViewControllerExtensions.swift */; };
 		8E07B1CD1B527E9E0058A0F6 /* LaunchImage_iPad.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E07B1CC1B527E9E0058A0F6 /* LaunchImage_iPad.json */; };
 		8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */; };
 		8E3F8F701B23488F0096E9EC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6E1B23488F0096E9EC /* MainMenu.xib */; };
@@ -35,6 +33,8 @@
 		8E973B181B5588180038577A /* AppIcon_Mac.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E973B131B5588180038577A /* AppIcon_Mac.json */; };
 		8E973B191B5588180038577A /* AppIcon_Watch.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E973B141B5588180038577A /* AppIcon_Watch.json */; };
 		8E98C7AF1B4C617A0049AD45 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C7AE1B4C617A0049AD45 /* LaunchImage.swift */; };
+		8EAC458E1B5CF401005F531B /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC458C1B5CF401005F531B /* ErrorTypes.swift */; };
+		8EAC458F1B5CF401005F531B /* NSViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC458D1B5CF401005F531B /* NSViewControllerExtensions.swift */; };
 		8EBD6F4D1B544A570062D62C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EBD6F4C1B544A570062D62C /* Sparkle.framework */; };
 		8EBD6F501B544C890062D62C /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8EBD6F4F1B544C890062D62C /* dsa_pub.pem */; };
 		8EE498681B57E7ED00FEFD1B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE498671B57E7ED00FEFD1B /* StringExtensions.swift */; };
@@ -55,8 +55,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8E068A9C1B5A817F00B3E762 /* ErrorTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTypes.swift; sourceTree = "<group>"; };
-		8E068A9E1B5AADED00B3E762 /* NSViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSViewControllerExtensions.swift; sourceTree = "<group>"; };
 		8E07B1CC1B527E9E0058A0F6 /* LaunchImage_iPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaunchImage_iPad.json; sourceTree = "<group>"; };
 		8E3F8F651B23488F0096E9EC /* Iconizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iconizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3F8F691B23488F0096E9EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +82,8 @@
 		8E973B131B5588180038577A /* AppIcon_Mac.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppIcon_Mac.json; sourceTree = "<group>"; };
 		8E973B141B5588180038577A /* AppIcon_Watch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppIcon_Watch.json; sourceTree = "<group>"; };
 		8E98C7AE1B4C617A0049AD45 /* LaunchImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchImage.swift; sourceTree = "<group>"; };
+		8EAC458C1B5CF401005F531B /* ErrorTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorTypes.swift; path = Iconizer/ErrorTypes.swift; sourceTree = "<group>"; };
+		8EAC458D1B5CF401005F531B /* NSViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSViewControllerExtensions.swift; path = Iconizer/NSViewControllerExtensions.swift; sourceTree = "<group>"; };
 		8EBD6F4C1B544A570062D62C /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		8EBD6F4F1B544C890062D62C /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		8EE498671B57E7ED00FEFD1B /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = Iconizer/StringExtensions.swift; sourceTree = "<group>"; };
@@ -188,11 +188,11 @@
 		8E3F8F9D1B23ACC20096E9EC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				8EAC458C1B5CF401005F531B /* ErrorTypes.swift */,
+				8EAC458D1B5CF401005F531B /* NSViewControllerExtensions.swift */,
 				8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */,
 				8EE498671B57E7ED00FEFD1B /* StringExtensions.swift */,
 				8EE498691B57E7FB00FEFD1B /* Constants.swift */,
-				8E068A9C1B5A817F00B3E762 /* ErrorTypes.swift */,
-				8E068A9E1B5AADED00B3E762 /* NSViewControllerExtensions.swift */,
 			);
 			name = Helper;
 			path = ..;
@@ -297,16 +297,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EAC458F1B5CF401005F531B /* NSViewControllerExtensions.swift in Sources */,
 				8E85121D1B25D35C0064F113 /* ImageSet.swift in Sources */,
 				8E73B4551B24814600FD7AF9 /* PreferenceManager.swift in Sources */,
 				8E3F8F911B2374300096E9EC /* AppIconViewController.swift in Sources */,
 				8E3F8F8D1B236A5C0096E9EC /* MainWindowController.swift in Sources */,
 				8E98C7AF1B4C617A0049AD45 /* LaunchImage.swift in Sources */,
 				8E4FDDC21B53D3AC0096713B /* ContentsJSON.swift in Sources */,
-				8E068A9F1B5AADED00B3E762 /* NSViewControllerExtensions.swift in Sources */,
 				8E3F8F9C1B239D140096E9EC /* AppIcon.swift in Sources */,
-				8E068A9D1B5A817F00B3E762 /* ErrorTypes.swift in Sources */,
 				8EE4986A1B57E7FB00FEFD1B /* Constants.swift in Sources */,
+				8EAC458E1B5CF401005F531B /* ErrorTypes.swift in Sources */,
 				8E73B4571B248A3000FD7AF9 /* NSImageExtensions.swift in Sources */,
 				8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */,
 				8EE498681B57E7ED00FEFD1B /* StringExtensions.swift in Sources */,
