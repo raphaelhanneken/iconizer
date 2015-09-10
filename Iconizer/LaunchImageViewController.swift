@@ -101,8 +101,9 @@ class LaunchImageViewController: NSViewController {
     
     ///  Tells the model to save the generated asset catalog to the HD.
     ///
+    ///  - parameter name: Asset catalog name.
     ///  - parameter url: File URL to save the catalog to.
-    override func saveToURL(url: NSURL) throws {
-        try launchImage.saveAssetCatalogToURL(url)
+    override func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
+        try launchImage.saveAssetCatalogNamed(name, toURL: url)
     }
 }
