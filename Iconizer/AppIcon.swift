@@ -70,15 +70,15 @@ class AppIcon: NSObject {
     ///
     ///  - parameter url:      NSURL to save the asset catalog to.
     ///  - parameter combined: Save as combined catalog?
-    func saveAssetCatalogToURL(url: NSURL, asCombinedAsset combined: Bool) throws {
+    func saveAssetCatalogNamed(name: String, toURL url: NSURL, asCombinedAsset combined: Bool) throws {
         // Define where to save the asset catalog.
-        var setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/Combined/AppIcon.appiconset", isDirectory: true)
+        var setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/Combined/\(name).appiconset", isDirectory: true)
         
         // Loop through the selected platforms.
         for (platform, images) in self.images {
             // Override the setURL in case we don't generate a combined asset.
             if !combined {
-                setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/\(platform)/AppIcon.appiconset", isDirectory: true)
+                setURL = url.URLByAppendingPathComponent("\(appIconDirectory)/\(platform)/\(name).appiconset", isDirectory: true)
                 
                 // Create the necessary folders.
                 try NSFileManager.defaultManager().createDirectoryAtURL(setURL, withIntermediateDirectories: true, attributes: nil)

@@ -124,8 +124,9 @@ class AppIconViewController: NSViewController {
     
     ///  Tells the model to save itself to the given url.
     ///
+    ///  - parameter name: AppIcon set name.
     ///  - parameter url: File path to save the asset catalog to.
-    override func saveToURL(url: NSURL) throws {
-        try appIcon.saveAssetCatalogToURL(url, asCombinedAsset: (combined.state == NSOnState))
+    override func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
+        try appIcon.saveAssetCatalogNamed(name, toURL: url, asCombinedAsset: (combined.state == NSOnState))
     }
 }
