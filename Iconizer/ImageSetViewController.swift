@@ -34,8 +34,6 @@ class ImageSetViewController: NSViewController {
     
     /// Reference to the Image Well.
     @IBOutlet weak var imageView: NSImageView!
-    /// Name of the generated image asset.
-    @IBOutlet weak var imageName: NSTextField!
     
     /// Holds the ImageSet model
     let imageSet = ImageSet()
@@ -55,20 +53,16 @@ class ImageSetViewController: NSViewController {
             beginSheetModalWithMessage("No Image!", andText: "You haven't dropped any image to convert.")
             return
         }
-
-        if imageName.stringValue.isEmpty {
-            // The user hasn't provided any image name.
-            beginSheetModalWithMessage("No image name!", andText: "You forgot to specify an image name.")
-        } else {
-            // Tell the model to generate the required images.
-            try imageSet.generateScaledImagesFromImage(image)
-        }
+        
+        // Tell the model to generate the required images.
+        try imageSet.generateScaledImagesFromImage(image)
     }
     
     ///  Tells the model to save itself to the given file url.
     ///
+    ///  - parameter name: App Icon name.
     ///  - parameter url: File url to save the ImageSet to.
-    override func saveToURL(url: NSURL) throws {
-        try imageSet.saveAssetCatalogToURL(url, withName: imageName.stringValue)
+    override func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
+        try imageSet.saveAssetCatalogNamed(name, toURL: url)
     }
 }

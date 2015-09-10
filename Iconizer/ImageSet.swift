@@ -56,8 +56,9 @@ class ImageSet: NSObject {
     
     ///  Saves the generated images to the HD.
     ///
+    ///  - parameter name: Asset catalog name.
     ///  - parameter url: File url to save the images to.
-    func saveAssetCatalogToURL(url: NSURL, withName name: String) throws {
+    func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
         // Create the correct file path.
         let url = url.URLByAppendingPathComponent("\(imageSetDirectory)/\(name).imageset", isDirectory: true)
         
