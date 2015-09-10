@@ -32,8 +32,6 @@ import Cocoa
 ///  Handles the MainWindow view.
 class MainWindowController: NSWindowController, NSWindowDelegate {
     
-    /// Holds the main view of the MainWindow.
-    @IBOutlet weak var mainView: NSView!
     /// Points to the SegmentedControl, which determines which view is currently selected.
     @IBOutlet weak var exportType: NSSegmentedControl!
     /// Represents the currently selected view.
@@ -50,9 +48,9 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         // Hide the window title, to get the unified toolbar.
         self.window!.titleVisibility = .Hidden
         
-        // Set the default view.
+        // Get the user defaults.
         let prefManager = PreferenceManager()
-        // Select the correct view...
+        // Change the content view to the last selected view...
         self.changeView(ViewControllerTag(rawValue: prefManager.selectedExportType))
         // ...and set the selectedSegment of NSSegmentedControl to the corresponding value.
         self.exportType.selectedSegment = prefManager.selectedExportType
@@ -142,11 +140,33 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
             }
         }
         
-        // Add the selected view to the mainView of MainWindow.
-        if let currentView = self.currentView {
-            self.mainView.addSubview(currentView.view)
-            currentView.view.frame = self.mainView.bounds
-            currentView.view.autoresizingMask = [.ViewWidthSizable, .ViewHeightSizable]
+        // Unwrap the selected ViewController and the main window.
+        if let currentView = self.currentView, let window = self.window {
+            // Resize the main window to fit the selected view.
+            resizeWindowForContentSize(currentView.view.frame.size)
+            // Set the main window's contentView to the selected view.
+            window.contentView = currentView.view
         }
+    }
+    
+    /// Resizes the main window to the given size.
+    ///
+    /// - parameter size: The new size of the main window.
+    func resizeWindowForContentSize(size: NSSize) {
+        // Unwrap the main window object.
+        guard let window = self.window else {
+            // Is this even possible???
+            return
+        }
+        
+        // Get the content rect of the main window.
+        let windowContentRect = window.contentRectForFrameRect(window.frame)
+        // Create a new content rect for the given size (except width).
+        let newContentRect    = NSMakeRect(NSMinX(windowContentRect), NSMaxY(windowContentRect) - size.height, windowContentRect.size.width, size.height)
+        // Create a new frame rect from the content rect.
+        let newWindowFrame = window.frameRectForContentRect(newContentRect)
+        
+        // Set the window frame to the new frame.
+        window.setFrame(newWindowFrame, display: true, animate: true)
     }
 }
