@@ -2,12 +2,10 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8152.3" systemVersion="15A282a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8152.3"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ImageSetViewController" customModule="Iconizer" customModuleProvider="target">
             <connections>
-                <outlet property="imageName" destination="Kfm-t1-COa" id="Ofh-Lv-txL"/>
                 <outlet property="imageView" destination="DwK-b6-DPa" id="5yT-i0-nJc"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -15,23 +13,16 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="349" height="497"/>
+            <rect key="frame" x="0.0" y="0.0" width="349" height="458"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DwK-b6-DPa">
-                    <rect key="frame" x="17" y="117" width="315" height="363"/>
+                    <rect key="frame" x="17" y="51" width="315" height="390"/>
                     <animations/>
                     <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="uS2-UD-8RE"/>
                 </imageView>
-                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="fWK-cK-EMN">
-                    <rect key="frame" x="20" y="109" width="309" height="5"/>
-                    <animations/>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <font key="titleFont" metaFont="system"/>
-                </box>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3SP-e2-b3D">
-                    <rect key="frame" x="18" y="86" width="313" height="17"/>
+                    <rect key="frame" x="18" y="20" width="313" height="17"/>
                     <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3x Image" id="1MT-zv-92i">
                         <font key="font" metaFont="system"/>
@@ -39,55 +30,29 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <box autoresizesSubviews="NO" title="Image Set Name" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="g8s-QK-xSM">
-                    <rect key="frame" x="17" y="16" width="315" height="62"/>
-                    <view key="contentView" id="xZH-WJ-o35">
-                        <rect key="frame" x="1" y="1" width="313" height="62"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kfm-t1-COa">
-                                <rect key="frame" x="18" y="20" width="277" height="22"/>
-                                <animations/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Your awesome Imageset title..." drawsBackground="YES" id="dZB-sW-lIV">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                        <animations/>
-                    </view>
-                    <constraints>
-                        <constraint firstItem="Kfm-t1-COa" firstAttribute="top" secondItem="g8s-QK-xSM" secondAttribute="top" constant="19" id="Arc-DJ-qEm"/>
-                        <constraint firstAttribute="trailing" secondItem="Kfm-t1-COa" secondAttribute="trailing" constant="16" id="FjI-Qo-ST9"/>
-                        <constraint firstItem="Kfm-t1-COa" firstAttribute="leading" secondItem="g8s-QK-xSM" secondAttribute="leading" constant="16" id="IpU-NC-KGL"/>
-                        <constraint firstAttribute="bottom" secondItem="Kfm-t1-COa" secondAttribute="bottom" constant="17" id="Jjm-gu-jmd"/>
-                        <constraint firstAttribute="height" constant="58" id="z0f-dn-9VQ"/>
-                    </constraints>
+                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="fWK-cK-EMN">
+                    <rect key="frame" x="20" y="43" width="309" height="5"/>
                     <animations/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <font key="titleFont" metaFont="system"/>
                 </box>
             </subviews>
             <constraints>
-                <constraint firstItem="g8s-QK-xSM" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="1Xz-gM-W2L"/>
+                <constraint firstAttribute="bottom" secondItem="3SP-e2-b3D" secondAttribute="bottom" constant="20" symbolic="YES" id="3Yh-k7-50Z"/>
                 <constraint firstAttribute="trailing" secondItem="fWK-cK-EMN" secondAttribute="trailing" constant="20" id="4OE-HI-KAv"/>
                 <constraint firstItem="fWK-cK-EMN" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="8ls-eJ-xw0"/>
-                <constraint firstAttribute="bottom" secondItem="g8s-QK-xSM" secondAttribute="bottom" constant="20" id="GJV-p2-iaa"/>
                 <constraint firstItem="fWK-cK-EMN" firstAttribute="top" secondItem="DwK-b6-DPa" secondAttribute="bottom" constant="8" id="Hjg-00-0qy"/>
                 <constraint firstItem="DwK-b6-DPa" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="I32-86-uE0"/>
-                <constraint firstItem="g8s-QK-xSM" firstAttribute="top" secondItem="DwK-b6-DPa" secondAttribute="bottom" constant="42" id="RDq-vC-SBZ"/>
                 <constraint firstItem="3SP-e2-b3D" firstAttribute="top" secondItem="fWK-cK-EMN" secondAttribute="bottom" constant="8" id="Z95-57-DFL"/>
-                <constraint firstItem="g8s-QK-xSM" firstAttribute="top" secondItem="DwK-b6-DPa" secondAttribute="bottom" constant="42" id="ZPX-cf-6Kt"/>
                 <constraint firstItem="DwK-b6-DPa" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="eGk-Fh-ipM"/>
-                <constraint firstAttribute="trailing" secondItem="g8s-QK-xSM" secondAttribute="trailing" constant="20" id="hf1-dw-6yw"/>
                 <constraint firstAttribute="trailing" secondItem="3SP-e2-b3D" secondAttribute="trailing" constant="20" id="jtd-Vp-fZh"/>
                 <constraint firstItem="3SP-e2-b3D" firstAttribute="top" secondItem="fWK-cK-EMN" secondAttribute="bottom" constant="8" id="oNO-eT-EEP"/>
                 <constraint firstAttribute="trailing" secondItem="DwK-b6-DPa" secondAttribute="trailing" constant="20" id="quc-Zm-cj0"/>
                 <constraint firstItem="3SP-e2-b3D" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="uxt-Ve-Afp"/>
             </constraints>
             <animations/>
-            <point key="canvasLocation" x="279.5" y="390.5"/>
+            <point key="canvasLocation" x="279.5" y="371"/>
         </customView>
     </objects>
 </document>
