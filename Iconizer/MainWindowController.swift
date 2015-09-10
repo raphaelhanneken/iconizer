@@ -82,37 +82,44 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         do {
             // Generate the required images.
             try currentView.generateRequiredImages()
-            
-            // Misuse an NSOpenPanel as export panel.
-            let exportSheet = NSOpenPanel()
-            
-            // Configure the "export sheet".
-            exportSheet.canChooseDirectories = true
-            exportSheet.canChooseFiles       = false
-            exportSheet.prompt               = "Export"
-            
-            // Open the export panel.
-            exportSheet.beginSheetModalForWindow(self.window!) { (result: Int) in
-                // The user clicked "Export".
-                if result == NSFileHandlingPanelOKButton {
-                    // Unwrap the file url.
-                    guard let url = exportSheet.URL else {
-                        return
-                    }
-                    
-                    do {
-                        // Save the currently selected asset to the selected file url.
-                        try currentView.saveToURL(url)
-                        // Open the generated folders in finder.
-                        NSWorkspace.sharedWorkspace().openURL(url.URLByAppendingPathComponent("Iconizer Assets", isDirectory: true))
-                    } catch {
-                        print(error)
-                    }
-                }
-            }
         } catch {
             print(error)
+            return
         }
+        
+    
+        // Create a new NSSavePanel.
+        let exportSheet = NSSavePanel()
+        
+        // Configure the save panel.
+        exportSheet.prompt = "Export"
+        
+        // Open the save panel.
+        exportSheet.beginSheetModalForWindow(self.window!) { (result: Int) in
+            // The user clicked "Export".
+            if result == NSFileHandlingPanelOKButton {
+                // Unwrap the file url.
+                guard let url = exportSheet.URL else {
+                    return
+                }
+                
+                // Get rid of the last path component.
+                if let url = url.URLByDeletingLastPathComponent {
+                    do {
+                        // Save the currently generated asset catalog to the
+                        // selected file URL.
+                        try currentView.saveToURL(url)
+                    } catch {
+                        print(error)
+                        return
+                    }
+                }
+                
+                // Open the generated asset catalog in Finder.
+                NSWorkspace.sharedWorkspace().openURL(url.URLByAppendingPathComponent("Iconizer Assets", isDirectory: true))
+            }
+        }
+        
     }
     
     ///  Swaps the current ViewController with a new one.
