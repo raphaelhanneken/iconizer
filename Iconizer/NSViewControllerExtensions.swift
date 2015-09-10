@@ -37,8 +37,9 @@ extension NSViewController {
     ///  Base method for saving the currently selected asset catalog.
     ///  Needs to be overridden by subclasses!
     ///
+    ///  - parameter name: Name of the generated asset catalog.
     ///  - parameter url: File path to the directory to save the asset to.
-    func saveToURL(url: NSURL) throws { }
+    func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws { }
     
     ///  Opens an NSAlert panel ontop of MainWindow.
     ///
