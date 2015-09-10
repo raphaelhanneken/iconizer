@@ -98,21 +98,18 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         exportSheet.beginSheetModalForWindow(self.window!) { (result: Int) in
             // The user clicked "Export".
             if result == NSFileHandlingPanelOKButton {
-                // Unwrap the file url.
-                guard let url = exportSheet.URL else {
+                // Unwrap the file url and get rid of the last path component.
+                guard let url = exportSheet.URL?.URLByDeletingLastPathComponent else {
                     return
                 }
                 
-                // Get rid of the last path component.
-                if let url = url.URLByDeletingLastPathComponent {
-                    do {
-                        // Save the currently generated asset catalog to the
-                        // selected file URL.
-                        try currentView.saveToURL(url)
-                    } catch {
-                        print(error)
-                        return
-                    }
+                do {
+                    // Save the currently generated asset catalog to the
+                    // selected file URL.
+                    try currentView.saveAssetCatalogNamed(exportSheet.nameFieldStringValue, toURL: url)
+                } catch {
+                    print(error)
+                    return
                 }
                 
                 // Open the generated asset catalog in Finder.
