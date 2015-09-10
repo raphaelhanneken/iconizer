@@ -17,7 +17,7 @@
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="415" height="500"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
-            <value key="minSize" type="size" width="415" height="500"/>
+            <value key="minSize" type="size" width="420" height="400"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="415" height="500"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +29,7 @@
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="0T7-9F-hUI"/>
                     <toolbarItem implicitItemIdentifier="E5B00F72-3A4A-4A92-9D7E-0BA52EAEC522" label="Export" paletteLabel="Export" image="NSShareTemplate" id="Nwv-YM-0IP">
                         <nil key="toolTip"/>
-                        <size key="minSize" width="32" height="29"/>
+                        <size key="minSize" width="32" height="28"/>
                         <size key="maxSize" width="33" height="30"/>
                         <button key="view" verticalHuggingPriority="750" id="RnJ-UJ-oLn">
                             <rect key="frame" x="5" y="14" width="32" height="28"/>
@@ -67,6 +67,7 @@
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
+                    <toolbarItem reference="0T7-9F-hUI"/>
                     <toolbarItem reference="LGf-aY-fRE"/>
                     <toolbarItem reference="0T7-9F-hUI"/>
                     <toolbarItem reference="Nwv-YM-0IP"/>
