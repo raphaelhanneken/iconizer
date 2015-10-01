@@ -20,8 +20,10 @@ You want to create 1024x1024px retina sized icns for OS X, fast and easily? Make
 
 Oct 01, 2015 - __v2.1__
 - Ready for OS X El Capitan
-- Migrated to 2.1
+- Migrated to Swift 2.1
 - Animated window resizing
+- Fixed combined asset export for App Icons
+- Name asset catalogs before saving them
 
 July 16, 2015 - __v2.0__
 - Completely rewritten version.
