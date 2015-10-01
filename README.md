@@ -18,6 +18,11 @@ You want to create 1024x1024px retina sized icns for OS X, fast and easily? Make
 
 ## Change log ##
 
+Oct 01, 2015 - __v2.1__
+- Ready for OS X El Capitan
+- Migrated to 2.1
+- Animated window resizing
+
 July 16, 2015 - __v2.0__
 - Completely rewritten version.
 - Added support for Launch Images
