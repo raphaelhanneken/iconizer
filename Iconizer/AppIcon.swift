@@ -91,7 +91,7 @@ class AppIcon: NSObject {
                 // Create the necessary folders for a combined asset catalog.
                 try NSFileManager.defaultManager().createDirectoryAtURL(setURL, withIntermediateDirectories: true, attributes: nil)
                 // Get the Contents.json for all selected platforms...
-                var jsonFile = ContentsJSON(forType: AssetType.AppIcon, andPlatforms: self.images.keys.array)
+                var jsonFile = ContentsJSON(forType: AssetType.AppIcon, andPlatforms: Array(self.images.keys))
                 // ...and save it to the given file url.
                 try jsonFile.saveToURL(setURL)
             }
