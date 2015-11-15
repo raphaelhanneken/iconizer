@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Iconizer</title>
+        <link>http://http://behoernchen.github.io/iconizer/index.html</link>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+
+        <item>
+            <title>Version 2.1</title>
+            <description><![CDATA[
+                <h2>Iconizer v2.1.1</h2>
+                <p>
+                  Improved ATS, to make the update process a little bit more secure.
+                </p>
+                <p>
+                  <strong>At WWDC 2015, Apple announced “App Transport Security” for iOS 9 and OSX 10.11 El Capitan:</strong><br />
+                  App Transport Security (ATS) lets an app add a declaration to its Info.plist file that specifies the domains with which it needs secure communication. ATS prevents accidental disclosure, provides secure default behavior, and is easy to adopt.
+                </p>
+            ]]>
+            </description>
+            <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
+            <enclosure
+                url="https://github.com/behoernchen/iconizer/releases/download/2.1.1/Iconizer.dmg"
+                sparkle:version="166"
+                sparkle:shortVersionString="2.1"
+                length="5956500"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MCwCFHDtVaL+nYlMv//iay1EXWSiw8hBAhQXcO7plPJEbRrnGTV05vJnVgq81w==" />
+            <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        </item>
+
+        <item>
+            <title>Version 2.1</title>
+            <description><![CDATA[
+                <h2>Iconizer v2.1 FINAL</h2>
+                <p>
+                    Final release for Iconizer v2.1. Build on OS X 10.11 El Capitan with Xcode 7.0.1 (7A1001).
+                </p>
+            ]]>
+            </description>
+            <pubDate>Thu, 01 Oct 2015 00:00:00 +0000</pubDate>
+            <enclosure
+                url="https://github.com/behoernchen/Iconizer/releases/download/2.1/Iconizer.dmg"
+                sparkle:version="162"
+                sparkle:shortVersionString="2.1"
+                length="5925297"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MC0CFQCDKxWCmahaueUCEhPfacGuQC+qSgIUPyRy5KSuDTUIZn1WhFCNWRkkM3s=" />
+            <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        </item>
+
+        <item>
+            <title>Version 2.1</title>
+            <description><![CDATA[
+                <h2>Iconizer v2.1 Beta</h2>
+                <ul>
+                    <li>This update fixes a bug, where AppIcons couldn't be exported as combined asset.</li>
+                    <li>You can name your asset catalogs now, before exporting them.</li>
+                </ul>
+                <p>
+                    I've also added the funky, eye-candyish resize effect for the main window, we all know from the System Preferences.
+                </p>
+            ]]>
+            </description>
+            <pubDate>Thu, 10 Sep 2015 00:00:00 +0000</pubDate>
+            <enclosure
+                url="https://github.com/behoernchen/Iconizer/releases/download/v2.1beta3/Iconizer.dmg"
+                sparkle:version="161"
+                sparkle:shortVersionString="2.1"
+                length="5601177"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MCwCFEYREfdcHChd8k4xCYn8I82EKeTYAhQ7QHddRlQab/6qVyZvM0HaBdYuBA==" />
+            <sparkle:minimumSystemVersion>10.11</sparkle:minimumSystemVersion>
+        </item>
+
+        <item>
+            <title>Version 2.1</title>
+            <description><![CDATA[
+                <h2>Iconizer v2.1 Beta</h2>
+                <p>
+                    Migrated Iconizer to Swift 2.0 and Xcode 7 for El Capitan.
+                </p>
+            ]]>
+            </description>
+            <pubDate>Sun, 16 Aug 2015 00:00:00 +0000</pubDate>
+            <enclosure
+                url="https://github.com/behoernchen/Iconizer/releases/download/v2.1beta2/Iconizer.dmg"
+                sparkle:version="146"
+                sparkle:shortVersionString="2.1"
+                length="5576960"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MCwCFGID+pb75R3TPec8zApNdN87/PVdAhQaHT3LEiEvw6u2EsmbPsx/DGVzlg==" />
+            <sparkle:minimumSystemVersion>10.11</sparkle:minimumSystemVersion>
+        </item>
+
+        <item>
+            <title>Version 2.0</title>
+            <description><![CDATA[
+                <h2>All new Iconizer version</h2>
+                <p>
+                    Almost completely rewritten!
+                </p>
+                <ul>
+                    <li>Added support for ImageSets</li>
+                    <li>Added support for LaunchImages</li>
+                    <li>Added auto updates via the Sparkle Framework</li>
+                </ul>
+            ]]>
+            </description>
+            <pubDate>Do, 16 Jul 2015 20:00:00 +0000</pubDate>
+            <enclosure
+                url="https://github.com/behoernchen/Iconizer/releases/download/2.0/Iconizer.dmg"
+                sparkle:version="112"
+                sparkle:shortVersionString="2.0"
+                length="5030000"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MCwCFC6uyz80PeoiBcPynm0pRNLm2AHzAhR6kgX3nawOqc/lxmWyQ0adou95Pg==" />
+            <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        </item>
+    </channel>
+</rss>

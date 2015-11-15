@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Iconizer - Create Xcode asset catalogs on the fly.</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/default.css">
+  <link rel="stylesheet" type="text/css" href="css/octicons.css">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <a href="https://github.com/behoernchen" class="navbar-brand">
+          <img src="images/behoernchen.jpeg" alt="behoernchen" width="20" height="20" class="pull-left">
+          <span class="gitname">behoernchen</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <header class="iconizer-header">
+    <div class="container">
+      <h1>Iconizer</h1>
+      <p>Create Xcode asset catalogs on the fly.</p>
+      <a href="https://github.com/behoernchen/Iconizer/releases" class="btn btn-primary btn-lg">
+        <span class="octicon octicon-cloud-download" style="font-size:21px"></span>
+        <span>Download</span>
+      </a>
+    </div>
+
+    <div class="iconizer-ui pull-right">
+      <img src="images/screenshot.png" alt="Iconizer UI" width="330" height="441">
+    </div>
+  </header><!-- /header -->
+
+  <div class="container">
+    <section class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h2 class="page-header">Download <small>as binary or source code</small></h2>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="col-lg-3 col-md-3 col-sm-4">
+        <img src="images/icon.png" alt="Iconizer Icon" class="center-block">
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-8">
+        <p class="lead">
+          You can download the latest
+          <a href="https://github.com/behoernchen/Iconizer/releases/latest">
+            <span class="mega-octicon octicon-cloud-download"></span>
+            <span>Iconizer</span>
+          </a>
+          release and drop it into your applications folder, just as usual*. <br> Or you can view the whole source code in the GitHub
+          <a href="https://github.com/behoernchen/Iconizer">
+            <span class="mega-octicon octicon-mark-github"></span>
+            <span>repository</span>
+          </a>.
+          And build it yourself. Or change whatever you want. You can also fork this project, make your awesome changes, and send me a pull request. Just make sure you forked the latest version and you're good to go.<br><br>
+          <small>
+            * You have to allow downloaded apps under "System Preferences: Security &amp; Privacy: General tab"
+          </small>
+        </p>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h2 class="page-header">Generate App Icons <small>for OS X, iPad, iPhone, CarPlay and Apple Watch</small></h2>
+      </div>
+    </section>
+    <section class="row">
+      <div class="col-lg-9 col-md-9 col-sm-8">
+        <p class="lead margin">
+          Generate app icons for OS X, iPad, iPhone, CarPlay and Apple Watch with just one image. Simply Drag and Drop your icon onto Iconizer, select the platforms you need and whether or not you want all platforms generated into one asset catalog, then hit export. Iconizer handles the rest for you.
+        </p>
+        <p class="well well-lg">You archive the best results by using an image of 1024x1024 pixels size.</p>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4">
+        <img src="images/appicon.png" alt="Generate App Icons" class="center-block">
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h2 class="page-header">Generate Launch Images <small>for iPad and iPhone; Landscape or portrait</small></h2>
+      </div>
+    </section>
+    <section class="row">
+      <div class="col-lg-3 col-md-3 col-sm-4">
+        <img src="images/launchimage.png" alt="Generate App Icons" class="center-block">
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-8">
+        <p class="lead">
+          Drag and Drop a landscape and a portrait image onto Iconizer, select the platforms you're developing for, like iPad or iPhone and click export. Iconizer will generate images of every necessary size for you.<br><br>
+          If the screen rotation doesn't matter to you, e.g. you have a blank image you can also use one image for both image types. Iconizer tries to maintain the aspect ratio of your original image.
+        </p>
+        <p class="well well-lg">You archive the best results by using an image of 2208x1242 pixels size, for the landscape image. And 1242x2208 pixels for the portrait image.</p>
+        <p class="well well-lg">If you want to use one image for both types you should use a square image. At best of 2208x2208 pixels size.</p>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h2 class="page-header">Generate Image Sets <small>One image to generate 1x, 2x and 3x scaled images</small></h2>
+      </div>
+    </section>
+    <section class="row">
+      <div class="col-lg-9 col-md-9 col-sm-8">
+        <p class="lead margin">
+          Create just one image at the scale of 3x, drop it onto Iconizer, choose a truly awesome name and export it. Iconizer will create an image set that you can use directly within Xcode. Every scale included of course.
+        </p>
+        <p class="well well-lg">You archive the best results by using an image scaled @3x and let Iconizer downscale it for you.</p>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4">
+        <img src="images/imageset.png" alt="Generate App Icons" class="center-block">
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h2 class="page-header">Contributors <small>Thank you</small></h2>
+        <p class="lead">
+          <ul>
+            <li><a href="https://github.com/jeremyquinn">@jeremyquinn</a></li>
+            <li><a href="https://github.com/regnerjr">@regnerjr</a></li>
+          </ul><br>
+
+          Special thanks to <b>John Muchow</b> for mentioning Iconizer at <a href="http://macdevweekly.com/issues/7#bWqs5vS">Mac Dev Weekly</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h2 class="page-header">Changelog</h2>
+        <p>
+          <dl class="dl-horizontal">
+            <dt>Oct 14, 2015</dt>
+            <dd>Version 2.1.1<br>
+              Small update to improve the App Transport Security (ATS), to make the update process a bit more secure.<br><br>
+              <blockquote class="text-muted">
+                App Transport Security (ATS) lets an app add a declaration to its Info.plist file that specifies the domains with which it needs secure communication. ATS prevents accidental disclosure, provides secure default behavior, and is easy to adopt.
+              </blockquote>
+            </dd>
+            <dt>Oct 01, 2015</dt>
+            <dd>Version 2.1<br>
+              <ul>
+                <li>Support for El Capitan</li>
+                <li>Migrated to Swift 2.1</li>
+                <li>Animated window resizing</li>
+                <li>Fixed an issue with combined App Icon catalogs</li>
+                <li>You can now give asset catalogs a name before saving them</li>
+              </ul>
+            </dd>
+            <dt>July 16, 2015</dt>
+            <dd>Version 2.0<br>
+              <ul>
+                <li>Added LaunchImage support</li>
+                <li>Added ImageSet support</li>
+                <li>Added auto update via the Sparkle framework</li>
+              </ul>
+            </dd>
+            <dt>May 21, 2015</dt>
+            <dd>Version 1.1<br>
+              Changed export file type from *.tiff to *.png, since iDevices doesn't support tiff files.<br>
+              <a href="https://github.com/behoernchen/Iconizer/issues/2">Issue</a> reported by <a href="https://github.com/jeremyquinn">@jeremyquinn</a><br><br><a href="https://bitbucket.org/behoernchen/iconizer_v1/downloads/Iconizer.dmg">Download version 1.1</a></dd>
+            <dt>May 19, 2015</dt>
+            <dd>Version 1.0<br>Added support for older iOS versions and CarPlay. Moved the Export button into the new toolbar</dd>
+            <dt>May 16, 2015</dt>
+            <dd>Added NSProgressIndicator.<br>Indicate processing via progress indicator.</dd>
+            <dt>May 10, 2015</dt>
+            <dd>Version 1.0<br>Export app icon assets for iPhone, iPad, Apple Watch and OS X.</dd>
+          </dl>
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <footer>
+      <div class="center-block" style="width:362px">
+        <ul class="list-inline">
+          <li><a class="github-button" href="https://github.com/behoernchen/Iconizer" data-icon="octicon-eye" aria-label="Watch behoernchen/Iconizer on GitHub">Watch</a></li>
+
+          <li><a class="github-button" href="https://github.com/behoernchen/Iconizer" data-icon="octicon-star" aria-label="Star behoernchen/Iconizer on GitHub">Star</a></li>
+
+          <li><a class="github-button" href="https://github.com/behoernchen/Iconizer/fork" data-icon="octicon-git-branch" aria-label="Fork behoernchen/Iconizer on GitHub">Fork</a></li>
+
+          <li><a class="github-button" href="https://github.com/behoernchen/Iconizer/issues" data-icon="octicon-issue-opened" aria-label="Issue behoernchen/Iconizer on GitHub">Issue</a></li>
+
+          <li><a class="github-button" href="https://github.com/behoernchen/Iconizer/archive/master.zip" data-icon="octicon-cloud-download" aria-label="Download behoernchen/Iconizer on GitHub">Download</a></li>
+        </ul>
+      </div>
+      <p class="text-center">
+        Created by <a href="https://github.com/behoernchen">behoernchen</a>.<br>
+        Code is licensed under <a href="https://github.com/behoernchen/Iconizer/blob/master/LICENSE">MIT</a>.<br>
+        This page is build with the awesome <a href="http://www.getbootstrap.com">Bootstrap</a> CSS framework and the gorgeous <a href="https://octicons.github.com">octicons</a> font icon set.
+      </p>
+    </footer>
+
+  </div> <!-- /container -->
+
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>
