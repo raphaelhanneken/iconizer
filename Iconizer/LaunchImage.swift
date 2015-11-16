@@ -32,7 +32,7 @@ import Cocoa
 class LaunchImage: NSObject {
     
     /// Holds the information from LaunchImage.json
-    var images: Dictionary<String, NSImage> = [:]
+    var images: [String : NSImage] = [:]
     
     /// Holds the image information for the contents.json
     var json : ContentsJSON!
@@ -83,13 +83,17 @@ class LaunchImage: NSObject {
             
             // Is the current platform selected by the user?
             if platforms.contains({ $0.caseInsensitiveCompare(idiom) == .OrderedSame }) {
+                guard let width = Int(width), height = Int(height) else {
+                    throw LaunchImageError.FormatError
+                }
+
                 // Check which image to create. And crop the original image to the required size.
                 switch(ImageOrientation(rawValue: orientation)!) {
                     case ImageOrientation.Portrait:
-                        images[filename] = portrait.cropToSize(NSSize(width: Int(width)!, height: Int(height)!))
+                        images[filename] = portrait.cropToSize(NSSize(width: width, height: height))
                     
                     case ImageOrientation.Landscape:
-                        images[filename] = landscape.cropToSize(NSSize(width: Int(width)!, height: Int(height)!))
+                        images[filename] = landscape.cropToSize(NSSize(width: width, height: height))
                 }
             }
         }
@@ -110,15 +114,10 @@ class LaunchImage: NSObject {
         try json.saveToURL(url)
         
         for (filename, img) in images {
-            // Create a PNG representation and write it to the HD.
-            if let png = img.PNGRepresentation() {
-                do {
-                    try png.writeToURL(url.URLByAppendingPathComponent(filename), options: .DataWritingAtomic)
-                } catch {
-                    print("ERROR: Writing file \(filename) failed!\n")
-                    print("----------\n")
-                    print(error)
-                }
+            do {
+                try img.savePNGRepresentationToURL(url.URLByAppendingPathComponent(filename))
+            } catch {
+                print(error)
             }
         }
         

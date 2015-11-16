@@ -52,6 +52,7 @@ enum LaunchImageError: ErrorType {
     case MissingDataForImageName
     case MissingDataForImageOrientation
     case MissingDataForImageIdiom
+    case FormatError
 }
 
 
@@ -60,4 +61,11 @@ enum AppIconError: ErrorType {
     case MissingImage
     case MissingDataForImageSize
     case MissingDataForImageName
+    case FormatError
+}
+
+
+/// Error types NSImageExtensions.swift
+enum NSImageExtensionError: ErrorType {
+    case UnwrappingPNGRepresentationFailed
 }

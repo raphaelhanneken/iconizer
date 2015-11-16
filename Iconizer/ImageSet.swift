@@ -84,15 +84,10 @@ class ImageSet: NSObject {
                 throw ImageSetError.MissingImage
             }
             
-            // Create a PNG representation and write it to the HD.
-            if let png = img.PNGRepresentation() {
-                do {
-                    try png.writeToURL(url.URLByAppendingPathComponent(filename), options: .DataWritingAtomic)
-                } catch {
-                    print("ERROR: Writing file \(filename) failed!")
-                    print("----------\n")
-                    print(error)
-                }
+            do {
+                try img.savePNGRepresentationToURL(url.URLByAppendingPathComponent(filename))
+            } catch {
+                print(error)
             }
         }
         

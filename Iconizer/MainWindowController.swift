@@ -78,16 +78,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         guard let currentView = self.currentView else {
             return
         }
-        
-        do {
-            // Generate the required images.
-            try currentView.generateRequiredImages()
-        } catch {
-            print(error)
-            return
-        }
-        
-    
+
         // Create a new NSSavePanel.
         let exportSheet = NSSavePanel()
         
@@ -104,6 +95,8 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                 }
                 
                 do {
+                    // Generate the required images.
+                    try currentView.generateRequiredImages()
                     // Save the currently generated asset catalog to the
                     // selected file URL.
                     try currentView.saveAssetCatalogNamed(exportSheet.nameFieldStringValue, toURL: url)

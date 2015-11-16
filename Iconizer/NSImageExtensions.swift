@@ -39,6 +39,15 @@ extension NSImage {
     var width: CGFloat {
         return self.size.width
     }
+
+    /// Returns a png representation of the current image.
+    var PNGRepresentation: NSData? {
+        if let tiff = self.TIFFRepresentation, tiffData = NSBitmapImageRep(data: tiff) {
+            return tiffData.representationUsingType(.NSPNGFileType, properties: [:])
+        }
+
+        return nil
+    }
     
     ///  Copies the current image and resizes it to the given size.
     ///
@@ -120,11 +129,11 @@ extension NSImage {
         defer { img.unlockFocus() }
         
         if rep.drawInRect(NSMakeRect(0, 0, size.width, size.height),
-            fromRect: frame,
-            operation: NSCompositingOperation.CompositeCopy,
-            fraction: 1.0,
-            respectFlipped: false,
-            hints: [:]) {
+                            fromRect: frame,
+                            operation: NSCompositingOperation.CompositeCopy,
+                            fraction: 1.0,
+                            respectFlipped: false,
+                            hints: [:]) {
             // Return the cropped image.
             return img
         }
@@ -133,20 +142,14 @@ extension NSImage {
         return nil
     }
     
-    ///  Creates a PNGRepresentation of the current image.
+    ///  Saves the PNG representation of the current image to the HD.
     ///
-    ///  - returns: The PNG representation of the current image.
-    func PNGRepresentation() -> NSData? {
-        // Lock drawing focus on self and make sure the focus gets unlocked before returning.
-        self.lockFocus()
-        defer { self.unlockFocus() }
-        
-        // Get the bitmap representation of self.
-        guard let rep = NSBitmapImageRep(focusedViewRect: NSMakeRect(0, 0, self.width, self.height)) else {
-            return nil
+    /// - parameter url: Location which to save the PNG file to.
+    func savePNGRepresentationToURL(url: NSURL) throws {
+        if let png = self.PNGRepresentation {
+            try png.writeToURL(url, options: .AtomicWrite)
+        } else {
+            throw NSImageExtensionError.UnwrappingPNGRepresentationFailed
         }
-        
-        // Return NSPNGFileType representation of the bitmap object.
-        return rep.representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: [:])
     }
 }

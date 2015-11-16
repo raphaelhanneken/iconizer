@@ -32,7 +32,7 @@ import Cocoa
 class AppIcon: NSObject {
     
     /// Holds the resized images.
-    var images: [String : Array<[String : NSImage?]>] = [:]
+    var images: [String : [String : NSImage?]] = [:]
     
     ///  Generate all necessary images for each selected platform.
     ///
@@ -41,8 +41,8 @@ class AppIcon: NSObject {
     func generateImagesForPlatforms(platforms: [String], fromImage image: NSImage) throws {
         // Loop through the selected platforms
         for platform in platforms {
-            // Temporary array to hold the generated images.
-            var tmpImages: [[String : NSImage?]] = []
+            // Temporary dict to hold the generated images.
+            var tmpImages: [String : NSImage?] = [:]
             
             // Create a new JSON object for the current platform.
             let jsonData = ContentsJSON(forType: AssetType.AppIcon, andPlatforms: [platform])
@@ -56,9 +56,13 @@ class AppIcon: NSObject {
                 guard let filename = imageData["filename"] else {
                     throw AppIconError.MissingDataForImageName
                 }
-                
-                // Append the generated image to the temporary images array.
-                tmpImages.append([filename : image.copyWithSize(NSSize(width: Int(size)!, height: Int(size)!))])
+
+                if let size = Int(size) {
+                    // Append the generated image to the temporary images dict.
+                    tmpImages[filename] = image.copyWithSize(NSSize(width: size, height: size))
+                } else {
+                    throw AppIconError.FormatError
+                }
             }
             
             // Write back the images to self.images
@@ -95,27 +99,21 @@ class AppIcon: NSObject {
                 // ...and save it to the given file url.
                 try jsonFile.saveToURL(setURL)
             }
-            
-            // Loop through the images of the current platform.
-            for image in images {
-                // Get each image object + filename.
-                for (filename, image) in image {
-                    // Append the filename to the appiconset url.
-                    let fileURL = setURL.URLByAppendingPathComponent(filename, isDirectory: false)
-                    
-                    // Unwrap the image object.
-                    guard let img = image else {
-                        throw AppIconError.MissingImage
-                    }
-                    
-                    // Get a PNG representation of the current image.
-                    if let png = img.PNGRepresentation() {
-                        do {
-                            try png.writeToURL(fileURL, options: .DataWritingAtomic)
-                        } catch {
-                            print("ERROR: Writing file \(filename) failed!")
-                        }
-                    }
+
+            // Get each image object + filename.
+            for (filename, image) in images {
+                // Append the filename to the appiconset url.
+                let fileURL = setURL.URLByAppendingPathComponent(filename, isDirectory: false)
+                
+                // Unwrap the image object.
+                guard let img = image else {
+                    throw AppIconError.MissingImage
+                }
+                
+                do {
+                    try img.savePNGRepresentationToURL(fileURL)
+                } catch {
+                    print(error)
                 }
             }
         }
