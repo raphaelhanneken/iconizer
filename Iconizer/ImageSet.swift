@@ -47,8 +47,8 @@ class ImageSet: NSObject {
         let x2 = NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5))
         
         // Calculate the 2x and 1x images.
-        images["1x"] = image.copyWithSize(x1)
-        images["2x"] = image.copyWithSize(x2)
+        images["1x"] = image.imageByCopyingWithSize(x1)
+        images["2x"] = image.imageByCopyingWithSize(x2)
         
         // Assign the original images as the 3x image.
         images["3x"] = image
@@ -85,7 +85,7 @@ class ImageSet: NSObject {
             }
             
             do {
-                try img.savePNGRepresentationToURL(url.URLByAppendingPathComponent(filename))
+                try img.saveAsPNGFileToURL(url.URLByAppendingPathComponent(filename))
             } catch {
                 print(error)
             }

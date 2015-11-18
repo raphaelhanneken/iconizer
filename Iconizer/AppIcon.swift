@@ -59,7 +59,7 @@ class AppIcon: NSObject {
 
                 if let size = Int(size) {
                     // Append the generated image to the temporary images dict.
-                    tmpImages[filename] = image.copyWithSize(NSSize(width: size, height: size))
+                    tmpImages[filename] = image.imageByCopyingWithSize(NSSize(width: size, height: size))
                 } else {
                     throw AppIconError.FormatError
                 }
@@ -111,7 +111,7 @@ class AppIcon: NSObject {
                 }
                 
                 do {
-                    try img.savePNGRepresentationToURL(fileURL)
+                    try img.saveAsPNGFileToURL(fileURL)
                 } catch {
                     print(error)
                 }

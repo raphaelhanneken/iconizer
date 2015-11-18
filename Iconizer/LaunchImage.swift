@@ -90,10 +90,10 @@ class LaunchImage: NSObject {
                 // Check which image to create. And crop the original image to the required size.
                 switch(ImageOrientation(rawValue: orientation)!) {
                     case ImageOrientation.Portrait:
-                        images[filename] = portrait.cropToSize(NSSize(width: width, height: height))
+                        images[filename] = portrait.imageByCroppingToSize(NSSize(width: width, height: height))
                     
                     case ImageOrientation.Landscape:
-                        images[filename] = landscape.cropToSize(NSSize(width: width, height: height))
+                        images[filename] = landscape.imageByCroppingToSize(NSSize(width: width, height: height))
                 }
             }
         }
@@ -115,7 +115,7 @@ class LaunchImage: NSObject {
         
         for (filename, img) in images {
             do {
-                try img.savePNGRepresentationToURL(url.URLByAppendingPathComponent(filename))
+                try img.saveAsPNGFileToURL(url.URLByAppendingPathComponent(filename))
             } catch {
                 print(error)
             }
