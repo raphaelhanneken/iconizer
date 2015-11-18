@@ -49,12 +49,13 @@ extension NSImage {
         return nil
     }
     
-    ///  Copies the current image and resizes it to the given size.
+    ///  Returns a new image that represents the original image after
+    ///  resizing is to the supplied size.
     ///
     ///  - parameter size: The size of the new image.
     ///
-    ///  - returns: The resized copy of the given image.
-    func copyWithSize(size: NSSize) -> NSImage? {
+    ///  - returns: The resized copy of the original image.
+    func imageByCopyingWithSize(size: NSSize) -> NSImage? {
         // Create a new rect with given width and height
         let frame = NSMakeRect(0, 0, size.width, size.height)
         
@@ -97,15 +98,16 @@ extension NSImage {
             newSize = NSSize(width: floor(self.width * heightRatio), height: floor(self.height * heightRatio))
         }
         
-        return self.copyWithSize(newSize)
+        return self.imageByCopyingWithSize(newSize)
     }
     
-    ///  Copies and crops an image to the given size.
+    ///  Resizes the original image, to nearly fit the supplied cropping size
+    ///  and returns the cropped copy of the image.
     ///
     ///  - parameter size: The size of the new image.
     ///
     ///  - returns: The cropped copy of the given image.
-    func cropToSize(size: NSSize) -> NSImage? {
+    func imageByCroppingToSize(size: NSSize) -> NSImage? {
         // Resize the current image, while preserving the aspect ratio.
         guard let resized = self.resizeWhileMaintainingAspectRatioToSize(size) else {
             return nil
@@ -145,7 +147,7 @@ extension NSImage {
     ///  Saves the PNG representation of the current image to the HD.
     ///
     /// - parameter url: Location which to save the PNG file to.
-    func savePNGRepresentationToURL(url: NSURL) throws {
+    func saveAsPNGFileToURL(url: NSURL) throws {
         if let png = self.PNGRepresentation {
             try png.writeToURL(url, options: .AtomicWrite)
         } else {
