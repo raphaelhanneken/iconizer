@@ -7,38 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E07B1CD1B527E9E0058A0F6 /* LaunchImage_iPad.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E07B1CC1B527E9E0058A0F6 /* LaunchImage_iPad.json */; };
+		8E2F99421C01F13600C2E2D8 /* AppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */; };
+		8E2F99431C01F13600C2E2D8 /* ImageSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */; };
+		8E2F99441C01F13600C2E2D8 /* LaunchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99401C01F13600C2E2D8 /* LaunchImageViewController.swift */; };
+		8E2F99451C01F13600C2E2D8 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99411C01F13600C2E2D8 /* MainWindowController.swift */; };
+		8E2F994B1C01F14E00C2E2D8 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99461C01F14E00C2E2D8 /* AppIcon.swift */; };
+		8E2F994C1C01F14E00C2E2D8 /* ContentsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99471C01F14E00C2E2D8 /* ContentsJSON.swift */; };
+		8E2F994D1C01F14E00C2E2D8 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99481C01F14E00C2E2D8 /* ImageSet.swift */; };
+		8E2F994E1C01F14E00C2E2D8 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99491C01F14E00C2E2D8 /* LaunchImage.swift */; };
+		8E2F994F1C01F14E00C2E2D8 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F994A1C01F14E00C2E2D8 /* PreferenceManager.swift */; };
+		8E2F99541C01F16000C2E2D8 /* AppIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99501C01F16000C2E2D8 /* AppIconView.xib */; };
+		8E2F99551C01F16000C2E2D8 /* ImageSetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99511C01F16000C2E2D8 /* ImageSetView.xib */; };
+		8E2F99561C01F16000C2E2D8 /* LaunchImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99521C01F16000C2E2D8 /* LaunchImageView.xib */; };
+		8E2F99571C01F16000C2E2D8 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99531C01F16000C2E2D8 /* MainWindow.xib */; };
+		8E2F995A1C01F16D00C2E2D8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99581C01F16D00C2E2D8 /* MainMenu.xib */; };
+		8E2F99601C01F17E00C2E2D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F995B1C01F17E00C2E2D8 /* Constants.swift */; };
+		8E2F99611C01F17E00C2E2D8 /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F995C1C01F17E00C2E2D8 /* ErrorTypes.swift */; };
+		8E2F99621C01F17E00C2E2D8 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F995D1C01F17E00C2E2D8 /* NSImageExtensions.swift */; };
+		8E2F99631C01F17E00C2E2D8 /* NSViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F995E1C01F17E00C2E2D8 /* NSViewControllerExtensions.swift */; };
+		8E2F99641C01F17E00C2E2D8 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F995F1C01F17E00C2E2D8 /* StringExtensions.swift */; };
+		8E2F996F1C01F19400C2E2D8 /* AppIcon_Car.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99651C01F19400C2E2D8 /* AppIcon_Car.json */; };
+		8E2F99701C01F19400C2E2D8 /* AppIcon_iPad.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99661C01F19400C2E2D8 /* AppIcon_iPad.json */; };
+		8E2F99711C01F19400C2E2D8 /* AppIcon_iPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99671C01F19400C2E2D8 /* AppIcon_iPhone.json */; };
+		8E2F99721C01F19400C2E2D8 /* AppIcon_Mac.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99681C01F19400C2E2D8 /* AppIcon_Mac.json */; };
+		8E2F99731C01F19400C2E2D8 /* AppIcon_Watch.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99691C01F19400C2E2D8 /* AppIcon_Watch.json */; };
+		8E2F99741C01F19400C2E2D8 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996A1C01F19400C2E2D8 /* dsa_pub.pem */; };
+		8E2F99751C01F19400C2E2D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996B1C01F19400C2E2D8 /* Images.xcassets */; };
+		8E2F99761C01F19400C2E2D8 /* ImageSet.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996C1C01F19400C2E2D8 /* ImageSet.json */; };
+		8E2F99771C01F19400C2E2D8 /* LaunchImage_iPad.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996D1C01F19400C2E2D8 /* LaunchImage_iPad.json */; };
+		8E2F99781C01F19400C2E2D8 /* LaunchImage_iPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996E1C01F19400C2E2D8 /* LaunchImage_iPhone.json */; };
+		8E2F997B1C01F20300C2E2D8 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2F99791C01F1BD00C2E2D8 /* Sparkle.framework */; };
+		8E2F997C1C01F20300C2E2D8 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E2F99791C01F1BD00C2E2D8 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */; };
-		8E3F8F701B23488F0096E9EC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6E1B23488F0096E9EC /* MainMenu.xib */; };
-		8E3F8F8D1B236A5C0096E9EC /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F8B1B236A5C0096E9EC /* MainWindowController.swift */; };
-		8E3F8F8E1B236A5C0096E9EC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F8C1B236A5C0096E9EC /* MainWindow.xib */; };
-		8E3F8F911B2374300096E9EC /* AppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F8F1B2374300096E9EC /* AppIconViewController.swift */; };
-		8E3F8F921B2374300096E9EC /* AppIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F901B2374300096E9EC /* AppIconView.xib */; };
-		8E3F8F951B23744E0096E9EC /* LaunchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F931B23744E0096E9EC /* LaunchImageViewController.swift */; };
-		8E3F8F961B23744E0096E9EC /* LaunchImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F941B23744E0096E9EC /* LaunchImageView.xib */; };
-		8E3F8F991B23746E0096E9EC /* ImageSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F971B23746E0096E9EC /* ImageSetViewController.swift */; };
-		8E3F8F9A1B23746E0096E9EC /* ImageSetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F8F981B23746E0096E9EC /* ImageSetView.xib */; };
-		8E3F8F9C1B239D140096E9EC /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F9B1B239D140096E9EC /* AppIcon.swift */; };
-		8E4FDDC21B53D3AC0096713B /* ContentsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4FDDC11B53D3AC0096713B /* ContentsJSON.swift */; };
-		8E7163841B5455F000A031AB /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8EBD6F4C1B544A570062D62C /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8E73B4551B24814600FD7AF9 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */; };
-		8E73B4571B248A3000FD7AF9 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */; };
-		8E85121D1B25D35C0064F113 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E85121C1B25D35C0064F113 /* ImageSet.swift */; };
-		8E859E431B5462840052CDBC /* ImageSet.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E859E421B5462840052CDBC /* ImageSet.json */; };
-		8E911A581B25956A0042ECEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E911A571B25956A0042ECEA /* Images.xcassets */; };
-		8E9360FE1B5433130084ECD2 /* LaunchImage_iPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E9360FD1B5433130084ECD2 /* LaunchImage_iPhone.json */; };
-		8E973B151B5588180038577A /* AppIcon_Car.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E973B101B5588180038577A /* AppIcon_Car.json */; };
-		8E973B161B5588180038577A /* AppIcon_iPad.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E973B111B5588180038577A /* AppIcon_iPad.json */; };
-		8E973B171B5588180038577A /* AppIcon_iPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E973B121B5588180038577A /* AppIcon_iPhone.json */; };
-		8E973B181B5588180038577A /* AppIcon_Mac.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E973B131B5588180038577A /* AppIcon_Mac.json */; };
-		8E973B191B5588180038577A /* AppIcon_Watch.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E973B141B5588180038577A /* AppIcon_Watch.json */; };
-		8E98C7AF1B4C617A0049AD45 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98C7AE1B4C617A0049AD45 /* LaunchImage.swift */; };
-		8EAC458E1B5CF401005F531B /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC458C1B5CF401005F531B /* ErrorTypes.swift */; };
-		8EAC458F1B5CF401005F531B /* NSViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC458D1B5CF401005F531B /* NSViewControllerExtensions.swift */; };
-		8EBD6F4D1B544A570062D62C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EBD6F4C1B544A570062D62C /* Sparkle.framework */; };
-		8EBD6F501B544C890062D62C /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8EBD6F4F1B544C890062D62C /* dsa_pub.pem */; };
-		8EE498681B57E7ED00FEFD1B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE498671B57E7ED00FEFD1B /* StringExtensions.swift */; };
-		8EE4986A1B57E7FB00FEFD1B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE498691B57E7FB00FEFD1B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,46 +48,46 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8E7163841B5455F000A031AB /* Sparkle.framework in CopyFiles */,
+				8E2F997C1C01F20300C2E2D8 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8E07B1CC1B527E9E0058A0F6 /* LaunchImage_iPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaunchImage_iPad.json; sourceTree = "<group>"; };
+		8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIconViewController.swift; path = Controller/AppIconViewController.swift; sourceTree = "<group>"; };
+		8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSetViewController.swift; path = Controller/ImageSetViewController.swift; sourceTree = "<group>"; };
+		8E2F99401C01F13600C2E2D8 /* LaunchImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchImageViewController.swift; path = Controller/LaunchImageViewController.swift; sourceTree = "<group>"; };
+		8E2F99411C01F13600C2E2D8 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainWindowController.swift; path = Controller/MainWindowController.swift; sourceTree = "<group>"; };
+		8E2F99461C01F14E00C2E2D8 /* AppIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIcon.swift; path = Models/AppIcon.swift; sourceTree = "<group>"; };
+		8E2F99471C01F14E00C2E2D8 /* ContentsJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentsJSON.swift; path = Models/ContentsJSON.swift; sourceTree = "<group>"; };
+		8E2F99481C01F14E00C2E2D8 /* ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSet.swift; path = Models/ImageSet.swift; sourceTree = "<group>"; };
+		8E2F99491C01F14E00C2E2D8 /* LaunchImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchImage.swift; path = Models/LaunchImage.swift; sourceTree = "<group>"; };
+		8E2F994A1C01F14E00C2E2D8 /* PreferenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferenceManager.swift; path = Models/PreferenceManager.swift; sourceTree = "<group>"; };
+		8E2F99501C01F16000C2E2D8 /* AppIconView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AppIconView.xib; path = Views/AppIconView.xib; sourceTree = "<group>"; };
+		8E2F99511C01F16000C2E2D8 /* ImageSetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageSetView.xib; path = Views/ImageSetView.xib; sourceTree = "<group>"; };
+		8E2F99521C01F16000C2E2D8 /* LaunchImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchImageView.xib; path = Views/LaunchImageView.xib; sourceTree = "<group>"; };
+		8E2F99531C01F16000C2E2D8 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = Views/MainWindow.xib; sourceTree = "<group>"; };
+		8E2F99591C01F16D00C2E2D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Views/Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8E2F995B1C01F17E00C2E2D8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Iconizer/Helper/Constants.swift; sourceTree = "<group>"; };
+		8E2F995C1C01F17E00C2E2D8 /* ErrorTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorTypes.swift; path = Iconizer/Helper/ErrorTypes.swift; sourceTree = "<group>"; };
+		8E2F995D1C01F17E00C2E2D8 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSImageExtensions.swift; path = Iconizer/Helper/NSImageExtensions.swift; sourceTree = "<group>"; };
+		8E2F995E1C01F17E00C2E2D8 /* NSViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSViewControllerExtensions.swift; path = Iconizer/Helper/NSViewControllerExtensions.swift; sourceTree = "<group>"; };
+		8E2F995F1C01F17E00C2E2D8 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = Iconizer/Helper/StringExtensions.swift; sourceTree = "<group>"; };
+		8E2F99651C01F19400C2E2D8 /* AppIcon_Car.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_Car.json; path = Resources/AppIcon_Car.json; sourceTree = "<group>"; };
+		8E2F99661C01F19400C2E2D8 /* AppIcon_iPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_iPad.json; path = Resources/AppIcon_iPad.json; sourceTree = "<group>"; };
+		8E2F99671C01F19400C2E2D8 /* AppIcon_iPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_iPhone.json; path = Resources/AppIcon_iPhone.json; sourceTree = "<group>"; };
+		8E2F99681C01F19400C2E2D8 /* AppIcon_Mac.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_Mac.json; path = Resources/AppIcon_Mac.json; sourceTree = "<group>"; };
+		8E2F99691C01F19400C2E2D8 /* AppIcon_Watch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_Watch.json; path = Resources/AppIcon_Watch.json; sourceTree = "<group>"; };
+		8E2F996A1C01F19400C2E2D8 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
+		8E2F996B1C01F19400C2E2D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
+		8E2F996C1C01F19400C2E2D8 /* ImageSet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ImageSet.json; path = Resources/ImageSet.json; sourceTree = "<group>"; };
+		8E2F996D1C01F19400C2E2D8 /* LaunchImage_iPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPad.json; path = Resources/LaunchImage_iPad.json; sourceTree = "<group>"; };
+		8E2F996E1C01F19400C2E2D8 /* LaunchImage_iPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone.json; path = Resources/LaunchImage_iPhone.json; sourceTree = "<group>"; };
+		8E2F99791C01F1BD00C2E2D8 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		8E3F8F651B23488F0096E9EC /* Iconizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iconizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3F8F691B23488F0096E9EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8E3F8F6F1B23488F0096E9EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		8E3F8F8B1B236A5C0096E9EC /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
-		8E3F8F8C1B236A5C0096E9EC /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		8E3F8F8F1B2374300096E9EC /* AppIconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconViewController.swift; sourceTree = "<group>"; };
-		8E3F8F901B2374300096E9EC /* AppIconView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppIconView.xib; sourceTree = "<group>"; };
-		8E3F8F931B23744E0096E9EC /* LaunchImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchImageViewController.swift; sourceTree = "<group>"; };
-		8E3F8F941B23744E0096E9EC /* LaunchImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchImageView.xib; sourceTree = "<group>"; };
-		8E3F8F971B23746E0096E9EC /* ImageSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSetViewController.swift; sourceTree = "<group>"; };
-		8E3F8F981B23746E0096E9EC /* ImageSetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSetView.xib; sourceTree = "<group>"; };
-		8E3F8F9B1B239D140096E9EC /* AppIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
-		8E4FDDC11B53D3AC0096713B /* ContentsJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsJSON.swift; sourceTree = "<group>"; };
-		8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
-		8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSImageExtensions.swift; path = Iconizer/NSImageExtensions.swift; sourceTree = "<group>"; };
-		8E85121C1B25D35C0064F113 /* ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSet.swift; sourceTree = "<group>"; };
-		8E859E421B5462840052CDBC /* ImageSet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ImageSet.json; sourceTree = "<group>"; };
-		8E911A571B25956A0042ECEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8E9360FD1B5433130084ECD2 /* LaunchImage_iPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaunchImage_iPhone.json; sourceTree = "<group>"; };
-		8E973B101B5588180038577A /* AppIcon_Car.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppIcon_Car.json; sourceTree = "<group>"; };
-		8E973B111B5588180038577A /* AppIcon_iPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppIcon_iPad.json; sourceTree = "<group>"; };
-		8E973B121B5588180038577A /* AppIcon_iPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppIcon_iPhone.json; sourceTree = "<group>"; };
-		8E973B131B5588180038577A /* AppIcon_Mac.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppIcon_Mac.json; sourceTree = "<group>"; };
-		8E973B141B5588180038577A /* AppIcon_Watch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppIcon_Watch.json; sourceTree = "<group>"; };
-		8E98C7AE1B4C617A0049AD45 /* LaunchImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchImage.swift; sourceTree = "<group>"; };
-		8EAC458C1B5CF401005F531B /* ErrorTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorTypes.swift; path = Iconizer/ErrorTypes.swift; sourceTree = "<group>"; };
-		8EAC458D1B5CF401005F531B /* NSViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSViewControllerExtensions.swift; path = Iconizer/NSViewControllerExtensions.swift; sourceTree = "<group>"; };
-		8EBD6F4C1B544A570062D62C /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		8EBD6F4F1B544C890062D62C /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
-		8EE498671B57E7ED00FEFD1B /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = Iconizer/StringExtensions.swift; sourceTree = "<group>"; };
-		8EE498691B57E7FB00FEFD1B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Iconizer/Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EBD6F4D1B544A570062D62C /* Sparkle.framework in Frameworks */,
+				8E2F997B1C01F20300C2E2D8 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,17 +135,17 @@
 		8E3F8F681B23488F0096E9EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8E911A571B25956A0042ECEA /* Images.xcassets */,
-				8E9360FD1B5433130084ECD2 /* LaunchImage_iPhone.json */,
-				8E07B1CC1B527E9E0058A0F6 /* LaunchImage_iPad.json */,
-				8E859E421B5462840052CDBC /* ImageSet.json */,
-				8E973B101B5588180038577A /* AppIcon_Car.json */,
-				8E973B111B5588180038577A /* AppIcon_iPad.json */,
-				8E973B121B5588180038577A /* AppIcon_iPhone.json */,
-				8E973B131B5588180038577A /* AppIcon_Mac.json */,
-				8E973B141B5588180038577A /* AppIcon_Watch.json */,
+				8E2F996B1C01F19400C2E2D8 /* Images.xcassets */,
+				8E2F996A1C01F19400C2E2D8 /* dsa_pub.pem */,
+				8E2F99651C01F19400C2E2D8 /* AppIcon_Car.json */,
+				8E2F99661C01F19400C2E2D8 /* AppIcon_iPad.json */,
+				8E2F99671C01F19400C2E2D8 /* AppIcon_iPhone.json */,
+				8E2F99681C01F19400C2E2D8 /* AppIcon_Mac.json */,
+				8E2F99691C01F19400C2E2D8 /* AppIcon_Watch.json */,
+				8E2F996C1C01F19400C2E2D8 /* ImageSet.json */,
+				8E2F996D1C01F19400C2E2D8 /* LaunchImage_iPad.json */,
+				8E2F996E1C01F19400C2E2D8 /* LaunchImage_iPhone.json */,
 				8E3F8F691B23488F0096E9EC /* Info.plist */,
-				8EBD6F4F1B544C890062D62C /* dsa_pub.pem */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -153,11 +153,11 @@
 		8E3F8F851B2348980096E9EC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8E3F8F6E1B23488F0096E9EC /* MainMenu.xib */,
-				8E3F8F8C1B236A5C0096E9EC /* MainWindow.xib */,
-				8E3F8F901B2374300096E9EC /* AppIconView.xib */,
-				8E3F8F941B23744E0096E9EC /* LaunchImageView.xib */,
-				8E3F8F981B23746E0096E9EC /* ImageSetView.xib */,
+				8E2F99581C01F16D00C2E2D8 /* MainMenu.xib */,
+				8E2F99501C01F16000C2E2D8 /* AppIconView.xib */,
+				8E2F99511C01F16000C2E2D8 /* ImageSetView.xib */,
+				8E2F99521C01F16000C2E2D8 /* LaunchImageView.xib */,
+				8E2F99531C01F16000C2E2D8 /* MainWindow.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -165,10 +165,10 @@
 		8E3F8F861B2348A10096E9EC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8E3F8F8B1B236A5C0096E9EC /* MainWindowController.swift */,
-				8E3F8F8F1B2374300096E9EC /* AppIconViewController.swift */,
-				8E3F8F931B23744E0096E9EC /* LaunchImageViewController.swift */,
-				8E3F8F971B23746E0096E9EC /* ImageSetViewController.swift */,
+				8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */,
+				8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */,
+				8E2F99401C01F13600C2E2D8 /* LaunchImageViewController.swift */,
+				8E2F99411C01F13600C2E2D8 /* MainWindowController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -176,11 +176,11 @@
 		8E3F8F871B2348A80096E9EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8E3F8F9B1B239D140096E9EC /* AppIcon.swift */,
-				8E98C7AE1B4C617A0049AD45 /* LaunchImage.swift */,
-				8E85121C1B25D35C0064F113 /* ImageSet.swift */,
-				8E73B4541B24814600FD7AF9 /* PreferenceManager.swift */,
-				8E4FDDC11B53D3AC0096713B /* ContentsJSON.swift */,
+				8E2F99461C01F14E00C2E2D8 /* AppIcon.swift */,
+				8E2F99481C01F14E00C2E2D8 /* ImageSet.swift */,
+				8E2F99491C01F14E00C2E2D8 /* LaunchImage.swift */,
+				8E2F99471C01F14E00C2E2D8 /* ContentsJSON.swift */,
+				8E2F994A1C01F14E00C2E2D8 /* PreferenceManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -188,11 +188,11 @@
 		8E3F8F9D1B23ACC20096E9EC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				8EAC458C1B5CF401005F531B /* ErrorTypes.swift */,
-				8EAC458D1B5CF401005F531B /* NSViewControllerExtensions.swift */,
-				8E73B4561B248A3000FD7AF9 /* NSImageExtensions.swift */,
-				8EE498671B57E7ED00FEFD1B /* StringExtensions.swift */,
-				8EE498691B57E7FB00FEFD1B /* Constants.swift */,
+				8E2F995B1C01F17E00C2E2D8 /* Constants.swift */,
+				8E2F995C1C01F17E00C2E2D8 /* ErrorTypes.swift */,
+				8E2F995D1C01F17E00C2E2D8 /* NSImageExtensions.swift */,
+				8E2F995E1C01F17E00C2E2D8 /* NSViewControllerExtensions.swift */,
+				8E2F995F1C01F17E00C2E2D8 /* StringExtensions.swift */,
 			);
 			name = Helper;
 			path = ..;
@@ -201,7 +201,7 @@
 		8EBD6F4B1B5449CF0062D62C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8EBD6F4C1B544A570062D62C /* Sparkle.framework */,
+				8E2F99791C01F1BD00C2E2D8 /* Sparkle.framework */,
 			);
 			name = Frameworks;
 			path = Iconizer;
@@ -272,21 +272,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E973B161B5588180038577A /* AppIcon_iPad.json in Resources */,
-				8E3F8F701B23488F0096E9EC /* MainMenu.xib in Resources */,
-				8E973B151B5588180038577A /* AppIcon_Car.json in Resources */,
-				8E3F8F961B23744E0096E9EC /* LaunchImageView.xib in Resources */,
-				8E973B181B5588180038577A /* AppIcon_Mac.json in Resources */,
-				8E3F8F8E1B236A5C0096E9EC /* MainWindow.xib in Resources */,
-				8E973B191B5588180038577A /* AppIcon_Watch.json in Resources */,
-				8E973B171B5588180038577A /* AppIcon_iPhone.json in Resources */,
-				8E911A581B25956A0042ECEA /* Images.xcassets in Resources */,
-				8EBD6F501B544C890062D62C /* dsa_pub.pem in Resources */,
-				8E3F8F921B2374300096E9EC /* AppIconView.xib in Resources */,
-				8E859E431B5462840052CDBC /* ImageSet.json in Resources */,
-				8E3F8F9A1B23746E0096E9EC /* ImageSetView.xib in Resources */,
-				8E07B1CD1B527E9E0058A0F6 /* LaunchImage_iPad.json in Resources */,
-				8E9360FE1B5433130084ECD2 /* LaunchImage_iPhone.json in Resources */,
+				8E2F99771C01F19400C2E2D8 /* LaunchImage_iPad.json in Resources */,
+				8E2F99761C01F19400C2E2D8 /* ImageSet.json in Resources */,
+				8E2F99721C01F19400C2E2D8 /* AppIcon_Mac.json in Resources */,
+				8E2F99701C01F19400C2E2D8 /* AppIcon_iPad.json in Resources */,
+				8E2F99571C01F16000C2E2D8 /* MainWindow.xib in Resources */,
+				8E2F99551C01F16000C2E2D8 /* ImageSetView.xib in Resources */,
+				8E2F99541C01F16000C2E2D8 /* AppIconView.xib in Resources */,
+				8E2F995A1C01F16D00C2E2D8 /* MainMenu.xib in Resources */,
+				8E2F99731C01F19400C2E2D8 /* AppIcon_Watch.json in Resources */,
+				8E2F99561C01F16000C2E2D8 /* LaunchImageView.xib in Resources */,
+				8E2F99741C01F19400C2E2D8 /* dsa_pub.pem in Resources */,
+				8E2F99751C01F19400C2E2D8 /* Images.xcassets in Resources */,
+				8E2F996F1C01F19400C2E2D8 /* AppIcon_Car.json in Resources */,
+				8E2F99711C01F19400C2E2D8 /* AppIcon_iPhone.json in Resources */,
+				8E2F99781C01F19400C2E2D8 /* LaunchImage_iPhone.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,31 +297,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EAC458F1B5CF401005F531B /* NSViewControllerExtensions.swift in Sources */,
-				8E85121D1B25D35C0064F113 /* ImageSet.swift in Sources */,
-				8E73B4551B24814600FD7AF9 /* PreferenceManager.swift in Sources */,
-				8E3F8F911B2374300096E9EC /* AppIconViewController.swift in Sources */,
-				8E3F8F8D1B236A5C0096E9EC /* MainWindowController.swift in Sources */,
-				8E98C7AF1B4C617A0049AD45 /* LaunchImage.swift in Sources */,
-				8E4FDDC21B53D3AC0096713B /* ContentsJSON.swift in Sources */,
-				8E3F8F9C1B239D140096E9EC /* AppIcon.swift in Sources */,
-				8EE4986A1B57E7FB00FEFD1B /* Constants.swift in Sources */,
-				8EAC458E1B5CF401005F531B /* ErrorTypes.swift in Sources */,
-				8E73B4571B248A3000FD7AF9 /* NSImageExtensions.swift in Sources */,
+				8E2F994E1C01F14E00C2E2D8 /* LaunchImage.swift in Sources */,
+				8E2F99601C01F17E00C2E2D8 /* Constants.swift in Sources */,
+				8E2F994D1C01F14E00C2E2D8 /* ImageSet.swift in Sources */,
+				8E2F99431C01F13600C2E2D8 /* ImageSetViewController.swift in Sources */,
+				8E2F99451C01F13600C2E2D8 /* MainWindowController.swift in Sources */,
+				8E2F99441C01F13600C2E2D8 /* LaunchImageViewController.swift in Sources */,
+				8E2F99631C01F17E00C2E2D8 /* NSViewControllerExtensions.swift in Sources */,
 				8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */,
-				8EE498681B57E7ED00FEFD1B /* StringExtensions.swift in Sources */,
-				8E3F8F951B23744E0096E9EC /* LaunchImageViewController.swift in Sources */,
-				8E3F8F991B23746E0096E9EC /* ImageSetViewController.swift in Sources */,
+				8E2F99621C01F17E00C2E2D8 /* NSImageExtensions.swift in Sources */,
+				8E2F994F1C01F14E00C2E2D8 /* PreferenceManager.swift in Sources */,
+				8E2F994C1C01F14E00C2E2D8 /* ContentsJSON.swift in Sources */,
+				8E2F99421C01F13600C2E2D8 /* AppIconViewController.swift in Sources */,
+				8E2F99641C01F17E00C2E2D8 /* StringExtensions.swift in Sources */,
+				8E2F99611C01F17E00C2E2D8 /* ErrorTypes.swift in Sources */,
+				8E2F994B1C01F14E00C2E2D8 /* AppIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8E3F8F6E1B23488F0096E9EC /* MainMenu.xib */ = {
+		8E2F99581C01F16D00C2E2D8 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8E3F8F6F1B23488F0096E9EC /* Base */,
+				8E2F99591C01F16D00C2E2D8 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -418,6 +418,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Iconizer",
+					"$(PROJECT_DIR)/Iconizer/Frameworks",
 				);
 				INFOPLIST_FILE = Iconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -435,6 +436,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Iconizer",
+					"$(PROJECT_DIR)/Iconizer/Frameworks",
 				);
 				INFOPLIST_FILE = Iconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
