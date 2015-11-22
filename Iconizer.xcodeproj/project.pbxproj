@@ -36,8 +36,8 @@
 		8E2F99761C01F19400C2E2D8 /* ImageSet.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996C1C01F19400C2E2D8 /* ImageSet.json */; };
 		8E2F99771C01F19400C2E2D8 /* LaunchImage_iPad.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996D1C01F19400C2E2D8 /* LaunchImage_iPad.json */; };
 		8E2F99781C01F19400C2E2D8 /* LaunchImage_iPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996E1C01F19400C2E2D8 /* LaunchImage_iPhone.json */; };
-		8E2F997B1C01F20300C2E2D8 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2F99791C01F1BD00C2E2D8 /* Sparkle.framework */; };
-		8E2F997C1C01F20300C2E2D8 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E2F99791C01F1BD00C2E2D8 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8E2F997F1C01F67C00C2E2D8 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */; };
+		8E2F99801C01F67C00C2E2D8 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +48,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8E2F997C1C01F20300C2E2D8 /* Sparkle.framework in CopyFiles */,
+				8E2F99801C01F67C00C2E2D8 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +84,7 @@
 		8E2F996C1C01F19400C2E2D8 /* ImageSet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ImageSet.json; path = Resources/ImageSet.json; sourceTree = "<group>"; };
 		8E2F996D1C01F19400C2E2D8 /* LaunchImage_iPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPad.json; path = Resources/LaunchImage_iPad.json; sourceTree = "<group>"; };
 		8E2F996E1C01F19400C2E2D8 /* LaunchImage_iPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone.json; path = Resources/LaunchImage_iPhone.json; sourceTree = "<group>"; };
-		8E2F99791C01F1BD00C2E2D8 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
 		8E3F8F651B23488F0096E9EC /* Iconizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iconizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3F8F691B23488F0096E9EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E2F997B1C01F20300C2E2D8 /* Sparkle.framework in Frameworks */,
+				8E2F997F1C01F67C00C2E2D8 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +201,7 @@
 		8EBD6F4B1B5449CF0062D62C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8E2F99791C01F1BD00C2E2D8 /* Sparkle.framework */,
+				8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */,
 			);
 			name = Frameworks;
 			path = Iconizer;
@@ -419,6 +419,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Iconizer",
 					"$(PROJECT_DIR)/Iconizer/Frameworks",
+					"$(PROJECT_DIR)/Iconizer/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = Iconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -437,6 +438,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Iconizer",
 					"$(PROJECT_DIR)/Iconizer/Frameworks",
+					"$(PROJECT_DIR)/Iconizer/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = Iconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
