@@ -9,24 +9,6 @@
         <item>
             <title>Version 2.1</title>
             <description><![CDATA[
-                <h2>Iconizer v2.1.3</h2>
-                <p>Fixes an issue with the app icon not being displayed.</p>
-            ]]>
-            </description>
-            <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
-            <enclosure
-                url="https://github.com/behoernchen/iconizer/releases/download/2.1.3/Iconizer.dmg"
-                sparkle:version="179"
-                sparkle:shortVersionString="2.1.3"
-                length="5750691"
-                type="application/octet-stream"
-                sparkle:dsaSignature="MCwCFFHHmhJnVh2qNovaNDLZG1+ouqKbAhQVFh9oliEGD471VNB4EjVqyQMaNg==" />
-            <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
-        </item>
-
-        <item>
-            <title>Version 2.1</title>
-            <description><![CDATA[
                 <h2>Iconizer v2.1.2</h2>
                 <ul>
                   <li>Updated Sparkle version</li>
