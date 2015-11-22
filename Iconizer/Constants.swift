@@ -32,9 +32,9 @@
 ///  - kLaunchImageViewControllerTag: Represents the tag for the LaunchImageView.
 ///  - kImageSetViewControllerTag:    Represents the tag for the ImageSetView.
 enum ViewControllerTag: Int {
-    case kAppIconViewControllerTag     = 0
-    case kLaunchImageViewControllerTag = 1
-    case kImageSetViewControllerTag    = 2
+  case kAppIconViewControllerTag     = 0
+  case kLaunchImageViewControllerTag = 1
+  case kImageSetViewControllerTag    = 2
 }
 
 
@@ -51,8 +51,8 @@ let kCarPlayPlatformName    = "Car"
 
 /// Wrap the different image orientations into an enum.
 enum ImageOrientation: String {
-    case Portrait  = "portrait"
-    case Landscape = "landscape"
+  case Portrait  = "portrait"
+  case Landscape = "landscape"
 }
 
 
@@ -72,10 +72,11 @@ let imageSetDirectory    = "Iconizer Assets/Image Sets"
 ///  - ImageSet:    Represents the ImageSet model
 ///  - LaunchImage: Represents the LaunchImage model
 enum AssetType : Int {
-    case AppIcon     = 0
-    case ImageSet    = 1
-    case LaunchImage = 2
+  case AppIcon     = 0
+  case ImageSet    = 1
+  case LaunchImage = 2
 }
+
 
 // MARK: - Keys to access the user defaults
 

@@ -27,33 +27,35 @@
 
 import Cocoa
 
+
+// Adds some required functionality/requirements to NSViewController.
 extension NSViewController {
-    ///  Base method for generating the required images.
-    ///  Needs to be overridden by subclasses!
-    ///
-    ///  - returns: returns always false.
-    func generateRequiredImages() throws { }
-    
-    ///  Base method for saving the currently selected asset catalog.
-    ///  Needs to be overridden by subclasses!
-    ///
-    ///  - parameter name: Name of the generated asset catalog.
-    ///  - parameter url: File path to the directory to save the asset to.
-    func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws { }
-    
-    ///  Opens an NSAlert panel ontop of MainWindow.
-    ///
-    ///  - parameter message: messageText for the NSAlert.
-    ///  - parameter text:    informativeText for the NSAlert.
-    func beginSheetModalWithMessage(message: String, andText text: String) {
-        // Create a new NSAlert message.
-        let alert = NSAlert()
-        
-        // Configure the NSAlert.
-        alert.messageText     = message
-        alert.informativeText = text
-        
-        // Display!
-        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
-    }
+  ///  Base method for generating the required images.
+  ///  Needs to be overridden by subclasses!
+  ///
+  ///  - returns: returns always false.
+  func generateRequiredImages() throws { }
+
+  ///  Base method for saving the currently selected asset catalog.
+  ///  Needs to be overridden by subclasses!
+  ///
+  ///  - parameter name: Name of the generated asset catalog.
+  ///  - parameter url: File path to the directory to save the asset to.
+  func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws { }
+
+  ///  Opens an NSAlert panel ontop of MainWindow.
+  ///
+  ///  - parameter message: messageText for the NSAlert.
+  ///  - parameter text:    informativeText for the NSAlert.
+  func beginSheetModalWithMessage(message: String, andText text: String) {
+    // Create a new NSAlert message.
+    let alert = NSAlert()
+
+    // Configure the NSAlert.
+    alert.messageText     = message
+    alert.informativeText = text
+
+    // Display!
+    alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+  }
 }

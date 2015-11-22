@@ -28,22 +28,22 @@
 import Cocoa
 
 extension String {
-    
-    ///  Returns a string object containing the characters between the
-    ///  given start and end characters. Excluding the given start and end
-    ///  characters.
-    ///
-    ///  - parameter start: Starting point.
-    ///  - parameter end:   End point.
-    ///
-    ///  - returns: Characters between the given start and end charaters.
-    func substringFromCharacter(start: String, to end: String) -> String? {
-        // Return nil in case either the given start or end string doesn't exist.
-        guard let startIndex = self.rangeOfString(start),
-              let endIndex   = self.rangeOfString(end)    else {
-            return nil
-        }
-        
-        return self.substringWithRange(Range(start: startIndex.endIndex, end: endIndex.startIndex))
+
+  ///  Returns a string object containing the characters between the
+  ///  given start and end characters. Excluding the given start and end
+  ///  characters.
+  ///
+  ///  - parameter start: Starting point.
+  ///  - parameter end:   End point.
+  ///
+  ///  - returns: Characters between the given start and end charaters.
+  func substringFromCharacter(start: String, to end: String) -> String? {
+    // Return nil in case either the given start or end string doesn't exist.
+    guard let startIndex = self.rangeOfString(start),
+      let endIndex   = self.rangeOfString(end)    else {
+        return nil
     }
+
+    return self.substringWithRange(Range(start: startIndex.endIndex, end: endIndex.startIndex))
+  }
 }

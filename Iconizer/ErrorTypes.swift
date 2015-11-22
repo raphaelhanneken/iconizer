@@ -28,44 +28,44 @@
 
 /// Error Types for ContentsJSON.swift
 enum ContentsJSONError: ErrorType {
-    case FileNotFound
-    case CastingJSONToDictionaryFailed
-    case GettingImagesArrayFailed
-    case WritingContentsJSONFailed
+  case FileNotFound
+  case CastingJSONToDictionaryFailed
+  case GettingImagesArrayFailed
+  case WritingContentsJSONFailed
 }
 
 
 /// Error Types for ImageSet.swift
 enum ImageSetError: ErrorType {
-    case RescalingImageFailed
-    case GettingJSONDataFailed
-    case MissingImage
-    case GettingPNGRepresentationFailed
+  case RescalingImageFailed
+  case GettingJSONDataFailed
+  case MissingImage
+  case GettingPNGRepresentationFailed
 }
 
 
 /// Error Types for LaunchImage.swift
 enum LaunchImageError: ErrorType {
-    case MissingImage
-    case MissingDataForImageWidth
-    case MissingDataForImageHeight
-    case MissingDataForImageName
-    case MissingDataForImageOrientation
-    case MissingDataForImageIdiom
-    case FormatError
+  case MissingImage
+  case MissingDataForImageWidth
+  case MissingDataForImageHeight
+  case MissingDataForImageName
+  case MissingDataForImageOrientation
+  case MissingDataForImageIdiom
+  case FormatError
 }
 
 
 /// Error Types for AppIcon.swift
 enum AppIconError: ErrorType {
-    case MissingImage
-    case MissingDataForImageSize
-    case MissingDataForImageName
-    case FormatError
+  case MissingImage
+  case MissingDataForImageSize
+  case MissingDataForImageName
+  case FormatError
 }
 
 
 /// Error types NSImageExtensions.swift
 enum NSImageExtensionError: ErrorType {
-    case UnwrappingPNGRepresentationFailed
+  case UnwrappingPNGRepresentationFailed
 }

@@ -30,68 +30,68 @@ import Cocoa
 
 /// Generates the necessary images for an ImageSet and saves them to the HD.
 class ImageSet: NSObject {
-    
-    /// Holds the recalculated images.
-    var images: [String : NSImage] = [:]
-    
-    
-    ///  Creates images with the given resolutions from the given image.
-    ///
-    ///  - parameter image:       Base image.
-    ///  - parameter resolutions: Resolutions to resize the given image to.
-    ///
-    ///  - returns: Returns true on success; False on failure.
-    func generateScaledImagesFromImage(image: NSImage) throws {
-        // Define the new image sizes.
-        let x1 = NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3))
-        let x2 = NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5))
-        
-        // Calculate the 2x and 1x images.
-        images["1x"] = image.imageByCopyingWithSize(x1)
-        images["2x"] = image.imageByCopyingWithSize(x2)
-        
-        // Assign the original images as the 3x image.
-        images["3x"] = image
+
+  /// Holds the recalculated images.
+  var images: [String : NSImage] = [:]
+
+
+  ///  Creates images with the given resolutions from the given image.
+  ///
+  ///  - parameter image:       Base image.
+  ///  - parameter resolutions: Resolutions to resize the given image to.
+  ///
+  ///  - returns: Returns true on success; False on failure.
+  func generateScaledImagesFromImage(image: NSImage) throws {
+    // Define the new image sizes.
+    let x1 = NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3))
+    let x2 = NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5))
+
+    // Calculate the 2x and 1x images.
+    images["1x"] = image.imageByCopyingWithSize(x1)
+    images["2x"] = image.imageByCopyingWithSize(x2)
+
+    // Assign the original images as the 3x image.
+    images["3x"] = image
+  }
+
+  ///  Saves the generated images to the HD.
+  ///
+  ///  - parameter name: Asset catalog name.
+  ///  - parameter url: File url to save the images to.
+  func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
+    // Create the correct file path.
+    let url = url.URLByAppendingPathComponent("\(imageSetDirectory)/\(name).imageset", isDirectory: true)
+
+    // Create the necessary folders.
+    try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
+
+    // Manage the Contents.json with an empty platforms array since we don't care
+    // about platforms for Image Sets.
+    var jsonFile = ContentsJSON(forType: AssetType.ImageSet, andPlatforms: [""])
+
+    // Save the Contents.json to the HD.
+    try jsonFile.saveToURL(url)
+
+    // Loop through the image data.
+    for image in jsonFile.images {
+      // Unwrap the information we need.
+      guard let scale = image["scale"], let filename = image["filename"] else {
+        throw ImageSetError.GettingJSONDataFailed
+      }
+
+      // Get the correct image.
+      guard let img = self.images[scale] else {
+        throw ImageSetError.MissingImage
+      }
+
+      do {
+        try img.saveAsPNGFileToURL(url.URLByAppendingPathComponent(filename))
+      } catch {
+        print(error)
+      }
     }
-    
-    ///  Saves the generated images to the HD.
-    ///
-    ///  - parameter name: Asset catalog name.
-    ///  - parameter url: File url to save the images to.
-    func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
-        // Create the correct file path.
-        let url = url.URLByAppendingPathComponent("\(imageSetDirectory)/\(name).imageset", isDirectory: true)
-        
-        // Create the necessary folders.
-        try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
-        
-        // Manage the Contents.json with an empty platforms array since we don't care
-        // about platforms for Image Sets.
-        var jsonFile = ContentsJSON(forType: AssetType.ImageSet, andPlatforms: [""])
-        
-        // Save the Contents.json to the HD.
-        try jsonFile.saveToURL(url)
-        
-        // Loop through the image data.
-        for image in jsonFile.images {
-            // Unwrap the information we need.
-            guard let scale = image["scale"], let filename = image["filename"] else {
-                throw ImageSetError.GettingJSONDataFailed
-            }
-            
-            // Get the correct image.
-            guard let img = self.images[scale] else {
-                throw ImageSetError.MissingImage
-            }
-            
-            do {
-                try img.saveAsPNGFileToURL(url.URLByAppendingPathComponent(filename))
-            } catch {
-                print(error)
-            }
-        }
-        
-        // Reset the images array
-        self.images = [:]
-    }
+
+    // Reset the images array
+    self.images = [:]
+  }
 }
