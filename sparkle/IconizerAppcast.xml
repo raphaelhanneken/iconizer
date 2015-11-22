@@ -9,6 +9,28 @@
         <item>
             <title>Version 2.1</title>
             <description><![CDATA[
+                <h2>Iconizer v2.1.2</h2>
+                <ul>
+                  <li>Updated Sparkle version</li>
+                  <li>New App Icon</li>
+                  <li>Minor code improvements</li>
+                </ul>
+            ]]>
+            </description>
+            <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
+            <enclosure
+                url="https://github.com/behoernchen/iconizer/releases/download/2.1.2/Iconizer.dmg"
+                sparkle:version="178"
+                sparkle:shortVersionString="2.1.2"
+                length="5727344"
+                type="application/octet-stream"
+                sparkle:dsaSignature="MCwCFC+Z4vkJstw+yutLswtKcbkZIFkeAhQFfd7YWp1maXCSSNz1gD0lu1wJ3Q==" />
+            <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        </item>
+
+        <item>
+            <title>Version 2.1</title>
+            <description><![CDATA[
                 <h2>Iconizer v2.1.1</h2>
                 <p>
                   Improved ATS, to make the update process a little bit more secure.
