@@ -27,3 +27,6 @@ build/
 
 # Sparkle DSAKey
 dsa_pub.pem
+
+# Ignore Carthage Folder
+Carthage/
