@@ -32,12 +32,12 @@
 		8E2F99721C01F19400C2E2D8 /* AppIcon_Mac.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99681C01F19400C2E2D8 /* AppIcon_Mac.json */; };
 		8E2F99731C01F19400C2E2D8 /* AppIcon_Watch.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99691C01F19400C2E2D8 /* AppIcon_Watch.json */; };
 		8E2F99741C01F19400C2E2D8 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996A1C01F19400C2E2D8 /* dsa_pub.pem */; };
-		8E2F99751C01F19400C2E2D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996B1C01F19400C2E2D8 /* Images.xcassets */; };
 		8E2F99761C01F19400C2E2D8 /* ImageSet.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996C1C01F19400C2E2D8 /* ImageSet.json */; };
 		8E2F99771C01F19400C2E2D8 /* LaunchImage_iPad.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996D1C01F19400C2E2D8 /* LaunchImage_iPad.json */; };
 		8E2F99781C01F19400C2E2D8 /* LaunchImage_iPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996E1C01F19400C2E2D8 /* LaunchImage_iPhone.json */; };
 		8E2F997F1C01F67C00C2E2D8 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */; };
 		8E2F99801C01F67C00C2E2D8 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8E2F99821C02168A00C2E2D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99811C02168A00C2E2D8 /* Images.xcassets */; };
 		8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,11 +80,11 @@
 		8E2F99681C01F19400C2E2D8 /* AppIcon_Mac.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_Mac.json; path = Resources/AppIcon_Mac.json; sourceTree = "<group>"; };
 		8E2F99691C01F19400C2E2D8 /* AppIcon_Watch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_Watch.json; path = Resources/AppIcon_Watch.json; sourceTree = "<group>"; };
 		8E2F996A1C01F19400C2E2D8 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
-		8E2F996B1C01F19400C2E2D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
 		8E2F996C1C01F19400C2E2D8 /* ImageSet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ImageSet.json; path = Resources/ImageSet.json; sourceTree = "<group>"; };
 		8E2F996D1C01F19400C2E2D8 /* LaunchImage_iPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPad.json; path = Resources/LaunchImage_iPad.json; sourceTree = "<group>"; };
 		8E2F996E1C01F19400C2E2D8 /* LaunchImage_iPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone.json; path = Resources/LaunchImage_iPhone.json; sourceTree = "<group>"; };
 		8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
+		8E2F99811C02168A00C2E2D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
 		8E3F8F651B23488F0096E9EC /* Iconizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iconizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3F8F691B23488F0096E9EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 		8E3F8F681B23488F0096E9EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8E2F996B1C01F19400C2E2D8 /* Images.xcassets */,
+				8E2F99811C02168A00C2E2D8 /* Images.xcassets */,
 				8E2F996A1C01F19400C2E2D8 /* dsa_pub.pem */,
 				8E2F99651C01F19400C2E2D8 /* AppIcon_Car.json */,
 				8E2F99661C01F19400C2E2D8 /* AppIcon_iPad.json */,
@@ -278,12 +278,12 @@
 				8E2F99701C01F19400C2E2D8 /* AppIcon_iPad.json in Resources */,
 				8E2F99571C01F16000C2E2D8 /* MainWindow.xib in Resources */,
 				8E2F99551C01F16000C2E2D8 /* ImageSetView.xib in Resources */,
+				8E2F99821C02168A00C2E2D8 /* Images.xcassets in Resources */,
 				8E2F99541C01F16000C2E2D8 /* AppIconView.xib in Resources */,
 				8E2F995A1C01F16D00C2E2D8 /* MainMenu.xib in Resources */,
 				8E2F99731C01F19400C2E2D8 /* AppIcon_Watch.json in Resources */,
 				8E2F99561C01F16000C2E2D8 /* LaunchImageView.xib in Resources */,
 				8E2F99741C01F19400C2E2D8 /* dsa_pub.pem in Resources */,
-				8E2F99751C01F19400C2E2D8 /* Images.xcassets in Resources */,
 				8E2F996F1C01F19400C2E2D8 /* AppIcon_Car.json in Resources */,
 				8E2F99711C01F19400C2E2D8 /* AppIcon_iPhone.json in Resources */,
 				8E2F99781C01F19400C2E2D8 /* LaunchImage_iPhone.json in Resources */,
@@ -418,7 +418,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Iconizer",
-					"$(PROJECT_DIR)/Iconizer/Frameworks",
 					"$(PROJECT_DIR)/Iconizer/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = Iconizer/Info.plist;
@@ -437,7 +436,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Iconizer",
-					"$(PROJECT_DIR)/Iconizer/Frameworks",
 					"$(PROJECT_DIR)/Iconizer/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = Iconizer/Info.plist;
