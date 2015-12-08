@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
         <title>Iconizer</title>
-        <link>http://http://behoernchen.github.io/iconizer/index.html</link>
+        <link>http://http://raphaelhanneken.github.io/iconizer/index.html</link>
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
 
@@ -19,7 +19,7 @@
             </description>
             <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
             <enclosure
-                url="https://github.com/behoernchen/iconizer/releases/download/2.1.2/Iconizer.dmg"
+                url="https://github.com/raphaelhanneken/iconizer/releases/download/2.1.2/Iconizer.dmg"
                 sparkle:version="178"
                 sparkle:shortVersionString="2.1.2"
                 length="5727344"
@@ -43,7 +43,7 @@
             </description>
             <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
             <enclosure
-                url="https://github.com/behoernchen/iconizer/releases/download/2.1.1/Iconizer.dmg"
+                url="https://github.com/raphaelhanneken/iconizer/releases/download/2.1.1/Iconizer.dmg"
                 sparkle:version="166"
                 sparkle:shortVersionString="2.1"
                 length="5956500"
@@ -63,7 +63,7 @@
             </description>
             <pubDate>Thu, 01 Oct 2015 00:00:00 +0000</pubDate>
             <enclosure
-                url="https://github.com/behoernchen/Iconizer/releases/download/2.1/Iconizer.dmg"
+                url="https://github.com/raphaelhanneken/Iconizer/releases/download/2.1/Iconizer.dmg"
                 sparkle:version="162"
                 sparkle:shortVersionString="2.1"
                 length="5925297"
@@ -87,7 +87,7 @@
             </description>
             <pubDate>Thu, 10 Sep 2015 00:00:00 +0000</pubDate>
             <enclosure
-                url="https://github.com/behoernchen/Iconizer/releases/download/v2.1beta3/Iconizer.dmg"
+                url="https://github.com/raphaelhanneken/Iconizer/releases/download/v2.1beta3/Iconizer.dmg"
                 sparkle:version="161"
                 sparkle:shortVersionString="2.1"
                 length="5601177"
@@ -107,7 +107,7 @@
             </description>
             <pubDate>Sun, 16 Aug 2015 00:00:00 +0000</pubDate>
             <enclosure
-                url="https://github.com/behoernchen/Iconizer/releases/download/v2.1beta2/Iconizer.dmg"
+                url="https://github.com/raphaelhanneken/Iconizer/releases/download/v2.1beta2/Iconizer.dmg"
                 sparkle:version="146"
                 sparkle:shortVersionString="2.1"
                 length="5576960"
@@ -132,7 +132,7 @@
             </description>
             <pubDate>Do, 16 Jul 2015 20:00:00 +0000</pubDate>
             <enclosure
-                url="https://github.com/behoernchen/Iconizer/releases/download/2.0/Iconizer.dmg"
+                url="https://github.com/raphaelhanneken/Iconizer/releases/download/2.0/Iconizer.dmg"
                 sparkle:version="112"
                 sparkle:shortVersionString="2.0"
                 length="5030000"
