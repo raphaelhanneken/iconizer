@@ -26,7 +26,7 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>behoernchen.github.io</key>
+			<key>raphaelhanneken.github.io</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
@@ -56,7 +56,7 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>https://behoernchen.github.io/iconizer/sparkle/IconizerAppcast.xml</string>
+	<string>https://raphaelhanneken.github.io/iconizer/sparkle/IconizerAppcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 </dict>

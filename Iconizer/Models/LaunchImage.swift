@@ -1,7 +1,7 @@
 //
 // LaunchImage.swift
 // Iconizer
-// https://github.com/behoernchen/Iconizer
+// https://github.com/raphaelhanneken/iconizer
 //
 // The MIT License (MIT)
 //
