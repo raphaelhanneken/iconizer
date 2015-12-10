@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+      <title>Iconizer Changelog</title>
+      <link>http://behoernchen.github.io/iconizer/sparkle/IconizerAppcast.xml</link>
+      <description>Most recent changes with links to updates.</description>
+      <language>en</language>
+      <item>
+        <title>Iconizer v2.1.3</title>
+        <description>
+          <![CDATA[
+          <p>
+            Rebuild with Swift 2.1.1 and Xcode 7.2 (7C68).
+          ]]>
+        </description>
+        <pubDate>Thu, 10 Dec 2015 16:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.1.3/Iconizer.dmg"
+          sparkle:version="181"
+          sparkle:shortVersionString="2.1"
+          sparkle:dsaSignature="MCwCFDeD63nfbYtqw1T6kkuR3O6C+Lg8AhQwp6BXO04BJL/mtMw1YVMeYzV9WQ=="
+          length="5775076"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
+        <title>Iconizer v2.1.2</title>
+        <description>
+          <![CDATA[
+          <ul>
+            <li>Updated Sparkle version</li>
+            <li>New app icon</li>
+            <li>Minor code improvements</li>
+          </ul>
+          ]]>
+        </description>
+        <pubDate>Sun, 22 Nov 2015 14:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.1.2/Iconizer.dmg"
+          sparkle:version="178"
+          sparkle:shortVersionString="2.1"
+          sparkle:dsaSignature="MCwCFGJ0OwPrBRMiaW9QHkpcJHp+AoosAhRc1t5eGRogCAfGsEpjDU186jIV2A=="
+          length="5727344"
+          type="application/octet-stream" />
+      </item>
+    </channel>
+</rss>
