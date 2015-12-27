@@ -1,6 +1,17 @@
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  background-color: #fafefe;
+  color: rgba(33, 33, 33, 0.8);
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: 300;
+}
+
 .gitname {
 	margin-left: 5px;
-	line-height: 24px;
+	line-height: 22px;
 }
 
 .iconizer-header {
@@ -28,8 +39,10 @@
 }
 
 .navbar-default {
-	background-color: rgba(249,249,249,0.95);
+	background-color: rgba(249, 249, 249, 0.9);
 	border-color: rgba(#f1f1f1, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .iconizer-ui {
