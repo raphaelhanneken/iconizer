@@ -43,7 +43,6 @@ extension String {
       let endIndex   = self.rangeOfString(end)    else {
         return nil
     }
-
-    return self.substringWithRange(Range(start: startIndex.endIndex, end: endIndex.startIndex))
+    return substringWithRange(Range(startIndex.endIndex ..< endIndex.startIndex))
   }
 }
