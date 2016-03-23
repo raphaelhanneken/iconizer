@@ -32,9 +32,9 @@
 ///  - kLaunchImageViewControllerTag: Represents the tag for the LaunchImageView.
 ///  - kImageSetViewControllerTag:    Represents the tag for the ImageSetView.
 enum ViewControllerTag: Int {
-  case kAppIconViewControllerTag     = 0
-  case kLaunchImageViewControllerTag = 1
-  case kImageSetViewControllerTag    = 2
+  case AppIconViewControllerTag     = 0
+  case LaunchImageViewControllerTag = 1
+  case ImageSetViewControllerTag    = 2
 }
 
 

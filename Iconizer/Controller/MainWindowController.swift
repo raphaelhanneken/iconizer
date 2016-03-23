@@ -137,13 +137,13 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     // the correspondig view.
     if let view = view {
       switch view {
-      case .kAppIconViewControllerTag:
+      case .AppIconViewControllerTag:
         self.currentView = AppIconViewController()
 
-      case .kImageSetViewControllerTag:
+      case .ImageSetViewControllerTag:
         self.currentView = ImageSetViewController()
 
-      case .kLaunchImageViewControllerTag:
+      case .LaunchImageViewControllerTag:
         self.currentView = LaunchImageViewController()
       }
     }
