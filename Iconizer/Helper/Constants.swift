@@ -40,16 +40,24 @@ enum ViewControllerTag: Int {
 
 // MARK: - Platform names
 
+/// Platform: Apple Watch
 let kAppleWatchPlatformName = "Watch"
+/// Platform: iPad
 let kIPadPlatformName       = "iPad"
+/// Platform: iPhone
 let kIPhonePlatformName     = "iPhone"
+/// Platform: OS X
 let kOSXPlatformName        = "Mac"
+/// Platform: Car Play
 let kCarPlayPlatformName    = "Car"
 
 
 // MARK: - Image Orientation names
 
-/// Wrap the different image orientations into an enum.
+///  Possible image orientations.
+///
+///  - Portrait:  Portrait image.
+///  - Landscape: Landscape image.
 enum ImageOrientation: String {
   case Portrait  = "portrait"
   case Landscape = "landscape"
@@ -58,10 +66,12 @@ enum ImageOrientation: String {
 
 // MARK: - Directory names
 
-/// Defines the name of the directory, where Iconizer saves the asset catalogs.
-let appIconDirectory     = "Iconizer Assets/App Icons"
-let launchImageDirectory = "Iconizer Assets/Launch Images"
-let imageSetDirectory    = "Iconizer Assets/Image Sets"
+/// Default url for app icons.
+let appIconDir     = "Iconizer Assets/App Icons"
+/// Default url for launch images.
+let launchImageDir = "Iconizer Assets/Launch Images"
+/// Default url for image sets.
+let imageSetDir    = "Iconizer Assets/Image Sets"
 
 
 // MARK: - Asset Types

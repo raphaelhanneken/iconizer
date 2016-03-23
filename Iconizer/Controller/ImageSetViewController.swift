@@ -49,22 +49,23 @@ class ImageSetViewController: NSViewController {
   ///  Tells the model to generate the necessary images.
   ///
   ///  - returns: True on success, false otherwise.
-  override func generateRequiredImages() throws {
-    // Unwrap the image object from the view.
-    guard let image = imageView.image else {
-      // We forgot the image here.
-      beginSheetModalWithMessage("No Image!", andText: "You haven't dropped any image to convert.")
-      return
-    }
 
-    // Tell the model to generate the required images.
-    try imageSet.generateScaledImagesFromImage(image)
+  ///  Generate the necessary images for the current image set.
+  override func generateRequiredImages() throws {
+    if let image = imageView.image {
+      // Generate the required images.
+      imageSet.generateScaledImagesFromImage(image)
+    } else {
+      // Whoops no images supplied.
+      beginSheetModalWithMessage("No Image!", andText: "You haven't dropped any image to convert.")
+    }
   }
 
-  ///  Tells the model to save itself to the given file url.
+  ///  Save the current asset catalog to the supplied url.
   ///
-  ///  - parameter name: App Icon name.
-  ///  - parameter url: File url to save the ImageSet to.
+  ///  - parameter name: The name of the catalog to save.
+  ///  - parameter url:  The destination path to save the assets to.
+  ///  - throws: An ImageSetError.
   override func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
     try imageSet.saveAssetCatalogNamed(name, toURL: url)
   }

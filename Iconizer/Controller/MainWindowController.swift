@@ -88,13 +88,10 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     guard let currentView = self.currentView else {
       return
     }
-
     // Create a new NSSavePanel.
     let exportSheet = NSSavePanel()
-
     // Configure the save panel.
     exportSheet.prompt = "Export"
-
     // Open the save panel.
     exportSheet.beginSheetModalForWindow(self.window!) { (result: Int) in
       // The user clicked "Export".
@@ -117,7 +114,8 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         }
 
         // Open the generated asset catalog in Finder.
-        NSWorkspace.sharedWorkspace().openURL(url.URLByAppendingPathComponent("Iconizer Assets", isDirectory: true))
+        NSWorkspace.sharedWorkspace()
+          .openURL(url.URLByAppendingPathComponent("Iconizer Assets", isDirectory: true))
       }
     }
 
@@ -135,7 +133,6 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
       // ...and remove it from the superview.
       currentView.view.removeFromSuperview()
     }
-
     // Check which ViewControllerTag is given. And set self.currentView to
     // the correspondig view.
     if let view = view {
@@ -173,7 +170,11 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     // Get the content rect of the main window.
     let windowContentRect = window.contentRectForFrameRect(window.frame)
     // Create a new content rect for the given size (except width).
-    let newContentRect    = NSMakeRect(NSMinX(windowContentRect), NSMaxY(windowContentRect) - size.height, windowContentRect.size.width, size.height)
+    let newContentRect    = NSMakeRect(NSMinX(windowContentRect),
+                                       NSMaxY(windowContentRect) - size.height,
+                                       windowContentRect.size.width,
+                                       size.height)
+
     // Create a new frame rect from the content rect.
     let newWindowFrame = window.frameRectForContentRect(newContentRect)
 

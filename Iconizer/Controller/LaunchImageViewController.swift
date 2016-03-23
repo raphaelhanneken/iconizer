@@ -47,10 +47,8 @@ class LaunchImageViewController: NSViewController {
   var enabledPlatforms: [String] {
     get {
       var tmp: [String] = []
-
       if iphone.state == NSOnState { tmp.append(kIPhonePlatformName) }
       if ipad.state   == NSOnState { tmp.append(kIPadPlatformName) }
-
       return tmp
     }
   }
@@ -90,18 +88,21 @@ class LaunchImageViewController: NSViewController {
     // Verify that both images are available.
     guard let landscapeImage = horizontal.image, let portraitImage = portrait.image else {
       // At least on image is missing!
-      beginSheetModalWithMessage("Missing Image!", andText: "You have to provide a landscape and a portrait image.")
-
+      beginSheetModalWithMessage("Missing Image!",
+                                 andText: "You have to provide a landscape and a portrait image.")
       return
     }
 
     // Make sure at least one platform is selected.
     if enabledPlatforms.count > 0 {
       // Generate the necessary images.
-      try launchImage.generateImagesForPlatforms(enabledPlatforms, fromPortrait: portraitImage, andLandscape: landscapeImage)
+      try launchImage.generateImagesForPlatforms(enabledPlatforms,
+                                                 fromPortrait: portraitImage,
+                                                 andLandscape: landscapeImage)
     } else {
       // No platforms to generate images for.
-      beginSheetModalWithMessage("No Platform selected!", andText: "You have to select at least one platform.")
+      beginSheetModalWithMessage("No Platform selected!",
+                                 andText: "You have to select at least one platform.")
     }
   }
 

@@ -128,6 +128,7 @@ class AppIconViewController: NSViewController {
   ///  - parameter name: AppIcon set name.
   ///  - parameter url: File path to save the asset catalog to.
   override func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
-    try appIcon.saveAssetCatalogNamed(name, toURL: url, asCombinedAsset: (combined.state == NSOnState))
+    try appIcon.saveAssetCatalogNamed(name, toURL: url,
+                                      asCombinedAsset: (combined.state == NSOnState))
   }
 }

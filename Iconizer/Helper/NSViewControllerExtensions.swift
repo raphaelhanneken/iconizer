@@ -50,11 +50,9 @@ extension NSViewController {
   func beginSheetModalWithMessage(message: String, andText text: String) {
     // Create a new NSAlert message.
     let alert = NSAlert()
-
     // Configure the NSAlert.
     alert.messageText     = message
     alert.informativeText = text
-
     // Display!
     alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
   }

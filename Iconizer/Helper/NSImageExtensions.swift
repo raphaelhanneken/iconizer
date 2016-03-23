@@ -71,14 +71,13 @@ extension NSImage {
     let img = NSImage(size: size)
 
     // Set the drawing context and make sure to remove the focus before returning.
-    img.lockFocus()
     defer { img.unlockFocus() }
+    img.lockFocus()
 
     // Draw the new image
     if rep.drawInRect(frame) {
       return img
     }
-
     // Return nil in case something went wrong.
     return nil
   }
@@ -96,9 +95,11 @@ extension NSImage {
     let heightRatio = size.height / self.height
 
     if widthRatio > heightRatio {
-      newSize = NSSize(width: floor(self.width * widthRatio), height: floor(self.height * widthRatio))
+      newSize = NSSize(width: floor(self.width * widthRatio),
+                       height: floor(self.height * widthRatio))
     } else {
-      newSize = NSSize(width: floor(self.width * heightRatio), height: floor(self.height * heightRatio))
+      newSize = NSSize(width: floor(self.width * heightRatio),
+                       height: floor(self.height * heightRatio))
     }
 
     return self.imageByCopyingWithSize(newSize)
@@ -118,10 +119,10 @@ extension NSImage {
     guard let resized = self.resizeWhileMaintainingAspectRatioToSize(size) else {
       return nil
     }
+
     // Get some points to center the cropping area.
     let x = floor((resized.width - size.width) / 2)
     let y = floor((resized.height - size.height) / 2)
-
     // Create the cropping frame.
     let frame = NSMakeRect(x, y, size.width, size.height)
 
@@ -132,18 +133,16 @@ extension NSImage {
 
     // Create a new image with the new size
     let img = NSImage(size: size)
-
-    img.lockFocus()
     defer { img.unlockFocus() }
+    img.lockFocus()
 
     if rep.drawInRect(NSMakeRect(0, 0, size.width, size.height),
-      fromRect: frame,
-      operation: NSCompositingOperation.CompositeCopy,
-      fraction: 1.0,
-      respectFlipped: false,
-      hints: [:]) {
-        // Return the cropped image.
-        return img
+                      fromRect: frame,
+                      operation: NSCompositingOperation.CompositeCopy,
+                      fraction: 1.0,
+                      respectFlipped: false,
+                      hints: [:]) {
+        return img  // Return the cropped image.
     }
 
     // Return nil in case anything fails.

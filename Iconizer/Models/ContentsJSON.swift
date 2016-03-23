@@ -28,7 +28,7 @@
 import Cocoa
 
 
-/// Reads and writes the Contents JSON files.
+/// Reads and writes the Contents.json files.
 struct ContentsJSON {
   /// Holds the image data from <AssetType>.json
   var images: Array<[String : String]>
@@ -59,18 +59,14 @@ struct ContentsJSON {
   ///  - parameter platforms: Selected platforms
   ///
   ///  - returns: The initialized JSONData specified for an AssetType and platforms.
-  init(forType type: AssetType, andPlatforms platforms: [String]) {
+  init(forType type: AssetType, andPlatforms platforms: [String]) throws {
     // Basic initialization.
     self.init()
 
     // Initialize the data object.
     for platform in platforms {
       // Add the image information for each platform to our images array.
-      do {
-        images += try JSONObjectForType(type, andPlatform: platform)
-      } catch {
-        print(error)
-      }
+      images += try JSONObjectForType(type, andPlatform: platform)
     }
   }
 
@@ -85,7 +81,6 @@ struct ContentsJSON {
   func JSONObjectForType(type: AssetType, andPlatform platform: String) throws -> Array<[String : String]> {
     // Holds the path to the required JSON file.
     let resourcePath : String?
-
     // Get the correct JSON file for the given AssetType.
     switch (type) {
     case .AppIcon:
@@ -97,15 +92,13 @@ struct ContentsJSON {
     case .LaunchImage:
       resourcePath = NSBundle.mainBundle().pathForResource("LaunchImage_" + platform, ofType: "json")
     }
-
     // Unwrap the JSON file path.
     guard let path = resourcePath else {
       throw ContentsJSONError.FileNotFound
     }
 
     // Create a new NSData object from the contents of the selected JSON file.
-    let JSONData = try NSData(contentsOfFile: path, options: .DataReadingMappedAlways)
-
+    let JSONData   = try NSData(contentsOfFile: path, options: .DataReadingMappedAlways)
     // Create a new JSON object from the given data.
     let JSONObject = try NSJSONSerialization.JSONObjectWithData(JSONData, options: .AllowFragments)
 
@@ -113,13 +106,12 @@ struct ContentsJSON {
     guard let contentsDict = JSONObject as? Dictionary<String, AnyObject> else {
       throw ContentsJSONError.CastingJSONToDictionaryFailed
     }
-
     // Get the image information from the JSON dictionary.
     guard let images = contentsDict["images"] as? Array<[String : String]> else {
       throw ContentsJSONError.GettingImagesArrayFailed
     }
 
-    // Return image information.
+    // Return the image information.
     return images
   }
 
@@ -129,11 +121,10 @@ struct ContentsJSON {
   mutating func saveToURL(url: NSURL) throws {
     // Add the image information to the contents dictionary.
     contents["images"]  = images
-
     // Serialize the contents as JSON object.
     let data = try NSJSONSerialization.dataWithJSONObject(self.contents, options: .PrettyPrinted)
-
     // Write the JSON object to the HD.
-    try data.writeToURL(url.URLByAppendingPathComponent("Contents.json", isDirectory: false), options: .DataWritingAtomic)
+    try data.writeToURL(url.URLByAppendingPathComponent("Contents.json", isDirectory: false),
+                        options: .DataWritingAtomic)
   }
 }

@@ -26,7 +26,12 @@
 // THE SOFTWARE.
 
 
-/// Error Types for ContentsJSON.swift
+///  Error Types for ContentsJSON.
+///
+///  - FileNotFound:                  The supplied JSON file could not be found.
+///  - CastingJSONToDictionaryFailed: Casting the supplied JSON file to a Dictionary failed.
+///  - GettingImagesArrayFailed:      Getting the information which images to generate failed.
+///  - WritingContentsJSONFailed:     Saving the Contents.json for the asset catalog failed.
 enum ContentsJSONError: ErrorType {
   case FileNotFound
   case CastingJSONToDictionaryFailed
@@ -34,8 +39,12 @@ enum ContentsJSONError: ErrorType {
   case WritingContentsJSONFailed
 }
 
-
-/// Error Types for ImageSet.swift
+///  Error Types for ImageSet.
+///
+///  - RescalingImageFailed:           Rescaling the given image failed.
+///  - GettingJSONDataFailed:          Getting image information from the given JSON file failed.
+///  - MissingImage:                   The user didn't supply an image.
+///  - GettingPNGRepresentationFailed: Creating the png representation failed.
 enum ImageSetError: ErrorType {
   case RescalingImageFailed
   case GettingJSONDataFailed
@@ -43,8 +52,15 @@ enum ImageSetError: ErrorType {
   case GettingPNGRepresentationFailed
 }
 
-
-/// Error Types for LaunchImage.swift
+///  Error Types for LaunchImage.
+///
+///  - MissingImage:                   The user didn't supply an image.
+///  - MissingDataForImageWidth:       Missing information about the width for the new image.
+///  - MissingDataForImageHeight:      Missing information about the height for the new image.
+///  - MissingDataForImageName:        Missing information about the name for the new image.
+///  - MissingDataForImageOrientation: Missing information about the orientation for the new image.
+///  - MissingDataForImageIdiom:       Missing information about the idiom for the new image.
+///  - FormatError:                    Image format error.
 enum LaunchImageError: ErrorType {
   case MissingImage
   case MissingDataForImageWidth
@@ -55,8 +71,12 @@ enum LaunchImageError: ErrorType {
   case FormatError
 }
 
-
-/// Error Types for AppIcon.swift
+///  Error Types for AppIcon
+///
+///  - MissingImage:            The user didn't supply an image.
+///  - MissingDataForImageSize: Missing information about the size of the new image.
+///  - MissingDataForImageName: Missing information about the name of the new image.
+///  - FormatError:             Image format error.
 enum AppIconError: ErrorType {
   case MissingImage
   case MissingDataForImageSize
@@ -65,7 +85,9 @@ enum AppIconError: ErrorType {
 }
 
 
-/// Error types NSImageExtensions.swift
+/// Error types for NSImageExtension
+///
+/// - UnwrappingPNGRepresentationFailed: Getting the png rep. for the current image failed.
 enum NSImageExtensionError: ErrorType {
   case UnwrappingPNGRepresentationFailed
 }
