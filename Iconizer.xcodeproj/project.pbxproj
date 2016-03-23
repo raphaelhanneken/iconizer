@@ -423,7 +423,7 @@
 				INFOPLIST_FILE = Iconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.behoernchen.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = io.raphaelhanneken.iconizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -441,7 +441,7 @@
 				INFOPLIST_FILE = Iconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.behoernchen.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = io.raphaelhanneken.iconizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
