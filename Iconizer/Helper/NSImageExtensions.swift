@@ -154,7 +154,8 @@ extension NSImage {
 
   ///  Saves the PNG representation of the current image to the HD.
   ///
-  /// - parameter url: Location which to save the PNG file to.
+  ///  - parameter url: URL to save the png file to.
+  ///  - throws: A NSImageExtensionError.
   func saveAsPNGFileToURL(url: NSURL) throws {
     if let png = self.PNGRepresentation {
       try png.writeToURL(url, options: .AtomicWrite)

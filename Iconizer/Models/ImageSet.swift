@@ -34,12 +34,9 @@ class ImageSet: NSObject {
   /// Holds the recalculated images.
   var images: [String : NSImage] = [:]
 
-  ///  Creates images with the given resolutions from the given image.
+  ///  Creates a @1x and @2x image for the supplied image.
   ///
-  ///  - parameter image:       Base image.
-  ///  - parameter resolutions: Resolutions to resize the given image to.
-  ///
-  ///  - returns: Returns true on success; False on failure.
+  ///  - parameter image: The image to copy and resize.
   func generateScaledImagesFromImage(image: NSImage) {
     // Define the new image sizes.
     let x1 = NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3))
@@ -54,9 +51,9 @@ class ImageSet: NSObject {
   }
 
   ///  Saves the generated images to the HD.
-  ///
-  ///  - parameter name: Asset catalog name.
-  ///  - parameter url: File url to save the images to.
+  ///  - parameter name: The asset catalog name.
+  ///  - parameter url:  The url where to save the catalog to.
+  ///  - throws: A ContentsJSONError or ImageSetError.
   func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
     // Create the correct file path.
     let url = url.URLByAppendingPathComponent("\(imageSetDir)/\(name).imageset", isDirectory: true)

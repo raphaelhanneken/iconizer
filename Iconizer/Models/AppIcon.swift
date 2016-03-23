@@ -38,6 +38,7 @@ class AppIcon: NSObject {
   ///
   ///  - parameter platforms: Platforms to generate icons for.
   ///  - parameter image:     The image to Iconize.
+  ///  - throws: An AppIconError
   func generateImagesForPlatforms(platforms: [String], fromImage image: NSImage) throws {
     // Loop through the selected platforms
     for platform in platforms {
@@ -70,10 +71,12 @@ class AppIcon: NSObject {
     }
   }
 
-  ///  Writes the generated images to the given file url.
+  ///  Writes the generated images to the supplied file url.
   ///
-  ///  - parameter url:      NSURL to save the asset catalog to.
-  ///  - parameter combined: Save as combined catalog?
+  ///  - parameter name:     The name of the current asset catalog.
+  ///  - parameter url:      URL to save the app icon to.
+  ///  - parameter combined: Save as a combined catalog?
+  ///  - throws: An ContentsJSONError or a NSImageExtensionError.
   func saveAssetCatalogNamed(name: String, toURL url: NSURL,
                              asCombinedAsset combined: Bool) throws {
     // Define where to save the asset catalog.

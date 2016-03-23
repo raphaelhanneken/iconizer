@@ -38,13 +38,14 @@ class LaunchImage: NSObject {
   var json: ContentsJSON!
 
 
+  // swiftlint:disable cyclomatic_complexity
+
   ///  Generates the necessary images for the selected platforms.
   ///
   ///  - parameter platforms: Platforms to generate the images for.
-  ///  - parameter portrait:  Portrait image that should be used.
-  ///  - parameter landscape: Landscape image that should be used.
-  ///
-  ///  - returns: True on success, false otherwise.
+  ///  - parameter portrait:  Portrait image provided by the user.
+  ///  - parameter landscape: Landscape image provided by the user.
+  ///  - throws: A LaunchImageError or ContentsJSONError.
   func generateImagesForPlatforms(platforms: [String], fromPortrait portrait: NSImage?,
                                   andLandscape landscape: NSImage?) throws {
     // Unwrap both images.
@@ -85,7 +86,7 @@ class LaunchImage: NSObject {
         }
 
         // Check which image to create. And crop the original image to the required size.
-        switch(ImageOrientation(rawValue: orientation)!) {
+        switch ImageOrientation(rawValue: orientation)! {
         case ImageOrientation.Portrait:
           images[filename] = portrait.imageByCroppingToSize(NSSize(width: width, height: height))
 
@@ -96,10 +97,11 @@ class LaunchImage: NSObject {
     }
   }
 
-  ///  Saves the asset catalog to the HD.
+  ///  Saves the generated asset catalog to the HD:
   ///
   ///  - parameter name: Name of the asset catalog.
-  ///  - parameter url: File path to save the launch image to.
+  ///  - parameter url:  URL to save the catalog to.
+  ///  - throws: A NSImageExtentionError.
   func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
     // Create the correct file path.
     let url = url.URLByAppendingPathComponent("\(launchImageDir)/\(name).launchimage/",

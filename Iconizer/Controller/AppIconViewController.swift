@@ -102,9 +102,9 @@ class AppIconViewController: NSViewController {
 
   // MARK: - Methods
 
-  ///  Tells the model to generate the required images.
+  ///  Generate the required images.
   ///
-  ///  - returns: Returns true on success, false on failure.
+  ///  - throws: An AppIcon error.
   override func generateRequiredImages() throws {
     // Unwrap the image from imageView
     guard let image = imageView.image else {
@@ -123,10 +123,11 @@ class AppIconViewController: NSViewController {
     }
   }
 
-  ///  Tells the model to save itself to the given url.
+  ///  Save the current asset catalog to the given url.
   ///
-  ///  - parameter name: AppIcon set name.
-  ///  - parameter url: File path to save the asset catalog to.
+  ///  - parameter name: The name of the app icon.
+  ///  - parameter url:  URL to save the app icon to.
+  ///  - throws: An AppIcon Error.
   override func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
     try appIcon.saveAssetCatalogNamed(name, toURL: url,
                                       asCombinedAsset: (combined.state == NSOnState))

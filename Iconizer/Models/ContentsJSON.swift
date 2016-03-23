@@ -39,9 +39,7 @@ struct ContentsJSON {
 
   // MARK: Initializers
 
-  ///  Initializes the JSONData struct.
-  ///
-  ///  - returns: The initialized JSONData struct.
+  ///  Initializes a JSONData struct.
   init() {
     // Init the images array.
     self.images = []
@@ -58,7 +56,7 @@ struct ContentsJSON {
   ///  - parameter type: The AssetType for the required JSON data
   ///  - parameter platforms: Selected platforms
   ///
-  ///  - returns: The initialized JSONData specified for an AssetType and platforms.
+  ///  - throws: A ContentsJSONError.
   init(forType type: AssetType, andPlatforms platforms: [String]) throws {
     // Basic initialization.
     self.init()
@@ -75,14 +73,16 @@ struct ContentsJSON {
 
   ///  Gets the JSON data for the given AssetType.
   ///
-  ///  - parameter type: AssetType to get the json file for.
-  ///
-  ///  - returns: The JSON data for the given AssetType.
-  func JSONObjectForType(type: AssetType, andPlatform platform: String) throws -> Array<[String : String]> {
+  ///  - parameter type:     An AssetType.
+  ///  - parameter platform: Platforms to generate asset catalogs for.
+  ///  - throws: A ContentsJSONError.
+  ///  - returns: The JSON data for the supplied AssetType.
+  func JSONObjectForType(type: AssetType, andPlatform platform: String)
+    throws -> Array<[String : String]> {
     // Holds the path to the required JSON file.
     let resourcePath: String?
     // Get the correct JSON file for the given AssetType.
-    switch (type) {
+    switch type {
     case .AppIcon:
       resourcePath = NSBundle.mainBundle().pathForResource("AppIcon_" + platform, ofType: "json")
 
@@ -90,7 +90,8 @@ struct ContentsJSON {
       resourcePath = NSBundle.mainBundle().pathForResource("ImageSet", ofType: "json")
 
     case .LaunchImage:
-      resourcePath = NSBundle.mainBundle().pathForResource("LaunchImage_" + platform, ofType: "json")
+      resourcePath = NSBundle.mainBundle().pathForResource("LaunchImage_" + platform,
+                                                           ofType: "json")
     }
     // Unwrap the JSON file path.
     guard let path = resourcePath else {
@@ -118,6 +119,7 @@ struct ContentsJSON {
   ///  Saves the Contents.json to the appropriate folder.
   ///
   ///  - parameter url: File url to save the Contents.json to.
+  ///  - throws: An exception when the JSON serialization fails.
   mutating func saveToURL(url: NSURL) throws {
     // Add the image information to the contents dictionary.
     contents["images"]  = images

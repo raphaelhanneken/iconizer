@@ -83,7 +83,9 @@ class LaunchImageViewController: NSViewController {
 
   // MARK: Methods
 
-  ///  Tells the model to generate the required images.
+  ///  Generates the necessary images.
+  ///
+  ///  - throws: A LaunchImageError.
   override func generateRequiredImages() throws {
     // Verify that both images are available.
     guard let landscapeImage = horizontal.image, let portraitImage = portrait.image else {
@@ -110,6 +112,7 @@ class LaunchImageViewController: NSViewController {
   ///
   ///  - parameter name: Asset catalog name.
   ///  - parameter url: File URL to save the catalog to.
+  ///  - throws: A LaunchImageError.
   override func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
     try launchImage.saveAssetCatalogNamed(name, toURL: url)
   }

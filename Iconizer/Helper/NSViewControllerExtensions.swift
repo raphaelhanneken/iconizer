@@ -33,7 +33,7 @@ extension NSViewController {
   ///  Base method for generating the required images.
   ///  Needs to be overridden by subclasses!
   ///
-  ///  - returns: returns always false.
+  ///  - throws: An asset catalog specific error.
   func generateRequiredImages() throws { }
 
   ///  Base method for saving the currently selected asset catalog.
@@ -41,6 +41,7 @@ extension NSViewController {
   ///
   ///  - parameter name: Name of the generated asset catalog.
   ///  - parameter url: File path to the directory to save the asset to.
+  ///  - throws: An asset catalog specific error.
   func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws { }
 
   ///  Opens an NSAlert panel ontop of MainWindow.

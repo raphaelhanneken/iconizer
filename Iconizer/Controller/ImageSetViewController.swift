@@ -46,11 +46,9 @@ class ImageSetViewController: NSViewController {
 
   // MARK: Mathods
 
-  ///  Tells the model to generate the necessary images.
+  ///  Generate the necessary images.
   ///
-  ///  - returns: True on success, false otherwise.
-
-  ///  Generate the necessary images for the current image set.
+  ///  - throws: An ImageSet Error.
   override func generateRequiredImages() throws {
     if let image = imageView.image {
       // Generate the required images.
