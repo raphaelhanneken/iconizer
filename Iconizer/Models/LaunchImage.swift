@@ -35,7 +35,7 @@ class LaunchImage: NSObject {
   var images: [String : NSImage] = [:]
 
   /// Holds the image information for the contents.json
-  var json : ContentsJSON!
+  var json: ContentsJSON!
 
 
   ///  Generates the necessary images for the selected platforms.
@@ -114,7 +114,7 @@ class LaunchImage: NSObject {
     for (filename, img) in images {
       try img.saveAsPNGFileToURL(url.URLByAppendingPathComponent(filename))
     }
-    
+
     // Reset the images array
     self.images = [:]
   }

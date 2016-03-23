@@ -80,7 +80,7 @@ struct ContentsJSON {
   ///  - returns: The JSON data for the given AssetType.
   func JSONObjectForType(type: AssetType, andPlatform platform: String) throws -> Array<[String : String]> {
     // Holds the path to the required JSON file.
-    let resourcePath : String?
+    let resourcePath: String?
     // Get the correct JSON file for the given AssetType.
     switch (type) {
     case .AppIcon:

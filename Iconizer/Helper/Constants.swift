@@ -81,7 +81,7 @@ let imageSetDir    = "Iconizer Assets/Image Sets"
 ///  - AppIcon:     Represents the AppIcon model
 ///  - ImageSet:    Represents the ImageSet model
 ///  - LaunchImage: Represents the LaunchImage model
-enum AssetType : Int {
+enum AssetType: Int {
   case AppIcon     = 0
   case ImageSet    = 1
   case LaunchImage = 2
@@ -108,4 +108,3 @@ let selectedExportTypeKey           = "selectedExportType"
 let generateLaunchImageForIPhoneKey = "generateLaunchImageForIPhone"
 /// Generate a LaunchImage for the iPad.
 let generateLaunchImageForIPadKey   = "generateLaunchImageForIPad"
-
