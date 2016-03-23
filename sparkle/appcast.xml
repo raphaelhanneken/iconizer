@@ -5,6 +5,30 @@
       <link>http://behoernchen.github.io/iconizer/sparkle/IconizerAppcast.xml</link>
       <description>Most recent changes with links to updates.</description>
       <language>en</language>
+
+      <item>
+        <title>Iconizer v2.2</title>
+        <description>
+          <![CDATA[
+          <p>
+            Updated to latest Swift syntax (v2.2). Rebuild with Xcode 7.3.
+          </p>
+          <ul>
+            <li>Added support for the new iPad Pro app icon size.</li>
+          </ul>
+          ]]>
+        </description>
+        <pubDate>Wed, 23 Mar 2016 17:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.2/Iconizer.dmg"
+          sparkle:version="193"
+          sparkle:shortVersionString="2.2"
+          sparkle:dsaSignature="MCwCFDgr1tZW0Om7lMNPP03MkiOTGfUDAhQyaqDCggJPeazPbwsV7WcfnlIEMw=="
+          length="5895076"
+          type="application/octet-stream" />
+      </item>
+
       <item>
         <title>Iconizer v2.1.3</title>
         <description>
