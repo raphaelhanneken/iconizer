@@ -69,6 +69,13 @@
       "scale" : "1x",
       "filename" : "ipad-spotlight@1x.png",
       "expected-size": "40"
+    },
+    {
+      "idiom" : "ipad",
+      "size" : "83.5x83.5",
+      "scale" : "2x",
+      "filename" : "ipad-pro-appicon@1x.png",
+      "expected-size": "167"
     }
   ]
 }
