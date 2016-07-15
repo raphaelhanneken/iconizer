@@ -149,7 +149,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     }
 
     // Unwrap the selected ViewController and the main window.
-    if let currentView = self.currentView, let window = self.window {
+    if let currentView = self.currentView, window = self.window {
       // Resize the main window to fit the selected view.
       resizeWindowForContentSize(currentView.view.frame.size)
       // Set the main window's contentView to the selected view.

@@ -49,7 +49,7 @@ class LaunchImage: NSObject {
   func generateImagesForPlatforms(_ platforms: [String], fromPortrait portrait: NSImage?,
                                   andLandscape landscape: NSImage?) throws {
     // Unwrap both images.
-    guard let portrait = portrait, let landscape = landscape else {
+    guard let portrait = portrait, landscape = landscape else {
       throw LaunchImageError.missingImage
     }
     // Get the JSON data for LaunchImage.

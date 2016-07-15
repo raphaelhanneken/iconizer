@@ -70,7 +70,7 @@ class ImageSet: NSObject {
     // Loop through the image data.
     for image in jsonFile.images {
       // Unwrap the information we need.
-      guard let scale = image["scale"], let filename = image["filename"] else {
+      guard let scale = image["scale"], filename = image["filename"] else {
         throw ImageSetError.gettingJSONDataFailed
       }
       // Get the correct image.
