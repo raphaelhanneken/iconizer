@@ -42,19 +42,19 @@ extension NSViewController {
   ///  - parameter name: Name of the generated asset catalog.
   ///  - parameter url: File path to the directory to save the asset to.
   ///  - throws: An asset catalog specific error.
-  func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws { }
+  func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws { }
 
   ///  Opens an NSAlert panel ontop of MainWindow.
   ///
   ///  - parameter message: messageText for the NSAlert.
   ///  - parameter text:    informativeText for the NSAlert.
-  func beginSheetModalWithMessage(message: String, andText text: String) {
+  func beginSheetModalWithMessage(_ message: String, andText text: String) {
     // Create a new NSAlert message.
     let alert = NSAlert()
     // Configure the NSAlert.
     alert.messageText     = message
     alert.informativeText = text
     // Display!
-    alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+    alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
   }
 }

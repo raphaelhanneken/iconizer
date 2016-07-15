@@ -37,13 +37,13 @@ extension String {
   ///  - parameter end:   End point.
   ///
   ///  - returns: Characters between the given start and end charaters.
-  func substringFromCharacter(start: String, to end: String) -> String? {
+  func substringFromCharacter(_ start: String, to end: String) -> String? {
     // Return nil in case either the given start or end string doesn't exist.
-    guard let startIndex = self.rangeOfString(start),
-      let endIndex   = self.rangeOfString(end)    else {
+    guard let startIndex = self.range(of: start),
+      let endIndex   = self.range(of: end)    else {
         return nil
     }
 
-    return substringWithRange(Range(startIndex.endIndex ..< endIndex.startIndex))
+    return substring(with: Range(startIndex.upperBound ..< endIndex.lowerBound))
   }
 }

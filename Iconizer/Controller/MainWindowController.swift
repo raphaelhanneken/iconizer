@@ -53,7 +53,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     // as you know: Everytime we force unwrap something, a kitty dies.
     if let window = self.window {
       // Hide the window title, to get the unified toolbar.
-      window.titleVisibility = .Hidden
+      window.titleVisibility = .hidden
     }
 
     // Get the user defaults.
@@ -65,7 +65,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
   }
 
   // Save the user preferences before the application terminates.
-  func windowWillClose(notification: NSNotification) {
+  func windowWillClose(_ notification: Notification) {
     let prefManager = PreferenceManager()
     prefManager.selectedExportType = self.exportType.selectedSegment
   }
@@ -76,14 +76,14 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
   ///  Select the export type.
   ///
   ///  - parameter sender: NSSegmentedControl; 'Mode' set to 'Select One'.
-  @IBAction func selectView(sender: NSSegmentedControl) {
+  @IBAction func selectView(_ sender: NSSegmentedControl) {
     changeView(ViewControllerTag(rawValue: sender.selectedSegment))
   }
 
   ///  Kick off exporting for the selected export type.
   ///
   ///  - parameter sender: NSButton responsible for exporting.
-  @IBAction func export(sender: NSButton) {
+  @IBAction func export(_ sender: NSButton) {
     // Unwrap the export view.
     guard let currentView = self.currentView else {
       return
@@ -93,11 +93,11 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     // Configure the save panel.
     exportSheet.prompt = "Export"
     // Open the save panel.
-    exportSheet.beginSheetModalForWindow(self.window!) { (result: Int) in
+    exportSheet.beginSheetModal(for: self.window!) { (result: Int) in
       // The user clicked "Export".
       if result == NSFileHandlingPanelOKButton {
         // Unwrap the file url and get rid of the last path component.
-        guard let url = exportSheet.URL?.URLByDeletingLastPathComponent else {
+        guard let url = try! exportSheet.url?.deletingLastPathComponent() else {
           return
         }
 
@@ -114,8 +114,8 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         }
 
         // Open the generated asset catalog in Finder.
-        NSWorkspace.sharedWorkspace()
-          .openURL(url.URLByAppendingPathComponent("Iconizer Assets", isDirectory: true))
+        NSWorkspace.shared()
+          .open(try! url.appendingPathComponent("Iconizer Assets", isDirectory: true))
       }
     }
 
@@ -127,7 +127,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
   ///  Swaps the current ViewController with a new one.
   ///
   ///  - parameter view: Takes a ViewControllerTag.
-  func changeView(view: ViewControllerTag?) {
+  func changeView(_ view: ViewControllerTag?) {
     // Unwrap the current view, if any...
     if let currentView = self.currentView {
       // ...and remove it from the superview.
@@ -137,13 +137,13 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     // the correspondig view.
     if let view = view {
       switch view {
-      case .AppIconViewControllerTag:
+      case .appIconViewControllerTag:
         self.currentView = AppIconViewController()
 
-      case .ImageSetViewControllerTag:
+      case .imageSetViewControllerTag:
         self.currentView = ImageSetViewController()
 
-      case .LaunchImageViewControllerTag:
+      case .launchImageViewControllerTag:
         self.currentView = LaunchImageViewController()
       }
     }
@@ -160,7 +160,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
   /// Resizes the main window to the given size.
   ///
   /// - parameter size: The new size of the main window.
-  func resizeWindowForContentSize(size: NSSize) {
+  func resizeWindowForContentSize(_ size: NSSize) {
     // Unwrap the main window object.
     guard let window = self.window else {
       // Is this even possible???
@@ -168,7 +168,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     }
 
     // Get the content rect of the main window.
-    let windowContentRect = window.contentRectForFrameRect(window.frame)
+    let windowContentRect = window.contentRect(forFrameRect: window.frame)
     // Create a new content rect for the given size (except width).
     let newContentRect    = NSMakeRect(NSMinX(windowContentRect),
                                        NSMaxY(windowContentRect) - size.height,
@@ -176,7 +176,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                                        size.height)
 
     // Create a new frame rect from the content rect.
-    let newWindowFrame = window.frameRectForContentRect(newContentRect)
+    let newWindowFrame = window.frameRect(forContentRect: newContentRect)
 
     // Set the window frame to the new frame.
     window.setFrame(newWindowFrame, display: true, animate: true)

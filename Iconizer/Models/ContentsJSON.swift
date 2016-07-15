@@ -77,39 +77,39 @@ struct ContentsJSON {
   ///  - parameter platform: Platforms to generate asset catalogs for.
   ///  - throws: A ContentsJSONError.
   ///  - returns: The JSON data for the supplied AssetType.
-  func JSONObjectForType(type: AssetType, andPlatform platform: String)
+  func JSONObjectForType(_ type: AssetType, andPlatform platform: String)
     throws -> Array<[String : String]> {
     // Holds the path to the required JSON file.
     let resourcePath: String?
     // Get the correct JSON file for the given AssetType.
     switch type {
-    case .AppIcon:
-      resourcePath = NSBundle.mainBundle().pathForResource("AppIcon_" + platform, ofType: "json")
+    case .appIcon:
+      resourcePath = Bundle.main.pathForResource("AppIcon_" + platform, ofType: "json")
 
-    case .ImageSet:
-      resourcePath = NSBundle.mainBundle().pathForResource("ImageSet", ofType: "json")
+    case .imageSet:
+      resourcePath = Bundle.main.pathForResource("ImageSet", ofType: "json")
 
-    case .LaunchImage:
-      resourcePath = NSBundle.mainBundle().pathForResource("LaunchImage_" + platform,
+    case .launchImage:
+      resourcePath = Bundle.main.pathForResource("LaunchImage_" + platform,
                                                            ofType: "json")
     }
     // Unwrap the JSON file path.
     guard let path = resourcePath else {
-      throw ContentsJSONError.FileNotFound
+      throw ContentsJSONError.fileNotFound
     }
 
     // Create a new NSData object from the contents of the selected JSON file.
-    let JSONData   = try NSData(contentsOfFile: path, options: .DataReadingMappedAlways)
+    let JSONData   = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
     // Create a new JSON object from the given data.
-    let JSONObject = try NSJSONSerialization.JSONObjectWithData(JSONData, options: .AllowFragments)
+    let JSONObject = try JSONSerialization.jsonObject(with: JSONData, options: .allowFragments)
 
     // Convert the JSON object into a Dictionary.
     guard let contentsDict = JSONObject as? Dictionary<String, AnyObject> else {
-      throw ContentsJSONError.CastingJSONToDictionaryFailed
+      throw ContentsJSONError.castingJSONToDictionaryFailed
     }
     // Get the image information from the JSON dictionary.
     guard let images = contentsDict["images"] as? Array<[String : String]> else {
-      throw ContentsJSONError.GettingImagesArrayFailed
+      throw ContentsJSONError.gettingImagesArrayFailed
     }
 
     // Return the image information.
@@ -120,13 +120,13 @@ struct ContentsJSON {
   ///
   ///  - parameter url: File url to save the Contents.json to.
   ///  - throws: An exception when the JSON serialization fails.
-  mutating func saveToURL(url: NSURL) throws {
+  mutating func saveToURL(_ url: URL) throws {
     // Add the image information to the contents dictionary.
     contents["images"]  = images
     // Serialize the contents as JSON object.
-    let data = try NSJSONSerialization.dataWithJSONObject(self.contents, options: .PrettyPrinted)
+    let data = try JSONSerialization.data(withJSONObject: self.contents, options: .prettyPrinted)
     // Write the JSON object to the HD.
-    try data.writeToURL(url.URLByAppendingPathComponent("Contents.json", isDirectory: false),
-                        options: .DataWritingAtomic)
+    try data.write(to: try! url.appendingPathComponent("Contents.json", isDirectory: false),
+                        options: .atomic)
   }
 }

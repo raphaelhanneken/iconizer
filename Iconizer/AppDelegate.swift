@@ -35,7 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var mainWindowController: MainWindowController?
 
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create a new WindowController instance
         let mainWindowController = MainWindowController()
 
@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.mainWindowController = mainWindowController
     }
 
-    func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
     }
 }
