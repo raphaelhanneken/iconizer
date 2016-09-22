@@ -32,7 +32,7 @@
 ///  - CastingJSONToDictionaryFailed: Casting the supplied JSON file to a Dictionary failed.
 ///  - GettingImagesArrayFailed:      Getting the information which images to generate failed.
 ///  - WritingContentsJSONFailed:     Saving the Contents.json for the asset catalog failed.
-enum ContentsJSONError: ErrorProtocol {
+enum ContentsJSONError: Error {
   case fileNotFound
   case castingJSONToDictionaryFailed
   case gettingImagesArrayFailed
@@ -45,7 +45,7 @@ enum ContentsJSONError: ErrorProtocol {
 ///  - GettingJSONDataFailed:          Getting image information from the given JSON file failed.
 ///  - MissingImage:                   The user didn't supply an image.
 ///  - GettingPNGRepresentationFailed: Creating the png representation failed.
-enum ImageSetError: ErrorProtocol {
+enum ImageSetError: Error {
   case rescalingImageFailed
   case gettingJSONDataFailed
   case missingImage
@@ -61,7 +61,7 @@ enum ImageSetError: ErrorProtocol {
 ///  - MissingDataForImageOrientation: Missing information about the orientation for the new image.
 ///  - MissingDataForImageIdiom:       Missing information about the idiom for the new image.
 ///  - FormatError:                    Image format error.
-enum LaunchImageError: ErrorProtocol {
+enum LaunchImageError: Error {
   case missingImage
   case missingDataForImageWidth
   case missingDataForImageHeight
@@ -77,7 +77,7 @@ enum LaunchImageError: ErrorProtocol {
 ///  - MissingDataForImageSize: Missing information about the size of the new image.
 ///  - MissingDataForImageName: Missing information about the name of the new image.
 ///  - FormatError:             Image format error.
-enum AppIconError: ErrorProtocol {
+enum AppIconError: Error {
   case missingImage
   case missingDataForImageSize
   case missingDataForImageName
@@ -88,6 +88,6 @@ enum AppIconError: ErrorProtocol {
 /// Error types for NSImageExtension
 ///
 /// - UnwrappingPNGRepresentationFailed: Getting the png rep. for the current image failed.
-enum NSImageExtensionError: ErrorProtocol {
+enum NSImageExtensionError: Error {
   case unwrappingPNGRepresentationFailed
 }
