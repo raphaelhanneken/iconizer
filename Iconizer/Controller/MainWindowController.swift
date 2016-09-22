@@ -96,26 +96,23 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     exportSheet.beginSheetModal(for: self.window!) { (result: Int) in
       // The user clicked "Export".
       if result == NSFileHandlingPanelOKButton {
-        // Unwrap the file url and get rid of the last path component.
-        guard let url = try! exportSheet.url?.deletingLastPathComponent() else {
-          return
-        }
-
         do {
+          // Unwrap the file url and get rid of the last path component.
+          guard let url = try exportSheet.url?.deletingLastPathComponent() else {
+            return
+          }
           // Generate the required images.
           try currentView.generateRequiredImages()
           // Save the currently generated asset catalog to the
           // selected file URL.
           try currentView.saveAssetCatalogNamed(exportSheet.nameFieldStringValue, toURL: url)
+          // Open the generated asset catalog in Finder.
+          NSWorkspace.shared().open(try url.appendingPathComponent("Iconizer Assets", isDirectory: true))
         } catch {
           // Something went somewhere terribly wrong...
           print(error)
           return
         }
-
-        // Open the generated asset catalog in Finder.
-        NSWorkspace.shared()
-          .open(try! url.appendingPathComponent("Iconizer Assets", isDirectory: true))
       }
     }
 

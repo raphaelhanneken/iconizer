@@ -104,7 +104,7 @@ class LaunchImage: NSObject {
   ///  - throws: A NSImageExtentionError.
   func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     // Create the correct file path.
-    let url = try! url.appendingPathComponent("\(launchImageDir)/\(name).launchimage/",
+    let url = try url.appendingPathComponent("\(launchImageDir)/\(name).launchimage/",
                                               isDirectory: true)
 
     // Create the necessary folders.
@@ -114,7 +114,7 @@ class LaunchImage: NSObject {
     // Save the Contents.json
     try json.saveToURL(url)
     for (filename, img) in images {
-      try img.saveAsPNGFileToURL(try! url.appendingPathComponent(filename))
+      try img.saveAsPNGFileToURL(try url.appendingPathComponent(filename))
     }
 
     // Reset the images array

@@ -126,7 +126,7 @@ struct ContentsJSON {
     // Serialize the contents as JSON object.
     let data = try JSONSerialization.data(withJSONObject: self.contents, options: .prettyPrinted)
     // Write the JSON object to the HD.
-    try data.write(to: try! url.appendingPathComponent("Contents.json", isDirectory: false),
+    try data.write(to: try url.appendingPathComponent("Contents.json", isDirectory: false),
                         options: .atomic)
   }
 }

@@ -80,14 +80,14 @@ class AppIcon: NSObject {
   func saveAssetCatalogNamed(_ name: String, toURL url: URL,
                              asCombinedAsset combined: Bool) throws {
     // Define where to save the asset catalog.
-    var setURL = try! url.appendingPathComponent("\(appIconDir)/Combined/\(name).appiconset",
+    var setURL = try url.appendingPathComponent("\(appIconDir)/Combined/\(name).appiconset",
                                                  isDirectory: true)
 
     // Loop through the selected platforms.
     for (platform, images) in self.images {
       // Override the setURL in case we don't generate a combined asset.
       if !combined {
-        setURL = try! url.appendingPathComponent("\(appIconDir)/\(platform)/\(name).appiconset",
+        setURL = try url.appendingPathComponent("\(appIconDir)/\(platform)/\(name).appiconset",
                                                  isDirectory: true)
 
         // Create the necessary folders.
@@ -116,7 +116,7 @@ class AppIcon: NSObject {
       // Get each image object + filename.
       for (filename, image) in images {
         // Append the filename to the appiconset url.
-        let fileURL = try! setURL.appendingPathComponent(filename, isDirectory: false)
+        let fileURL = try setURL.appendingPathComponent(filename, isDirectory: false)
 
         // Unwrap the image object.
         guard let img = image else {
