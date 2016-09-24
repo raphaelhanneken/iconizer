@@ -128,7 +128,7 @@ class AppIconViewController: NSViewController {
   ///  - parameter name: The name of the app icon.
   ///  - parameter url:  URL to save the app icon to.
   ///  - throws: An AppIcon Error.
-  override func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
+  override func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     try appIcon.saveAssetCatalogNamed(name, toURL: url,
                                       asCombinedAsset: (combined.state == NSOnState))
   }

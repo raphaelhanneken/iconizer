@@ -46,43 +46,43 @@ class LaunchImage: NSObject {
   ///  - parameter portrait:  Portrait image provided by the user.
   ///  - parameter landscape: Landscape image provided by the user.
   ///  - throws: A LaunchImageError or ContentsJSONError.
-  func generateImagesForPlatforms(platforms: [String], fromPortrait portrait: NSImage?,
+  func generateImagesForPlatforms(_ platforms: [String], fromPortrait portrait: NSImage?,
                                   andLandscape landscape: NSImage?) throws {
     // Unwrap both images.
     guard let portrait = portrait, let landscape = landscape else {
-      throw LaunchImageError.MissingImage
+      throw LaunchImageError.missingImage
     }
     // Get the JSON data for LaunchImage.
-    json = try ContentsJSON(forType: AssetType.LaunchImage, andPlatforms: platforms)
+    json = try ContentsJSON(forType: AssetType.launchImage, andPlatforms: platforms)
 
     // Loop through the image data.
     for imgData in json.images {
       // Get the expected width.
       guard let width = imgData["expected-width"] else {
-        throw LaunchImageError.MissingDataForImageWidth
+        throw LaunchImageError.missingDataForImageWidth
       }
       // Get the expected height.
       guard let height = imgData["expected-height"] else {
-        throw LaunchImageError.MissingDataForImageHeight
+        throw LaunchImageError.missingDataForImageHeight
       }
       // Get the filename.
       guard let filename = imgData["filename"] else {
-        throw LaunchImageError.MissingDataForImageName
+        throw LaunchImageError.missingDataForImageName
       }
       // Get the image orientation.
       guard let orientation = imgData["orientation"] else {
-        throw LaunchImageError.MissingDataForImageOrientation
+        throw LaunchImageError.missingDataForImageOrientation
       }
       // Get the idiom.
       guard let idiom = imgData["idiom"] else {
-        throw LaunchImageError.MissingDataForImageIdiom
+        throw LaunchImageError.missingDataForImageIdiom
       }
 
       // Is the current platform selected by the user?
-      if platforms.contains({ $0.caseInsensitiveCompare(idiom) == .OrderedSame }) {
+      if platforms.contains(where: { $0.caseInsensitiveCompare(idiom) == .orderedSame }) {
         // Unwrap the width and height of the image
-        guard let width = Int(width), height = Int(height) else {
-          throw LaunchImageError.FormatError
+        guard let width = Int(width), let height = Int(height) else {
+          throw LaunchImageError.formatError
         }
 
         // Check which image to create. And crop the original image to the required size.
@@ -102,19 +102,19 @@ class LaunchImage: NSObject {
   ///  - parameter name: Name of the asset catalog.
   ///  - parameter url:  URL to save the catalog to.
   ///  - throws: A NSImageExtentionError.
-  func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
+  func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     // Create the correct file path.
-    let url = url.URLByAppendingPathComponent("\(launchImageDir)/\(name).launchimage/",
+    let url = url.appendingPathComponent("\(launchImageDir)/\(name).launchimage/",
                                               isDirectory: true)
 
     // Create the necessary folders.
-    try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true,
+    try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true,
                                                             attributes: nil)
 
     // Save the Contents.json
     try json.saveToURL(url)
     for (filename, img) in images {
-      try img.saveAsPNGFileToURL(url.URLByAppendingPathComponent(filename))
+      try img.saveAsPNGFileToURL(url.appendingPathComponent(filename))
     }
 
     // Reset the images array

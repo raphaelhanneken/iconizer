@@ -1,0 +1,5 @@
+line_length: 115
+cyclomatic_complexity: 12
+
+excluded:
+  - Iconizer/Carthage

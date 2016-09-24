@@ -64,7 +64,7 @@ class ImageSetViewController: NSViewController {
   ///  - parameter name: The name of the catalog to save.
   ///  - parameter url:  The destination path to save the assets to.
   ///  - throws: An ImageSetError.
-  override func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
+  override func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     try imageSet.saveAssetCatalogNamed(name, toURL: url)
   }
 }

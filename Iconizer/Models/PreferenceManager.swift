@@ -33,51 +33,51 @@ import Cocoa
 class PreferenceManager {
 
   /// Holds the standart user defaults.
-  private let userDefaults = NSUserDefaults.standardUserDefaults()
+  private let userDefaults = UserDefaults.standard
 
   var generateAppIconForAppleWatch: Int {
-    get { return userDefaults.integerForKey(generateAppIconForAppleWatchKey) }
-    set (newValue) { userDefaults.setInteger(newValue, forKey: generateAppIconForAppleWatchKey) }
+    get { return userDefaults.integer(forKey: generateAppIconForAppleWatchKey) }
+    set (newValue) { userDefaults.set(newValue, forKey: generateAppIconForAppleWatchKey) }
   }
 
   var generateAppIconForIPhone: Int {
-    get { return userDefaults.integerForKey(generateAppIconForIPhoneKey) }
-    set (newValue) { userDefaults.setInteger(newValue, forKey: generateAppIconForIPhoneKey) }
+    get { return userDefaults.integer(forKey: generateAppIconForIPhoneKey) }
+    set (newValue) { userDefaults.set(newValue, forKey: generateAppIconForIPhoneKey) }
   }
 
   var generateAppIconForIPad: Int {
-    get { return userDefaults.integerForKey(generateAppIconForIPadKey) }
-    set (newValue) { userDefaults.setInteger(newValue, forKey: generateAppIconForIPadKey) }
+    get { return userDefaults.integer(forKey: generateAppIconForIPadKey) }
+    set (newValue) { userDefaults.set(newValue, forKey: generateAppIconForIPadKey) }
   }
 
   var generateAppIconForMac: Int {
-    get { return userDefaults.integerForKey(generateAppIconForMacKey) }
-    set (newValue) { userDefaults.setInteger(newValue, forKey: generateAppIconForMacKey) }
+    get { return userDefaults.integer(forKey: generateAppIconForMacKey) }
+    set (newValue) { userDefaults.set(newValue, forKey: generateAppIconForMacKey) }
   }
 
   var generateAppIconForCar: Int {
-    get { return userDefaults.integerForKey(generateAppIconForCarKey) }
-    set (newValue) { userDefaults.setInteger(newValue, forKey: generateAppIconForCarKey) }
+    get { return userDefaults.integer(forKey: generateAppIconForCarKey) }
+    set (newValue) { userDefaults.set(newValue, forKey: generateAppIconForCarKey) }
   }
 
   var generateLaunchImageForIPhone: Int {
-    get { return userDefaults.integerForKey(generateLaunchImageForIPhoneKey) }
-    set (newValue) { userDefaults.setInteger(newValue, forKey: generateLaunchImageForIPhoneKey) }
+    get { return userDefaults.integer(forKey: generateLaunchImageForIPhoneKey) }
+    set (newValue) { userDefaults.set(newValue, forKey: generateLaunchImageForIPhoneKey) }
   }
 
   var generateLaunchImageForIPad: Int {
-    get { return userDefaults.integerForKey(generateLaunchImageForIPadKey) }
-    set (newValue) { userDefaults.setInteger(newValue, forKey: generateLaunchImageForIPadKey) }
+    get { return userDefaults.integer(forKey: generateLaunchImageForIPadKey) }
+    set (newValue) { userDefaults.set(newValue, forKey: generateLaunchImageForIPadKey) }
   }
 
   var combinedAppIconAsset: Int {
-    get { return userDefaults.integerForKey(combinedAppIconAssetKey) }
-    set (newValue) { userDefaults.setInteger(newValue, forKey: combinedAppIconAssetKey) }
+    get { return userDefaults.integer(forKey: combinedAppIconAssetKey) }
+    set (newValue) { userDefaults.set(newValue, forKey: combinedAppIconAssetKey) }
   }
 
   var selectedExportType: Int {
-    get { return userDefaults.integerForKey(selectedExportTypeKey) }
-    set (newValue) { userDefaults.setInteger(newValue, forKey: selectedExportTypeKey) }
+    get { return userDefaults.integer(forKey: selectedExportTypeKey) }
+    set (newValue) { userDefaults.set(newValue, forKey: selectedExportTypeKey) }
   }
 
 
@@ -87,15 +87,15 @@ class PreferenceManager {
 
   ///  Register the default preferences.
   func registerDefaultPreferences() {
-    let defaults = [ generateAppIconForMacKey: NSOnState,
-      generateAppIconForIPhoneKey:        NSOnState,
-      generateAppIconForIPadKey:          NSOnState,
-      generateAppIconForAppleWatchKey:    NSOnState,
-      generateAppIconForCarKey:           NSOnState,
-      generateLaunchImageForIPhoneKey:    NSOnState,
-      generateLaunchImageForIPadKey:      NSOnState,
-      combinedAppIconAssetKey:            NSOffState ]
+    let defaults = [generateAppIconForMacKey:        NSOnState,
+                    generateAppIconForIPhoneKey:     NSOnState,
+                    generateAppIconForIPadKey:       NSOnState,
+                    generateAppIconForAppleWatchKey: NSOnState,
+                    generateAppIconForCarKey:        NSOnState,
+                    generateLaunchImageForIPhoneKey: NSOnState,
+                    generateLaunchImageForIPadKey:   NSOnState,
+                    combinedAppIconAssetKey:         NSOffState]
 
-    self.userDefaults.registerDefaults(defaults)
+    self.userDefaults.register(defaults: defaults)
   }
 }

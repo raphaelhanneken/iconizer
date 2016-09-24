@@ -39,30 +39,30 @@ class AppIcon: NSObject {
   ///  - parameter platforms: Platforms to generate icons for.
   ///  - parameter image:     The image to Iconize.
   ///  - throws: An AppIconError
-  func generateImagesForPlatforms(platforms: [String], fromImage image: NSImage) throws {
+  func generateImagesForPlatforms(_ platforms: [String], fromImage image: NSImage) throws {
     // Loop through the selected platforms
     for platform in platforms {
       // Temporary dict to hold the generated images.
       var tmpImages: [String : NSImage?] = [:]
 
       // Create a new JSON object for the current platform.
-      let jsonData = try ContentsJSON(forType: AssetType.AppIcon, andPlatforms: [platform])
+      let jsonData = try ContentsJSON(forType: AssetType.appIcon, andPlatforms: [platform])
 
       for imageData in jsonData.images {
         // Get the expected size, since App Icons are quadratic we only need one value.
         guard let size = imageData["expected-size"] else {
-          throw AppIconError.MissingDataForImageSize
+          throw AppIconError.missingDataForImageSize
         }
         // Get the filename.
         guard let filename = imageData["filename"] else {
-          throw AppIconError.MissingDataForImageName
+          throw AppIconError.missingDataForImageName
         }
 
         if let size = Int(size) {
           // Append the generated image to the temporary images dict.
           tmpImages[filename] = image.imageByCopyingWithSize(NSSize(width: size, height: size))
         } else {
-          throw AppIconError.FormatError
+          throw AppIconError.formatError
         }
       }
 
@@ -77,36 +77,36 @@ class AppIcon: NSObject {
   ///  - parameter url:      URL to save the app icon to.
   ///  - parameter combined: Save as a combined catalog?
   ///  - throws: An ContentsJSONError or a NSImageExtensionError.
-  func saveAssetCatalogNamed(name: String, toURL url: NSURL,
+  func saveAssetCatalogNamed(_ name: String, toURL url: URL,
                              asCombinedAsset combined: Bool) throws {
     // Define where to save the asset catalog.
-    var setURL = url.URLByAppendingPathComponent("\(appIconDir)/Combined/\(name).appiconset",
-                                                 isDirectory: true)
+    var setURL = url.appendingPathComponent("\(appIconDir)/Combined/\(name).appiconset",
+      isDirectory: true)
 
     // Loop through the selected platforms.
     for (platform, images) in self.images {
       // Override the setURL in case we don't generate a combined asset.
       if !combined {
-        setURL = url.URLByAppendingPathComponent("\(appIconDir)/\(platform)/\(name).appiconset",
-                                                 isDirectory: true)
+        setURL = url.appendingPathComponent("\(appIconDir)/\(platform)/\(name).appiconset",
+          isDirectory: true)
 
         // Create the necessary folders.
-        try NSFileManager.defaultManager().createDirectoryAtURL(setURL,
-                                                                withIntermediateDirectories: true,
-                                                                attributes: nil)
+        try FileManager.default.createDirectory(at: setURL,
+                                                withIntermediateDirectories: true,
+                                                attributes: nil)
 
         // Get the Contents.json for the current platform...
-        var jsonFile = try ContentsJSON(forType: AssetType.AppIcon, andPlatforms: [platform])
+        var jsonFile = try ContentsJSON(forType: AssetType.appIcon, andPlatforms: [platform])
         // ...and save it to the given file url.
         try jsonFile.saveToURL(setURL)
       } else {
         // Create the necessary folders for a combined asset catalog.
-        try NSFileManager.defaultManager().createDirectoryAtURL(setURL,
-                                                                withIntermediateDirectories: true,
-                                                                attributes: nil)
+        try FileManager.default.createDirectory(at: setURL,
+                                                withIntermediateDirectories: true,
+                                                attributes: nil)
 
         // Get the Contents.json for all selected platforms...
-        var jsonFile = try ContentsJSON(forType: AssetType.AppIcon,
+        var jsonFile = try ContentsJSON(forType: AssetType.appIcon,
                                         andPlatforms: Array(self.images.keys))
 
         // ...and save it to the given file url.
@@ -116,11 +116,11 @@ class AppIcon: NSObject {
       // Get each image object + filename.
       for (filename, image) in images {
         // Append the filename to the appiconset url.
-        let fileURL = setURL.URLByAppendingPathComponent(filename, isDirectory: false)
+        let fileURL = setURL.appendingPathComponent(filename, isDirectory: false)
 
         // Unwrap the image object.
         guard let img = image else {
-          throw AppIconError.MissingImage
+          throw AppIconError.missingImage
         }
         try img.saveAsPNGFileToURL(fileURL)
       }

@@ -41,9 +41,9 @@ extension NSImage {
   }
 
   /// Returns a png representation of the current image.
-  var PNGRepresentation: NSData? {
-    if let tiff = self.TIFFRepresentation, tiffData = NSBitmapImageRep(data: tiff) {
-      return tiffData.representationUsingType(.NSPNGFileType, properties: [:])
+  var PNGRepresentation: Data? {
+    if let tiff = self.tiffRepresentation, let tiffData = NSBitmapImageRep(data: tiff) {
+      return tiffData.representation(using: .PNG, properties: [:])
     }
 
     return nil
@@ -58,12 +58,12 @@ extension NSImage {
   ///  - parameter size: The size of the new image.
   ///
   ///  - returns: The resized copy of the original image.
-  func imageByCopyingWithSize(size: NSSize) -> NSImage? {
+  func imageByCopyingWithSize(_ size: NSSize) -> NSImage? {
     // Create a new rect with given width and height
     let frame = NSMakeRect(0, 0, size.width, size.height)
 
     // Get the best representation for the given size.
-    guard let rep = self.bestRepresentationForRect(frame, context: nil, hints: nil) else {
+    guard let rep = self.bestRepresentation(for: frame, context: nil, hints: nil) else {
       return nil
     }
 
@@ -75,7 +75,7 @@ extension NSImage {
     img.lockFocus()
 
     // Draw the new image
-    if rep.drawInRect(frame) {
+    if rep.draw(in: frame) {
       return img
     }
     // Return nil in case something went wrong.
@@ -88,7 +88,7 @@ extension NSImage {
   ///  - parameter size: The size of the new image.
   ///
   ///  - returns: The resized copy of the given image.
-  func resizeWhileMaintainingAspectRatioToSize(size: NSSize) -> NSImage? {
+  func resizeWhileMaintainingAspectRatioToSize(_ size: NSSize) -> NSImage? {
     let newSize: NSSize
 
     let widthRatio  = size.width / self.width
@@ -114,7 +114,7 @@ extension NSImage {
   ///  - parameter size: The size of the new image.
   ///
   ///  - returns: The cropped copy of the given image.
-  func imageByCroppingToSize(size: NSSize) -> NSImage? {
+  func imageByCroppingToSize(_ size: NSSize) -> NSImage? {
     // Resize the current image, while preserving the aspect ratio.
     guard let resized = self.resizeWhileMaintainingAspectRatioToSize(size) else {
       return nil
@@ -127,7 +127,7 @@ extension NSImage {
     let frame = NSMakeRect(x, y, size.width, size.height)
 
     // Get the best representation of the image for the given cropping frame.
-    guard let rep = resized.bestRepresentationForRect(frame, context: nil, hints: nil) else {
+    guard let rep = resized.bestRepresentation(for: frame, context: nil, hints: nil) else {
       return nil
     }
 
@@ -136,9 +136,9 @@ extension NSImage {
     defer { img.unlockFocus() }
     img.lockFocus()
 
-    if rep.drawInRect(NSMakeRect(0, 0, size.width, size.height),
-                      fromRect: frame,
-                      operation: NSCompositingOperation.CompositeCopy,
+    if rep.draw(in: NSMakeRect(0, 0, size.width, size.height),
+                      from: frame,
+                      operation: NSCompositingOperation.copy,
                       fraction: 1.0,
                       respectFlipped: false,
                       hints: [:]) {
@@ -156,11 +156,11 @@ extension NSImage {
   ///
   ///  - parameter url: URL to save the png file to.
   ///  - throws: A NSImageExtensionError.
-  func saveAsPNGFileToURL(url: NSURL) throws {
+  func saveAsPNGFileToURL(_ url: URL) throws {
     if let png = self.PNGRepresentation {
-      try png.writeToURL(url, options: .AtomicWrite)
+      try png.write(to: url, options: .atomicWrite)
     } else {
-      throw NSImageExtensionError.UnwrappingPNGRepresentationFailed
+      throw NSImageExtensionError.unwrappingPNGRepresentationFailed
     }
   }
 }

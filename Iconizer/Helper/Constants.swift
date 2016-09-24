@@ -32,9 +32,9 @@
 ///  - kLaunchImageViewControllerTag: Represents the tag for the LaunchImageView.
 ///  - kImageSetViewControllerTag:    Represents the tag for the ImageSetView.
 enum ViewControllerTag: Int {
-  case AppIconViewControllerTag     = 0
-  case LaunchImageViewControllerTag = 1
-  case ImageSetViewControllerTag    = 2
+  case appIconViewControllerTag     = 0
+  case launchImageViewControllerTag = 1
+  case imageSetViewControllerTag    = 2
 }
 
 
@@ -82,9 +82,9 @@ let imageSetDir    = "Iconizer Assets/Image Sets"
 ///  - ImageSet:    Represents the ImageSet model
 ///  - LaunchImage: Represents the LaunchImage model
 enum AssetType: Int {
-  case AppIcon     = 0
-  case ImageSet    = 1
-  case LaunchImage = 2
+  case appIcon     = 0
+  case imageSet    = 1
+  case launchImage = 2
 }
 
 

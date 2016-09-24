@@ -37,7 +37,7 @@ class ImageSet: NSObject {
   ///  Creates a @1x and @2x image for the supplied image.
   ///
   ///  - parameter image: The image to copy and resize.
-  func generateScaledImagesFromImage(image: NSImage) {
+  func generateScaledImagesFromImage(_ image: NSImage) {
     // Define the new image sizes.
     let x1 = NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3))
     let x2 = NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5))
@@ -54,16 +54,16 @@ class ImageSet: NSObject {
   ///  - parameter name: The asset catalog name.
   ///  - parameter url:  The url where to save the catalog to.
   ///  - throws: A ContentsJSONError or ImageSetError.
-  func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
+  func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     // Create the correct file path.
-    let url = url.URLByAppendingPathComponent("\(imageSetDir)/\(name).imageset", isDirectory: true)
+    let url = url.appendingPathComponent("\(imageSetDir)/\(name).imageset", isDirectory: true)
     // Create the necessary folders.
-    try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true,
+    try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true,
                                                             attributes: nil)
 
     // Manage the Contents.json with an empty platforms array since we don't care
     // about platforms for Image Sets.
-    var jsonFile = try ContentsJSON(forType: AssetType.ImageSet, andPlatforms: [""])
+    var jsonFile = try ContentsJSON(forType: AssetType.imageSet, andPlatforms: [""])
     // Save the Contents.json to the HD.
     try jsonFile.saveToURL(url)
 
@@ -71,14 +71,14 @@ class ImageSet: NSObject {
     for image in jsonFile.images {
       // Unwrap the information we need.
       guard let scale = image["scale"], let filename = image["filename"] else {
-        throw ImageSetError.GettingJSONDataFailed
+        throw ImageSetError.gettingJSONDataFailed
       }
       // Get the correct image.
       guard let img = self.images[scale] else {
-        throw ImageSetError.MissingImage
+        throw ImageSetError.missingImage
       }
       // Save the png representation to the supplied url.
-      try img.saveAsPNGFileToURL(url.URLByAppendingPathComponent(filename))
+      try img.saveAsPNGFileToURL(url.appendingPathComponent(filename))
     }
 
     // Reset the images array

@@ -113,7 +113,7 @@ class LaunchImageViewController: NSViewController {
   ///  - parameter name: Asset catalog name.
   ///  - parameter url: File URL to save the catalog to.
   ///  - throws: A LaunchImageError.
-  override func saveAssetCatalogNamed(name: String, toURL url: NSURL) throws {
+  override func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     try launchImage.saveAssetCatalogNamed(name, toURL: url)
   }
 }
