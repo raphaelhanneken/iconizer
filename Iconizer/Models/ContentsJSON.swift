@@ -34,7 +34,7 @@ struct ContentsJSON {
   var images: Array<[String : String]>
 
   /// Holds the complete information required for Contents.json
-  var contents: [String : AnyObject] = [:]
+  var contents: [String : Any] = [:]
 
 
   // MARK: Initializers
@@ -84,14 +84,13 @@ struct ContentsJSON {
     // Get the correct JSON file for the given AssetType.
     switch type {
     case .appIcon:
-      resourcePath = Bundle.main.pathForResource("AppIcon_" + platform, ofType: "json")
+      resourcePath = Bundle.main.path(forResource: "AppIcon_" + platform, ofType: "json")
 
     case .imageSet:
-      resourcePath = Bundle.main.pathForResource("ImageSet", ofType: "json")
+      resourcePath = Bundle.main.path(forResource: "ImageSet", ofType: "json")
 
     case .launchImage:
-      resourcePath = Bundle.main.pathForResource("LaunchImage_" + platform,
-                                                           ofType: "json")
+      resourcePath = Bundle.main.path(forResource: "LaunchImage_" + platform, ofType: "json")
     }
     // Unwrap the JSON file path.
     guard let path = resourcePath else {
@@ -126,7 +125,7 @@ struct ContentsJSON {
     // Serialize the contents as JSON object.
     let data = try JSONSerialization.data(withJSONObject: self.contents, options: .prettyPrinted)
     // Write the JSON object to the HD.
-    try data.write(to: try url.appendingPathComponent("Contents.json", isDirectory: false),
+    try data.write(to: url.appendingPathComponent("Contents.json", isDirectory: false),
                         options: .atomic)
   }
 }

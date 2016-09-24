@@ -40,7 +40,7 @@ extension String {
   func substringFromCharacter(_ start: String, to end: String) -> String? {
     // Return nil in case either the given start or end string doesn't exist.
     guard let startIndex = self.range(of: start),
-              endIndex   = self.range(of: end)    else {
+              let endIndex   = self.range(of: end)    else {
         return nil
     }
 

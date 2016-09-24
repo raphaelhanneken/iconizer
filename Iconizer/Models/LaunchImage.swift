@@ -49,7 +49,7 @@ class LaunchImage: NSObject {
   func generateImagesForPlatforms(_ platforms: [String], fromPortrait portrait: NSImage?,
                                   andLandscape landscape: NSImage?) throws {
     // Unwrap both images.
-    guard let portrait = portrait, landscape = landscape else {
+    guard let portrait = portrait, let landscape = landscape else {
       throw LaunchImageError.missingImage
     }
     // Get the JSON data for LaunchImage.
@@ -79,9 +79,9 @@ class LaunchImage: NSObject {
       }
 
       // Is the current platform selected by the user?
-      if platforms.contains({ $0.caseInsensitiveCompare(idiom) == .orderedSame }) {
+      if platforms.contains(where: { $0.caseInsensitiveCompare(idiom) == .orderedSame }) {
         // Unwrap the width and height of the image
-        guard let width = Int(width), height = Int(height) else {
+        guard let width = Int(width), let height = Int(height) else {
           throw LaunchImageError.formatError
         }
 
@@ -104,7 +104,7 @@ class LaunchImage: NSObject {
   ///  - throws: A NSImageExtentionError.
   func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     // Create the correct file path.
-    let url = try url.appendingPathComponent("\(launchImageDir)/\(name).launchimage/",
+    let url = url.appendingPathComponent("\(launchImageDir)/\(name).launchimage/",
                                               isDirectory: true)
 
     // Create the necessary folders.
@@ -114,7 +114,7 @@ class LaunchImage: NSObject {
     // Save the Contents.json
     try json.saveToURL(url)
     for (filename, img) in images {
-      try img.saveAsPNGFileToURL(try url.appendingPathComponent(filename))
+      try img.saveAsPNGFileToURL(url.appendingPathComponent(filename))
     }
 
     // Reset the images array

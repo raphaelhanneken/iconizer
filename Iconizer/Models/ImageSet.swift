@@ -56,7 +56,7 @@ class ImageSet: NSObject {
   ///  - throws: A ContentsJSONError or ImageSetError.
   func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     // Create the correct file path.
-    let url = try url.appendingPathComponent("\(imageSetDir)/\(name).imageset", isDirectory: true)
+    let url = url.appendingPathComponent("\(imageSetDir)/\(name).imageset", isDirectory: true)
     // Create the necessary folders.
     try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true,
                                                             attributes: nil)
@@ -70,7 +70,7 @@ class ImageSet: NSObject {
     // Loop through the image data.
     for image in jsonFile.images {
       // Unwrap the information we need.
-      guard let scale = image["scale"], filename = image["filename"] else {
+      guard let scale = image["scale"], let filename = image["filename"] else {
         throw ImageSetError.gettingJSONDataFailed
       }
       // Get the correct image.
@@ -78,7 +78,7 @@ class ImageSet: NSObject {
         throw ImageSetError.missingImage
       }
       // Save the png representation to the supplied url.
-      try img.saveAsPNGFileToURL(try url.appendingPathComponent(filename))
+      try img.saveAsPNGFileToURL(url.appendingPathComponent(filename))
     }
 
     // Reset the images array

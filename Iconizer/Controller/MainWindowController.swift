@@ -98,7 +98,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
       if result == NSFileHandlingPanelOKButton {
         do {
           // Unwrap the file url and get rid of the last path component.
-          guard let url = try exportSheet.url?.deletingLastPathComponent() else {
+          guard let url = exportSheet.url?.deletingLastPathComponent() else {
             return
           }
           // Generate the required images.
@@ -107,7 +107,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
           // selected file URL.
           try currentView.saveAssetCatalogNamed(exportSheet.nameFieldStringValue, toURL: url)
           // Open the generated asset catalog in Finder.
-          NSWorkspace.shared().open(try url.appendingPathComponent("Iconizer Assets", isDirectory: true))
+          NSWorkspace.shared().open(url.appendingPathComponent("Iconizer Assets", isDirectory: true))
         } catch {
           // Something went somewhere terribly wrong...
           print(error)
@@ -146,7 +146,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     }
 
     // Unwrap the selected ViewController and the main window.
-    if let currentView = self.currentView, window = self.window {
+    if let currentView = self.currentView, let window = self.window {
       // Resize the main window to fit the selected view.
       resizeWindowForContentSize(currentView.view.frame.size)
       // Set the main window's contentView to the selected view.
@@ -167,8 +167,8 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     // Get the content rect of the main window.
     let windowContentRect = window.contentRect(forFrameRect: window.frame)
     // Create a new content rect for the given size (except width).
-    let newContentRect    = NSMakeRect(NSMinX(windowContentRect),
-                                       NSMaxY(windowContentRect) - size.height,
+    let newContentRect    = NSMakeRect(windowContentRect.minX,
+                                       windowContentRect.maxY - size.height,
                                        windowContentRect.size.width,
                                        size.height)
 

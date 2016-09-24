@@ -88,7 +88,7 @@ class LaunchImageViewController: NSViewController {
   ///  - throws: A LaunchImageError.
   override func generateRequiredImages() throws {
     // Verify that both images are available.
-    guard let landscapeImage = horizontal.image, portraitImage = portrait.image else {
+    guard let landscapeImage = horizontal.image, let portraitImage = portrait.image else {
       // At least on image is missing!
       beginSheetModalWithMessage("Missing Image!",
                                  andText: "You have to provide a landscape and a portrait image.")
