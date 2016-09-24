@@ -7,6 +7,26 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.2.1</title>
+        <description>
+          <![CDATA[
+          <p>
+            Ready for macOS Sierra.
+          </p>
+          ]]>
+        </description>
+        <pubDate>Sat, 24 Sep 2016 16:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.2.1/Iconizer.dmg"
+          sparkle:version="203"
+          sparkle:shortVersionString="2.2.1"
+          sparkle:dsaSignature="MCwCFFRBR7hucJt/MZplCC6RBnLxoD+lAhRYwi4oJ81XgFY9Xj8WZR2Cg9DBxA=="
+          length="6580191"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.2</title>
         <description>
           <![CDATA[
