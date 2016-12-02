@@ -62,6 +62,20 @@
       "scale" : "2x",
       "filename" : "iphone-oldAppicon@2x.png",
       "expected-size" : "114"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "20x20",
+      "scale" : "2x",
+      "filename" : "iphone-notification@2x.png",
+      "expected-size" : "40"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "20x20",
+      "scale" : "3x",
+      "filename" : "iphone-notification@3x.png",
+      "expected-size" : "60"
     }
   ]
 }

@@ -76,6 +76,20 @@
       "scale" : "2x",
       "filename" : "ipad-pro-appicon@1x.png",
       "expected-size": "167"
+    },
+    {
+      "idiom" : "ipad",
+      "size" : "20x20",
+      "scale" : "1x",
+      "filename" : "ipad-notification@2x.png",
+      "expected-size" : "20"
+    },
+    {
+      "idiom" : "ipad",
+      "size" : "20x20",
+      "scale" : "2x",
+      "filename" : "ipad-notification@3x.png",
+      "expected-size" : "40"
     }
   ]
 }
