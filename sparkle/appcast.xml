@@ -7,6 +7,28 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.2.2</title>
+        <description>
+          <![CDATA[
+          <p>
+            Fix for Issue #6 'Images generated are double in size'
+            Big thanks to <a href="https://github.com/dcilia">dcilia</a> <a href="https://github.com/chrisamanse">chrisamanse</a> and <a href="https://github.com/masarapmabuhay">masarapmabuhay</a> for helping out here.<br><br>
+            Build with Xcode 8.1 (8B62)
+          </p>
+          ]]>
+        </description>
+        <pubDate>Fri, 02 Dec 2016 16:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.2.2/Iconizer.dmg"
+          sparkle:version="208"
+          sparkle:shortVersionString="2.2.2"
+          sparkle:dsaSignature="MCwCFAIG2601FZvaiwP4PVhcr6Gm8K0lAhR2Bh7/sINwhjOGJJy/KxIAwGrxMg=="
+          length="6641520"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.2.1</title>
         <description>
           <![CDATA[
