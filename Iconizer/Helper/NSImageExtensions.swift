@@ -25,7 +25,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import Cocoa
 
 extension NSImage {
@@ -49,7 +48,6 @@ extension NSImage {
     return nil
   }
 
-
   // MARK: Resizing
 
   ///  Returns a new image that represents the original image after
@@ -60,7 +58,7 @@ extension NSImage {
   ///  - returns: The resized copy of the original image.
   func imageByCopyingWithSize(_ size: NSSize) -> NSImage? {
     // Create a new rect with given width and height
-    let frame = NSMakeRect(0, 0, size.width, size.height)
+    let frame = NSRect(x: 0, y: 0, width: size.width, height: size.height)
 
     // Get the best representation for the given size.
     guard let rep = self.bestRepresentation(for: frame, context: nil, hints: nil) else {
@@ -68,18 +66,17 @@ extension NSImage {
     }
 
     // Create an empty image with the given size.
-    let img = NSImage(size: size)
+    let img = NSImage(size: size, flipped: false, drawingHandler: { (dstRect: NSRect) -> Bool in
 
-    // Set the drawing context and make sure to remove the focus before returning.
-    defer { img.unlockFocus() }
-    img.lockFocus()
+        if rep.draw(in: frame) {
+            return true
+        }
 
-    // Draw the new image
-    if rep.draw(in: frame) {
-      return img
-    }
-    // Return nil in case something went wrong.
-    return nil
+        return false
+    })
+
+    return img
+
   }
 
   ///  Copies the current image and resizes it to the size of the given NSSize, while
@@ -104,7 +101,6 @@ extension NSImage {
 
     return self.imageByCopyingWithSize(newSize)
   }
-
 
   // MARK: Cropping
 
@@ -148,7 +144,6 @@ extension NSImage {
     // Return nil in case anything fails.
     return nil
   }
-
 
   // MARK: Saving
 
