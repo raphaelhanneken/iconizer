@@ -5,7 +5,7 @@
 //
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Raphael Hanneken
+// Copyright (c) 2016 Raphael Hanneken
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -68,11 +68,11 @@ extension NSImage {
     // Create an empty image with the given size.
     let img = NSImage(size: size, flipped: false, drawingHandler: { (dstRect: NSRect) -> Bool in
 
-        if rep.draw(in: frame) {
-            return true
-        }
+      if rep.draw(in: frame) {
+        return true
+      }
 
-        return false
+      return false
     })
 
     return img
@@ -133,12 +133,12 @@ extension NSImage {
     img.lockFocus()
 
     if rep.draw(in: NSMakeRect(0, 0, size.width, size.height),
-                      from: frame,
-                      operation: NSCompositingOperation.copy,
-                      fraction: 1.0,
-                      respectFlipped: false,
-                      hints: [:]) {
-        return img  // Return the cropped image.
+                from: frame,
+                operation: NSCompositingOperation.copy,
+                fraction: 1.0,
+                respectFlipped: false,
+                hints: [:]) {
+      return img  // Return the cropped image.
     }
 
     // Return nil in case anything fails.
@@ -158,4 +158,5 @@ extension NSImage {
       throw NSImageExtensionError.unwrappingPNGRepresentationFailed
     }
   }
+
 }

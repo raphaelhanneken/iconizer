@@ -5,7 +5,7 @@
 //
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Raphael Hanneken
+// Copyright (c) 2016 Raphael Hanneken
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -29,6 +29,7 @@ import Cocoa
 
 // Adds some required functionality/requirements to NSViewController.
 extension NSViewController {
+
   ///  Base method for generating the required images.
   ///  Needs to be overridden by subclasses!
   ///
@@ -56,4 +57,5 @@ extension NSViewController {
     // Display!
     alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
   }
+  
 }

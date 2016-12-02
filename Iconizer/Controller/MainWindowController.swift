@@ -5,7 +5,7 @@
 //
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Raphael Hanneken
+// Copyright (c) 2016 Raphael Hanneken
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -36,6 +36,9 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
   /// Represents the currently selected view.
   var currentView: NSViewController?
 
+  /// Access the user's preferences.
+  let userPrefs = PreferenceManager()
+
   // Override the windowNibName property.
   override var windowNibName: String {
     return "MainWindow"
@@ -52,19 +55,15 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
       // Hide the window title, to get the unified toolbar.
       window.titleVisibility = .hidden
     }
-
-    // Get the user defaults.
-    let prefManager = PreferenceManager()
     // Change the content view to the last selected view...
-    self.changeView(ViewControllerTag(rawValue: prefManager.selectedExportType))
+    self.changeView(ViewControllerTag(rawValue: userPrefs.selectedExportType))
     // ...and set the selectedSegment of NSSegmentedControl to the corresponding value.
-    self.exportType.selectedSegment = prefManager.selectedExportType
+    self.exportType.selectedSegment = userPrefs.selectedExportType
   }
 
   // Save the user preferences before the application terminates.
   func windowWillClose(_ notification: Notification) {
-    let prefManager = PreferenceManager()
-    prefManager.selectedExportType = self.exportType.selectedSegment
+    userPrefs.selectedExportType = self.exportType.selectedSegment
   }
 
   // MARK: Actions
@@ -173,4 +172,5 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     // Set the window frame to the new frame.
     window.setFrame(newWindowFrame, display: true, animate: true)
   }
+  
 }

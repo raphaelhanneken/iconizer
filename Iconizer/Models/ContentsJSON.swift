@@ -5,7 +5,7 @@
 //
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Raphael Hanneken
+// Copyright (c) 2016 Raphael Hanneken
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -29,6 +29,7 @@ import Cocoa
 
 /// Reads and writes the Contents.json files.
 struct ContentsJSON {
+
   /// Holds the image data from <AssetType>.json
   var images: [[String : String]]
 
@@ -76,40 +77,40 @@ struct ContentsJSON {
   ///  - returns: The JSON data for the supplied AssetType.
   func JSONObjectForType(_ type: AssetType, andPlatform platform: String)
     throws -> [[String : String]] {
-    // Holds the path to the required JSON file.
-    let resourcePath: String?
-    // Get the correct JSON file for the given AssetType.
-    switch type {
-    case .appIcon:
-      resourcePath = Bundle.main.path(forResource: "AppIcon_" + platform, ofType: "json")
+      // Holds the path to the required JSON file.
+      let resourcePath: String?
+      // Get the correct JSON file for the given AssetType.
+      switch type {
+      case .appIcon:
+        resourcePath = Bundle.main.path(forResource: "AppIcon_" + platform, ofType: "json")
 
-    case .imageSet:
-      resourcePath = Bundle.main.path(forResource: "ImageSet", ofType: "json")
+      case .imageSet:
+        resourcePath = Bundle.main.path(forResource: "ImageSet", ofType: "json")
 
-    case .launchImage:
-      resourcePath = Bundle.main.path(forResource: "LaunchImage_" + platform, ofType: "json")
-    }
-    // Unwrap the JSON file path.
-    guard let path = resourcePath else {
-      throw ContentsJSONError.fileNotFound
-    }
+      case .launchImage:
+        resourcePath = Bundle.main.path(forResource: "LaunchImage_" + platform, ofType: "json")
+      }
+      // Unwrap the JSON file path.
+      guard let path = resourcePath else {
+        throw ContentsJSONError.fileNotFound
+      }
 
-    // Create a new NSData object from the contents of the selected JSON file.
-    let JSONData   = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-    // Create a new JSON object from the given data.
-    let JSONObject = try JSONSerialization.jsonObject(with: JSONData, options: .allowFragments)
+      // Create a new NSData object from the contents of the selected JSON file.
+      let JSONData   = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+      // Create a new JSON object from the given data.
+      let JSONObject = try JSONSerialization.jsonObject(with: JSONData, options: .allowFragments)
 
-    // Convert the JSON object into a Dictionary.
+      // Convert the JSON object into a Dictionary.
       guard let contentsDict = JSONObject as? [String : AnyObject] else {
-      throw ContentsJSONError.castingJSONToDictionaryFailed
-    }
-    // Get the image information from the JSON dictionary.
-    guard let images = contentsDict["images"] as? [[String : String]] else {
-      throw ContentsJSONError.gettingImagesArrayFailed
-    }
+        throw ContentsJSONError.castingJSONToDictionaryFailed
+      }
+      // Get the image information from the JSON dictionary.
+      guard let images = contentsDict["images"] as? [[String : String]] else {
+        throw ContentsJSONError.gettingImagesArrayFailed
+      }
 
-    // Return the image information.
-    return images
+      // Return the image information.
+      return images
   }
 
   ///  Saves the Contents.json to the appropriate folder.
@@ -122,7 +123,7 @@ struct ContentsJSON {
     // Serialize the contents as JSON object.
     let data = try JSONSerialization.data(withJSONObject: self.contents, options: .prettyPrinted)
     // Write the JSON object to the HD.
-    try data.write(to: url.appendingPathComponent("Contents.json", isDirectory: false),
-                        options: .atomic)
+    try data.write(to: url.appendingPathComponent("Contents.json", isDirectory: false), options: .atomic)
   }
+
 }

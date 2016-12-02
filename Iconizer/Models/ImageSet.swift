@@ -5,7 +5,7 @@
 //
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Raphael Hanneken
+// Copyright (c) 2016 Raphael Hanneken
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -58,7 +58,7 @@ class ImageSet: NSObject {
     let url = url.appendingPathComponent("\(imageSetDir)/\(name).imageset", isDirectory: true)
     // Create the necessary folders.
     try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true,
-                                                            attributes: nil)
+                                            attributes: nil)
 
     // Manage the Contents.json with an empty platforms array since we don't care
     // about platforms for Image Sets.
@@ -83,4 +83,5 @@ class ImageSet: NSObject {
     // Reset the images array
     self.images = [:]
   }
+  
 }

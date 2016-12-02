@@ -5,7 +5,7 @@
 //
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Raphael Hanneken
+// Copyright (c) 2016 Raphael Hanneken
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -103,11 +103,10 @@ class LaunchImage: NSObject {
   func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     // Create the correct file path.
     let url = url.appendingPathComponent("\(launchImageDir)/\(name).launchimage/",
-                                              isDirectory: true)
+      isDirectory: true)
 
     // Create the necessary folders.
-    try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true,
-                                                            attributes: nil)
+    try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
 
     // Save the Contents.json
     try json.saveToURL(url)
@@ -118,4 +117,5 @@ class LaunchImage: NSObject {
     // Reset the images array
     self.images = [:]
   }
+  
 }

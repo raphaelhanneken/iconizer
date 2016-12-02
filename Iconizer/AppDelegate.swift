@@ -5,7 +5,7 @@
 //
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Raphael Hanneken
+// Copyright (c) 2016 Raphael Hanneken
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -30,21 +30,20 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-        /// Handle the window via MainWindowController
-    var mainWindowController: MainWindowController?
+  /// Handle the window via MainWindowController
+  var mainWindowController: MainWindowController?
 
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Create a new WindowController instance
-        let mainWindowController = MainWindowController()
+  func applicationDidFinishLaunching(_ aNotification: Notification) {
+    // Create a new WindowController instance
+    let mainWindowController = MainWindowController()
+    // Display the associated window on screen
+    mainWindowController.showWindow(self)
+    // Point the instance variable to the created MainWindowController object
+    self.mainWindowController = mainWindowController
+  }
 
-        // Display the associated window on screen
-        mainWindowController.showWindow(self)
+  func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+    return true
+  }
 
-        // Point the instance variable to the created MainWindowController object
-        self.mainWindowController = mainWindowController
-    }
-
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return true
-    }
 }

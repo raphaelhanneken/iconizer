@@ -5,7 +5,7 @@
 //
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Raphael Hanneken
+// Copyright (c) 2016 Raphael Hanneken
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -76,8 +76,7 @@ class AppIcon: NSObject {
   ///  - parameter url:      URL to save the app icon to.
   ///  - parameter combined: Save as a combined catalog?
   ///  - throws: An ContentsJSONError or a NSImageExtensionError.
-  func saveAssetCatalogNamed(_ name: String, toURL url: URL,
-                             asCombinedAsset combined: Bool) throws {
+  func saveAssetCatalogNamed(_ name: String, toURL url: URL, asCombinedAsset combined: Bool) throws {
     // Define where to save the asset catalog.
     var setURL = url.appendingPathComponent("\(appIconDir)/Combined/\(name).appiconset",
       isDirectory: true)
@@ -128,4 +127,5 @@ class AppIcon: NSObject {
     // Reset the images array
     self.images = [:]
   }
+  
 }

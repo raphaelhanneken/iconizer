@@ -5,7 +5,7 @@
 //
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Raphael Hanneken
+// Copyright (c) 2016 Raphael Hanneken
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -53,6 +53,9 @@ class LaunchImageViewController: NSViewController {
   /// Holds the LaunchImage model
   let launchImage = LaunchImage()
 
+  /// Manages the user's preferences.
+  let userPrefs = PreferenceManager()
+
   /// Name of the corresponding nib file.
   override var nibName: String {
     return "LaunchImageView"
@@ -62,16 +65,12 @@ class LaunchImageViewController: NSViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    // Set user defaults.
-    let userPrefs     = PreferenceManager()
+    
     self.iphone.state = userPrefs.generateLaunchImageForIPhone
     self.ipad.state   = userPrefs.generateLaunchImageForIPad
   }
 
   override func viewWillDisappear() {
-    // Save user defaults.
-    let userPrefs                          = PreferenceManager()
     userPrefs.generateLaunchImageForIPad   = self.ipad.state
     userPrefs.generateLaunchImageForIPhone = self.iphone.state
   }
@@ -111,4 +110,5 @@ class LaunchImageViewController: NSViewController {
   override func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     try launchImage.saveAssetCatalogNamed(name, toURL: url)
   }
+  
 }

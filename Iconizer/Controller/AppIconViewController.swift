@@ -5,7 +5,7 @@
 //
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Raphael Hanneken
+// Copyright (c) 2016 Raphael Hanneken
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -48,17 +48,20 @@ class AppIconViewController: NSViewController {
   /// Holds the AppIcon model
   let appIcon = AppIcon()
 
+  /// Manages the user's preferences.
+  let prefManager = PreferenceManager()
+
   /// Which platforms are actually selected?
   var enabledPlatforms: [String] {
-      // String array of selected platforms.
-      var tmp: [String] = []
-      if self.carPlay.state == NSOnState { tmp.append(kCarPlayPlatformName) }
-      if self.iPad.state    == NSOnState { tmp.append(kIPadPlatformName) }
-      if self.iPhone.state  == NSOnState { tmp.append(kIPhonePlatformName) }
-      if self.osx.state     == NSOnState { tmp.append(kOSXPlatformName ) }
-      if self.watch.state   == NSOnState { tmp.append(kAppleWatchPlatformName) }
+    // String array of selected platforms.
+    var tmp: [String] = []
+    if self.carPlay.state == NSOnState { tmp.append(kCarPlayPlatformName) }
+    if self.iPad.state    == NSOnState { tmp.append(kIPadPlatformName) }
+    if self.iPhone.state  == NSOnState { tmp.append(kIPhonePlatformName) }
+    if self.osx.state     == NSOnState { tmp.append(kOSXPlatformName ) }
+    if self.watch.state   == NSOnState { tmp.append(kAppleWatchPlatformName) }
 
-      return tmp
+    return tmp
   }
 
   /// Name of the corresponding nib file.
@@ -71,22 +74,16 @@ class AppIconViewController: NSViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // Get the user defaults.
-    let prefManager = PreferenceManager()
-
     // Set the checkbox states.
-    watch.state     = prefManager.generateAppIconForAppleWatch
-    iPhone.state    = prefManager.generateAppIconForIPhone
-    iPad.state      = prefManager.generateAppIconForIPad
-    osx.state       = prefManager.generateAppIconForMac
-    carPlay.state   = prefManager.generateAppIconForCar
-    combined.state  = prefManager.combinedAppIconAsset
+    watch.state    = prefManager.generateAppIconForAppleWatch
+    iPhone.state   = prefManager.generateAppIconForIPhone
+    iPad.state     = prefManager.generateAppIconForIPad
+    osx.state      = prefManager.generateAppIconForMac
+    carPlay.state  = prefManager.generateAppIconForCar
+    combined.state = prefManager.combinedAppIconAsset
   }
 
   override func viewWillDisappear() {
-    // Get the user defaults
-    let prefManager = PreferenceManager()
-
     // Save the checkbox states.
     prefManager.generateAppIconForAppleWatch = watch.state
     prefManager.generateAppIconForIPad       = iPad.state
@@ -125,7 +122,7 @@ class AppIconViewController: NSViewController {
   ///  - parameter url:  URL to save the app icon to.
   ///  - throws: An AppIcon Error.
   override func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
-    try appIcon.saveAssetCatalogNamed(name, toURL: url,
-                                      asCombinedAsset: (combined.state == NSOnState))
+    try appIcon.saveAssetCatalogNamed(name, toURL: url, asCombinedAsset: (combined.state == NSOnState))
   }
+  
 }

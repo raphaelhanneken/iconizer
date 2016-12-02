@@ -5,7 +5,7 @@
 //
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Raphael Hanneken
+// Copyright (c) 2016 Raphael Hanneken
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -39,11 +39,11 @@ extension String {
   ///  - returns: Characters between the given start and end charaters.
   func substringFromCharacter(_ start: String, to end: String) -> String? {
     // Return nil in case either the given start or end string doesn't exist.
-    guard let startIndex = self.range(of: start),
-              let endIndex   = self.range(of: end)    else {
-        return nil
+    guard let startIndex = self.range(of: start), let endIndex = self.range(of: end) else {
+      return nil
     }
 
     return substring(with: Range(startIndex.upperBound ..< endIndex.lowerBound))
   }
+  
 }
