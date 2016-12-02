@@ -25,7 +25,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import Cocoa
 
 @NSApplicationMain
@@ -33,7 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         /// Handle the window via MainWindowController
     var mainWindowController: MainWindowController?
-
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create a new WindowController instance

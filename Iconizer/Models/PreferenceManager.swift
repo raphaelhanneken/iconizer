@@ -25,9 +25,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import Cocoa
-
 
 /// Manage the user defaults.
 class PreferenceManager {
@@ -79,7 +77,6 @@ class PreferenceManager {
     get { return userDefaults.integer(forKey: selectedExportTypeKey) }
     set (newValue) { userDefaults.set(newValue, forKey: selectedExportTypeKey) }
   }
-
 
   init() {
     registerDefaultPreferences()

@@ -27,7 +27,6 @@
 
 import Cocoa
 
-
 /// Generates the necessary images for an image set and saves them to the HD.
 class ImageSet: NSObject {
 

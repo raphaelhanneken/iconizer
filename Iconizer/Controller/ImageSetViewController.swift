@@ -25,9 +25,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import Cocoa
-
 
 /// Handles the ImageSet view.
 class ImageSetViewController: NSViewController {
@@ -42,7 +40,6 @@ class ImageSetViewController: NSViewController {
   override var nibName: String {
     return "ImageSetView"
   }
-
 
   // MARK: Mathods
 

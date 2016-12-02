@@ -25,7 +25,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 ///  Nicely wrap up the integers from NSSegmentedControl.
 ///
 ///  - kAppIconViewControllerTag:     Represents the tag for the AppIconView.
@@ -36,7 +35,6 @@ enum ViewControllerTag: Int {
   case launchImageViewControllerTag = 1
   case imageSetViewControllerTag    = 2
 }
-
 
 // MARK: - Platform names
 
@@ -51,7 +49,6 @@ let kOSXPlatformName        = "Mac"
 /// Platform: Car Play
 let kCarPlayPlatformName    = "Car"
 
-
 // MARK: - Image Orientation names
 
 ///  Possible image orientations.
@@ -63,7 +60,6 @@ enum ImageOrientation: String {
   case Landscape = "landscape"
 }
 
-
 // MARK: - Directory names
 
 /// Default url for app icons.
@@ -72,7 +68,6 @@ let appIconDir     = "Iconizer Assets/App Icons"
 let launchImageDir = "Iconizer Assets/Launch Images"
 /// Default url for image sets.
 let imageSetDir    = "Iconizer Assets/Image Sets"
-
 
 // MARK: - Asset Types
 
@@ -86,7 +81,6 @@ enum AssetType: Int {
   case imageSet    = 1
   case launchImage = 2
 }
-
 
 // MARK: - Keys to access the user defaults
 

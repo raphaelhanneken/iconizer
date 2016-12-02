@@ -27,7 +27,6 @@
 
 import Cocoa
 
-
 ///  Generates the necessary images for a launch image and saves itself to the HD.
 class LaunchImage: NSObject {
 
@@ -36,7 +35,6 @@ class LaunchImage: NSObject {
 
   /// Holds the image information for the contents.json
   var json: ContentsJSON!
-
 
   // swiftlint:disable cyclomatic_complexity
 

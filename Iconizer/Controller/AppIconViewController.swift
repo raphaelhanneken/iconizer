@@ -25,9 +25,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import Cocoa
-
 
 ///  Handles the AppIconView
 class AppIconViewController: NSViewController {
@@ -68,7 +66,6 @@ class AppIconViewController: NSViewController {
     return "AppIconView"
   }
 
-
   // MARK: View Controller
 
   override func viewDidLoad() {
@@ -98,7 +95,6 @@ class AppIconViewController: NSViewController {
     prefManager.generateAppIconForCar        = carPlay.state
     prefManager.combinedAppIconAsset         = combined.state
   }
-
 
   // MARK: - Methods
 

@@ -27,7 +27,6 @@
 
 import Cocoa
 
-
 // Adds some required functionality/requirements to NSViewController.
 extension NSViewController {
   ///  Base method for generating the required images.

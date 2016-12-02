@@ -25,9 +25,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import Cocoa
-
 
 ///  Handles the MainWindow view.
 class MainWindowController: NSWindowController, NSWindowDelegate {
@@ -42,7 +40,6 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
   override var windowNibName: String {
     return "MainWindow"
   }
-
 
   // MARK: Window delegate
 
@@ -69,7 +66,6 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     let prefManager = PreferenceManager()
     prefManager.selectedExportType = self.exportType.selectedSegment
   }
-
 
   // MARK: Actions
 
@@ -117,7 +113,6 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     }
 
   }
-
 
   // MARK: Changing View
 

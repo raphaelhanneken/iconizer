@@ -25,7 +25,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 ///  Error Types for ContentsJSON.
 ///
 ///  - FileNotFound:                  The supplied JSON file could not be found.
@@ -83,7 +82,6 @@ enum AppIconError: Error {
   case missingDataForImageName
   case formatError
 }
-
 
 /// Error types for NSImageExtension
 ///

@@ -25,7 +25,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import Cocoa
 
 /// Handles the LaunchImage view.
@@ -61,7 +60,6 @@ class LaunchImageViewController: NSViewController {
     return "LaunchImageView"
   }
 
-
   // MARK: View Controller
 
   override func viewDidLoad() {
@@ -79,7 +77,6 @@ class LaunchImageViewController: NSViewController {
     userPrefs.generateLaunchImageForIPad   = self.ipad.state
     userPrefs.generateLaunchImageForIPhone = self.iphone.state
   }
-
 
   // MARK: Methods
 

@@ -27,7 +27,6 @@
 
 import Cocoa
 
-
 /// Reads and writes the Contents.json files.
 struct ContentsJSON {
   /// Holds the image data from <AssetType>.json
@@ -35,7 +34,6 @@ struct ContentsJSON {
 
   /// Holds the complete information required for Contents.json
   var contents: [String : Any] = [:]
-
 
   // MARK: Initializers
 
@@ -67,7 +65,6 @@ struct ContentsJSON {
       images += try JSONObjectForType(type, andPlatform: platform)
     }
   }
-
 
   // MARK: Methods
 

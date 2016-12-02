@@ -27,7 +27,6 @@
 
 import Cocoa
 
-
 /// Generates the necessary images for an app icon and saves them onto the HD.
 class AppIcon: NSObject {
 
