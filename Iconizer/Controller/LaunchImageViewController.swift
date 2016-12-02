@@ -44,12 +44,10 @@ class LaunchImageViewController: NSViewController {
 
   /// Returns the selected platforms
   var enabledPlatforms: [String] {
-    get {
-      var tmp: [String] = []
-      if iphone.state == NSOnState { tmp.append(kIPhonePlatformName) }
-      if ipad.state   == NSOnState { tmp.append(kIPadPlatformName) }
-      return tmp
-    }
+    var tmp: [String] = []
+    if iphone.state == NSOnState { tmp.append(kIPhonePlatformName) }
+    if ipad.state   == NSOnState { tmp.append(kIPadPlatformName) }
+    return tmp
   }
 
   /// Holds the LaunchImage model

@@ -30,7 +30,7 @@ import Cocoa
 /// Reads and writes the Contents.json files.
 struct ContentsJSON {
   /// Holds the image data from <AssetType>.json
-  var images: Array<[String : String]>
+  var images: [[String : String]]
 
   /// Holds the complete information required for Contents.json
   var contents: [String : Any] = [:]
@@ -75,7 +75,7 @@ struct ContentsJSON {
   ///  - throws: A ContentsJSONError.
   ///  - returns: The JSON data for the supplied AssetType.
   func JSONObjectForType(_ type: AssetType, andPlatform platform: String)
-    throws -> Array<[String : String]> {
+    throws -> [[String : String]] {
     // Holds the path to the required JSON file.
     let resourcePath: String?
     // Get the correct JSON file for the given AssetType.
@@ -100,11 +100,11 @@ struct ContentsJSON {
     let JSONObject = try JSONSerialization.jsonObject(with: JSONData, options: .allowFragments)
 
     // Convert the JSON object into a Dictionary.
-    guard let contentsDict = JSONObject as? Dictionary<String, AnyObject> else {
+      guard let contentsDict = JSONObject as? [String : AnyObject] else {
       throw ContentsJSONError.castingJSONToDictionaryFailed
     }
     // Get the image information from the JSON dictionary.
-    guard let images = contentsDict["images"] as? Array<[String : String]> else {
+    guard let images = contentsDict["images"] as? [[String : String]] else {
       throw ContentsJSONError.gettingImagesArrayFailed
     }
 
