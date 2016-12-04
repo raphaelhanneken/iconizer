@@ -127,5 +127,5 @@ class AppIcon: NSObject {
     // Reset the images array
     self.images = [:]
   }
-  
+
 }

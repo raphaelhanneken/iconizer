@@ -117,5 +117,5 @@ class LaunchImage: NSObject {
     // Reset the images array
     self.images = [:]
   }
-  
+
 }

@@ -172,5 +172,5 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     // Set the window frame to the new frame.
     window.setFrame(newWindowFrame, display: true, animate: true)
   }
-  
+
 }

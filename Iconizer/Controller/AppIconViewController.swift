@@ -124,5 +124,5 @@ class AppIconViewController: NSViewController {
   override func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     try appIcon.saveAssetCatalogNamed(name, toURL: url, asCombinedAsset: (combined.state == NSOnState))
   }
-  
+
 }

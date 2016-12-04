@@ -57,5 +57,5 @@ extension NSViewController {
     // Display!
     alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
   }
-  
+
 }

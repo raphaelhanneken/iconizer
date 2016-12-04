@@ -64,5 +64,5 @@ class ImageSetViewController: NSViewController {
   override func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     try imageSet.saveAssetCatalogNamed(name, toURL: url)
   }
-  
+
 }

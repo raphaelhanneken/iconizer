@@ -45,5 +45,5 @@ extension String {
 
     return substring(with: Range(startIndex.upperBound ..< endIndex.lowerBound))
   }
-  
+
 }

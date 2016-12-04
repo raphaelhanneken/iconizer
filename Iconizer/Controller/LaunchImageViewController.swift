@@ -65,7 +65,7 @@ class LaunchImageViewController: NSViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     self.iphone.state = userPrefs.generateLaunchImageForIPhone
     self.ipad.state   = userPrefs.generateLaunchImageForIPad
   }
@@ -110,5 +110,5 @@ class LaunchImageViewController: NSViewController {
   override func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     try launchImage.saveAssetCatalogNamed(name, toURL: url)
   }
-  
+
 }
