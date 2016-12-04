@@ -7,6 +7,27 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.2.3</title>
+        <description>
+          <![CDATA[
+          <p>
+            Added support for iPhone &amp; iPad notification icons.
+            Build with Xcode 8.1 (8B62)
+          </p>
+          ]]>
+        </description>
+        <pubDate>Sun, 04 Dec 2016 14:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.2.3/Iconizer.dmg"
+          sparkle:version="212"
+          sparkle:shortVersionString="2.2.3"
+          sparkle:dsaSignature="MCwCFBYLASQFcN2mJfAktaE0U+PqG/CpAhQntT2hePbGKfUllcfGhHZkgo3TLQ=="
+          length="6664587"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.2.2</title>
         <description>
           <![CDATA[
