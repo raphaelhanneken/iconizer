@@ -16,33 +16,6 @@ Visit the [homepage](http://behoernchen.github.io/iconizer/index.html) for more 
 You want to create 1024x1024px retina sized icns for OS X, fast and easily? Make sure to check out [Icns Composer](https://github.com/behoernchen/IcnsComposer)!
 
 
-## Change log ##
-
-Oct 01, 2015 - __v2.1__
-- Ready for OS X El Capitan
-- Migrated to Swift 2.1
-- Animated window resizing
-- Fixed combined asset export for App Icons
-- Name asset catalogs before saving them
-
-July 16, 2015 - __v2.0__
-- Completely rewritten version.
-- Added support for Launch Images
-- Added support for Image Sets
-- Added auto update via the Sparkle framework
-
-May 21, 2015 - __v1.1__ [Download old version](https://bitbucket.org/behoernchen/iconizer_v1/downloads/Iconizer.dmg)
-- Fixed a bug with iDevices [Issue #2](https://github.com/behoernchen/Iconizer/issues/2)
-
-May 19, 2015 - __v1.1__
-- Added CarPlay support
-- Added support for older iOS versions
-- Moved the 'Export' button into the toolbar
-
-May 13, 2015 - __v1.0__
-- Initial commit
-
-
 ----------
 
 ## License ##
