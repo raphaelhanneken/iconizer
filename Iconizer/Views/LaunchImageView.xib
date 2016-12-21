@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15C47a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="LaunchImageViewController" customModule="Iconizer" customModuleProvider="target">
@@ -21,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="319" height="400"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <box autoresizesSubviews="NO" title="Platforms" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="nsQ-t7-zGv">
+                <box autoresizesSubviews="NO" borderType="line" title="Platforms" translatesAutoresizingMaskIntoConstraints="NO" id="nsQ-t7-zGv">
                     <rect key="frame" x="17" y="16" width="285" height="54"/>
                     <view key="contentView" id="lCA-EW-OD4">
                         <rect key="frame" x="1" y="1" width="283" height="38"/>
@@ -29,7 +30,6 @@
                         <subviews>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="Lf6-a9-1AF">
                                 <rect key="frame" x="16" y="12" width="64" height="18"/>
-                                <animations/>
                                 <buttonCell key="cell" type="check" title="iPhone" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GRz-3e-Ok5">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -37,14 +37,12 @@
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="r2F-2H-h1Q">
                                 <rect key="frame" x="125" y="12" width="49" height="18"/>
-                                <animations/>
                                 <buttonCell key="cell" type="check" title="iPad" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="EP6-fE-bb6">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                         </subviews>
-                        <animations/>
                     </view>
                     <constraints>
                         <constraint firstItem="r2F-2H-h1Q" firstAttribute="baseline" secondItem="Lf6-a9-1AF" secondAttribute="baseline" id="6KS-OZ-qV7"/>
@@ -54,43 +52,29 @@
                         <constraint firstItem="r2F-2H-h1Q" firstAttribute="leading" secondItem="Lf6-a9-1AF" secondAttribute="trailing" constant="49" id="iGC-do-EIV"/>
                         <constraint firstItem="Lf6-a9-1AF" firstAttribute="top" secondItem="nsQ-t7-zGv" secondAttribute="top" constant="25" id="txh-jH-U9C"/>
                     </constraints>
-                    <animations/>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nYq-WU-GWd">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nYq-WU-GWd" customClass="DragDropImageView" customModule="Iconizer" customModuleProvider="target">
                     <rect key="frame" x="18" y="186" width="134" height="134"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="nYq-WU-GWd" secondAttribute="height" multiplier="1:1" id="c3h-TJ-lW2"/>
                     </constraints>
-                    <animations/>
-                    <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="F1g-h3-FoO"/>
+                    <imageCell key="cell" selectable="YES" editable="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="F1g-h3-FoO"/>
                 </imageView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qam-7h-3JG">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qam-7h-3JG" customClass="DragDropImageView" customModule="Iconizer" customModuleProvider="target">
                     <rect key="frame" x="168" y="186" width="134" height="134"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="qam-7h-3JG" secondAttribute="height" multiplier="1:1" id="3qV-yE-UBx"/>
                     </constraints>
-                    <animations/>
-                    <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Qbc-z7-SmH"/>
+                    <imageCell key="cell" selectable="YES" editable="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Qbc-z7-SmH"/>
                 </imageView>
-                <box horizontalHuggingPriority="244" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="8Re-6b-lUb">
+                <box horizontalHuggingPriority="244" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="8Re-6b-lUb">
                     <rect key="frame" x="21" y="178" width="128" height="5"/>
-                    <animations/>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <font key="titleFont" metaFont="system"/>
                 </box>
-                <box horizontalHuggingPriority="241" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="s8i-WK-h81">
+                <box horizontalHuggingPriority="241" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="s8i-WK-h81">
                     <rect key="frame" x="171" y="178" width="128" height="5"/>
-                    <animations/>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <font key="titleFont" metaFont="system"/>
                 </box>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F9b-qi-0zT">
                     <rect key="frame" x="210" y="155" width="50" height="17"/>
-                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Portrait" id="gX1-ih-rqw">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -99,7 +83,6 @@
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NE7-vi-dMn">
                     <rect key="frame" x="50" y="155" width="71" height="17"/>
-                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Landscape" id="DzG-Tm-Z8O">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -130,7 +113,6 @@
                 <constraint firstItem="8Re-6b-lUb" firstAttribute="top" secondItem="nYq-WU-GWd" secondAttribute="bottom" constant="8" id="vmN-x8-a41"/>
                 <constraint firstAttribute="bottom" secondItem="nsQ-t7-zGv" secondAttribute="bottom" constant="20" symbolic="YES" id="zdm-ZR-Uvk"/>
             </constraints>
-            <animations/>
             <point key="canvasLocation" x="279.5" y="242.5"/>
         </customView>
     </objects>

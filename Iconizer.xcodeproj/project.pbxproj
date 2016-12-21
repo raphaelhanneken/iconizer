@@ -39,6 +39,7 @@
 		8E2F99801C01F67C00C2E2D8 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8E2F99821C02168A00C2E2D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99811C02168A00C2E2D8 /* Images.xcassets */; };
 		8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */; };
+		8E5C00D41E0AA3260094FD0C /* DragDropImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,6 +89,7 @@
 		8E3F8F651B23488F0096E9EC /* Iconizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iconizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3F8F691B23488F0096E9EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DragDropImageView.swift; path = Iconizer/Helper/DragDropImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				8E2F995B1C01F17E00C2E2D8 /* Constants.swift */,
+				8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */,
 				8E2F995C1C01F17E00C2E2D8 /* ErrorTypes.swift */,
 				8E2F995D1C01F17E00C2E2D8 /* NSImageExtensions.swift */,
 				8E2F995E1C01F17E00C2E2D8 /* NSViewControllerExtensions.swift */,
@@ -320,6 +323,7 @@
 				8E2F994E1C01F14E00C2E2D8 /* LaunchImage.swift in Sources */,
 				8E2F99601C01F17E00C2E2D8 /* Constants.swift in Sources */,
 				8E2F994D1C01F14E00C2E2D8 /* ImageSet.swift in Sources */,
+				8E5C00D41E0AA3260094FD0C /* DragDropImageView.swift in Sources */,
 				8E2F99431C01F13600C2E2D8 /* ImageSetViewController.swift in Sources */,
 				8E2F99451C01F13600C2E2D8 /* MainWindowController.swift in Sources */,
 				8E2F99441C01F13600C2E2D8 /* LaunchImageViewController.swift in Sources */,
@@ -446,6 +450,7 @@
 				);
 				INFOPLIST_FILE = Iconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.raphaelhanneken.iconizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -465,6 +470,7 @@
 				);
 				INFOPLIST_FILE = Iconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.raphaelhanneken.iconizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
