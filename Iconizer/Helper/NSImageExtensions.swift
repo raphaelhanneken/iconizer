@@ -66,7 +66,7 @@ extension NSImage {
     }
 
     // Create an empty image with the given size.
-    let img = NSImage(size: size, flipped: false, drawingHandler: { (dstRect: NSRect) -> Bool in
+    let img = NSImage(size: size, flipped: false, drawingHandler: { (_) -> Bool in
 
       if rep.draw(in: frame) {
         return true
