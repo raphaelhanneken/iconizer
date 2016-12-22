@@ -125,4 +125,11 @@ class AppIconViewController: NSViewController {
     try appIcon.saveAssetCatalogNamed(name, toURL: url, asCombinedAsset: (combined.state == NSOnState))
   }
 
+  override func openSelectedImage(_ image: NSImage?) throws {
+    guard let img = image else {
+      throw AppIconError.selectedImageNotFound
+    }
+    imageView.image = img
+  }
+
 }

@@ -117,6 +117,34 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     saveDocument(sender)
   }
 
+  /// Present an open dialog to the user.
+  ///
+  /// - Parameter sender: NSButton, that sent the action.
+  @IBAction func openDocument(_ sender: NSButton) {
+    // Create a new NSOpenPanel instance.
+    let openPanel = NSOpenPanel()
+    // Configure the NSOpenPanel
+    openPanel.allowsMultipleSelection = false
+    openPanel.canChooseDirectories    = false
+    openPanel.canCreateDirectories    = false
+    openPanel.canChooseFiles          = true
+    // Present the open panel to the user and get the selected file.
+    let response = openPanel.runModal()
+    if response == NSModalResponseOK {
+      do {
+        // Unwrap the url to the selected image an the currently active view.
+        guard let url = openPanel.url, let currentView = self.currentView else {
+          return
+        }
+        // Open the selected image file.
+        try currentView.openSelectedImage(NSImage(contentsOf: url))
+      } catch {
+        print(error)
+        return
+      }
+    }
+  }
+
   // MARK: Changing View
 
   ///  Swaps the current ViewController with a new one.

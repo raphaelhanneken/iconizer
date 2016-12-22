@@ -44,6 +44,13 @@ extension NSViewController {
   ///  - throws: An asset catalog specific error.
   func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws { }
 
+  /// Opens a selected image and inserts it into the currently
+  /// active image well.
+  ///
+  /// - Parameter image: The selected image.
+  /// - Throws: An error, in case the selected image couldn't be opened.
+  func openSelectedImage(_ image: NSImage?) throws { }
+
   ///  Opens an NSAlert panel ontop of MainWindow.
   ///
   ///  - parameter message: messageText for the NSAlert.

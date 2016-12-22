@@ -111,4 +111,19 @@ class LaunchImageViewController: NSViewController {
     try launchImage.saveAssetCatalogNamed(name, toURL: url)
   }
 
+  override func openSelectedImage(_ image: NSImage?) throws {
+    guard let img = image else {
+      throw LaunchImageError.selectedImageNotFound
+    }
+
+    if img.height > img.width {
+      portrait.image = img
+    } else if img.height < img.width {
+      horizontal.image = img
+    } else {
+      horizontal.image = img
+      portrait.image   = img
+    }
+  }
+
 }

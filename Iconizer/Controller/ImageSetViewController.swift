@@ -65,4 +65,11 @@ class ImageSetViewController: NSViewController {
     try imageSet.saveAssetCatalogNamed(name, toURL: url)
   }
 
+  override func openSelectedImage(_ image: NSImage?) throws {
+    guard let img = image else {
+      throw ImageSetError.selectedImageNotFound
+    }
+    imageView.image = img
+  }
+
 }
