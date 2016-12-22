@@ -7,6 +7,27 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.2.4</title>
+        <description>
+          <![CDATA[
+          <p>
+            Added support for opening and saving images via the File menu.
+            Build with Xcode 8.2 (8C38).
+          </p>
+          ]]>
+        </description>
+        <pubDate>Thu, 22 Dec 2016 19:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.2.4/Iconizer.dmg"
+          sparkle:version="223"
+          sparkle:shortVersionString="2.2.4"
+          sparkle:dsaSignature="MCwCFBMYwQThcNZr2wcLrEkOXcZ9Ms1JAhQd2kS5g0ySdF0YiuvLMYp9KAjkUA=="
+          length="6685454"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.2.3</title>
         <description>
           <![CDATA[
