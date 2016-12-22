@@ -49,6 +49,7 @@ enum ImageSetError: Error {
   case gettingJSONDataFailed
   case missingImage
   case gettingPNGRepresentationFailed
+  case selectedImageNotFound
 }
 
 ///  Error Types for LaunchImage.
@@ -68,6 +69,7 @@ enum LaunchImageError: Error {
   case missingDataForImageOrientation
   case missingDataForImageIdiom
   case formatError
+  case selectedImageNotFound
 }
 
 ///  Error Types for AppIcon
@@ -81,6 +83,7 @@ enum AppIconError: Error {
   case missingDataForImageSize
   case missingDataForImageName
   case formatError
+  case selectedImageNotFound
 }
 
 /// Error types for NSImageExtension
