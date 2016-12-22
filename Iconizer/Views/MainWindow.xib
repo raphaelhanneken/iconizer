@@ -27,35 +27,35 @@
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="pE2-tG-4M4"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="0T7-9F-hUI"/>
-                    <toolbarItem implicitItemIdentifier="E5B00F72-3A4A-4A92-9D7E-0BA52EAEC522" label="Export" paletteLabel="Export" image="NSShareTemplate" id="Nwv-YM-0IP">
+                    <toolbarItem implicitItemIdentifier="E5B00F72-3A4A-4A92-9D7E-0BA52EAEC522" label="Save" paletteLabel="Save" image="NSShareTemplate" id="Nwv-YM-0IP">
                         <nil key="toolTip"/>
                         <size key="minSize" width="32" height="28"/>
                         <size key="maxSize" width="33" height="30"/>
                         <button key="view" verticalHuggingPriority="750" id="RnJ-UJ-oLn">
-                            <rect key="frame" x="5" y="14" width="32" height="28"/>
+                            <rect key="frame" x="1" y="14" width="32" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSShareTemplate" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oCk-Jg-CwY">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="smallSystem"/>
                             </buttonCell>
                             <connections>
-                                <action selector="export:" target="-2" id="6X2-Wr-Kf7"/>
+                                <action selector="saveDocument:" target="-1" id="R83-Yu-At8"/>
                             </connections>
                         </button>
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="20EEBF86-3D97-4B14-B42B-F4C359347BE2" label="Export Type" paletteLabel="Export Type" id="LGf-aY-fRE">
                         <nil key="toolTip"/>
-                        <size key="minSize" width="273" height="26"/>
-                        <size key="maxSize" width="281" height="29"/>
+                        <size key="minSize" width="271" height="25"/>
+                        <size key="maxSize" width="292" height="29"/>
                         <segmentedControl key="view" verticalHuggingPriority="750" id="LLY-Re-IdR">
-                            <rect key="frame" x="0.0" y="14" width="273" height="28"/>
+                            <rect key="frame" x="0.0" y="14" width="271" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="4Yl-K6-sx3">
-                                <font key="font" metaFont="cellTitle"/>
+                                <font key="font" metaFont="system"/>
                                 <segments>
-                                    <segment label="App Icon" width="91" selected="YES"/>
-                                    <segment label="Launch Image" width="89" tag="1"/>
-                                    <segment label="Image Set" width="89"/>
+                                    <segment label="App Icon" width="78" selected="YES"/>
+                                    <segment label="Launch Image" width="104" tag="1"/>
+                                    <segment label="Image Set" width="85"/>
                                 </segments>
                             </segmentedCell>
                             <connections>

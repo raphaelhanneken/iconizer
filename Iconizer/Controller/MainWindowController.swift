@@ -75,18 +75,16 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     changeView(ViewControllerTag(rawValue: sender.selectedSegment))
   }
 
-  ///  Kick off exporting for the selected export type.
+  /// Saves the image/s as asset catalog.
   ///
-  ///  - parameter sender: NSButton responsible for exporting.
-  @IBAction func export(_ sender: NSButton) {
+  /// - Parameter sender: NSButton, that sent the action.
+  @IBAction func saveDocument(_ sender: NSButton) {
     // Unwrap the export view.
     guard let currentView = self.currentView else {
       return
     }
     // Create a new NSSavePanel.
     let exportSheet = NSSavePanel()
-    // Configure the save panel.
-    exportSheet.prompt = "Export"
     // Open the save panel.
     exportSheet.beginSheetModal(for: self.window!) { (result: Int) in
       // The user clicked "Export".
@@ -110,7 +108,13 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         }
       }
     }
+  }
 
+  /// Saves the image/s as asset catalog.
+  ///
+  /// - Parameter sender: NSButton that sent the action.
+  @IBAction func saveDocumentAs(_ sender: NSButton) {
+    saveDocument(sender)
   }
 
   // MARK: Changing View
