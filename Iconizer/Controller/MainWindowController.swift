@@ -103,7 +103,9 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
           NSWorkspace.shared().open(url.appendingPathComponent("Iconizer Assets", isDirectory: true))
         } catch {
           // Something went somewhere terribly wrong...
-          print(error)
+          if let error = error as? String {
+            NSLog(error)
+          }
           return
         }
       }
@@ -139,7 +141,9 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         // Open the selected image file.
         try currentView.openSelectedImage(NSImage(contentsOf: url))
       } catch {
-        print(error)
+        if let error = error as? String {
+          NSLog(error)
+        }
         return
       }
     }
