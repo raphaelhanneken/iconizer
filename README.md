@@ -3,17 +3,17 @@ Create Xcode image catalogs (xcassets) on the fly. Iconizer builds the necessary
 
 ![Iconizer](screenshot.png)
 
-Visit the [homepage](http://behoernchen.github.io/iconizer/index.html) for more information. 
+Visit the [homepage](http://raphaelhanneken.github.io/iconizer/index.html) for more information. 
 
 ## How do I install it? ##
 
-1. Download the latest [release](https://github.com/behoernchen/Iconizer/releases) and drop into your Application's folder.
+1. Download the latest [release](https://github.com/raphaelhanneken/Iconizer/releases) and drop into your Application's folder.
 2. Download the source code and it compile yourself.
 
 
 
 ### Looking for a way to create icns files for OS X? ###
-You want to create 1024x1024px retina sized icns for OS X, fast and easily? Make sure to check out [Icns Composer](https://github.com/behoernchen/IcnsComposer)!
+You want to create 1024x1024px retina sized icns for OS X, fast and easily? Make sure to check out [Icns Composer](https://github.com/raphaelhanneken/IcnsComposer)!
 
 
 ----------
