@@ -42,6 +42,12 @@ extension NSImage {
   /// Returns a png representation of the current image.
   var PNGRepresentation: Data? {
     if let tiff = self.tiffRepresentation, let tiffData = NSBitmapImageRep(data: tiff) {
+      // Expected size (to
+      let expectedSize = self.size
+
+      // Resize bitmap image representation to expected size (since current size may be 2x if Retina)
+      tiffData.size = expectedSize
+
       return tiffData.representation(using: .PNG, properties: [:])
     }
 
