@@ -4,106 +4,104 @@
 // https://github.com/raphaelhanneken/iconizer
 //
 
-
 import Cocoa
 
 /// Reads and writes the Contents.json files.
 struct ContentsJSON {
 
-  /// Holds the image data from <AssetType>.json
-  var images: [[String : String]]
+    /// Holds the image data from <AssetType>.json
+    var images: [[String: String]]
 
-  /// Holds the complete information required for Contents.json
-  var contents: [String : Any] = [:]
+    /// Holds the complete information required for Contents.json
+    var contents: [String: Any] = [:]
 
-  // MARK: Initializers
+    // MARK: Initializers
 
-  ///  Initializes a JSONData struct.
-  init() {
-    // Init the images array.
-    self.images = []
+    ///  Initializes a JSONData struct.
+    init() {
+        // Init the images array.
+        self.images = []
 
-    // Init the contents array, with general information.
-    self.contents["author"]  = "Iconizer"
-    self.contents["version"] = "1.0"
-    self.contents["images"]  = []
-  }
-
-  ///  Initializes the JSONData struct with a specified AssetType and
-  ///  selected platforms.
-  ///
-  ///  - parameter type: The AssetType for the required JSON data
-  ///  - parameter platforms: Selected platforms
-  ///
-  ///  - throws: A ContentsJSONError.
-  init(forType type: AssetType, andPlatforms platforms: [String]) throws {
-    // Basic initialization.
-    self.init()
-
-    // Initialize the data object.
-    for platform in platforms {
-      // Add the image information for each platform to our images array.
-      images += try JSONObjectForType(type, andPlatform: platform)
+        // Init the contents array, with general information.
+        self.contents["author"] = "Iconizer"
+        self.contents["version"] = "1.0"
+        self.contents["images"] = []
     }
-  }
 
-  // MARK: Methods
+    ///  Initializes the JSONData struct with a specified AssetType and
+    ///  selected platforms.
+    ///
+    ///  - parameter type: The AssetType for the required JSON data
+    ///  - parameter platforms: Selected platforms
+    ///
+    ///  - throws: A ContentsJSONError.
+    init(forType type: AssetType, andPlatforms platforms: [String]) throws {
+        // Basic initialization.
+        self.init()
 
-  ///  Gets the JSON data for the given AssetType.
-  ///
-  ///  - parameter type:     An AssetType.
-  ///  - parameter platform: Platforms to generate asset catalogs for.
-  ///  - throws: A ContentsJSONError.
-  ///  - returns: The JSON data for the supplied AssetType.
-  func JSONObjectForType(_ type: AssetType, andPlatform platform: String)
-    throws -> [[String : String]] {
-      // Holds the path to the required JSON file.
-      let resourcePath: String?
-      // Get the correct JSON file for the given AssetType.
-      switch type {
-      case .appIcon:
-        resourcePath = Bundle.main.path(forResource: "AppIcon_" + platform, ofType: "json")
+        // Initialize the data object.
+        for platform in platforms {
+            // Add the image information for each platform to our images array.
+            images += try JSONObjectForType(type, andPlatform: platform)
+        }
+    }
 
-      case .imageSet:
-        resourcePath = Bundle.main.path(forResource: "ImageSet", ofType: "json")
+    // MARK: Methods
 
-      case .launchImage:
-        resourcePath = Bundle.main.path(forResource: "LaunchImage_" + platform, ofType: "json")
-      }
-      // Unwrap the JSON file path.
-      guard let path = resourcePath else {
-        throw ContentsJSONError.fileNotFound
-      }
+    ///  Gets the JSON data for the given AssetType.
+    ///
+    ///  - parameter type:     An AssetType.
+    ///  - parameter platform: Platforms to generate asset catalogs for.
+    ///  - throws: A ContentsJSONError.
+    ///  - returns: The JSON data for the supplied AssetType.
+    func JSONObjectForType(_ type: AssetType, andPlatform platform: String)
+        throws -> [[String: String]] {
+        // Holds the path to the required JSON file.
+        let resourcePath: String?
+        // Get the correct JSON file for the given AssetType.
+        switch type {
+        case .appIcon:
+            resourcePath = Bundle.main.path(forResource: "AppIcon_" + platform, ofType: "json")
 
-      // Create a new NSData object from the contents of the selected JSON file.
-      let JSONData   = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-      // Create a new JSON object from the given data.
-      let JSONObject = try JSONSerialization.jsonObject(with: JSONData, options: .allowFragments)
+        case .imageSet:
+            resourcePath = Bundle.main.path(forResource: "ImageSet", ofType: "json")
 
-      // Convert the JSON object into a Dictionary.
-      guard let contentsDict = JSONObject as? [String : AnyObject] else {
-        throw ContentsJSONError.castingJSONToDictionaryFailed
-      }
-      // Get the image information from the JSON dictionary.
-      guard let images = contentsDict["images"] as? [[String : String]] else {
-        throw ContentsJSONError.gettingImagesArrayFailed
-      }
+        case .launchImage:
+            resourcePath = Bundle.main.path(forResource: "LaunchImage_" + platform, ofType: "json")
+        }
+        // Unwrap the JSON file path.
+        guard let path = resourcePath else {
+            throw ContentsJSONError.fileNotFound
+        }
 
-      // Return the image information.
-      return images
-  }
+        // Create a new NSData object from the contents of the selected JSON file.
+        let JSONData = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+        // Create a new JSON object from the given data.
+        let JSONObject = try JSONSerialization.jsonObject(with: JSONData, options: .allowFragments)
 
-  ///  Saves the Contents.json to the appropriate folder.
-  ///
-  ///  - parameter url: File url to save the Contents.json to.
-  ///  - throws: An exception when the JSON serialization fails.
-  mutating func saveToURL(_ url: URL) throws {
-    // Add the image information to the contents dictionary.
-    contents["images"]  = images
-    // Serialize the contents as JSON object.
-    let data = try JSONSerialization.data(withJSONObject: self.contents, options: .prettyPrinted)
-    // Write the JSON object to the HD.
-    try data.write(to: url.appendingPathComponent("Contents.json", isDirectory: false), options: .atomic)
-  }
+        // Convert the JSON object into a Dictionary.
+        guard let contentsDict = JSONObject as? [String: AnyObject] else {
+            throw ContentsJSONError.castingJSONToDictionaryFailed
+        }
+        // Get the image information from the JSON dictionary.
+        guard let images = contentsDict["images"] as? [[String: String]] else {
+            throw ContentsJSONError.gettingImagesArrayFailed
+        }
 
+        // Return the image information.
+        return images
+    }
+
+    ///  Saves the Contents.json to the appropriate folder.
+    ///
+    ///  - parameter url: File url to save the Contents.json to.
+    ///  - throws: An exception when the JSON serialization fails.
+    mutating func saveToURL(_ url: URL) throws {
+        // Add the image information to the contents dictionary.
+        contents["images"] = images
+        // Serialize the contents as JSON object.
+        let data = try JSONSerialization.data(withJSONObject: self.contents, options: .prettyPrinted)
+        // Write the JSON object to the HD.
+        try data.write(to: url.appendingPathComponent("Contents.json", isDirectory: false), options: .atomic)
+    }
 }

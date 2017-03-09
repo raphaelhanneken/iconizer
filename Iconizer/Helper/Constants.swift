@@ -4,16 +4,15 @@
 // https://github.com/raphaelhanneken/iconizer
 //
 
-
 ///  Nicely wrap up the integers from NSSegmentedControl.
 ///
 ///  - kAppIconViewControllerTag:     Represents the tag for the AppIconView.
 ///  - kLaunchImageViewControllerTag: Represents the tag for the LaunchImageView.
 ///  - kImageSetViewControllerTag:    Represents the tag for the ImageSetView.
 enum ViewControllerTag: Int {
-  case appIconViewControllerTag     = 0
-  case launchImageViewControllerTag = 1
-  case imageSetViewControllerTag    = 2
+    case appIconViewControllerTag = 0
+    case launchImageViewControllerTag = 1
+    case imageSetViewControllerTag = 2
 }
 
 // MARK: - Platform names
@@ -21,13 +20,13 @@ enum ViewControllerTag: Int {
 /// Platform: Apple Watch
 let kAppleWatchPlatformName = "Watch"
 /// Platform: iPad
-let kIPadPlatformName       = "iPad"
+let kIPadPlatformName = "iPad"
 /// Platform: iPhone
-let kIPhonePlatformName     = "iPhone"
+let kIPhonePlatformName = "iPhone"
 /// Platform: OS X
-let kOSXPlatformName        = "Mac"
+let kOSXPlatformName = "Mac"
 /// Platform: Car Play
-let kCarPlayPlatformName    = "Car"
+let kCarPlayPlatformName = "Car"
 
 // MARK: - Image Orientation names
 
@@ -36,18 +35,18 @@ let kCarPlayPlatformName    = "Car"
 ///  - Portrait:  Portrait image.
 ///  - Landscape: Landscape image.
 enum ImageOrientation: String {
-  case Portrait  = "portrait"
-  case Landscape = "landscape"
+    case Portrait = "portrait"
+    case Landscape = "landscape"
 }
 
 // MARK: - Directory names
 
 /// Default url for app icons.
-let appIconDir     = "Iconizer Assets/App Icons"
+let appIconDir = "Iconizer Assets/App Icons"
 /// Default url for launch images.
 let launchImageDir = "Iconizer Assets/Launch Images"
 /// Default url for image sets.
-let imageSetDir    = "Iconizer Assets/Image Sets"
+let imageSetDir = "Iconizer Assets/Image Sets"
 
 // MARK: - Asset Types
 
@@ -57,9 +56,9 @@ let imageSetDir    = "Iconizer Assets/Image Sets"
 ///  - ImageSet:    Represents the ImageSet model
 ///  - LaunchImage: Represents the LaunchImage model
 enum AssetType: Int {
-  case appIcon     = 0
-  case imageSet    = 1
-  case launchImage = 2
+    case appIcon = 0
+    case imageSet = 1
+    case launchImage = 2
 }
 
 // MARK: - Keys to access the user defaults
@@ -67,18 +66,18 @@ enum AssetType: Int {
 /// Generate an AppIcon for the Apple Watch.
 let generateAppIconForAppleWatchKey = "generateAppIconForAppleWatch"
 /// Generate an AppIcon for the iPhone.
-let generateAppIconForIPhoneKey     = "generateAppIconForIPhone"
+let generateAppIconForIPhoneKey = "generateAppIconForIPhone"
 /// Generate an AppIcon for the iPad.
-let generateAppIconForIPadKey       = "generateAppIconForIPad"
+let generateAppIconForIPadKey = "generateAppIconForIPad"
 /// Generate an AppIcon for OS X.
-let generateAppIconForMacKey        = "generateAppIconForMac"
+let generateAppIconForMacKey = "generateAppIconForMac"
 /// Generate an AppIcon for CarPlay
-let generateAppIconForCarKey        = "generateAppIconForCar"
+let generateAppIconForCarKey = "generateAppIconForCar"
 /// Generate an AppIcon with multiple platforms (combined asset)
-let combinedAppIconAssetKey         = "combinedAppIconAsset"
+let combinedAppIconAssetKey = "combinedAppIconAsset"
 /// Selected ExportTypeViewController (NSSegmentedControl)
-let selectedExportTypeKey           = "selectedExportType"
+let selectedExportTypeKey = "selectedExportType"
 /// Generate a LaunchImage for the iPhone.
 let generateLaunchImageForIPhoneKey = "generateLaunchImageForIPhone"
 /// Generate a LaunchImage for the iPad.
-let generateLaunchImageForIPadKey   = "generateLaunchImageForIPad"
+let generateLaunchImageForIPadKey = "generateLaunchImageForIPad"
