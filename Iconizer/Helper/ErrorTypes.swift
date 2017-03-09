@@ -86,6 +86,15 @@ enum AppIconError: Error {
   case selectedImageNotFound
 }
 
+/// Error Types for the IconizerViewControllerProtocol
+///
+/// - missingImage:    The user didn't supply an image.
+/// - missingPlatform: The user didn't select a platform.
+enum IconizerViewControllerError: Error {
+  case missingImage
+  case missingPlatform
+}
+
 /// Error types for NSImageExtension
 ///
 /// - UnwrappingPNGRepresentationFailed: Getting the png rep. for the current image failed.

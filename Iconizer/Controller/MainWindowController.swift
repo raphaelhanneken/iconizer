@@ -34,7 +34,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
   @IBOutlet weak var exportType: NSSegmentedControl!
 
   /// Represents the currently selected view.
-  var currentView: NSViewController?
+  var currentView: IconizerViewControllerProtocol?
 
   /// Access the user's preferences.
   let userPrefs = PreferenceManager()
@@ -100,13 +100,20 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
           // selected file URL.
           try currentView.saveAssetCatalogNamed(exportSheet.nameFieldStringValue, toURL: url)
           // Open the generated asset catalog in Finder.
-          NSWorkspace.shared().open(url.appendingPathComponent("Iconizer Assets", isDirectory: true))
+          NSWorkspace
+            .shared()
+            .open(url.appendingPathComponent("Iconizer Assets", isDirectory: true))
+        } catch IconizerViewControllerError.missingImage {
+          self.displayAlertModal(withMessage: "Missing Image",
+                                 andText: "You have to provide an image to export.")
+        } catch IconizerViewControllerError.missingPlatform {
+          self.displayAlertModal(withMessage: "Missing Platform",
+                                 andText: "You have to at least select one platform.")
         } catch {
-          // Something went somewhere terribly wrong...
-          if let error = error as? String {
-            NSLog(error)
-          }
-          return
+          self.displayAlertModal(withMessage: "Oh Snap!",
+                                 andText: "This should not have happened.")
+
+          NSLog("Iconizer Error: \(error)")
         }
       }
     }
@@ -207,6 +214,21 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
 
     // Set the window frame to the new frame.
     window.setFrame(newWindowFrame, display: true, animate: true)
+  }
+
+  // MARK: - Private Methods
+
+  /// Displays an alert modal.
+  ///
+  /// - Parameters:
+  ///   - msg: The alerts message text.
+  ///   - txt: The alerts informative text.
+  private func displayAlertModal(withMessage msg: String, andText txt: String) {
+    let alert = NSAlert()
+
+    alert.messageText = msg
+    alert.informativeText = txt
+    alert.beginSheetModal(for: self.window!, completionHandler: nil)
   }
 
 }

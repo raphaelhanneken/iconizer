@@ -1,5 +1,5 @@
 //
-// NSViewControllerExtensions.swift
+// IconizerViewControllerProtocol.swift
 // Iconizer
 // https://github.com/raphaelhanneken/iconizer
 //
@@ -28,13 +28,15 @@
 import Cocoa
 
 // Adds some required functionality/requirements to NSViewController.
-extension NSViewController {
+protocol IconizerViewControllerProtocol {
+
+  var view: NSView { get set }
 
   ///  Base method for generating the required images.
   ///  Needs to be overridden by subclasses!
   ///
   ///  - throws: An asset catalog specific error.
-  func generateRequiredImages() throws { }
+  func generateRequiredImages() throws
 
   ///  Base method for saving the currently selected asset catalog.
   ///  Needs to be overridden by subclasses!
@@ -42,27 +44,13 @@ extension NSViewController {
   ///  - parameter name: Name of the generated asset catalog.
   ///  - parameter url: File path to the directory to save the asset to.
   ///  - throws: An asset catalog specific error.
-  func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws { }
+  func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws
 
   /// Opens a selected image and inserts it into the currently
   /// active image well.
   ///
   /// - Parameter image: The selected image.
   /// - Throws: An error, in case the selected image couldn't be opened.
-  func openSelectedImage(_ image: NSImage?) throws { }
-
-  ///  Opens an NSAlert panel ontop of MainWindow.
-  ///
-  ///  - parameter message: messageText for the NSAlert.
-  ///  - parameter text:    informativeText for the NSAlert.
-  func beginSheetModalWithMessage(_ message: String, andText text: String) {
-    // Create a new NSAlert message.
-    let alert = NSAlert()
-    // Configure the NSAlert.
-    alert.messageText     = message
-    alert.informativeText = text
-    // Display!
-    alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
-  }
+  func openSelectedImage(_ image: NSImage?) throws
 
 }

@@ -28,7 +28,7 @@
 import Cocoa
 
 /// Handles the LaunchImage view.
-class LaunchImageViewController: NSViewController {
+class LaunchImageViewController: NSViewController, IconizerViewControllerProtocol {
 
   /// Reference to the horizontal image view
   @IBOutlet weak var horizontal: NSImageView!
@@ -80,26 +80,20 @@ class LaunchImageViewController: NSViewController {
   ///  Generates the necessary images.
   ///
   ///  - throws: A LaunchImageError.
-  override func generateRequiredImages() throws {
+  func generateRequiredImages() throws {
     // Verify that both images are available.
     guard let landscapeImage = horizontal.image, let portraitImage = portrait.image else {
-      // At least on image is missing!
-      beginSheetModalWithMessage("Missing Image!",
-                                 andText: "You have to provide a landscape and a portrait image.")
-      return
+      throw IconizerViewControllerError.missingImage
     }
 
-    // Make sure at least one platform is selected.
-    if enabledPlatforms.count > 0 {
-      // Generate the necessary images.
-      try launchImage.generateImagesForPlatforms(enabledPlatforms,
-                                                 fromPortrait: portraitImage,
-                                                 andLandscape: landscapeImage)
-    } else {
-      // No platforms to generate images for.
-      beginSheetModalWithMessage("No Platform selected!",
-                                 andText: "You have to select at least one platform.")
+    guard enabledPlatforms.count > 0 else {
+      throw IconizerViewControllerError.missingPlatform
     }
+
+    // Generate the necessary images.
+    try launchImage.generateImagesForPlatforms(enabledPlatforms,
+                                               fromPortrait: portraitImage,
+                                               andLandscape: landscapeImage)
   }
 
   ///  Tells the model to save the generated asset catalog to the HD.
@@ -107,11 +101,11 @@ class LaunchImageViewController: NSViewController {
   ///  - parameter name: Asset catalog name.
   ///  - parameter url: File URL to save the catalog to.
   ///  - throws: A LaunchImageError.
-  override func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
+  func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     try launchImage.saveAssetCatalogNamed(name, toURL: url)
   }
 
-  override func openSelectedImage(_ image: NSImage?) throws {
+  func openSelectedImage(_ image: NSImage?) throws {
     guard let img = image else {
       throw LaunchImageError.selectedImageNotFound
     }

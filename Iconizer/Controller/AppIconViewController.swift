@@ -28,7 +28,7 @@
 import Cocoa
 
 ///  Handles the AppIconView
-class AppIconViewController: NSViewController {
+class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
 
   /// Export for Car Play?
   @IBOutlet weak var carPlay: NSButton!
@@ -98,22 +98,17 @@ class AppIconViewController: NSViewController {
   ///  Generate the required images.
   ///
   ///  - throws: An AppIcon error.
-  override func generateRequiredImages() throws {
-    // Unwrap the image from imageView
+  func generateRequiredImages() throws {
     guard let image = imageView.image else {
-      // Oh snap! Forgot the image.
-      beginSheetModalWithMessage("No Image!", andText: "You haven't dropped any image to convert.")
-      return
+      throw IconizerViewControllerError.missingImage
     }
 
-    // Check if at least one platform is selected.
-    if enabledPlatforms.count > 0 {
-      // Tell the model to generate it's images
-      try appIcon.generateImagesForPlatforms(enabledPlatforms, fromImage: image)
-    } else {
-      // Whoops! We have no platforms.
-      beginSheetModalWithMessage("No Platform!", andText: "You haven't selected any platforms yet.")
+    guard enabledPlatforms.count > 0 else {
+      throw IconizerViewControllerError.missingPlatform
     }
+
+    // Generate the necessary images.
+    try appIcon.generateImagesForPlatforms(enabledPlatforms, fromImage: image)
   }
 
   ///  Save the current asset catalog to the given url.
@@ -121,14 +116,15 @@ class AppIconViewController: NSViewController {
   ///  - parameter name: The name of the app icon.
   ///  - parameter url:  URL to save the app icon to.
   ///  - throws: An AppIcon Error.
-  override func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
+  func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
     try appIcon.saveAssetCatalogNamed(name, toURL: url, asCombinedAsset: (combined.state == NSOnState))
   }
 
-  override func openSelectedImage(_ image: NSImage?) throws {
+  func openSelectedImage(_ image: NSImage?) throws {
     guard let img = image else {
       throw AppIconError.selectedImageNotFound
     }
+
     imageView.image = img
   }
 
