@@ -6,10 +6,10 @@
 
 ///  Error Types for ContentsJSON.
 ///
-///  - FileNotFound:                  The supplied JSON file could not be found.
-///  - CastingJSONToDictionaryFailed: Casting the supplied JSON file to a Dictionary failed.
-///  - GettingImagesArrayFailed:      Getting the information which images to generate failed.
-///  - WritingContentsJSONFailed:     Saving the Contents.json for the asset catalog failed.
+///  - fileNotFound:                  The supplied JSON file could not be found.
+///  - castingJSONToDictionaryFailed: Casting the supplied JSON file to a Dictionary failed.
+///  - gettingImagesArrayFailed:      Getting the information which images to generate failed.
+///  - writingContentsJSONFailed:     Saving the Contents.json for the asset catalog failed.
 enum ContentsJSONError: Error {
     case fileNotFound
     case castingJSONToDictionaryFailed
@@ -19,10 +19,10 @@ enum ContentsJSONError: Error {
 
 ///  Error Types for ImageSet.
 ///
-///  - RescalingImageFailed:           Rescaling the given image failed.
-///  - GettingJSONDataFailed:          Getting image information from the given JSON file failed.
-///  - MissingImage:                   The user didn't supply an image.
-///  - GettingPNGRepresentationFailed: Creating the png representation failed.
+///  - rescalingImageFailed:           Rescaling the given image failed.
+///  - gettingJSONDataFailed:          Getting image information from the given JSON file failed.
+///  - missingImage:                   The user didn't supply an image.
+///  - gettingPNGRepresentationFailed: Creating the png representation failed.
 enum ImageSetError: Error {
     case rescalingImageFailed
     case gettingJSONDataFailed
@@ -33,13 +33,13 @@ enum ImageSetError: Error {
 
 ///  Error Types for LaunchImage.
 ///
-///  - MissingImage:                   The user didn't supply an image.
-///  - MissingDataForImageWidth:       Missing information about the width for the new image.
-///  - MissingDataForImageHeight:      Missing information about the height for the new image.
-///  - MissingDataForImageName:        Missing information about the name for the new image.
-///  - MissingDataForImageOrientation: Missing information about the orientation for the new image.
-///  - MissingDataForImageIdiom:       Missing information about the idiom for the new image.
-///  - FormatError:                    Image format error.
+///  - missingImage:                   The user didn't supply an image.
+///  - missingDataForImageWidth:       Missing information about the width for the new image.
+///  - missingDataForImageHeight:      Missing information about the height for the new image.
+///  - missingDataForImageName:        Missing information about the name for the new image.
+///  - missingDataForImageOrientation: Missing information about the orientation for the new image.
+///  - missingDataForImageIdiom:       Missing information about the idiom for the new image.
+///  - formatError:                    Image format error.
 enum LaunchImageError: Error {
     case missingImage
     case missingDataForImageWidth
@@ -53,10 +53,10 @@ enum LaunchImageError: Error {
 
 ///  Error Types for AppIcon
 ///
-///  - MissingImage:            The user didn't supply an image.
-///  - MissingDataForImageSize: Missing information about the size of the new image.
-///  - MissingDataForImageName: Missing information about the name of the new image.
-///  - FormatError:             Image format error.
+///  - missingImage:            The user didn't supply an image.
+///  - missingDataForImageSize: Missing information about the size of the new image.
+///  - missingDataForImageName: Missing information about the name of the new image.
+///  - formatError:             Image format error.
 enum AppIconError: Error {
     case missingImage
     case missingDataForImageSize
@@ -76,7 +76,7 @@ enum IconizerViewControllerError: Error {
 
 /// Error types for NSImageExtension
 ///
-/// - UnwrappingPNGRepresentationFailed: Getting the png rep. for the current image failed.
+/// - unwrappingPNGRepresentationFailed: Getting the png rep. for the current image failed.
 enum NSImageExtensionError: Error {
     case unwrappingPNGRepresentationFailed
 }

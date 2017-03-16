@@ -6,44 +6,44 @@
 
 import Cocoa
 
-///  Handles the AppIconView
+/// Controller for the AppIconView
 class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
 
-    /// Export for Car Play?
+    /// Create an App Icon for Apple Car Play.
     @IBOutlet weak var carPlay: NSButton!
-    /// Export for iPad?
+    /// Create an App Icon for the iPad.
     @IBOutlet weak var iPad: NSButton!
-    /// Export for iPhone?
+    /// Create an App Icon for the iPhone.
     @IBOutlet weak var iPhone: NSButton!
-    /// Export for OS X?
+    /// Crete an App Icon for macOS.
     @IBOutlet weak var osx: NSButton!
-    /// Export for Apple Watch?
+    /// Create an App Icon for the Apple Watch.
     @IBOutlet weak var watch: NSButton!
-    /// Export as combined asset?
+    /// Export the selected App Icons as comibined asset.
     @IBOutlet weak var combined: NSButton!
-    /// Image Well.
+    /// Holds the ImageView for the image to generate the App Icon from.
     @IBOutlet weak var imageView: NSImageView!
 
-    /// Holds the AppIcon model
+    /// Responsible for creating and saving the asset catalog.
     let appIcon = AppIcon()
 
-    /// Manages the user's preferences.
+    /// Manage the user's preferences.
     let prefManager = PreferenceManager()
 
-    /// Which platforms are actually selected?
+    /// Check which platforms are selected.
     var enabledPlatforms: [String] {
         // String array of selected platforms.
         var tmp: [String] = []
-        if self.carPlay.state == NSOnState { tmp.append(kCarPlayPlatformName) }
-        if self.iPad.state == NSOnState { tmp.append(kIPadPlatformName) }
-        if self.iPhone.state == NSOnState { tmp.append(kIPhonePlatformName) }
-        if self.osx.state == NSOnState { tmp.append(kOSXPlatformName) }
-        if self.watch.state == NSOnState { tmp.append(kAppleWatchPlatformName) }
+        if self.carPlay.state == NSOnState { tmp.append(carPlayPlatformName) }
+        if self.iPad.state    == NSOnState { tmp.append(iPadPlatformName) }
+        if self.iPhone.state  == NSOnState { tmp.append(iPhonePlatformName) }
+        if self.osx.state     == NSOnState { tmp.append(macOSPlatformName) }
+        if self.watch.state   == NSOnState { tmp.append(appleWatchPlatformName) }
 
         return tmp
     }
 
-    /// Name of the corresponding nib file.
+    /// The name of the corresponding nib file.
     override var nibName: String {
         return "AppIconView"
     }
@@ -54,25 +54,25 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
         super.viewDidLoad()
 
         // Set the checkbox states.
-        watch.state = prefManager.generateAppIconForAppleWatch
-        iPhone.state = prefManager.generateAppIconForIPhone
-        iPad.state = prefManager.generateAppIconForIPad
-        osx.state = prefManager.generateAppIconForMac
-        carPlay.state = prefManager.generateAppIconForCar
+        watch.state    = prefManager.generateAppIconForAppleWatch
+        iPhone.state   = prefManager.generateAppIconForIPhone
+        iPad.state     = prefManager.generateAppIconForIPad
+        osx.state      = prefManager.generateAppIconForMac
+        carPlay.state  = prefManager.generateAppIconForCar
         combined.state = prefManager.combinedAppIconAsset
     }
 
     override func viewWillDisappear() {
         // Save the checkbox states.
         prefManager.generateAppIconForAppleWatch = watch.state
-        prefManager.generateAppIconForIPad = iPad.state
-        prefManager.generateAppIconForIPhone = iPhone.state
-        prefManager.generateAppIconForMac = osx.state
-        prefManager.generateAppIconForCar = carPlay.state
-        prefManager.combinedAppIconAsset = combined.state
+        prefManager.generateAppIconForIPad       = iPad.state
+        prefManager.generateAppIconForIPhone     = iPhone.state
+        prefManager.generateAppIconForMac        = osx.state
+        prefManager.generateAppIconForCar        = carPlay.state
+        prefManager.combinedAppIconAsset         = combined.state
     }
 
-    // MARK: - Iconizer View Controller
+    // MARK: Iconizer View Controller
 
     func generateRequiredImages() throws {
         guard let image = imageView.image else {
@@ -87,7 +87,7 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
         try appIcon.generateImagesForPlatforms(enabledPlatforms, fromImage: image)
     }
 
-    func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
+    func saveAssetCatalog(named name: String, toURL url: URL) throws {
         try appIcon.saveAssetCatalogNamed(name, toURL: url, asCombinedAsset: (combined.state == NSOnState))
     }
 

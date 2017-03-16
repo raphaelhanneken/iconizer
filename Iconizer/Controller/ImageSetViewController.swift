@@ -9,13 +9,14 @@ import Cocoa
 /// Handles the ImageSet view.
 class ImageSetViewController: NSViewController, IconizerViewControllerProtocol {
 
-    /// Reference to the Image Well.
+    /// Holds the image view for the image to generate
+    /// the Image Set from.
     @IBOutlet weak var imageView: NSImageView!
 
-    /// Holds the ImageSet model
+    /// Responsible for creating and saving the asset catalog.
     let imageSet = ImageSet()
 
-    /// Name of the corresponding nib file.
+    /// The name of the corresponding nib file.
     override var nibName: String {
         return "ImageSetView"
     }
@@ -29,7 +30,7 @@ class ImageSetViewController: NSViewController, IconizerViewControllerProtocol {
         imageSet.generateScaledImagesFromImage(image)
     }
 
-    func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
+    func saveAssetCatalog(named name: String, toURL url: URL) throws {
         try imageSet.saveAssetCatalogNamed(name, toURL: url)
     }
 

@@ -9,15 +9,15 @@ import Cocoa
 /// Reads and writes the Contents.json files.
 struct ContentsJSON {
 
-    /// Holds the image data from <AssetType>.json
+    /// The image information from <AssetType>.json
     var images: [[String: String]]
 
-    /// Holds the complete information required for Contents.json
+    /// The Contents.json file as array.
     var contents: [String: Any] = [:]
 
     // MARK: Initializers
 
-    ///  Initializes a JSONData struct.
+    /// Initialize a new ContentsJSON instance.
     init() {
         // Init the images array.
         self.images = []
@@ -28,13 +28,13 @@ struct ContentsJSON {
         self.contents["images"] = []
     }
 
-    ///  Initializes the JSONData struct with a specified AssetType and
-    ///  selected platforms.
+    /// Initialize a new ContentsJSON instance with a specified Asset Type
+    /// and selected platforms.
     ///
-    ///  - parameter type: The AssetType for the required JSON data
-    ///  - parameter platforms: Selected platforms
-    ///
-    ///  - throws: A ContentsJSONError.
+    /// - Parameters:
+    ///   - type: The asset type to get the JSON data for.
+    ///   - platforms: The platforms selected by the user.
+    /// - Throws: See ContentsJSONError for possible values.
     init(forType type: AssetType, andPlatforms platforms: [String]) throws {
         // Basic initialization.
         self.init()
@@ -48,14 +48,14 @@ struct ContentsJSON {
 
     // MARK: Methods
 
-    ///  Gets the JSON data for the given AssetType.
+    /// Get the asset information for the supplied Asset Type.
     ///
-    ///  - parameter type:     An AssetType.
-    ///  - parameter platform: Platforms to generate asset catalogs for.
-    ///  - throws: A ContentsJSONError.
-    ///  - returns: The JSON data for the supplied AssetType.
-    func JSONObjectForType(_ type: AssetType, andPlatform platform: String)
-        throws -> [[String: String]] {
+    /// - Parameters:
+    ///   - type: The asset type to get the information for.
+    ///   - platform: The platforms selected by the user.
+    /// - Returns: The Contents.json for the supplied asset type and platforms as Array.
+    /// - Throws: See ContentsJSONError for possible values.
+    func JSONObjectForType(_ type: AssetType, andPlatform platform: String) throws -> [[String: String]] {
         // Holds the path to the required JSON file.
         let resourcePath: String?
         // Get the correct JSON file for the given AssetType.
@@ -96,6 +96,10 @@ struct ContentsJSON {
     ///
     ///  - parameter url: File url to save the Contents.json to.
     ///  - throws: An exception when the JSON serialization fails.
+    /// Save the Contents.json to the supplied file URL.
+    ///
+    /// - Parameter url: The file URL to save the Contents.json to.
+    /// - Throws: See JSONSerialization for possible values.
     mutating func saveToURL(_ url: URL) throws {
         // Add the image information to the contents dictionary.
         contents["images"] = images

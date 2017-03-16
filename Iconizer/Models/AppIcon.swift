@@ -6,17 +6,18 @@
 
 import Cocoa
 
-/// Generates the necessary images for an app icon and saves them onto the HD.
+/// Creates and saves an App Icon asset catalog.
 class AppIcon: NSObject {
 
-    /// Holds the resized images.
+    /// The resized images.
     var images: [String: [String: NSImage?]] = [:]
 
-    ///  Generate all necessary images for each selected platform.
+    /// Generate the necessary images for the selected platforms.
     ///
-    ///  - parameter platforms: Platforms to generate icons for.
-    ///  - parameter image:     The image to Iconize.
-    ///  - throws: An AppIconError
+    /// - Parameters:
+    ///   - platforms: The platforms to generate icon for.
+    ///   - image: The image to generate the icon from.
+    /// - Throws: See AppIconError for possible values.
     func generateImagesForPlatforms(_ platforms: [String], fromImage image: NSImage) throws {
         // Loop through the selected platforms
         for platform in platforms {
@@ -49,12 +50,13 @@ class AppIcon: NSObject {
         }
     }
 
-    ///  Writes the generated images to the supplied file url.
+    /// Writes the App Icon to the supplied file url.
     ///
-    ///  - parameter name:     The name of the current asset catalog.
-    ///  - parameter url:      URL to save the app icon to.
-    ///  - parameter combined: Save as a combined catalog?
-    ///  - throws: An ContentsJSONError or a NSImageExtensionError.
+    /// - Parameters:
+    ///   - name: The name of the asset catalog.
+    ///   - url: The URL to save the catalog to.
+    ///   - combined: Whether to save the assets combined.
+    /// - Throws: See AppIconError for possible values.
     func saveAssetCatalogNamed(_ name: String, toURL url: URL, asCombinedAsset combined: Bool) throws {
         // Define where to save the asset catalog.
         var setURL = url.appendingPathComponent("\(appIconDir)/Combined/\(name).appiconset",

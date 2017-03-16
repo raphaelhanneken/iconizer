@@ -6,7 +6,7 @@
 
 import Cocoa
 
-///  Handles the MainWindow view.
+/// Controller for the Main Window.
 class MainWindowController: NSWindowController, NSWindowDelegate {
 
     /// Points to the SegmentedControl, which determines which view is currently selected.
@@ -25,6 +25,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
 
     // MARK: Window delegate
 
+    // Set up the main window to reflect user settings.
     override func windowDidLoad() {
         super.windowDidLoad()
 
@@ -47,14 +48,14 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
 
     // MARK: Actions
 
-    ///  Select the export type.
+    /// Select the appropriate view for the selected segment.
     ///
-    ///  - parameter sender: NSSegmentedControl; 'Mode' set to 'Select One'.
+    /// - Parameter sender: The NSSegmentControle that sent the message.
     @IBAction func selectView(_ sender: NSSegmentedControl) {
         changeView(ViewControllerTag(rawValue: sender.selectedSegment))
     }
 
-    /// Saves the image/s as asset catalog.
+    /// Save the image(s) as asset catalog.
     ///
     /// - Parameter sender: NSButton, that sent the action.
     @IBAction func saveDocument(_: NSButton) {
@@ -62,9 +63,9 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         guard let currentView = self.currentView else {
             return
         }
-        // Create a new NSSavePanel.
+        // Create an new NSSavePanel...
         let exportSheet = NSSavePanel()
-        // Open the save panel.
+        // ...and present it to the user.
         exportSheet.beginSheetModal(for: self.window!) { (result: Int) in
             // The user clicked "Export".
             if result == NSFileHandlingPanelOKButton {
@@ -75,9 +76,8 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                     }
                     // Generate the required images.
                     try currentView.generateRequiredImages()
-                    // Save the currently generated asset catalog to the
-                    // selected file URL.
-                    try currentView.saveAssetCatalogNamed(exportSheet.nameFieldStringValue, toURL: url)
+                    // Save the generated asset catalog to the selected file URL.
+                    try currentView.saveAssetCatalog(named: exportSheet.nameFieldStringValue, toURL: url)
                     // Open the generated asset catalog in Finder.
                     NSWorkspace
                         .shared()
@@ -98,7 +98,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         }
     }
 
-    /// Saves the image/s as asset catalog.
+    /// Save the image(s) as asset catalog.
     ///
     /// - Parameter sender: NSButton that sent the action.
     @IBAction func saveDocumentAs(_ sender: NSButton) {
@@ -107,15 +107,15 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
 
     /// Present an open dialog to the user.
     ///
-    /// - Parameter sender: NSButton, that sent the action.
+    /// - Parameter sender: NSButton that sent the action.
     @IBAction func openDocument(_: NSButton) {
         // Create a new NSOpenPanel instance.
         let openPanel = NSOpenPanel()
         // Configure the NSOpenPanel
         openPanel.allowsMultipleSelection = false
-        openPanel.canChooseDirectories = false
-        openPanel.canCreateDirectories = false
-        openPanel.canChooseFiles = true
+        openPanel.canChooseDirectories    = false
+        openPanel.canCreateDirectories    = false
+        openPanel.canChooseFiles          = true
         // Present the open panel to the user and get the selected file.
         let response = openPanel.runModal()
         if response == NSModalResponseOK {
@@ -135,11 +135,11 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         }
     }
 
-    // MARK: Changing View
+    // MARK: Changing Views
 
-    ///  Swaps the current ViewController with a new one.
+    /// Swap the current view with a new one.
     ///
-    ///  - parameter view: Takes a ViewControllerTag.
+    /// - Parameter view: The ViewControllerTag of the view to display.
     func changeView(_ view: ViewControllerTag?) {
         // Unwrap the current view, if any...
         if let currentView = self.currentView {
@@ -170,9 +170,9 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         }
     }
 
-    /// Resizes the main window to the given size.
+    /// Resize the main window to the supplied size.
     ///
-    /// - parameter size: The new size of the main window.
+    /// - Parameter size: The size to resize to.
     func resizeWindowForContentSize(_ size: NSSize) {
         // Unwrap the main window object.
         guard let window = self.window else {
@@ -197,15 +197,14 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
 
     // MARK: - Private Methods
 
-    /// Displays an alert modal.
+    /// Display an alert modal.
     ///
     /// - Parameters:
     ///   - msg: The alerts message text.
     ///   - txt: The alerts informative text.
     private func displayAlertModal(withMessage msg: String, andText txt: String) {
-        let alert = NSAlert()
-
-        alert.messageText = msg
+        let alert             = NSAlert()
+        alert.messageText     = msg
         alert.informativeText = txt
         alert.beginSheetModal(for: self.window!, completionHandler: nil)
     }

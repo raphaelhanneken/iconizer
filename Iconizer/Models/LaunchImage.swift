@@ -6,23 +6,23 @@
 
 import Cocoa
 
-///  Generates the necessary images for a launch image and saves itself to the HD.
+/// Creates and saves a Launch Image asset catalog
 class LaunchImage: NSObject {
 
-    /// Holds the information from LaunchImage.json
+    /// Information about each image to generate.
     var images: [String: NSImage] = [:]
 
-    /// Holds the image information for the contents.json
+    /// The image information for the contents.json
     var json: ContentsJSON!
 
     // swiftlint:disable cyclomatic_complexity
-
-    ///  Generates the necessary images for the selected platforms.
+    /// Generate the necessary images for the selected platforms.
     ///
-    ///  - parameter platforms: Platforms to generate the images for.
-    ///  - parameter portrait:  Portrait image provided by the user.
-    ///  - parameter landscape: Landscape image provided by the user.
-    ///  - throws: A LaunchImageError or ContentsJSONError.
+    /// - Parameters:
+    ///   - platforms: Platforms to generate the images for.
+    ///   - portrait: The portrait image, provided by the user.
+    ///   - landscape: The landscape image, provided by the user.
+    /// - Throws: See LaunchImageError for possible values.
     func generateImagesForPlatforms(_ platforms: [String], fromPortrait portrait: NSImage?,
                                     andLandscape landscape: NSImage?) throws {
         // Unwrap both images.
@@ -74,11 +74,12 @@ class LaunchImage: NSObject {
         }
     }
 
-    ///  Saves the generated asset catalog to the HD:
+    /// Write the Launch Image to the supplied file url.
     ///
-    ///  - parameter name: Name of the asset catalog.
-    ///  - parameter url:  URL to save the catalog to.
-    ///  - throws: A NSImageExtentionError.
+    /// - Parameters:
+    ///   - name: The name of the asset catalog.
+    ///   - url: The URL to save the catalog to.
+    /// - Throws: See NSImageExtensionError for possible values.
     func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
         // Create the correct file path.
         let url = url.appendingPathComponent("\(launchImageDir)/\(name).launchimage/",

@@ -6,32 +6,34 @@
 
 import Cocoa
 
-/// Generates the necessary images for an image set and saves them to the HD.
+/// Creates and saves an Image Set asset catalog.
 class ImageSet: NSObject {
 
-    /// Holds the recalculated images.
+    /// The resized images.
     var images: [String: NSImage] = [:]
 
-    ///  Creates a @1x and @2x image for the supplied image.
+    /// Create the @1x and @2x images from the supplied image.
     ///
-    ///  - parameter image: The image to copy and resize.
+    /// - Parameter image: The image to resize.
     func generateScaledImagesFromImage(_ image: NSImage) {
         // Define the new image sizes.
         let x1 = NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3))
         let x2 = NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5))
 
         // Calculate the 2x and 1x images.
-        images["1x"] = image.imageByCopyingWithSize(x1)
-        images["2x"] = image.imageByCopyingWithSize(x2)
+        images["1x"] = image.resize(withSize: x1)
+        images["2x"] = image.resize(withSize: x2)
 
         // Assign the original images as the 3x image.
         images["3x"] = image
     }
 
-    ///  Saves the generated images to the HD.
-    ///  - parameter name: The asset catalog name.
-    ///  - parameter url:  The url where to save the catalog to.
-    ///  - throws: A ContentsJSONError or ImageSetError.
+    /// Write the Image Set to the supplied file url.
+    ///
+    /// - Parameters:
+    ///   - name: The name of the asset catalog.
+    ///   - url: The URL to save the catalog to.
+    /// - Throws: See ImageSetError for possible values.
     func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
         // Create the correct file path.
         let url = url.appendingPathComponent("\(imageSetDir)/\(name).imageset", isDirectory: true)
@@ -56,7 +58,7 @@ class ImageSet: NSObject {
                 throw ImageSetError.missingImage
             }
             // Save the png representation to the supplied url.
-            try img.saveAsPNGFileToURL(url.appendingPathComponent(filename))
+            try img.savePngTo(url: url.appendingPathComponent(filename))
         }
 
         // Reset the images array

@@ -8,15 +8,14 @@ import Cocoa
 
 extension String {
 
-    ///  Returns a string object containing the characters between the
-    ///  given start and end characters. Excluding the given start and end
-    ///  characters.
+    /// The substring containing the characters between the supplied start and
+    /// the supplied end strings. Excluding both.
     ///
-    ///  - parameter start: Starting point.
-    ///  - parameter end:   End point.
-    ///
-    ///  - returns: Characters between the given start and end charaters.
-    func substringFromCharacter(_ start: String, to end: String) -> String? {
+    /// - Parameters:
+    ///   - start: The starting point.
+    ///   - end: The ending point.
+    /// - Returns: The substring from the start to the end string or nil when either string weren't found.
+    func substringFrom(start: String, to end: String) -> String? {
         // Return nil in case either the given start or end string doesn't exist.
         guard let startIndex = self.range(of: start), let endIndex = self.range(of: end) else {
             return nil

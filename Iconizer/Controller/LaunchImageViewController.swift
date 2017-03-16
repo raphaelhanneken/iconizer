@@ -6,36 +6,38 @@
 
 import Cocoa
 
-/// Handles the LaunchImage view.
+/// Controller for the LaunchImageView.
 class LaunchImageViewController: NSViewController, IconizerViewControllerProtocol {
 
-    /// Reference to the horizontal image view
+    /// Holds the image view for the image to generate
+    /// the horizontal Launch Image from.
     @IBOutlet weak var horizontal: NSImageView!
 
-    /// Reference to the portrait image view
+    /// Holds the image view for the image to generate
+    /// the portrait Launch Image from.
     @IBOutlet weak var portrait: NSImageView!
 
-    /// Checkbox to export for iPhone
+    /// Checkbox to create a Launch Image for iPhone.
     @IBOutlet weak var iphone: NSButton!
 
-    /// Checkbox to export for iPad
+    /// Checkbox to create a Launch Image for iPad.
     @IBOutlet weak var ipad: NSButton!
 
-    /// Returns the selected platforms
+    /// Return the platforms selected by the user.
     var enabledPlatforms: [String] {
         var tmp: [String] = []
-        if iphone.state == NSOnState { tmp.append(kIPhonePlatformName) }
-        if ipad.state   == NSOnState { tmp.append(kIPadPlatformName) }
+        if iphone.state == NSOnState { tmp.append(iPhonePlatformName) }
+        if ipad.state   == NSOnState { tmp.append(iPadPlatformName) }
         return tmp
     }
 
-    /// Holds the LaunchImage model
+    /// Responsible for creating and saving the asset catalog.
     let launchImage = LaunchImage()
 
-    /// Manages the user's preferences.
+    /// Manage the user's preferences.
     let userPrefs = PreferenceManager()
 
-    /// Name of the corresponding nib file.
+    /// The name of the corresponding nib file.
     override var nibName: String {
         return "LaunchImageView"
     }
@@ -70,7 +72,7 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
                                                    andLandscape: landscapeImage)
     }
 
-    func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
+    func saveAssetCatalog(named name: String, toURL url: URL) throws {
         try launchImage.saveAssetCatalogNamed(name, toURL: url)
     }
 

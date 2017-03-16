@@ -4,11 +4,11 @@
 // https://github.com/raphaelhanneken/iconizer
 //
 
-///  Nicely wrap up the integers from NSSegmentedControl.
+///  Nicely wrap up the integers from the NSSegmentedControl.
 ///
-///  - kAppIconViewControllerTag:     Represents the tag for the AppIconView.
-///  - kLaunchImageViewControllerTag: Represents the tag for the LaunchImageView.
-///  - kImageSetViewControllerTag:    Represents the tag for the ImageSetView.
+///  - appIconViewControllerTag:     Represents the tag for the AppIconView.
+///  - launchImageViewControllerTag: Represents the tag for the LaunchImageView.
+///  - imageSetViewControllerTag:    Represents the tag for the ImageSetView.
 enum ViewControllerTag: Int {
     case appIconViewControllerTag = 0
     case launchImageViewControllerTag = 1
@@ -18,15 +18,15 @@ enum ViewControllerTag: Int {
 // MARK: - Platform names
 
 /// Platform: Apple Watch
-let kAppleWatchPlatformName = "Watch"
+let appleWatchPlatformName = "Watch"
 /// Platform: iPad
-let kIPadPlatformName = "iPad"
+let iPadPlatformName = "iPad"
 /// Platform: iPhone
-let kIPhonePlatformName = "iPhone"
+let iPhonePlatformName = "iPhone"
 /// Platform: OS X
-let kOSXPlatformName = "Mac"
+let macOSPlatformName = "Mac"
 /// Platform: Car Play
-let kCarPlayPlatformName = "Car"
+let carPlayPlatformName = "Car"
 
 // MARK: - Image Orientation names
 
@@ -50,7 +50,7 @@ let imageSetDir = "Iconizer Assets/Image Sets"
 
 // MARK: - Asset Types
 
-///  Wrap the different asset catalog types into an enum, for nicer code.
+///  Nicely wrap the different asset types into an enum.
 ///
 ///  - AppIcon:     Represents the AppIcon model
 ///  - ImageSet:    Represents the ImageSet model

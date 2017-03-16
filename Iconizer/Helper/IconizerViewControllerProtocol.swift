@@ -22,7 +22,7 @@ protocol IconizerViewControllerProtocol {
     ///   - name: Name of the asset catalog to be generated.
     ///   - url: File path to the directory to save the asset catalog to.
     /// - Throws: An IconizerViewControllerError
-    func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws
+    func saveAssetCatalog(named name: String, toURL url: URL) throws
 
     /// Open an image and insert it into the currently
     /// active image well.

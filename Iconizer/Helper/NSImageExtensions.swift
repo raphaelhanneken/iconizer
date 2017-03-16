@@ -8,17 +8,17 @@ import Cocoa
 
 extension NSImage {
 
-    /// Returns the height of the current image.
+    /// The height of the image.
     var height: CGFloat {
         return self.size.height
     }
 
-    /// Returns the width of the current image.
+    /// The width of the image.
     var width: CGFloat {
         return self.size.width
     }
 
-    /// Returns a png representation of the current image.
+    /// A PNG representation of the image.
     var PNGRepresentation: Data? {
         if let tiff = self.tiffRepresentation, let tiffData = NSBitmapImageRep(data: tiff) {
             return tiffData.representation(using: .PNG, properties: [:])
@@ -29,13 +29,11 @@ extension NSImage {
 
     // MARK: Resizing
 
-    ///  Returns a new image that represents the original image after
-    ///  resizing is to the supplied size.
+    /// Resize the image to the given size.
     ///
-    ///  - parameter size: The size of the new image.
-    ///
-    ///  - returns: The resized copy of the original image.
-    func imageByCopyingWithSize(_ size: NSSize) -> NSImage? {
+    /// - Parameter size: The size to resize the image to.
+    /// - Returns: The resized image.
+    func resize(withSize size: NSSize) -> NSImage? {
         // Create a new rect with given width and height
         let frame = NSRect(x: 0, y: 0, width: size.width, height: size.height)
 
@@ -57,13 +55,12 @@ extension NSImage {
         return img
     }
 
-    ///  Copies the current image and resizes it to the size of the given NSSize, while
-    ///  maintaining the aspect ratio of the original image.
+    /// Copy the image and resize it to the supplied size, while maintaining it's
+    /// original aspect ratio.
     ///
-    ///  - parameter size: The size of the new image.
-    ///
-    ///  - returns: The resized copy of the given image.
-    func resizeWhileMaintainingAspectRatioToSize(_ size: NSSize) -> NSImage? {
+    /// - Parameter size: The target size of the image.
+    /// - Returns: The resized image.
+    func resizeMaintainingAspectRatio(withSize size: NSSize) -> NSImage? {
         let newSize: NSSize
 
         let widthRatio = size.width / self.width
@@ -77,20 +74,19 @@ extension NSImage {
                              height: floor(self.height * heightRatio))
         }
 
-        return self.imageByCopyingWithSize(newSize)
+        return self.resize(withSize: newSize)
     }
 
     // MARK: Cropping
 
-    ///  Resizes the original image, to nearly fit the supplied cropping size
-    ///  and returns the cropped copy of the image.
+    /// Resize the image, to nearly fit the supplied cropping size
+    /// and return a cropped copy the image.
     ///
-    ///  - parameter size: The size of the new image.
-    ///
-    ///  - returns: The cropped copy of the given image.
-    func imageByCroppingToSize(_ size: NSSize) -> NSImage? {
+    /// - Parameter size: The size of the new image.
+    /// - Returns: The cropped image.
+    func cropTo(size: NSSize) -> NSImage? {
         // Resize the current image, while preserving the aspect ratio.
-        guard let resized = self.resizeWhileMaintainingAspectRatioToSize(size) else {
+        guard let resized = self.resizeMaintainingAspectRatio(withSize: size) else {
             return nil
         }
 
@@ -125,11 +121,11 @@ extension NSImage {
 
     // MARK: Saving
 
-    ///  Saves the PNG representation of the current image to the HD.
+    /// Save the images PNG representation the the supplied file URL:
     ///
-    ///  - parameter url: URL to save the png file to.
-    ///  - throws: A NSImageExtensionError.
-    func saveAsPNGFileToURL(_ url: URL) throws {
+    /// - Parameter url: The file URL to save the png file to.
+    /// - Throws: An unwrappingPNGRepresentationFailed when the image has no png representation.
+    func savePngTo(url: URL) throws {
         if let png = self.PNGRepresentation {
             try png.write(to: url, options: .atomicWrite)
         } else {
