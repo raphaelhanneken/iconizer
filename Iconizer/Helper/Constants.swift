@@ -35,8 +35,8 @@ let carPlayPlatformName = "Car"
 ///  - Portrait:  Portrait image.
 ///  - Landscape: Landscape image.
 enum ImageOrientation: String {
-    case Portrait = "portrait"
-    case Landscape = "landscape"
+    case portrait
+    case landscape
 }
 
 // MARK: - Directory names

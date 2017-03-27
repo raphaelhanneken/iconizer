@@ -64,11 +64,11 @@ class LaunchImage: NSObject {
 
                 // Check which image to create. And crop the original image to the required size.
                 switch ImageOrientation(rawValue: orientation)! {
-                case ImageOrientation.Portrait:
-                    images[filename] = portrait.imageByCroppingToSize(NSSize(width: width, height: height))
+                case ImageOrientation.portrait:
+                    images[filename] = portrait.crop(toSize: NSSize(width: width, height: height))
 
-                case ImageOrientation.Landscape:
-                    images[filename] = landscape.imageByCroppingToSize(NSSize(width: width, height: height))
+                case ImageOrientation.landscape:
+                    images[filename] = landscape.crop(toSize: NSSize(width: width, height: height))
                 }
             }
         }
@@ -91,10 +91,10 @@ class LaunchImage: NSObject {
         // Save the Contents.json
         try json.saveToURL(url)
         for (filename, img) in images {
-            try img.saveAsPNGFileToURL(url.appendingPathComponent(filename))
+            try img.savePngTo(url: url.appendingPathComponent(filename))
         }
 
         // Reset the images array
-        self.images = [:]
+        images = [:]
     }
 }

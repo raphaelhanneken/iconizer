@@ -62,6 +62,6 @@ class ImageSet: NSObject {
         }
 
         // Reset the images array
-        self.images = [:]
+        images = [:]
     }
 }

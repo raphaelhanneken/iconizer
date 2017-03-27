@@ -27,7 +27,7 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
     var enabledPlatforms: [String] {
         var tmp: [String] = []
         if iphone.state == NSOnState { tmp.append(iPhonePlatformName) }
-        if ipad.state   == NSOnState { tmp.append(iPadPlatformName) }
+        if ipad.state == NSOnState { tmp.append(iPadPlatformName) }
         return tmp
     }
 
@@ -46,13 +46,13 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.iphone.state = userPrefs.generateLaunchImageForIPhone
-        self.ipad.state   = userPrefs.generateLaunchImageForIPad
+        iphone.state = userPrefs.generateLaunchImageForIPhone
+        ipad.state = userPrefs.generateLaunchImageForIPad
     }
 
     override func viewWillDisappear() {
-        userPrefs.generateLaunchImageForIPad   = self.ipad.state
-        userPrefs.generateLaunchImageForIPhone = self.iphone.state
+        userPrefs.generateLaunchImageForIPad = ipad.state
+        userPrefs.generateLaunchImageForIPhone = iphone.state
     }
 
     // MARK: Iconizer View Controller
@@ -82,12 +82,12 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
         }
 
         if img.height > img.width {
-            portrait.image   = img
+            portrait.image = img
         } else if img.height < img.width {
             horizontal.image = img
         } else {
             horizontal.image = img
-            portrait.image   = img
+            portrait.image = img
         }
     }
 }

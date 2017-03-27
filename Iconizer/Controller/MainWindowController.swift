@@ -36,14 +36,14 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
             window.titleVisibility = .hidden
         }
         // Change the content view to the last selected view...
-        self.changeView(ViewControllerTag(rawValue: userPrefs.selectedExportType))
+        changeView(ViewControllerTag(rawValue: userPrefs.selectedExportType))
         // ...and set the selectedSegment of NSSegmentedControl to the corresponding value.
-        self.exportType.selectedSegment = userPrefs.selectedExportType
+        exportType.selectedSegment = userPrefs.selectedExportType
     }
 
     // Save the user preferences before the application terminates.
     func windowWillClose(_: Notification) {
-        userPrefs.selectedExportType = self.exportType.selectedSegment
+        userPrefs.selectedExportType = exportType.selectedSegment
     }
 
     // MARK: Actions
@@ -66,7 +66,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         // Create an new NSSavePanel...
         let exportSheet = NSSavePanel()
         // ...and present it to the user.
-        exportSheet.beginSheetModal(for: self.window!) { (result: Int) in
+        exportSheet.beginSheetModal(for: window!) { (result: Int) in
             // The user clicked "Export".
             if result == NSFileHandlingPanelOKButton {
                 do {
@@ -113,9 +113,9 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         let openPanel = NSOpenPanel()
         // Configure the NSOpenPanel
         openPanel.allowsMultipleSelection = false
-        openPanel.canChooseDirectories    = false
-        openPanel.canCreateDirectories    = false
-        openPanel.canChooseFiles          = true
+        openPanel.canChooseDirectories = false
+        openPanel.canCreateDirectories = false
+        openPanel.canChooseFiles = true
         // Present the open panel to the user and get the selected file.
         let response = openPanel.runModal()
         if response == NSModalResponseOK {
@@ -151,13 +151,13 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         if let view = view {
             switch view {
             case .appIconViewControllerTag:
-                self.currentView = AppIconViewController()
+                currentView = AppIconViewController()
 
             case .imageSetViewControllerTag:
-                self.currentView = ImageSetViewController()
+                currentView = ImageSetViewController()
 
             case .launchImageViewControllerTag:
-                self.currentView = LaunchImageViewController()
+                currentView = LaunchImageViewController()
             }
         }
 
@@ -203,9 +203,9 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     ///   - msg: The alerts message text.
     ///   - txt: The alerts informative text.
     private func displayAlertModal(withMessage msg: String, andText txt: String) {
-        let alert             = NSAlert()
-        alert.messageText     = msg
+        let alert = NSAlert()
+        alert.messageText = msg
         alert.informativeText = txt
-        alert.beginSheetModal(for: self.window!, completionHandler: nil)
+        alert.beginSheetModal(for: window!, completionHandler: nil)
     }
 }

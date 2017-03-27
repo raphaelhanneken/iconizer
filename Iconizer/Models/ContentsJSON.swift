@@ -20,12 +20,12 @@ struct ContentsJSON {
     /// Initialize a new ContentsJSON instance.
     init() {
         // Init the images array.
-        self.images = []
+        images = []
 
         // Init the contents array, with general information.
-        self.contents["author"] = "Iconizer"
-        self.contents["version"] = "1.0"
-        self.contents["images"] = []
+        contents["author"] = "Iconizer"
+        contents["version"] = "1.0"
+        contents["images"] = []
     }
 
     /// Initialize a new ContentsJSON instance with a specified Asset Type
@@ -104,7 +104,7 @@ struct ContentsJSON {
         // Add the image information to the contents dictionary.
         contents["images"] = images
         // Serialize the contents as JSON object.
-        let data = try JSONSerialization.data(withJSONObject: self.contents, options: .prettyPrinted)
+        let data = try JSONSerialization.data(withJSONObject: contents, options: .prettyPrinted)
         // Write the JSON object to the HD.
         try data.write(to: url.appendingPathComponent("Contents.json", isDirectory: false), options: .atomic)
     }

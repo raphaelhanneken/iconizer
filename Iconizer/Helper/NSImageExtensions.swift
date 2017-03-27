@@ -10,12 +10,12 @@ extension NSImage {
 
     /// The height of the image.
     var height: CGFloat {
-        return self.size.height
+        return size.height
     }
 
     /// The width of the image.
     var width: CGFloat {
-        return self.size.width
+        return size.width
     }
 
     /// A PNG representation of the image.
@@ -63,18 +63,18 @@ extension NSImage {
     func resizeMaintainingAspectRatio(withSize size: NSSize) -> NSImage? {
         let newSize: NSSize
 
-        let widthRatio = size.width / self.width
-        let heightRatio = size.height / self.height
+        let widthRatio = size.width / width
+        let heightRatio = size.height / height
 
         if widthRatio > heightRatio {
-            newSize = NSSize(width: floor(self.width * widthRatio),
-                             height: floor(self.height * widthRatio))
+            newSize = NSSize(width: floor(width * widthRatio),
+                             height: floor(height * widthRatio))
         } else {
-            newSize = NSSize(width: floor(self.width * heightRatio),
-                             height: floor(self.height * heightRatio))
+            newSize = NSSize(width: floor(width * heightRatio),
+                             height: floor(height * heightRatio))
         }
 
-        return self.resize(withSize: newSize)
+        return resize(withSize: newSize)
     }
 
     // MARK: Cropping
@@ -84,7 +84,7 @@ extension NSImage {
     ///
     /// - Parameter size: The size of the new image.
     /// - Returns: The cropped image.
-    func cropTo(size: NSSize) -> NSImage? {
+    func crop(toSize: NSSize) -> NSImage? {
         // Resize the current image, while preserving the aspect ratio.
         guard let resized = self.resizeMaintainingAspectRatio(withSize: size) else {
             return nil

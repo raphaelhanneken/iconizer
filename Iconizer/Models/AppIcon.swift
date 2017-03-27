@@ -39,14 +39,14 @@ class AppIcon: NSObject {
 
                 if let size = Int(size) {
                     // Append the generated image to the temporary images dict.
-                    tmpImages[filename] = image.imageByCopyingWithSize(NSSize(width: size, height: size))
+                    tmpImages[filename] = image.resize(withSize: NSSize(width: size, height: size))
                 } else {
                     throw AppIconError.formatError
                 }
             }
 
             // Write back the images to self.images
-            self.images[platform] = tmpImages
+            images[platform] = tmpImages
         }
     }
 
@@ -63,7 +63,7 @@ class AppIcon: NSObject {
                                                 isDirectory: true)
 
         // Loop through the selected platforms.
-        for (platform, images) in self.images {
+        for (platform, images) in images {
             // Override the setURL in case we don't generate a combined asset.
             if !combined {
                 setURL = url.appendingPathComponent("\(appIconDir)/\(platform)/\(name).appiconset",
@@ -101,11 +101,11 @@ class AppIcon: NSObject {
                 guard let img = image else {
                     throw AppIconError.missingImage
                 }
-                try img.saveAsPNGFileToURL(fileURL)
+                try img.savePngTo(url: fileURL)
             }
         }
 
         // Reset the images array
-        self.images = [:]
+        images = [:]
     }
 }

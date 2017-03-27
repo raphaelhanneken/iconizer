@@ -34,11 +34,11 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
     var enabledPlatforms: [String] {
         // String array of selected platforms.
         var tmp: [String] = []
-        if self.carPlay.state == NSOnState { tmp.append(carPlayPlatformName) }
-        if self.iPad.state    == NSOnState { tmp.append(iPadPlatformName) }
-        if self.iPhone.state  == NSOnState { tmp.append(iPhonePlatformName) }
-        if self.osx.state     == NSOnState { tmp.append(macOSPlatformName) }
-        if self.watch.state   == NSOnState { tmp.append(appleWatchPlatformName) }
+        if carPlay.state == NSOnState { tmp.append(carPlayPlatformName) }
+        if iPad.state == NSOnState { tmp.append(iPadPlatformName) }
+        if iPhone.state == NSOnState { tmp.append(iPhonePlatformName) }
+        if osx.state == NSOnState { tmp.append(macOSPlatformName) }
+        if watch.state == NSOnState { tmp.append(appleWatchPlatformName) }
 
         return tmp
     }
@@ -54,22 +54,22 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
         super.viewDidLoad()
 
         // Set the checkbox states.
-        watch.state    = prefManager.generateAppIconForAppleWatch
-        iPhone.state   = prefManager.generateAppIconForIPhone
-        iPad.state     = prefManager.generateAppIconForIPad
-        osx.state      = prefManager.generateAppIconForMac
-        carPlay.state  = prefManager.generateAppIconForCar
+        watch.state = prefManager.generateAppIconForAppleWatch
+        iPhone.state = prefManager.generateAppIconForIPhone
+        iPad.state = prefManager.generateAppIconForIPad
+        osx.state = prefManager.generateAppIconForMac
+        carPlay.state = prefManager.generateAppIconForCar
         combined.state = prefManager.combinedAppIconAsset
     }
 
     override func viewWillDisappear() {
         // Save the checkbox states.
         prefManager.generateAppIconForAppleWatch = watch.state
-        prefManager.generateAppIconForIPad       = iPad.state
-        prefManager.generateAppIconForIPhone     = iPhone.state
-        prefManager.generateAppIconForMac        = osx.state
-        prefManager.generateAppIconForCar        = carPlay.state
-        prefManager.combinedAppIconAsset         = combined.state
+        prefManager.generateAppIconForIPad = iPad.state
+        prefManager.generateAppIconForIPhone = iPhone.state
+        prefManager.generateAppIconForMac = osx.state
+        prefManager.generateAppIconForCar = carPlay.state
+        prefManager.combinedAppIconAsset = combined.state
     }
 
     // MARK: Iconizer View Controller

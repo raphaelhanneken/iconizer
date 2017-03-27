@@ -15,14 +15,14 @@ class DragDropImageView: NSImageView, NSDraggingSource {
         super.init(frame: frameRect)
 
         // Assure editable is set to true, to enable drop capabilities.
-        self.isEditable = true
+        isEditable = true
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
 
         // Assure editable is set to true, to enable drop capabilities.
-        self.isEditable = true
+        isEditable = true
     }
 
     override func draw(_ dirtyRect: NSRect) {
@@ -43,20 +43,20 @@ class DragDropImageView: NSImageView, NSDraggingSource {
     func draggingSession(_: NSDraggingSession, endedAt _: NSPoint,
                          operation: NSDragOperation) {
         if operation == .delete {
-            self.image = nil
+            image = nil
         }
     }
 
     // Track mouse down events and safe the to the poperty.
     override func mouseDown(with theEvent: NSEvent) {
-        self.mouseDownEvent = theEvent
+        mouseDownEvent = theEvent
     }
 
     // Track mouse dragged events to handle dragging sessions.
     override func mouseDragged(with event: NSEvent) {
 
         // Calculate the dragging distance...
-        let mouseDown = self.mouseDownEvent!.locationInWindow
+        let mouseDown = mouseDownEvent!.locationInWindow
         let dragPoint = event.locationInWindow
         let dragDistance = hypot(mouseDown.x - dragPoint.x, mouseDown.y - dragPoint.y)
 
@@ -72,7 +72,7 @@ class DragDropImageView: NSImageView, NSDraggingSource {
         // Do some math to properly resize the given image.
         let size = NSSize(width: log10(image.size.width) * 30, height: log10(image.size.height) * 30)
 
-        if let draggingImage = image.imageByCopyingWithSize(size) {
+        if let draggingImage = image.resize(withSize: size) {
 
             // Create a new NSDraggingItem with the image as content.
             let draggingItem = NSDraggingItem(pasteboardWriter: image)
