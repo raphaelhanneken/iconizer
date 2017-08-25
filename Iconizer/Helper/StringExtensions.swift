@@ -21,6 +21,6 @@ extension String {
             return nil
         }
 
-        return substring(with: Range(startIndex.upperBound ..< endIndex.lowerBound))
+        return String(self[startIndex.upperBound ..< endIndex.lowerBound])
     }
 }
