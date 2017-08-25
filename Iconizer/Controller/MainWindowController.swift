@@ -19,8 +19,8 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     let userPrefs = PreferenceManager()
 
     // Override the windowNibName property.
-    override var windowNibName: String {
-        return "MainWindow"
+    override var windowNibName: NSNib.Name {
+        return NSNib.Name("MainWindow")
     }
 
     // MARK: Window delegate
@@ -66,9 +66,9 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         // Create an new NSSavePanel...
         let exportSheet = NSSavePanel()
         // ...and present it to the user.
-        exportSheet.beginSheetModal(for: window!) { (result: Int) in
+        exportSheet.beginSheetModal(for: window!) { (result: NSApplication.ModalResponse) in
             // The user clicked "Export".
-            if result == NSFileHandlingPanelOKButton {
+            if result == NSApplication.ModalResponse.OK {
                 do {
                     // Unwrap the file url and get rid of the last path component.
                     guard let url = exportSheet.url?.deletingLastPathComponent() else {
@@ -80,7 +80,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                     try currentView.saveAssetCatalog(named: exportSheet.nameFieldStringValue, toURL: url)
                     // Open the generated asset catalog in Finder.
                     NSWorkspace
-                        .shared()
+                        .shared
                         .open(url.appendingPathComponent("Iconizer Assets", isDirectory: true))
                 } catch IconizerViewControllerError.missingImage {
                     self.displayAlertModal(withMessage: "Missing Image",
@@ -118,7 +118,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         openPanel.canChooseFiles = true
         // Present the open panel to the user and get the selected file.
         let response = openPanel.runModal()
-        if response == NSModalResponseOK {
+        if response == NSApplication.ModalResponse.OK {
             do {
                 // Unwrap the url to the selected image an the currently active view.
                 guard let url = openPanel.url, let currentView = self.currentView else {

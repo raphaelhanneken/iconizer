@@ -21,7 +21,7 @@ extension NSImage {
     /// A PNG representation of the image.
     var PNGRepresentation: Data? {
         if let tiff = self.tiffRepresentation, let tiffData = NSBitmapImageRep(data: tiff) {
-            return tiffData.representation(using: .PNG, properties: [:])
+            return tiffData.representation(using: .png, properties: [:])
         }
 
         return nil

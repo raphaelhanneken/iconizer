@@ -26,8 +26,8 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
     /// Return the platforms selected by the user.
     var enabledPlatforms: [String] {
         var tmp: [String] = []
-        if iphone.state == NSOnState { tmp.append(iPhonePlatformName) }
-        if ipad.state == NSOnState { tmp.append(iPadPlatformName) }
+        if iphone.state == NSControl.StateValue.onState { tmp.append(iPhonePlatformName) }
+        if ipad.state == NSControl.StateValue.onState { tmp.append(iPadPlatformName) }
         return tmp
     }
 
@@ -38,21 +38,21 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
     let userPrefs = PreferenceManager()
 
     /// The name of the corresponding nib file.
-    override var nibName: String {
-        return "LaunchImageView"
+    override var nibName: NSNib.Name {
+        return NSNib.Name("LaunchImageView")
     }
 
     // MARK: View Controller
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        iphone.state = userPrefs.generateLaunchImageForIPhone
-        ipad.state = userPrefs.generateLaunchImageForIPad
+        iphone.state = NSControl.StateValue(rawValue: userPrefs.generateLaunchImageForIPhone)
+        ipad.state = NSControl.StateValue(rawValue: userPrefs.generateLaunchImageForIPad)
     }
 
     override func viewWillDisappear() {
-        userPrefs.generateLaunchImageForIPad = ipad.state
-        userPrefs.generateLaunchImageForIPhone = iphone.state
+        userPrefs.generateLaunchImageForIPad = ipad.state.rawValue
+        userPrefs.generateLaunchImageForIPhone = iphone.state.rawValue
     }
 
     // MARK: Iconizer View Controller

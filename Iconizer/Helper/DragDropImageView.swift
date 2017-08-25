@@ -90,7 +90,7 @@ class DragDropImageView: NSImageView, NSDraggingSource {
 
             // Provide the components of the dragging image.
             draggingItem.imageComponentsProvider = {
-                let component = NSDraggingImageComponent(key: NSDraggingImageComponentIconKey)
+                let component = NSDraggingImageComponent(key: NSDraggingItem.ImageComponentKey.icon)
 
                 component.contents = image
                 component.frame = NSRect(origin: NSPoint(), size: draggingFrame.size)

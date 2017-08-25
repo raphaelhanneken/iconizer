@@ -34,18 +34,18 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
     var enabledPlatforms: [String] {
         // String array of selected platforms.
         var tmp: [String] = []
-        if carPlay.state == NSOnState { tmp.append(carPlayPlatformName) }
-        if iPad.state == NSOnState { tmp.append(iPadPlatformName) }
-        if iPhone.state == NSOnState { tmp.append(iPhonePlatformName) }
-        if osx.state == NSOnState { tmp.append(macOSPlatformName) }
-        if watch.state == NSOnState { tmp.append(appleWatchPlatformName) }
+        if carPlay.state == NSControl.StateValue.onState { tmp.append(carPlayPlatformName) }
+        if iPad.state == NSControl.StateValue.onState { tmp.append(iPadPlatformName) }
+        if iPhone.state == NSControl.StateValue.onState { tmp.append(iPhonePlatformName) }
+        if osx.state == NSControl.StateValue.onState { tmp.append(macOSPlatformName) }
+        if watch.state == NSControl.StateValue.onState { tmp.append(appleWatchPlatformName) }
 
         return tmp
     }
 
     /// The name of the corresponding nib file.
-    override var nibName: String {
-        return "AppIconView"
+    override var nibName: NSNib.Name {
+        return NSNib.Name("AppIconView")
     }
 
     // MARK: View Controller
@@ -54,22 +54,22 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
         super.viewDidLoad()
 
         // Set the checkbox states.
-        watch.state = prefManager.generateAppIconForAppleWatch
-        iPhone.state = prefManager.generateAppIconForIPhone
-        iPad.state = prefManager.generateAppIconForIPad
-        osx.state = prefManager.generateAppIconForMac
-        carPlay.state = prefManager.generateAppIconForCar
-        combined.state = prefManager.combinedAppIconAsset
+        watch.state = NSControl.StateValue(rawValue: prefManager.generateAppIconForAppleWatch)
+        iPhone.state = NSControl.StateValue(rawValue: prefManager.generateAppIconForIPhone)
+        iPad.state = NSControl.StateValue(rawValue: prefManager.generateAppIconForIPad)
+        osx.state = NSControl.StateValue(rawValue: prefManager.generateAppIconForMac)
+        carPlay.state = NSControl.StateValue(rawValue: prefManager.generateAppIconForCar)
+        combined.state = NSControl.StateValue(rawValue: prefManager.combinedAppIconAsset)
     }
 
     override func viewWillDisappear() {
         // Save the checkbox states.
-        prefManager.generateAppIconForAppleWatch = watch.state
-        prefManager.generateAppIconForIPad = iPad.state
-        prefManager.generateAppIconForIPhone = iPhone.state
-        prefManager.generateAppIconForMac = osx.state
-        prefManager.generateAppIconForCar = carPlay.state
-        prefManager.combinedAppIconAsset = combined.state
+        prefManager.generateAppIconForAppleWatch = watch.state.rawValue
+        prefManager.generateAppIconForIPad = iPad.state.rawValue
+        prefManager.generateAppIconForIPhone = iPhone.state.rawValue
+        prefManager.generateAppIconForMac = osx.state.rawValue
+        prefManager.generateAppIconForCar = carPlay.state.rawValue
+        prefManager.combinedAppIconAsset = combined.state.rawValue
     }
 
     // MARK: Iconizer View Controller
@@ -88,7 +88,7 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
     }
 
     func saveAssetCatalog(named name: String, toURL url: URL) throws {
-        try appIcon.saveAssetCatalogNamed(name, toURL: url, asCombinedAsset: (combined.state == NSOnState))
+        try appIcon.saveAssetCatalogNamed(name, toURL: url, asCombinedAsset: (combined.state == NSControl.StateValue.onState))
     }
 
     func openSelectedImage(_ image: NSImage?) throws {
