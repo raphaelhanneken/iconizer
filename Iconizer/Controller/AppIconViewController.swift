@@ -34,11 +34,11 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
     var enabledPlatforms: [String] {
         // String array of selected platforms.
         var tmp: [String] = []
-        if carPlay.state == NSControl.StateValue.onState { tmp.append(carPlayPlatformName) }
-        if iPad.state == NSControl.StateValue.onState { tmp.append(iPadPlatformName) }
-        if iPhone.state == NSControl.StateValue.onState { tmp.append(iPhonePlatformName) }
-        if osx.state == NSControl.StateValue.onState { tmp.append(macOSPlatformName) }
-        if watch.state == NSControl.StateValue.onState { tmp.append(appleWatchPlatformName) }
+        if carPlay.state == NSControl.StateValue.on { tmp.append(carPlayPlatformName) }
+        if iPad.state == NSControl.StateValue.on { tmp.append(iPadPlatformName) }
+        if iPhone.state == NSControl.StateValue.on { tmp.append(iPhonePlatformName) }
+        if osx.state == NSControl.StateValue.on { tmp.append(macOSPlatformName) }
+        if watch.state == NSControl.StateValue.on { tmp.append(appleWatchPlatformName) }
 
         return tmp
     }
@@ -88,7 +88,7 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
     }
 
     func saveAssetCatalog(named name: String, toURL url: URL) throws {
-        try appIcon.saveAssetCatalogNamed(name, toURL: url, asCombinedAsset: (combined.state == NSControl.StateValue.onState))
+        try appIcon.saveAssetCatalogNamed(name, toURL: url, asCombinedAsset: (combined.state == NSControl.StateValue.on))
     }
 
     func openSelectedImage(_ image: NSImage?) throws {

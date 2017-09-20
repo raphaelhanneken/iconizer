@@ -74,14 +74,14 @@ class PreferenceManager {
     ///  Register the default preferences.
     func registerDefaultPreferences() {
         let defaults = [
-            generateAppIconForMacKey: NSControl.StateValue.onState,
-            generateAppIconForIPhoneKey: NSControl.StateValue.onState,
-            generateAppIconForIPadKey: NSControl.StateValue.onState,
-            generateAppIconForAppleWatchKey: NSControl.StateValue.onState,
-            generateAppIconForCarKey: NSControl.StateValue.onState,
-            generateLaunchImageForIPhoneKey: NSControl.StateValue.onState,
-            generateLaunchImageForIPadKey: NSControl.StateValue.onState,
-            combinedAppIconAssetKey: NSControl.StateValue.offState
+            generateAppIconForMacKey: NSControl.StateValue.on,
+            generateAppIconForIPhoneKey: NSControl.StateValue.on,
+            generateAppIconForIPadKey: NSControl.StateValue.on,
+            generateAppIconForAppleWatchKey: NSControl.StateValue.on,
+            generateAppIconForCarKey: NSControl.StateValue.on,
+            generateLaunchImageForIPhoneKey: NSControl.StateValue.on,
+            generateLaunchImageForIPadKey: NSControl.StateValue.on,
+            combinedAppIconAssetKey: NSControl.StateValue.off
         ]
 
         self.userDefaults.register(defaults: defaults)
