@@ -7,6 +7,27 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.2.5</title>
+        <description>
+          <![CDATA[
+          <p>
+            Compatibility update for macOS High Sierra.
+            Build with Xcode 9.0 and Swift 4.
+          </p>
+          ]]>
+        </description>
+        <pubDate>Sat, 23 Sep 2017 16:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.2.5/Iconizer.dmg"
+          sparkle:version="236"
+          sparkle:shortVersionString="2.2.5"
+          sparkle:dsaSignature="MCwCFAYxop8yIxlWnyE3xloxucyIHaH3AhQtlTNGXX+SC2xVULt9wt5hg0wPfQ=="
+          length="9784694"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.2.4</title>
         <description>
           <![CDATA[
