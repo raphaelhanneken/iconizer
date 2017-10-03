@@ -73,7 +73,7 @@
 		8E2F995B1C01F17E00C2E2D8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Iconizer/Helper/Constants.swift; sourceTree = "<group>"; };
 		8E2F995C1C01F17E00C2E2D8 /* ErrorTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorTypes.swift; path = Iconizer/Helper/ErrorTypes.swift; sourceTree = "<group>"; };
 		8E2F995D1C01F17E00C2E2D8 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSImageExtensions.swift; path = Iconizer/Helper/NSImageExtensions.swift; sourceTree = "<group>"; };
-		8E2F995E1C01F17E00C2E2D8 /* IconizerViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconizerViewControllerProtocol.swift; path = Iconizer/Helper/IconizerViewControllerProtocol.swift; sourceTree = "<group>"; };
+		8E2F995E1C01F17E00C2E2D8 /* IconizerViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconizerViewControllerProtocol.swift; sourceTree = "<group>"; };
 		8E2F995F1C01F17E00C2E2D8 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = Iconizer/Helper/StringExtensions.swift; sourceTree = "<group>"; };
 		8E2F99651C01F19400C2E2D8 /* AppIcon_Car.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_Car.json; path = Resources/AppIcon_Car.json; sourceTree = "<group>"; };
 		8E2F99661C01F19400C2E2D8 /* AppIcon_iPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_iPad.json; path = Resources/AppIcon_iPad.json; sourceTree = "<group>"; };
@@ -173,6 +173,7 @@
 				8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */,
 				8E2F99401C01F13600C2E2D8 /* LaunchImageViewController.swift */,
 				8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */,
+				8E2F995E1C01F17E00C2E2D8 /* IconizerViewControllerProtocol.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -192,7 +193,6 @@
 		8E3F8F9D1B23ACC20096E9EC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				8E2F995E1C01F17E00C2E2D8 /* IconizerViewControllerProtocol.swift */,
 				8E2F995B1C01F17E00C2E2D8 /* Constants.swift */,
 				8E2F995C1C01F17E00C2E2D8 /* ErrorTypes.swift */,
 				8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */,
