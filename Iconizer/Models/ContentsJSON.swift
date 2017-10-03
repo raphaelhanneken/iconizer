@@ -56,40 +56,39 @@ struct ContentsJSON {
     /// - Returns: The Contents.json for the supplied asset type and platforms as Array.
     /// - Throws: See ContentsJSONError for possible values.
     func JSONObjectForType(_ type: AssetType, andPlatform platform: String) throws -> [[String: String]] {
-        // Holds the path to the required JSON file.
-        let resourcePath: String?
-        // Get the correct JSON file for the given AssetType.
-        switch type {
-        case .appIcon:
-            resourcePath = Bundle.main.path(forResource: "AppIcon_" + platform, ofType: "json")
-
-        case .imageSet:
-            resourcePath = Bundle.main.path(forResource: "ImageSet", ofType: "json")
-
-        case .launchImage:
-            resourcePath = Bundle.main.path(forResource: "LaunchImage_" + platform, ofType: "json")
-        }
-        // Unwrap the JSON file path.
-        guard let path = resourcePath else {
+        guard let resourcePath = resourcePath(forAssetType: type, andPlatform: platform) else {
             throw ContentsJSONError.fileNotFound
         }
-
-        // Create a new NSData object from the contents of the selected JSON file.
-        let JSONData = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
         // Create a new JSON object from the given data.
-        let JSONObject = try JSONSerialization.jsonObject(with: JSONData, options: .allowFragments)
+        let json = try JSONSerialization
+            .jsonObject(with: try Data(contentsOf: URL(fileURLWithPath: resourcePath), options: .alwaysMapped),
+                        options: .allowFragments)
 
         // Convert the JSON object into a Dictionary.
-        guard let contentsDict = JSONObject as? [String: AnyObject] else {
+        guard let contents = json as? [String: AnyObject] else {
             throw ContentsJSONError.castingJSONToDictionaryFailed
         }
         // Get the image information from the JSON dictionary.
-        guard let images = contentsDict["images"] as? [[String: String]] else {
+        guard let images = contents["images"] as? [[String: String]] else {
             throw ContentsJSONError.gettingImagesArrayFailed
         }
 
         // Return the image information.
         return images
+    }
+
+
+    func resourcePath(forAssetType type: AssetType, andPlatform platform: String) -> String? {
+        let resource: String
+        switch type {
+        case .appIcon:
+            resource = "AppIcon_" + platform
+        case .imageSet:
+            resource = "ImageSet"
+        case .launchImage:
+            resource = "LaunchImage_" + platform
+        }
+        return Bundle.main.path(forResource: resource, ofType: "json")
     }
 
     ///  Saves the Contents.json to the appropriate folder.

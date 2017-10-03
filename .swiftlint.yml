@@ -1,8 +1,5 @@
 line_length: 115
-cyclomatic_complexity: 12
-
-disabled_rules:
-  - legacy_constructor
+cyclomatic_complexity: 6
 
 excluded:
   - Iconizer/Carthage

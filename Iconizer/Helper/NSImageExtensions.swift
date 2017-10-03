@@ -94,7 +94,7 @@ extension NSImage {
         let x = floor((resized.width - size.width) / 2)
         let y = floor((resized.height - size.height) / 2)
         // Create the cropping frame.
-        let frame = NSMakeRect(x, y, size.width, size.height)
+        let frame = NSRect(x: x, y: y, width: size.width, height: size.height)
 
         // Get the best representation of the image for the given cropping frame.
         guard let rep = resized.bestRepresentation(for: frame, context: nil, hints: nil) else {
@@ -106,7 +106,7 @@ extension NSImage {
         defer { img.unlockFocus() }
         img.lockFocus()
 
-        if rep.draw(in: NSMakeRect(0, 0, size.width, size.height),
+        if rep.draw(in: NSRect(x: 0, y: 0, width: size.width, height: size.height),
                     from: frame,
                     operation: NSCompositingOperation.copy,
                     fraction: 1.0,

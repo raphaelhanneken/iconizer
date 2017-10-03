@@ -88,7 +88,9 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
     }
 
     func saveAssetCatalog(named name: String, toURL url: URL) throws {
-        try appIcon.saveAssetCatalogNamed(name, toURL: url, asCombinedAsset: (combined.state == NSControl.StateValue.on))
+        try appIcon.saveAssetCatalogNamed(name,
+                                          toURL: url,
+                                          asCombinedAsset: (combined.state == NSControl.StateValue.on))
     }
 
     func openSelectedImage(_ image: NSImage?) throws {

@@ -183,11 +183,10 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         // Get the content rect of the main window.
         let windowContentRect = window.contentRect(forFrameRect: window.frame)
         // Create a new content rect for the given size (except width).
-        let newContentRect = NSMakeRect(windowContentRect.minX,
-                                        windowContentRect.maxY - size.height,
-                                        windowContentRect.size.width,
-                                        size.height)
-
+        let newContentRect = NSRect(x: windowContentRect.minX,
+                                    y: windowContentRect.maxY,
+                                    width: windowContentRect.maxY - size.height,
+                                    height: size.height)
         // Create a new frame rect from the content rect.
         let newWindowFrame = window.frameRect(forContentRect: newContentRect)
 
