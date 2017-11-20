@@ -158,13 +158,17 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
 
             case .launchImageViewControllerTag:
                 currentView = LaunchImageViewController()
+            case .iMessageViewControllerTag:
+                currentView = IMessageViewControlller()
             }
         }
 
         // Unwrap the selected ViewController and the main window.
         if let currentView = self.currentView, let window = self.window {
             // Resize the main window to fit the selected view.
-            resizeWindowForContentSize(currentView.view.frame.size)
+            // Dont resize the window any more, it causes jumping across space. The
+            // Content is set to match all views
+            // resizeWindowForContentSize(currentView.view.frame.size)
             // Set the main window's contentView to the selected view.
             window.contentView = currentView.view
         }

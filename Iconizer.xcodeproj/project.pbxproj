@@ -39,6 +39,10 @@
 		8E2F99821C02168A00C2E2D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99811C02168A00C2E2D8 /* Images.xcassets */; };
 		8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */; };
 		8E5C00D41E0AA3260094FD0C /* DragDropImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */; };
+		B00B9FBB1FBF4BC600DD6989 /* AppIcon_iMessage.json in Resources */ = {isa = PBXBuildFile; fileRef = B00B9FBA1FBF4BC600DD6989 /* AppIcon_iMessage.json */; };
+		B00B9FBD1FBF4D2600DD6989 /* IMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B00B9FBC1FBF4D2600DD6989 /* IMessageView.xib */; };
+		B00B9FBF1FBF4D9E00DD6989 /* IMessageViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B9FBE1FBF4D9E00DD6989 /* IMessageViewControlller.swift */; };
+		B00B9FC11FBF4E3200DD6989 /* IMessageIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B9FC01FBF4E3200DD6989 /* IMessageIcon.swift */; };
 		C554C3E91F83786700747031 /* IconizerViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C554C3E81F83786700747031 /* IconizerViewControllerProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +93,10 @@
 		8E3F8F691B23488F0096E9EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DragDropImageView.swift; path = Iconizer/Helper/DragDropImageView.swift; sourceTree = "<group>"; };
+		B00B9FBA1FBF4BC600DD6989 /* AppIcon_iMessage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = AppIcon_iMessage.json; path = Resources/AppIcon_iMessage.json; sourceTree = "<group>"; };
+		B00B9FBC1FBF4D2600DD6989 /* IMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMessageView.xib; sourceTree = "<group>"; };
+		B00B9FBE1FBF4D9E00DD6989 /* IMessageViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IMessageViewControlller.swift; path = Controller/IMessageViewControlller.swift; sourceTree = "<group>"; };
+		B00B9FC01FBF4E3200DD6989 /* IMessageIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMessageIcon.swift; sourceTree = "<group>"; };
 		C554C3E81F83786700747031 /* IconizerViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconizerViewControllerProtocol.swift; path = Controller/IconizerViewControllerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +154,7 @@
 				8E2F99671C01F19400C2E2D8 /* AppIcon_iPhone.json */,
 				8E2F99681C01F19400C2E2D8 /* AppIcon_Mac.json */,
 				8E2F99691C01F19400C2E2D8 /* AppIcon_Watch.json */,
+				B00B9FBA1FBF4BC600DD6989 /* AppIcon_iMessage.json */,
 				8E2F996C1C01F19400C2E2D8 /* ImageSet.json */,
 				8E2F996D1C01F19400C2E2D8 /* LaunchImage_iPad.json */,
 				8E2F996E1C01F19400C2E2D8 /* LaunchImage_iPhone.json */,
@@ -162,6 +171,7 @@
 				8E2F99511C01F16000C2E2D8 /* ImageSetView.xib */,
 				8E2F99521C01F16000C2E2D8 /* LaunchImageView.xib */,
 				8E2F99531C01F16000C2E2D8 /* MainWindow.xib */,
+				B00B9FBC1FBF4D2600DD6989 /* IMessageView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -174,6 +184,7 @@
 				8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */,
 				8E2F99401C01F13600C2E2D8 /* LaunchImageViewController.swift */,
 				8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */,
+				B00B9FBE1FBF4D9E00DD6989 /* IMessageViewControlller.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -186,6 +197,7 @@
 				8E2F99491C01F14E00C2E2D8 /* LaunchImage.swift */,
 				8E2F99471C01F14E00C2E2D8 /* ContentsJSON.swift */,
 				8E2F994A1C01F14E00C2E2D8 /* PreferenceManager.swift */,
+				B00B9FC01FBF4E3200DD6989 /* IMessageIcon.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -286,6 +298,7 @@
 				8E2F99571C01F16000C2E2D8 /* MainWindow.xib in Resources */,
 				8E2F99551C01F16000C2E2D8 /* ImageSetView.xib in Resources */,
 				8E2F99821C02168A00C2E2D8 /* Images.xcassets in Resources */,
+				B00B9FBB1FBF4BC600DD6989 /* AppIcon_iMessage.json in Resources */,
 				8E2F99541C01F16000C2E2D8 /* AppIconView.xib in Resources */,
 				8E2F995A1C01F16D00C2E2D8 /* MainMenu.xib in Resources */,
 				8E2F99731C01F19400C2E2D8 /* AppIcon_Watch.json in Resources */,
@@ -294,6 +307,7 @@
 				8E2F996F1C01F19400C2E2D8 /* AppIcon_Car.json in Resources */,
 				8E2F99711C01F19400C2E2D8 /* AppIcon_iPhone.json in Resources */,
 				8E2F99781C01F19400C2E2D8 /* LaunchImage_iPhone.json in Resources */,
+				B00B9FBD1FBF4D2600DD6989 /* IMessageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +338,7 @@
 				8E2F99601C01F17E00C2E2D8 /* Constants.swift in Sources */,
 				8E2F994D1C01F14E00C2E2D8 /* ImageSet.swift in Sources */,
 				C554C3E91F83786700747031 /* IconizerViewControllerProtocol.swift in Sources */,
+				B00B9FBF1FBF4D9E00DD6989 /* IMessageViewControlller.swift in Sources */,
 				8E5C00D41E0AA3260094FD0C /* DragDropImageView.swift in Sources */,
 				8E2F99431C01F13600C2E2D8 /* ImageSetViewController.swift in Sources */,
 				8E2F99451C01F13600C2E2D8 /* MainWindowController.swift in Sources */,
@@ -335,6 +350,7 @@
 				8E2F99421C01F13600C2E2D8 /* AppIconViewController.swift in Sources */,
 				8E2F99641C01F17E00C2E2D8 /* StringExtensions.swift in Sources */,
 				8E2F99611C01F17E00C2E2D8 /* ErrorTypes.swift in Sources */,
+				B00B9FC11FBF4E3200DD6989 /* IMessageIcon.swift in Sources */,
 				8E2F994B1C01F14E00C2E2D8 /* AppIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

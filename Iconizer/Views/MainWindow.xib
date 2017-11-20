@@ -17,11 +17,11 @@
         <window title="Iconizer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="100" y="150" width="440" height="450"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <rect key="contentRect" x="100" y="150" width="527" height="450"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="3440" height="1417"/>
             <value key="minSize" type="size" width="440" height="450"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="440" height="450"/>
+                <rect key="frame" x="0.0" y="0.0" width="527" height="450"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>
             <toolbar key="toolbar" implicitIdentifier="9EA0F9F7-1BC5-4CC5-890E-7255E5FD3BB3" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="O6M-DG-oxe">
@@ -46,10 +46,10 @@
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="20EEBF86-3D97-4B14-B42B-F4C359347BE2" label="Export Type" paletteLabel="Export Type" id="LGf-aY-fRE">
                         <nil key="toolTip"/>
-                        <size key="minSize" width="271" height="25"/>
-                        <size key="maxSize" width="292" height="29"/>
+                        <size key="minSize" width="271" height="24"/>
+                        <size key="maxSize" width="356" height="29"/>
                         <segmentedControl key="view" verticalHuggingPriority="750" id="LLY-Re-IdR">
-                            <rect key="frame" x="0.0" y="14" width="271" height="25"/>
+                            <rect key="frame" x="0.0" y="14" width="356" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="4Yl-K6-sx3">
                                 <font key="font" metaFont="system"/>
@@ -57,6 +57,7 @@
                                     <segment label="App Icon" width="78" selected="YES"/>
                                     <segment label="Launch Image" width="104" tag="1"/>
                                     <segment label="Image Set" width="85"/>
+                                    <segment label="iMessage"/>
                                 </segments>
                             </segmentedCell>
                             <connections>
@@ -75,7 +76,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="72" y="441"/>
+            <point key="canvasLocation" x="115.5" y="441"/>
         </window>
     </objects>
     <resources>

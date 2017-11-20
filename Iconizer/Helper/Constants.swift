@@ -9,10 +9,12 @@
 ///  - appIconViewControllerTag:     Represents the tag for the AppIconView.
 ///  - launchImageViewControllerTag: Represents the tag for the LaunchImageView.
 ///  - imageSetViewControllerTag:    Represents the tag for the ImageSetView.
+///  - iMessageViewControllerTag:    Represents the tag for the IMessageView.
 enum ViewControllerTag: Int {
     case appIconViewControllerTag = 0
     case launchImageViewControllerTag = 1
     case imageSetViewControllerTag = 2
+    case iMessageViewControllerTag = 3
 }
 
 // MARK: - Platform names
@@ -47,6 +49,8 @@ let appIconDir = "Iconizer Assets/App Icons"
 let launchImageDir = "Iconizer Assets/Launch Images"
 /// Default url for image sets.
 let imageSetDir = "Iconizer Assets/Image Sets"
+/// Default url for iMessage icons.
+let iMessageDir = "Iconizer Assets/iMessage Icons"
 
 // MARK: - Asset Types
 
@@ -55,6 +59,7 @@ let imageSetDir = "Iconizer Assets/Image Sets"
 ///  - AppIcon:     Represents the AppIcon model
 ///  - ImageSet:    Represents the ImageSet model
 ///  - LaunchImage: Represents the LaunchImage model
+///  - iMessage: Represents the IMessageIcon model
 enum AssetType: Int {
     case appIcon = 0
     case imageSet = 1

@@ -31,6 +31,18 @@ enum ImageSetError: Error {
     case selectedImageNotFound
 }
 
+
+///  Error Types for iMessage.
+enum IMessageError: Error {
+    case rescalingImageFailed
+    case missingDataForImageSize
+    case missingDataForImageName
+    case missingImage
+    case gettingPNGRepresentationFailed
+    case selectedImageNotFound
+    case formatError
+}
+
 ///  Error Types for LaunchImage.
 ///
 ///  - missingImage:                   The user didn't supply an image.
