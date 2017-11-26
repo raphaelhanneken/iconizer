@@ -174,24 +174,19 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     ///
     /// - Parameter size: The size to resize to.
     func resizeWindowForContentSize(_ size: NSSize) {
-        // Unwrap the main window object.
         guard let window = self.window else {
-            // Is this even possible???
             return
         }
 
-        // Get the content rect of the main window.
         let windowContentRect = window.contentRect(forFrameRect: window.frame)
-        // Create a new content rect for the given size (except width).
         let newContentRect = NSRect(x: windowContentRect.minX,
-                                    y: windowContentRect.maxY,
-                                    width: windowContentRect.maxY - size.height,
+                                    y: windowContentRect.maxY - size.height,
+                                    width: size.width,
                                     height: size.height)
-        // Create a new frame rect from the content rect.
-        let newWindowFrame = window.frameRect(forContentRect: newContentRect)
 
-        // Set the window frame to the new frame.
-        window.setFrame(newWindowFrame, display: true, animate: true)
+        window.setFrame(window.frameRect(forContentRect: newContentRect),
+                        display: true,
+                        animate: true)
     }
 
     // MARK: - Private Methods
