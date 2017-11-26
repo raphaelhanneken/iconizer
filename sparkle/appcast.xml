@@ -7,6 +7,27 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.2.6</title>
+        <description>
+          <![CDATA[
+          <p>
+            Contains a bugfix, where all Launch Images would have the same size.<br>
+            Thanks to <a href="https://github.com/MaG21">MaG21</a> for reporting this issue.
+          </p>
+          ]]>
+        </description>
+        <pubDate>Sun, 26 Nov 2017 21:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.2.6/Iconizer.dmg"
+          sparkle:version="241"
+          sparkle:shortVersionString="2.2.6"
+          sparkle:dsaSignature="MCwCFEZXsJI/ErS2aF/GMGQZ16sTWbgLAhRMJB2siO2u5xkoQKnUZz8yFUMmcw=="
+          length="10610693"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.2.5</title>
         <description>
           <![CDATA[
