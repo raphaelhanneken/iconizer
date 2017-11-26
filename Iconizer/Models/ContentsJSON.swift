@@ -77,7 +77,6 @@ struct ContentsJSON {
         return images
     }
 
-
     func resourcePath(forAssetType type: AssetType, andPlatform platform: String) -> String? {
         let resource: String
         switch type {
