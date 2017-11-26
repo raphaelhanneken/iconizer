@@ -19,7 +19,7 @@
         <pubDate>Sun, 26 Nov 2017 21:00:00 +0100</pubDate>
         <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
         <enclosure
-          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.2.6/Iconizer.dmg"
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/v2.2.6/Iconizer.dmg"
           sparkle:version="241"
           sparkle:shortVersionString="2.2.6"
           sparkle:dsaSignature="MCwCFEZXsJI/ErS2aF/GMGQZ16sTWbgLAhRMJB2siO2u5xkoQKnUZz8yFUMmcw=="
