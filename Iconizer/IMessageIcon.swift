@@ -20,12 +20,14 @@ class IMessageIcon: NSObject {
     func generateScaledImagesFromImage(_ image: NSImage) throws {
         // Create a new JSON object for the current platform.
         let jsonData = try ContentsJSON(forType: AssetType.appIcon, andPlatforms: ["iMessage"])
-        // Calculate height from expected size (width)
-        let aspectRatioScale: Float = 768/1024
         
         for imageData in jsonData.images {
-            // Get the expected size, since App Icons are quadratic we only need one value.
-            guard let width = imageData["expected-size"] else {
+            // Get the expected width
+            guard let width = imageData["expected-width"] else {
+                throw IMessageError.missingDataForImageSize
+            }
+            // Get the expected height
+            guard let height = imageData["expected-height"] else {
                 throw IMessageError.missingDataForImageSize
             }
             // Get the filename.
@@ -33,8 +35,7 @@ class IMessageIcon: NSObject {
                 throw IMessageError.missingDataForImageName
             }
             
-            if let width = Int(width) {
-                let height = Int(aspectRatioScale * Float(width))
+            if let width = Int(width), let height = Int(height) {
                 // Append the generated image to the temporary images dict.
                 images[filename] = image.resize(withSize: NSSize(width: width, height: height))
             } else {

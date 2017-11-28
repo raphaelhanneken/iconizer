@@ -5,28 +5,32 @@
                 "idiom" : "iphone",
                 "filename" : "60@2x.png",
                 "scale" : "2x",
-                "expected-size": "120"
+                "expected-width": "120",
+                "expected-height": "90"
                 },
                 {
                 "size" : "60x45",
                 "idiom" : "iphone",
                 "filename" : "60@3x.png",
                 "scale" : "3x",
-                "expected-size": "180"
+                "expected-width": "180",
+                "expected-height": "135"
                 },
                 {
                 "size" : "67x50",
                 "idiom" : "ipad",
                 "filename" : "67@2x.png",
                 "scale" : "2x",
-                "expected-size": "134"
+                "expected-width": "134",
+                "expected-height": "100"
                 },
                 {
                 "size" : "74x55",
                 "idiom" : "ipad",
                 "filename" : "148@2x.png",
                 "scale" : "2x",
-                "expected-size": "148"
+                "expected-width": "148",
+                "expected-height": "110"
                 },
                 {
                 "size" : "27x20",
@@ -34,7 +38,8 @@
                 "filename" : "27@2x.png",
                 "scale" : "2x",
                 "platform" : "ios",
-                "expected-size": "54"
+                "expected-width": "54",
+                "expected-height": "40"
                 },
                 {
                 "size" : "27x20",
@@ -42,7 +47,8 @@
                 "filename" : "27@3x.png",
                 "scale" : "3x",
                 "platform" : "ios",
-                "expected-size": "81"
+                "expected-width": "81",
+                "expected-height": "60"
                 },
                 {
                 "size" : "32x24",
@@ -50,7 +56,8 @@
                 "filename" : "32@2x.png",
                 "scale" : "2x",
                 "platform" : "ios",
-                "expected-size": "64"
+                "expected-width": "64",
+                "expected-height": "48"
                 },
                 {
                 "size" : "32x24",
@@ -58,7 +65,8 @@
                 "filename" : "32@3x.png",
                 "scale" : "3x",
                 "platform" : "ios",
-                "expected-size": "96"
+                "expected-width": "96",
+                "expected-height": "72"
                 },
                 {
                 "size" : "1024x768",
@@ -66,7 +74,8 @@
                 "filename" : "iTunesArtwork@2x.png",
                 "scale" : "1x",
                 "platform" : "ios",
-                "expected-size": "1024"
+                "expected-width": "1024",
+                "expected-height": "768"
                 }
                 ],
     "info" : {
