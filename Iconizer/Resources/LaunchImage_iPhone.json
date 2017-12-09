@@ -78,46 +78,6 @@
         },
         {
             "orientation" : "portrait",
-            "idiom" : "ipad",
-            "filename" : "Default-Portrait.png",
-            "extent" : "full-screen",
-            "minimum-system-version" : "7.0",
-            "scale" : "1x",
-            "expected-width": "640",
-            "expected-height": "1136"
-        },
-        {
-            "orientation" : "landscape",
-            "idiom" : "ipad",
-            "filename" : "Default-Landscape.png",
-            "extent" : "full-screen",
-            "minimum-system-version" : "7.0",
-            "scale" : "1x",
-            "expected-width": "1024",
-            "expected-height": "768"
-        },
-        {
-            "orientation" : "portrait",
-            "idiom" : "ipad",
-            "filename" : "Default-Portrait@2x.png",
-            "extent" : "full-screen",
-            "minimum-system-version" : "7.0",
-            "scale" : "2x",
-            "expected-width": "1536",
-            "expected-height": "2048"
-        },
-        {
-            "orientation" : "landscape",
-            "idiom" : "ipad",
-            "filename" : "Default-Landscape@2x.png",
-            "extent" : "full-screen",
-            "minimum-system-version" : "7.0",
-            "scale" : "2x",
-            "expected-width": "2048",
-            "expected-height": "1536"
-        },
-        {
-            "orientation" : "portrait",
             "idiom" : "iphone",
             "filename" : "Default.png",
             "extent" : "full-screen",
