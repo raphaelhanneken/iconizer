@@ -23,6 +23,7 @@ extension NSImage {
         if let tiff = self.tiffRepresentation, let tiffData = NSBitmapImageRep(data: tiff) {
             return tiffData.representation(using: .png, properties: [:])
         }
+
         return nil
     }
 
@@ -32,17 +33,16 @@ extension NSImage {
     ///
     /// - Parameter size: The size to resize the image to.
     /// - Returns: The resized image.
-    func resize(withSize size: NSSize) -> NSImage? {
-        let frame = NSRect(x: 0, y: 0, width: size.width, height: size.height)
-
-        guard let rep = self.bestRepresentation(for: frame, context: nil, hints: nil) else {
+    func resize(withSize targetSize: NSSize) -> NSImage? {
+        let frame = NSRect(x: 0, y: 0, width: targetSize.width, height: targetSize.height)
+        guard let representation = self.bestRepresentation(for: frame, context: nil, hints: nil) else {
             return nil
         }
-
-        let img = NSImage(size: size, flipped: false, drawingHandler: { (_) -> Bool in
-            return rep.draw(in: frame)
+        let image = NSImage(size: targetSize, flipped: false, drawingHandler: { (_) -> Bool in
+            return representation.draw(in: frame)
         })
-        return img
+
+        return image
     }
 
     /// Copy the image and resize it to the supplied size, while maintaining it's
@@ -50,19 +50,19 @@ extension NSImage {
     ///
     /// - Parameter size: The target size of the image.
     /// - Returns: The resized image.
-    func resizeMaintainingAspectRatio(withSize size: NSSize) -> NSImage? {
+    func resizeMaintainingAspectRatio(withSize targetSize: NSSize) -> NSImage? {
         let newSize: NSSize
-        let widthRatio  = size.width / width
-        let heightRatio = size.height / height
+        let widthRatio  = targetSize.width / self.width
+        let heightRatio = targetSize.height / self.height
 
         if widthRatio > heightRatio {
-            newSize = NSSize(width: floor(width * widthRatio),
-                             height: floor(height * widthRatio))
+            newSize = NSSize(width: floor(self.width * widthRatio),
+                             height: floor(self.height * widthRatio))
         } else {
-            newSize = NSSize(width: floor(width * heightRatio),
-                             height: floor(height * heightRatio))
+            newSize = NSSize(width: floor(self.width * heightRatio),
+                             height: floor(self.height * heightRatio))
         }
-        return resize(withSize: newSize)
+        return self.resize(withSize: newSize)
     }
 
     // MARK: Cropping
