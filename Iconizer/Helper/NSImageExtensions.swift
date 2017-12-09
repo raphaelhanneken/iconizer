@@ -72,34 +72,25 @@ extension NSImage {
     ///
     /// - Parameter size: The size of the new image.
     /// - Returns: The cropped image.
-    func crop(toSize size: NSSize) -> NSImage? {
-        guard let resized = self.resizeMaintainingAspectRatio(withSize: size) else {
+    func crop(toSize targetSize: NSSize) -> NSImage? {
+        guard let resizedImage = self.resizeMaintainingAspectRatio(withSize: targetSize) else {
+            return nil
+        }
+        let x     = floor((resizedImage.width - targetSize.width) / 2)
+        let y     = floor((resizedImage.height - targetSize.height) / 2)
+        let frame = NSRect(x: x, y: y, width: targetSize.width, height: targetSize.height)
+
+        guard let representation = resizedImage.bestRepresentation(for: frame, context: nil, hints: nil) else {
             return nil
         }
 
-        let x     = floor((resized.width - size.width) / 2)
-        let y     = floor((resized.height - size.height) / 2)
-        let frame = NSRect(x: x, y: y, width: size.width, height: size.height)
+        let image = NSImage(size: targetSize,
+                            flipped: false,
+                            drawingHandler: { (destinationRect: NSRect) -> Bool in
+            return representation.draw(in: destinationRect)
+        })
 
-        guard let rep = resized.bestRepresentation(for: frame, context: nil, hints: nil) else {
-            return nil
-        }
-
-        let img = NSImage(size: size)
-        defer { img.unlockFocus() }
-        img.lockFocus()
-
-        // Try drawing the new image and return nil in case of an error
-        if !rep.draw(in: NSRect(x: 0, y: 0, width: size.width, height: size.height),
-                     from: frame,
-                     operation: NSCompositingOperation.copy,
-                     fraction: 1.0,
-                     respectFlipped: false,
-                     hints: [:]
-        ) {
-            return nil
-        }
-        return img
+        return image
     }
 
     // MARK: Saving
