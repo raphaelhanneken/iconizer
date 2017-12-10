@@ -7,6 +7,27 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.2.7</title>
+        <description>
+          <![CDATA[
+          <ul>
+            <li>Adds support for the iPhone X</li>
+            <li>Fixes a bug with Launch Images where the image dimension were calculated incorrectly.</li>
+          </ul>
+          ]]>
+        </description>
+        <pubDate>Sun, 10 Dec 2017 14:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.2.7/Iconizer.dmg"
+          sparkle:version="251"
+          sparkle:shortVersionString="2.2.7"
+          sparkle:dsaSignature="MCwCFDPzLxPJ2nhTPIzYSXHdDXSFzj+bAhQCLYcH1AyRvEl7bP/8ufKG1b/KjA=="
+          length="8548992"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.2.6</title>
         <description>
           <![CDATA[
