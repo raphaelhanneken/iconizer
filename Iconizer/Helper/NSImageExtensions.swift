@@ -87,7 +87,12 @@ extension NSImage {
         let image = NSImage(size: targetSize,
                             flipped: false,
                             drawingHandler: { (destinationRect: NSRect) -> Bool in
-            return representation.draw(in: destinationRect)
+            return representation.draw(in: destinationRect,
+                                       from: frame,
+                                       operation: .copy,
+                                       fraction: 1.0,
+                                       respectFlipped: false,
+                                       hints: nil)
         })
 
         return image
