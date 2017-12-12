@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="IMessageViewControlller" customModule="Iconizer" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="XlO-tt-n8C" id="Co7-Uj-R5P"/>
+                <outlet property="view" destination="c22-O7-iKe" id="hDW-sD-9Ui"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="434"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XlO-tt-n8C" customClass="DragDropImageView" customModule="Iconizer" customModuleProvider="target">
+                    <rect key="frame" x="17" y="41" width="466" height="376"/>
+                    <imageCell key="cell" selectable="YES" editable="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Daa-jX-AUO"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sTl-SS-qOp">
+                    <rect key="frame" x="18" y="10" width="464" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="1024 x 768" id="PMd-YU-lqX">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="F6f-rC-0cl">
+                    <rect key="frame" x="20" y="33" width="460" height="5"/>
+                </box>
+            </subviews>
+            <constraints>
+                <constraint firstItem="sTl-SS-qOp" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="6KN-cf-7yb"/>
+                <constraint firstAttribute="trailing" secondItem="XlO-tt-n8C" secondAttribute="trailing" constant="20" id="8me-f4-8oZ"/>
+                <constraint firstItem="XlO-tt-n8C" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="Cft-1H-1nf"/>
+                <constraint firstItem="F6f-rC-0cl" firstAttribute="top" secondItem="XlO-tt-n8C" secondAttribute="bottom" constant="8" id="H8O-Rg-zRr"/>
+                <constraint firstItem="F6f-rC-0cl" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="VnI-Te-qmd"/>
+                <constraint firstItem="sTl-SS-qOp" firstAttribute="top" secondItem="F6f-rC-0cl" secondAttribute="bottom" constant="8" id="YGG-oC-B7c"/>
+                <constraint firstItem="XlO-tt-n8C" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" id="baW-fN-drG"/>
+                <constraint firstAttribute="trailing" secondItem="sTl-SS-qOp" secondAttribute="trailing" constant="20" id="g4b-KT-1GS"/>
+                <constraint firstAttribute="trailing" secondItem="F6f-rC-0cl" secondAttribute="trailing" constant="20" id="rzo-7b-r5b"/>
+                <constraint firstAttribute="bottom" secondItem="sTl-SS-qOp" secondAttribute="bottom" constant="10" id="v48-0G-vLg"/>
+            </constraints>
+            <point key="canvasLocation" x="202" y="109"/>
+        </customView>
+    </objects>
+</document>
