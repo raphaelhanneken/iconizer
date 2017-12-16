@@ -69,6 +69,13 @@
       "scale" : "2x",
       "filename" : "watch_companionSettings-@2x.png",
       "expected-size" : "58"
+    },
+    {
+      "size" : "1024x1024",
+      "idiom" : "watch-marketing",
+      "filename" : "watch-marketing.png",
+      "scale" : "1x",
+      "expected-size" : "1024"
     }
   ]
 }
