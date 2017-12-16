@@ -34,12 +34,24 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
     var enabledPlatforms: [String] {
         // String array of selected platforms.
         var tmp: [String] = []
-        if carPlay.state == NSControl.StateValue.on { tmp.append(carPlayPlatformName) }
-        if iPad.state == NSControl.StateValue.on { tmp.append(iPadPlatformName) }
-        if iPhone.state == NSControl.StateValue.on { tmp.append(iPhonePlatformName) }
-        if osx.state == NSControl.StateValue.on { tmp.append(macOSPlatformName) }
-        if watch.state == NSControl.StateValue.on { tmp.append(appleWatchPlatformName) }
-
+        if carPlay.state == NSControl.StateValue.on {
+            tmp.append(carPlayPlatformName)
+        }
+        if iPad.state == NSControl.StateValue.on {
+            tmp.append(iPadPlatformName)
+        }
+        if iPhone.state == NSControl.StateValue.on {
+            tmp.append(iPhonePlatformName)
+        }
+        if osx.state == NSControl.StateValue.on {
+            tmp.append(macOSPlatformName)
+        }
+        if watch.state == NSControl.StateValue.on {
+            tmp.append(appleWatchPlatformName)
+        }
+        if iPad.state == NSControl.StateValue.on || iPhone.state == NSControl.StateValue.on {
+            tmp.append(iOSPlatformName)
+        }
         return tmp
     }
 

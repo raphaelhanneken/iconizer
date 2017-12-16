@@ -27,6 +27,8 @@ let iPhonePlatformName = "iPhone"
 let macOSPlatformName = "Mac"
 /// Platform: Car Play
 let carPlayPlatformName = "Car"
+/// Platform: iOS – for icons that are needed on both, iPad and iPhone
+let iOSPlatformName = "iOS"
 
 // MARK: - Image Orientation names
 
