@@ -139,42 +139,31 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
 
     /// Swap the current view with a new one.
     ///
-    /// - Parameter view: The ViewControllerTag of the view to display.
-    func changeView(_ view: ViewControllerTag?) {
-        // Unwrap the current view, if any...
-        if let currentView = self.currentView {
-            // ...and remove it from the superview.
-            currentView.view.removeFromSuperview()
-        }
-        // Check which ViewControllerTag is given. And set self.currentView to
-        // the correspondig view.
-        if let view = view {
-            switch view {
-            case .appIconViewControllerTag:
-                currentView = AppIconViewController()
-
-            case .imageSetViewControllerTag:
-                currentView = ImageSetViewController()
-
-            case .launchImageViewControllerTag:
-                currentView = LaunchImageViewController()
-            }
+    /// - Parameter newView: The ViewControllerTag of the view to display.
+    func changeView(_ newView: ViewControllerTag?) {
+        guard let window = self.window,
+            let newView  = newView else {
+                return
         }
 
-        // Unwrap the selected ViewController and the main window.
-        if let currentView = self.currentView, let window = self.window {
-            // Resize the main window to fit the selected view.
-            resizeWindowForContentSize(currentView.view.frame.size)
-            // Set the main window's contentView to the selected view.
-            window.contentView = currentView.view
+        switch newView {
+        case .appIconViewControllerTag:
+            self.currentView = AppIconViewController()
+        case .imageSetViewControllerTag:
+            self.currentView = ImageSetViewController()
+        case .launchImageViewControllerTag:
+            self.currentView = LaunchImageViewController()
         }
+
+        resizeWindowForContentSize(self.currentView?.view.frame.size)
+        window.contentView = self.currentView?.view
     }
 
     /// Resize the main window to the supplied size.
     ///
     /// - Parameter size: The size to resize to.
-    func resizeWindowForContentSize(_ size: NSSize) {
-        guard let window = self.window else {
+    func resizeWindowForContentSize(_ size: NSSize?) {
+        guard let window = self.window, let size = size else {
             return
         }
 
