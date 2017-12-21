@@ -11,7 +11,7 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
 
     /// Holds the image view for the image to generate
     /// the horizontal Launch Image from.
-    @IBOutlet weak var horizontal: NSImageView!
+    @IBOutlet weak var landscape: NSImageView!
 
     /// Holds the image view for the image to generate
     /// the portrait Launch Image from.
@@ -58,18 +58,12 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
     // MARK: Iconizer View Controller
 
     func generateRequiredImages() throws {
-        // Verify that both images are available.
-        guard let landscapeImage = horizontal.image, let portraitImage = portrait.image else {
-            throw IconizerViewControllerError.missingImage
-        }
-
         guard enabledPlatforms.count > 0 else {
             throw IconizerViewControllerError.missingPlatform
         }
-        // Generate the necessary images.
         try launchImage.generateImagesForPlatforms(enabledPlatforms,
-                                                   fromPortrait: portraitImage,
-                                                   andLandscape: landscapeImage)
+                                                   fromPortrait: self.portrait.image,
+                                                   andLandscape: self.landscape.image)
     }
 
     func saveAssetCatalog(named name: String, toURL url: URL) throws {
@@ -80,14 +74,12 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
         guard let img = image else {
             throw LaunchImageError.selectedImageNotFound
         }
-
-        if img.height > img.width {
-            portrait.image = img
-        } else if img.height < img.width {
-            horizontal.image = img
-        } else {
-            horizontal.image = img
-            portrait.image = img
+        let ratio = img.height / img.width
+        if 1 <= ratio {
+            portrait.image  = img
+        }
+        if 1 >= ratio {
+            landscape.image = img
         }
     }
 }
