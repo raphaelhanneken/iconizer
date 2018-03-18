@@ -36,13 +36,21 @@ struct ContentsJSON {
     ///   - platforms: The platforms selected by the user.
     /// - Throws: See ContentsJSONError for possible values.
     init(forType type: AssetType, andPlatforms platforms: [String]) throws {
-        // Basic initialization.
-        self.init()
+        try self.init(forType: type, andPlatforms: platforms)
+    }
 
-        // Initialize the data object.
-        for platform in platforms {
-            // Add the image information for each platform to our images array.
-            images += try JSONObjectForType(type, andPlatform: platform)
+    init(forType type: AssetType,
+         andPlatforms platforms: [String],
+         withOrientation orientation: ImageOrientation) throws {
+        self.init()
+        for var platform in platforms {
+            switch orientation {
+            case .landscape:
+                platform += "_Landscape"
+            case .portrait:
+                platform += "_Portrait"
+            }
+            images += try arrayFromJson(forType: type, andPlatform: platform)
         }
     }
 
@@ -55,7 +63,7 @@ struct ContentsJSON {
     ///   - platform: The platforms selected by the user.
     /// - Returns: The Contents.json for the supplied asset type and platforms as Array.
     /// - Throws: See ContentsJSONError for possible values.
-    func JSONObjectForType(_ type: AssetType, andPlatform platform: String) throws -> [[String: String]] {
+    func arrayFromJson(forType type: AssetType, andPlatform platform: String) throws -> [[String: String]] {
         guard let resourcePath = resourcePath(forAssetType: type, andPlatform: platform) else {
             throw ContentsJSONError.fileNotFound
         }
@@ -99,11 +107,9 @@ struct ContentsJSON {
     /// - Parameter url: The file URL to save the Contents.json to.
     /// - Throws: See JSONSerialization for possible values.
     mutating func saveToURL(_ url: URL) throws {
-        // Add the image information to the contents dictionary.
         contents["images"] = images
-        // Serialize the contents as JSON object.
         let data = try JSONSerialization.data(withJSONObject: contents, options: .prettyPrinted)
-        // Write the JSON object to the HD.
         try data.write(to: url.appendingPathComponent("Contents.json", isDirectory: false), options: .atomic)
+        images.removeAll()
     }
 }

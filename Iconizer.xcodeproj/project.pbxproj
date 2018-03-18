@@ -32,15 +32,17 @@
 		8E2F99731C01F19400C2E2D8 /* AppIcon_Watch.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99691C01F19400C2E2D8 /* AppIcon_Watch.json */; };
 		8E2F99741C01F19400C2E2D8 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996A1C01F19400C2E2D8 /* dsa_pub.pem */; };
 		8E2F99761C01F19400C2E2D8 /* ImageSet.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996C1C01F19400C2E2D8 /* ImageSet.json */; };
-		8E2F99771C01F19400C2E2D8 /* LaunchImage_iPad.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996D1C01F19400C2E2D8 /* LaunchImage_iPad.json */; };
-		8E2F99781C01F19400C2E2D8 /* LaunchImage_iPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996E1C01F19400C2E2D8 /* LaunchImage_iPhone.json */; };
 		8E2F997F1C01F67C00C2E2D8 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */; };
 		8E2F99801C01F67C00C2E2D8 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8E2F99821C02168A00C2E2D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99811C02168A00C2E2D8 /* Images.xcassets */; };
 		8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */; };
 		8E5C00D41E0AA3260094FD0C /* DragDropImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */; };
 		C52DA9731FE5BD5C0011E3C5 /* AppIcon_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = C52DA9721FE5BD5C0011E3C5 /* AppIcon_iOS.json */; };
 		C554C3E91F83786700747031 /* IconizerViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C554C3E81F83786700747031 /* IconizerViewControllerProtocol.swift */; };
+		C57ED8BF205EB1350048B3D1 /* LaunchImage_iPad_Landscape.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BB205EB1340048B3D1 /* LaunchImage_iPad_Landscape.json */; };
+		C57ED8C0205EB1350048B3D1 /* LaunchImage_iPhone_Landscape.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BC205EB1340048B3D1 /* LaunchImage_iPhone_Landscape.json */; };
+		C57ED8C1205EB1350048B3D1 /* LaunchImage_iPad_Portrait.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */; };
+		C57ED8C2205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BE205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json */; };
+		C57ED8C4205EBAF70048B3D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8C3205EBAF70048B3D1 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,16 +84,18 @@
 		8E2F99691C01F19400C2E2D8 /* AppIcon_Watch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_Watch.json; path = Resources/AppIcon_Watch.json; sourceTree = "<group>"; };
 		8E2F996A1C01F19400C2E2D8 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		8E2F996C1C01F19400C2E2D8 /* ImageSet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ImageSet.json; path = Resources/ImageSet.json; sourceTree = "<group>"; };
-		8E2F996D1C01F19400C2E2D8 /* LaunchImage_iPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPad.json; path = Resources/LaunchImage_iPad.json; sourceTree = "<group>"; };
-		8E2F996E1C01F19400C2E2D8 /* LaunchImage_iPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone.json; path = Resources/LaunchImage_iPhone.json; sourceTree = "<group>"; };
 		8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
-		8E2F99811C02168A00C2E2D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
 		8E3F8F651B23488F0096E9EC /* Iconizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iconizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3F8F691B23488F0096E9EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DragDropImageView.swift; path = Iconizer/Helper/DragDropImageView.swift; sourceTree = "<group>"; };
 		C52DA9721FE5BD5C0011E3C5 /* AppIcon_iOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_iOS.json; path = Resources/AppIcon_iOS.json; sourceTree = "<group>"; };
 		C554C3E81F83786700747031 /* IconizerViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconizerViewControllerProtocol.swift; path = Controller/IconizerViewControllerProtocol.swift; sourceTree = "<group>"; };
+		C57ED8BB205EB1340048B3D1 /* LaunchImage_iPad_Landscape.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPad_Landscape.json; path = Resources/LaunchImage_iPad_Landscape.json; sourceTree = "<group>"; };
+		C57ED8BC205EB1340048B3D1 /* LaunchImage_iPhone_Landscape.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone_Landscape.json; path = Resources/LaunchImage_iPhone_Landscape.json; sourceTree = "<group>"; };
+		C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPad_Portrait.json; path = Resources/LaunchImage_iPad_Portrait.json; sourceTree = "<group>"; };
+		C57ED8BE205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone_Portrait.json; path = Resources/LaunchImage_iPhone_Portrait.json; sourceTree = "<group>"; };
+		C57ED8C3205EBAF70048B3D1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +145,7 @@
 		8E3F8F681B23488F0096E9EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8E2F99811C02168A00C2E2D8 /* Images.xcassets */,
+				C57ED8C3205EBAF70048B3D1 /* Images.xcassets */,
 				8E2F996A1C01F19400C2E2D8 /* dsa_pub.pem */,
 				8E2F99651C01F19400C2E2D8 /* AppIcon_Car.json */,
 				8E2F99661C01F19400C2E2D8 /* AppIcon_iPad.json */,
@@ -150,8 +154,10 @@
 				8E2F99691C01F19400C2E2D8 /* AppIcon_Watch.json */,
 				C52DA9721FE5BD5C0011E3C5 /* AppIcon_iOS.json */,
 				8E2F996C1C01F19400C2E2D8 /* ImageSet.json */,
-				8E2F996D1C01F19400C2E2D8 /* LaunchImage_iPad.json */,
-				8E2F996E1C01F19400C2E2D8 /* LaunchImage_iPhone.json */,
+				C57ED8BB205EB1340048B3D1 /* LaunchImage_iPad_Landscape.json */,
+				C57ED8BC205EB1340048B3D1 /* LaunchImage_iPhone_Landscape.json */,
+				C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */,
+				C57ED8BE205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json */,
 				8E3F8F691B23488F0096E9EC /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -285,18 +291,20 @@
 				8E2F995A1C01F16D00C2E2D8 /* MainMenu.xib in Resources */,
 				8E2F99571C01F16000C2E2D8 /* MainWindow.xib in Resources */,
 				8E2F99551C01F16000C2E2D8 /* ImageSetView.xib in Resources */,
-				8E2F99821C02168A00C2E2D8 /* Images.xcassets in Resources */,
 				8E2F99541C01F16000C2E2D8 /* AppIconView.xib in Resources */,
 				8E2F99561C01F16000C2E2D8 /* LaunchImageView.xib in Resources */,
 				8E2F99741C01F19400C2E2D8 /* dsa_pub.pem in Resources */,
 				8E2F99721C01F19400C2E2D8 /* AppIcon_Mac.json in Resources */,
 				8E2F996F1C01F19400C2E2D8 /* AppIcon_Car.json in Resources */,
+				C57ED8C1205EB1350048B3D1 /* LaunchImage_iPad_Portrait.json in Resources */,
+				C57ED8C4205EBAF70048B3D1 /* Images.xcassets in Resources */,
+				C57ED8C2205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json in Resources */,
+				C57ED8C0205EB1350048B3D1 /* LaunchImage_iPhone_Landscape.json in Resources */,
 				8E2F99711C01F19400C2E2D8 /* AppIcon_iPhone.json in Resources */,
 				8E2F99701C01F19400C2E2D8 /* AppIcon_iPad.json in Resources */,
+				C57ED8BF205EB1350048B3D1 /* LaunchImage_iPad_Landscape.json in Resources */,
 				8E2F99731C01F19400C2E2D8 /* AppIcon_Watch.json in Resources */,
 				C52DA9731FE5BD5C0011E3C5 /* AppIcon_iOS.json in Resources */,
-				8E2F99781C01F19400C2E2D8 /* LaunchImage_iPhone.json in Resources */,
-				8E2F99771C01F19400C2E2D8 /* LaunchImage_iPad.json in Resources */,
 				8E2F99761C01F19400C2E2D8 /* ImageSet.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

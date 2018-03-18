@@ -16,7 +16,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     var currentView: IconizerViewControllerProtocol?
 
     /// Access the user's preferences.
-    let userPrefs = PreferenceManager()
+    let preferences = PreferenceManager()
 
     // Override the windowNibName property.
     override var windowNibName: NSNib.Name {
@@ -29,21 +29,16 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
 
-        // Unwrap the window property. I don't even know if window can be nil, but
-        // as you know: Everytime we force unwrap something, a kitty dies.
         if let window = self.window {
-            // Hide the window title, to get the unified toolbar.
             window.titleVisibility = .hidden
         }
-        // Change the content view to the last selected view...
-        changeView(ViewControllerTag(rawValue: userPrefs.selectedExportType))
-        // ...and set the selectedSegment of NSSegmentedControl to the corresponding value.
-        exportType.selectedSegment = userPrefs.selectedExportType
+        self.changeView(ViewControllerTag(rawValue: self.preferences.selectedExportType))
+        exportType.selectedSegment = self.preferences.selectedExportType
     }
 
     // Save the user preferences before the application terminates.
     func windowWillClose(_: Notification) {
-        userPrefs.selectedExportType = exportType.selectedSegment
+        self.preferences.selectedExportType = exportType.selectedSegment
     }
 
     // MARK: Actions
@@ -88,11 +83,12 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                 } catch IconizerViewControllerError.missingPlatform {
                     self.displayAlertModal(withMessage: "Missing Platform",
                                            andText: "You have to at least select one platform.")
+                } catch ContentsJSONError.fileNotFound {
+                    self.displayAlertModal(withMessage: "File not Found",
+                                           andText: "The JSON file for generating the necessary images is missing.")
                 } catch {
                     self.displayAlertModal(withMessage: "Oh Snap!",
                                            andText: "This should not have happened.")
-
-                    NSLog("Iconizer Error: \(error)")
                 }
             }
         }

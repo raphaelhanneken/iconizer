@@ -13,7 +13,7 @@ class LaunchImage: NSObject {
     var images: [String: NSImage] = [:]
 
     /// The image information for the contents.json
-    var json: ContentsJSON!
+    var json = ContentsJSON()
 
     // swiftlint:disable cyclomatic_complexity
     /// Generate the necessary images for the selected platforms.
@@ -25,12 +25,21 @@ class LaunchImage: NSObject {
     /// - Throws: See LaunchImageError for possible values.
     func generateImagesForPlatforms(_ platforms: [String], fromPortrait portrait: NSImage?,
                                     andLandscape landscape: NSImage?) throws {
-        // Unwrap both images.
-        guard let portrait = portrait, let landscape = landscape else {
-            throw LaunchImageError.missingImage
+        if nil != portrait {
+            let portraitImageData = try ContentsJSON(forType: .launchImage,
+                                                     andPlatforms: platforms,
+                                                     withOrientation: .portrait)
+
+            json.images += portraitImageData.images
         }
-        // Get the JSON data for LaunchImage.
-        json = try ContentsJSON(forType: AssetType.launchImage, andPlatforms: platforms)
+
+        if nil != landscape {
+            let landscapeImageData = try ContentsJSON(forType: .launchImage,
+                                                      andPlatforms: platforms,
+                                                      withOrientation: .landscape)
+
+            json.images += landscapeImageData.images
+        }
 
         // Loop through the image data.
         for imgData in json.images {
@@ -65,10 +74,10 @@ class LaunchImage: NSObject {
                 // Check which image to create. And crop the original image to the required size.
                 switch ImageOrientation(rawValue: orientation)! {
                 case ImageOrientation.portrait:
-                    images[filename] = portrait.crop(toSize: NSSize(width: width, height: height))
+                    images[filename] = portrait?.crop(toSize: NSSize(width: width, height: height))
 
                 case ImageOrientation.landscape:
-                    images[filename] = landscape.crop(toSize: NSSize(width: width, height: height))
+                    images[filename] = landscape?.crop(toSize: NSSize(width: width, height: height))
                 }
             }
         }
@@ -81,20 +90,12 @@ class LaunchImage: NSObject {
     ///   - url: The URL to save the catalog to.
     /// - Throws: See NSImageExtensionError for possible values.
     func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
-        // Create the correct file path.
-        let url = url.appendingPathComponent("\(launchImageDir)/\(name).launchimage/",
-                                             isDirectory: true)
-
-        // Create the necessary folders.
+        let url = url.appendingPathComponent("\(launchImageDir)/\(name).launchimage/", isDirectory: true)
         try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
-
-        // Save the Contents.json
         try json.saveToURL(url)
         for (filename, img) in images {
             try img.savePngTo(url: url.appendingPathComponent(filename))
         }
-
-        // Reset the images array
-        images = [:]
+        images.removeAll()
     }
 }

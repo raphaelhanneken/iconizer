@@ -1,0 +1,60 @@
+{
+    "images" : [
+        {
+            "orientation" : "portrait",
+            "idiom" : "ipad",
+            "extent" : "full-screen",
+            "minimum-system-version" : "7.0",
+            "scale" : "1x",
+            "expected-width" : "768",
+            "expected-height" : "1024",
+            "filename": "iPad-Portrait_v7@1x.png"
+        },
+        {
+            "orientation" : "portrait",
+            "idiom" : "ipad",
+            "extent" : "full-screen",
+            "minimum-system-version" : "7.0",
+            "scale" : "2x",
+            "expected-width" : "1536",
+            "expected-height" : "2048",
+            "filename": "iPad-Portrait_v7@2x.png"
+        },
+        {
+            "orientation" : "portrait",
+            "idiom" : "ipad",
+            "extent" : "to-status-bar",
+            "scale" : "1x",
+            "expected-width" : "768",
+            "expected-height" : "1004",
+            "filename": "iPad-Portrait@1x.png"
+        },
+        {
+            "orientation" : "portrait",
+            "idiom" : "ipad",
+            "extent" : "full-screen",
+            "scale" : "1x",
+            "expected-width" : "768",
+            "expected-height" : "1024",
+            "filename": "iPad-Portrait_fullscreen@1x.png"
+        },
+        {
+            "orientation" : "portrait",
+            "idiom" : "ipad",
+            "extent" : "to-status-bar",
+            "scale" : "2x",
+            "expected-width" : "1536",
+            "expected-height" : "2008",
+            "filename": "iPad-Portrait@2x.png"
+        },
+        {
+            "orientation" : "portrait",
+            "idiom" : "ipad",
+            "extent" : "full-screen",
+            "scale" : "2x",
+            "expected-width" : "1536",
+            "expected-height" : "2048",
+            "filename": "iPad-Portrait_fullscreen@2x.png"
+        }
+    ]
+}
