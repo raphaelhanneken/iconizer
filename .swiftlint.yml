@@ -1,4 +1,4 @@
-line_length: 115
+line_length: 120
 cyclomatic_complexity: 6
 
 excluded:
