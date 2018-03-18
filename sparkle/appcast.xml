@@ -7,6 +7,24 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.4.0</title>
+        <description>
+          <![CDATA[
+          <p>Allow the usage of only one orientation for Launch Images.</p>
+          ]]>
+        </description>
+        <pubDate>Sun, 18 Mar 2018 17:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.4.0/Iconizer.dmg"
+          sparkle:version="260"
+          sparkle:shortVersionString="2.4.0"
+          sparkle:dsaSignature="MCwCFAzraqhGwDjZ9i4vtssZaIM2zxspAhQHMcXVbvca6fF6o2eegjCH9o2TYA=="
+          length="8577514"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.3.0</title>
         <description>
           <![CDATA[
