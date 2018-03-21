@@ -7,6 +7,24 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.4.1</title>
+        <description>
+          <![CDATA[
+          <p>Fixes a bug where Iconizer would crash when generating Image Sets.</p>
+          ]]>
+        </description>
+        <pubDate>Wed, 21 Mar 2018 22:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.4.1/Iconizer.dmg"
+          sparkle:version="264"
+          sparkle:shortVersionString="2.4.1"
+          sparkle:dsaSignature="MCwCFE84Af3gHyjtYcf0jkbSgnCmiwhyAhQtrKVE5oHQtRmLENik3e9uXCfAZA=="
+          length="8553871"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.4.0</title>
         <description>
           <![CDATA[
