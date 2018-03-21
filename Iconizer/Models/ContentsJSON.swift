@@ -36,7 +36,10 @@ struct ContentsJSON {
     ///   - platforms: The platforms selected by the user.
     /// - Throws: See ContentsJSONError for possible values.
     init(forType type: AssetType, andPlatforms platforms: [String]) throws {
-        try self.init(forType: type, andPlatforms: platforms)
+        self.init()
+        for platform in platforms {
+            images += try arrayFromJson(forType: type, andPlatform: platform)
+        }
     }
 
     init(forType type: AssetType,

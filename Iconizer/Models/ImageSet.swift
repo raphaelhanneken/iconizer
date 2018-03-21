@@ -35,19 +35,13 @@ class ImageSet: NSObject {
     ///   - url: The URL to save the catalog to.
     /// - Throws: See ImageSetError for possible values.
     func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
-        // Create the correct file path.
         let url = url.appendingPathComponent("\(imageSetDir)/\(name).imageset", isDirectory: true)
-        // Create the necessary folders.
         try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true,
                                                 attributes: nil)
 
         // Manage the Contents.json with an empty platforms array since we don't care
         // about platforms for Image Sets.
         var jsonFile = try ContentsJSON(forType: AssetType.imageSet, andPlatforms: [""])
-        // Save the Contents.json to the HD.
-        try jsonFile.saveToURL(url)
-
-        // Loop through the image data.
         for image in jsonFile.images {
             // Unwrap the information we need.
             guard let scale = image["scale"], let filename = image["filename"] else {
@@ -60,8 +54,7 @@ class ImageSet: NSObject {
             // Save the png representation to the supplied url.
             try img.savePngTo(url: url.appendingPathComponent(filename))
         }
-
-        // Reset the images array
+        try jsonFile.saveToURL(url)
         images = [:]
     }
 }
