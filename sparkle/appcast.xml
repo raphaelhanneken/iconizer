@@ -7,6 +7,24 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.5.0</title>
+        <description>
+          <![CDATA[
+          <p>Choose between aspect fill and aspect fit, when generating Launch Images. See #18.</p>
+          ]]>
+        </description>
+        <pubDate>Sat, 28 Apr 2018 19:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.5.0/Iconizer.dmg"
+          sparkle:version="267"
+          sparkle:shortVersionString="2.5.0"
+          sparkle:dsaSignature="MC0CFQCAwXuz3M+tG3vHpPT9lZO5KbFBfQIUNG8tasHfKdPEVtHuX4BEl4WWFts="
+          length="8327680"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.4.1</title>
         <description>
           <![CDATA[
