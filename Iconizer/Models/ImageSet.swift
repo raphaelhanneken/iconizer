@@ -17,12 +17,12 @@ class ImageSet: NSObject {
     /// - Parameter image: The image to resize.
     func generateScaledImagesFromImage(_ image: NSImage) {
         // Define the new image sizes.
-        let x1 = NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3))
-        let x2 = NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5))
+        let scaleX1 = NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3))
+        let scaleX2 = NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5))
 
         // Calculate the 2x and 1x images.
-        images["1x"] = image.resize(withSize: x1)
-        images["2x"] = image.resize(withSize: x2)
+        images["1x"] = image.resize(toSize: scaleX1)
+        images["2x"] = image.resize(toSize: scaleX2)
 
         // Assign the original images as the 3x image.
         images["3x"] = image

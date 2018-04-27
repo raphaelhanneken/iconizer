@@ -15,6 +15,11 @@ enum ViewControllerTag: Int {
     case imageSetViewControllerTag = 2
 }
 
+enum AspectMode: String {
+    case fill
+    case fit
+}
+
 // MARK: - Platform names
 
 /// Platform: Apple Watch

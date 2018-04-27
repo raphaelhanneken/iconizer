@@ -24,7 +24,7 @@ class LaunchImage: NSObject {
     ///   - landscape: The landscape image, provided by the user.
     /// - Throws: See LaunchImageError for possible values.
     func generateImagesForPlatforms(_ platforms: [String], fromPortrait portrait: NSImage?,
-                                    andLandscape landscape: NSImage?) throws {
+                                    andLandscape landscape: NSImage?, mode: AspectMode?) throws {
         if nil != portrait {
             let portraitImageData = try ContentsJSON(forType: .launchImage,
                                                      andPlatforms: platforms,
@@ -64,6 +64,10 @@ class LaunchImage: NSObject {
                 throw LaunchImageError.missingDataForImageIdiom
             }
 
+            guard let mode = mode else {
+                throw LaunchImageError.formatError
+            }
+
             // Is the current platform selected by the user?
             if platforms.contains(where: { $0.caseInsensitiveCompare(idiom) == .orderedSame }) {
                 // Unwrap the width and height of the image
@@ -74,10 +78,18 @@ class LaunchImage: NSObject {
                 // Check which image to create. And crop the original image to the required size.
                 switch ImageOrientation(rawValue: orientation)! {
                 case ImageOrientation.portrait:
-                    images[filename] = portrait?.crop(toSize: NSSize(width: width, height: height))
+                    if mode == .fill {
+                        images[filename] = portrait?.aspectFill(toSize: NSSize(width: width, height: height))
+                    } else {
+                        images[filename] = portrait?.aspectFit(toSize: NSSize(width: width, height: height))
+                    }
 
                 case ImageOrientation.landscape:
-                    images[filename] = landscape?.crop(toSize: NSSize(width: width, height: height))
+                    if mode == .fill {
+                        images[filename] = landscape?.aspectFill(toSize: NSSize(width: width, height: height))
+                    } else {
+                        images[filename] = landscape?.aspectFit(toSize: NSSize(width: width, height: height))
+                    }
                 }
             }
         }

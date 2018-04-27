@@ -39,7 +39,7 @@ class AppIcon: NSObject {
 
                 if let size = Int(size) {
                     // Append the generated image to the temporary images dict.
-                    tmpImages[filename] = image.resize(withSize: NSSize(width: size, height: size))
+                    tmpImages[filename] = image.resize(toSize: NSSize(width: size, height: size))
                 } else {
                     throw AppIconError.formatError
                 }

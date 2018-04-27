@@ -23,6 +23,9 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
     /// Checkbox to create a Launch Image for iPad.
     @IBOutlet weak var ipad: NSButton!
 
+    /// Select the fill mode for the launch image.
+    @IBOutlet weak var aspectMode: NSPopUpButton!
+
     /// Return the platforms selected by the user.
     var enabledPlatforms: [String] {
         var tmp: [String] = []
@@ -61,9 +64,13 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
         guard enabledPlatforms.count > 0 else {
             throw IconizerViewControllerError.missingPlatform
         }
-        try launchImage.generateImagesForPlatforms(enabledPlatforms,
-                                                   fromPortrait: self.portrait.image,
-                                                   andLandscape: self.landscape.image)
+
+        if let selectedAspectMode = aspectMode.selectedItem?.identifier?.rawValue {
+            try launchImage.generateImagesForPlatforms(enabledPlatforms,
+                                                       fromPortrait: self.portrait.image,
+                                                       andLandscape: self.landscape.image,
+                                                       mode: AspectMode(rawValue: selectedAspectMode))
+        }
     }
 
     func saveAssetCatalog(named name: String, toURL url: URL) throws {

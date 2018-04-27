@@ -33,7 +33,7 @@ extension NSImage {
     ///
     /// - Parameter size: The size to resize the image to.
     /// - Returns: The resized image.
-    func resize(withSize targetSize: NSSize) -> NSImage? {
+    func resize(toSize targetSize: NSSize) -> NSImage? {
         let frame = NSRect(x: 0, y: 0, width: targetSize.width, height: targetSize.height)
         guard let representation = self.bestRepresentation(for: frame, context: nil, hints: nil) else {
             return nil
@@ -62,7 +62,22 @@ extension NSImage {
             newSize = NSSize(width: floor(self.width * heightRatio),
                              height: floor(self.height * heightRatio))
         }
-        return self.resize(withSize: newSize)
+        return self.resize(toSize: newSize)
+    }
+
+    func aspectFit(toSize targetSize: NSSize) -> NSImage? {
+        let newSize: NSSize
+        let widthRatio  = targetSize.width / self.width
+        let heightRatio = targetSize.height / self.height
+
+        if widthRatio > heightRatio {
+            newSize = NSSize(width: floor(self.width * heightRatio),
+                             height: floor(self.height * heightRatio))
+        } else {
+            newSize = NSSize(width: floor(self.width * widthRatio),
+                             height: floor(self.height * widthRatio))
+        }
+        return self.resize(toSize: newSize)
     }
 
     // MARK: Cropping
@@ -72,13 +87,14 @@ extension NSImage {
     ///
     /// - Parameter size: The size of the new image.
     /// - Returns: The cropped image.
-    func crop(toSize targetSize: NSSize) -> NSImage? {
+    func aspectFill(toSize targetSize: NSSize) -> NSImage? {
         guard let resizedImage = self.resizeMaintainingAspectRatio(withSize: targetSize) else {
             return nil
         }
-        let x     = floor((resizedImage.width - targetSize.width) / 2)
-        let y     = floor((resizedImage.height - targetSize.height) / 2)
-        let frame = NSRect(x: x, y: y, width: targetSize.width, height: targetSize.height)
+
+        let xCoordinate = floor((resizedImage.width - targetSize.width) / 2)
+        let yCoordinate = floor((resizedImage.height - targetSize.height) / 2)
+        let frame       = NSRect(x: xCoordinate, y: yCoordinate, width: targetSize.width, height: targetSize.height)
 
         guard let representation = resizedImage.bestRepresentation(for: frame, context: nil, hints: nil) else {
             return nil

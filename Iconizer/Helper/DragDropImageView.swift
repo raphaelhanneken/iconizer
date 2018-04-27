@@ -72,7 +72,7 @@ class DragDropImageView: NSImageView, NSDraggingSource {
         // Do some math to properly resize the given image.
         let size = NSSize(width: log10(image.size.width) * 30, height: log10(image.size.height) * 30)
 
-        if let draggingImage = image.resize(withSize: size) {
+        if let draggingImage = image.resize(toSize: size) {
 
             // Create a new NSDraggingItem with the image as content.
             let draggingItem = NSDraggingItem(pasteboardWriter: image)
