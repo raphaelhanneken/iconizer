@@ -7,6 +7,24 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.5.1</title>
+        <description>
+          <![CDATA[
+          <p>Fixes a bug with aspect fit mode for launch images. See #19</p>
+          ]]>
+        </description>
+        <pubDate>Sat, 19 May 2018 14:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.5.1/Iconizer.dmg"
+          sparkle:version="270"
+          sparkle:shortVersionString="2.5.1"
+          sparkle:dsaSignature="MCwCFEO8AJp/I6MUeRDj581iXtTVvq2/AhRuLol75I9rHtCoIFdX0q2vAKYKzw=="
+          length="8306155"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.5.0</title>
         <description>
           <![CDATA[
