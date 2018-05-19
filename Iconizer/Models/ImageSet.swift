@@ -21,8 +21,8 @@ class ImageSet: NSObject {
         let scaleX2 = NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5))
 
         // Calculate the 2x and 1x images.
-        images["1x"] = image.resize(toSize: scaleX1)
-        images["2x"] = image.resize(toSize: scaleX2)
+        images["1x"] = image.resize(toSize: scaleX1, aspectMode: .fit)
+        images["2x"] = image.resize(toSize: scaleX2, aspectMode: .fit)
 
         // Assign the original images as the 3x image.
         images["3x"] = image

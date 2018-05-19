@@ -27,125 +27,85 @@ extension NSImage {
         return nil
     }
 
-    // MARK: Resizing
-
-    /// Rezise the image to fit the target size, without cropping the image.
-    ///
-    /// - Parameter targetSize: The size of the new image
-    /// - Returns: The resized image
-    func aspectFit(toSize targetSize: NSSize) -> NSImage? {
-        let widthRatio  = targetSize.width / self.width
-        let heightRatio = targetSize.height / self.height
-        var newSize     = NSSize(width: floor(self.width * widthRatio), height: floor(self.height * widthRatio))
-
-        if widthRatio > heightRatio {
-            newSize = NSSize(width: floor(self.width * heightRatio),
-                             height: floor(self.height * heightRatio))
-        }
-
-        guard let resizedImage = self.resize(toSize: newSize) else {
-            return nil
-        }
-        let xCoordinate = floor((resizedImage.width - targetSize.width) / 2)
-        let yCoordinate = floor((resizedImage.height - targetSize.height) / 2)
-        let frame       = NSRect(x: xCoordinate, y: yCoordinate, width: targetSize.width, height: targetSize.height)
-
-        guard let representation = resizedImage.bestRepresentation(for: frame, context: nil, hints: nil) else {
-            return nil
-        }
-
-        let newImage = NSImage(size: targetSize, flipped: false) { (destinationRect: NSRect) -> Bool in
-            return representation.draw(in: destinationRect,
-                                       from: frame,
-                                       operation: .copy,
-                                       fraction: 1.0,
-                                       respectFlipped: false,
-                                       hints: nil)
-        }
-
-        return newImage
-    }
-
-    // MARK: Cropping
-
-    /// Rezise the image to fit the target size, cropping part of the image if necessary.
-    ///
-    /// - Parameter size: The size of the new image.
-    /// - Returns: The cropped image.
-    func aspectFill(toSize targetSize: NSSize) -> NSImage? {
-        guard let resizedImage = self.resizeMaintainingAspectRatio(withSize: targetSize) else {
-            return nil
-        }
-
-        let xCoordinate = floor((resizedImage.width - targetSize.width) / 2)
-        let yCoordinate = floor((resizedImage.height - targetSize.height) / 2)
-        let frame       = NSRect(x: xCoordinate, y: yCoordinate, width: targetSize.width, height: targetSize.height)
-
-        guard let representation = resizedImage.bestRepresentation(for: frame, context: nil, hints: nil) else {
-            return nil
-        }
-
-        let image = NSImage(size: targetSize,
-                            flipped: false,
-                            drawingHandler: { (destinationRect: NSRect) -> Bool in
-            return representation.draw(in: destinationRect,
-                                       from: frame,
-                                       operation: .copy,
-                                       fraction: 1.0,
-                                       respectFlipped: false,
-                                       hints: nil)
-        })
-
-        return image
-    }
-
     /// Resize the image to the given size.
     ///
     /// - Parameter size: The size to resize the image to.
     /// - Returns: The resized image.
-    func resize(toSize targetSize: NSSize) -> NSImage? {
-        let frame = NSRect(x: 0, y: 0, width: targetSize.width, height: targetSize.height)
-        guard let representation = self.bestRepresentation(for: frame, context: nil, hints: nil) else {
-            return nil
-        }
-        let image = NSImage(size: targetSize, flipped: false, drawingHandler: { (_) -> Bool in
-            return representation.draw(in: frame)
-        })
+    func resize(toSize targetSize: NSSize, aspectMode: AspectMode) -> NSImage? {
+        let newSize     = self.calculateAspectSize(withTargetSize: targetSize, aspectMode: aspectMode) ?? targetSize
+        let xCoordinate = round((targetSize.width - newSize.width) / 2)
+        let yCoordinate = round((targetSize.height - newSize.height) / 2)
+        let frame       = NSRect(origin: NSPoint(x: xCoordinate, y: yCoordinate), size: newSize)
 
-        return image
+        return NSImage(size: targetSize, flipped: false) { (_: NSRect) -> Bool in
+            guard let rep = self.bestRepresentation(for: NSRect(origin: NSPoint.zero, size: newSize),
+                                                    context: nil,
+                                                    hints: nil) else {
+                return false
+            }
+            return rep.draw(in: frame)
+        }
     }
 
-    /// Copy the image and resize it to the supplied size, while maintaining it's
-    /// original aspect ratio.
+    /// Saves the PNG representation of the image to the supplied URL parameter.
     ///
-    /// - Parameter size: The target size of the image.
-    /// - Returns: The resized image.
-    private func resizeMaintainingAspectRatio(withSize targetSize: NSSize) -> NSImage? {
-        let newSize: NSSize
-        let widthRatio  = targetSize.width / self.width
-        let heightRatio = targetSize.height / self.height
-
-        if widthRatio > heightRatio {
-            newSize = NSSize(width: floor(self.width * widthRatio),
-                             height: floor(self.height * widthRatio))
-        } else {
-            newSize = NSSize(width: floor(self.width * heightRatio),
-                             height: floor(self.height * heightRatio))
-        }
-        return self.resize(toSize: newSize)
-    }
-
-    // MARK: Saving
-
-    /// Save the images PNG representation the the supplied file URL:
-    ///
-    /// - Parameter url: The file URL to save the png file to.
-    /// - Throws: An unwrappingPNGRepresentationFailed when the image has no png representation.
+    /// - Parameter url: The URL to save the image data to.
+    /// - Throws: An NSImageExtensionError if unwrapping the image data fails.
+    ///           An error in the Cocoa domain, if there is an error writing to the URL.
     func savePngTo(url: URL) throws {
-        if let png = self.PNGRepresentation {
-            try png.write(to: url, options: .atomicWrite)
-        } else {
+        guard let png = self.PNGRepresentation else {
             throw NSImageExtensionError.unwrappingPNGRepresentationFailed
         }
+        try png.write(to: url, options: .atomicWrite)
+    }
+
+    /// Calculate the image size for a given aspect mode.
+    ///
+    /// - Parameters:
+    ///   - targetSize: The size the image should be resized to
+    ///   - aspectMode: The aspect mode to calculate the actual image size
+    /// - Returns: The new image size
+    private func calculateAspectSize(withTargetSize targetSize: NSSize, aspectMode: AspectMode) -> NSSize? {
+        if aspectMode == .fit {
+            return self.calculateFitAspectSize(widthRatio: targetSize.width / self.width,
+                                               heightRatio: targetSize.height / self.height)
+        }
+
+        if aspectMode == .fill {
+            return self.calculateFillAspectSize(widthRatio: targetSize.width / self.width,
+                                                heightRatio: targetSize.height / self.height)
+        }
+
+        return nil
+    }
+
+    /// Calculate the size for an image to be resized in aspect fit mode; That is resizing it without
+    /// cropping the image.
+    ///
+    /// - Parameters:
+    ///   - widthRatio: The width ratio of the image and the target size the image should be resized to.
+    ///   - heightRatio: The height retio of the image and the targed size the image should be resized to.
+    /// - Returns: The maximum size the image can have, to fit inside the targed size, without cropping anything.
+    private func calculateFitAspectSize(widthRatio: CGFloat, heightRatio: CGFloat) -> NSSize {
+        if widthRatio < heightRatio {
+            return NSSize(width: floor(self.width * widthRatio),
+                          height: floor(self.height * widthRatio))
+        }
+        return NSSize(width: floor(self.width * heightRatio), height: floor(self.height * heightRatio))
+    }
+
+    /// Calculate the size for an image to be resized in aspect fill mode; That is resizing it and cropping
+    /// the edges of the image, if necessary.
+    ///
+    /// - Parameters:
+    ///   - widthRatio: The width ratio of the image and the target size the image should be resized to.
+    ///   - heightRatio: The height retio of the image and the targed size the image should be resized to.
+    /// - Returns: The minimum size the image needs to have to fill the complete target area.
+    private func calculateFillAspectSize(widthRatio: CGFloat, heightRatio: CGFloat) -> NSSize? {
+        if widthRatio > heightRatio {
+            return NSSize(width: floor(self.width * widthRatio),
+                          height: floor(self.height * widthRatio))
+        }
+        return NSSize(width: floor(self.width * heightRatio), height: floor(self.height * heightRatio))
     }
 }

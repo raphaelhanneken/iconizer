@@ -18,6 +18,7 @@ enum ViewControllerTag: Int {
 enum AspectMode: String {
     case fill
     case fit
+    case none
 }
 
 // MARK: - Platform names

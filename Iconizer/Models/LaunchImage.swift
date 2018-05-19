@@ -78,18 +78,10 @@ class LaunchImage: NSObject {
                 // Check which image to create. And crop the original image to the required size.
                 switch ImageOrientation(rawValue: orientation)! {
                 case ImageOrientation.portrait:
-                    if mode == .fill {
-                        images[filename] = portrait?.aspectFill(toSize: NSSize(width: width, height: height))
-                    } else {
-                        images[filename] = portrait?.aspectFit(toSize: NSSize(width: width, height: height))
-                    }
+                    images[filename] = portrait?.resize(toSize: NSSize(width: width, height: height), aspectMode: mode)
 
                 case ImageOrientation.landscape:
-                    if mode == .fill {
-                        images[filename] = landscape?.aspectFill(toSize: NSSize(width: width, height: height))
-                    } else {
-                        images[filename] = landscape?.aspectFit(toSize: NSSize(width: width, height: height))
-                    }
+                    images[filename] = landscape?.resize(toSize: NSSize(width: width, height: height), aspectMode: mode)
                 }
             }
         }
