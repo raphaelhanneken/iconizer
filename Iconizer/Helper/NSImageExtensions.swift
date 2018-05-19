@@ -29,61 +29,46 @@ extension NSImage {
 
     // MARK: Resizing
 
-    /// Resize the image to the given size.
+    /// Rezise the image to fit the target size, without cropping the image.
     ///
-    /// - Parameter size: The size to resize the image to.
-    /// - Returns: The resized image.
-    func resize(toSize targetSize: NSSize) -> NSImage? {
-        let frame = NSRect(x: 0, y: 0, width: targetSize.width, height: targetSize.height)
-        guard let representation = self.bestRepresentation(for: frame, context: nil, hints: nil) else {
+    /// - Parameter targetSize: The size of the new image
+    /// - Returns: The resized image
+    func aspectFit(toSize targetSize: NSSize) -> NSImage? {
+        let widthRatio  = targetSize.width / self.width
+        let heightRatio = targetSize.height / self.height
+        var newSize     = NSSize(width: floor(self.width * widthRatio), height: floor(self.height * widthRatio))
+
+        if widthRatio > heightRatio {
+            newSize = NSSize(width: floor(self.width * heightRatio),
+                             height: floor(self.height * heightRatio))
+        }
+
+        guard let resizedImage = self.resize(toSize: newSize) else {
             return nil
         }
-        let image = NSImage(size: targetSize, flipped: false, drawingHandler: { (_) -> Bool in
-            return representation.draw(in: frame)
-        })
+        let xCoordinate = floor((resizedImage.width - targetSize.width) / 2)
+        let yCoordinate = floor((resizedImage.height - targetSize.height) / 2)
+        let frame       = NSRect(x: xCoordinate, y: yCoordinate, width: targetSize.width, height: targetSize.height)
 
-        return image
-    }
-
-    /// Copy the image and resize it to the supplied size, while maintaining it's
-    /// original aspect ratio.
-    ///
-    /// - Parameter size: The target size of the image.
-    /// - Returns: The resized image.
-    func resizeMaintainingAspectRatio(withSize targetSize: NSSize) -> NSImage? {
-        let newSize: NSSize
-        let widthRatio  = targetSize.width / self.width
-        let heightRatio = targetSize.height / self.height
-
-        if widthRatio > heightRatio {
-            newSize = NSSize(width: floor(self.width * widthRatio),
-                             height: floor(self.height * widthRatio))
-        } else {
-            newSize = NSSize(width: floor(self.width * heightRatio),
-                             height: floor(self.height * heightRatio))
+        guard let representation = resizedImage.bestRepresentation(for: frame, context: nil, hints: nil) else {
+            return nil
         }
-        return self.resize(toSize: newSize)
-    }
 
-    func aspectFit(toSize targetSize: NSSize) -> NSImage? {
-        let newSize: NSSize
-        let widthRatio  = targetSize.width / self.width
-        let heightRatio = targetSize.height / self.height
-
-        if widthRatio > heightRatio {
-            newSize = NSSize(width: floor(self.width * heightRatio),
-                             height: floor(self.height * heightRatio))
-        } else {
-            newSize = NSSize(width: floor(self.width * widthRatio),
-                             height: floor(self.height * widthRatio))
+        let newImage = NSImage(size: targetSize, flipped: false) { (destinationRect: NSRect) -> Bool in
+            return representation.draw(in: destinationRect,
+                                       from: frame,
+                                       operation: .copy,
+                                       fraction: 1.0,
+                                       respectFlipped: false,
+                                       hints: nil)
         }
-        return self.resize(toSize: newSize)
+
+        return newImage
     }
 
     // MARK: Cropping
 
-    /// Resize the image, to nearly fit the supplied cropping size
-    /// and return a cropped copy the image.
+    /// Rezise the image to fit the target size, cropping part of the image if necessary.
     ///
     /// - Parameter size: The size of the new image.
     /// - Returns: The cropped image.
@@ -112,6 +97,42 @@ extension NSImage {
         })
 
         return image
+    }
+
+    /// Resize the image to the given size.
+    ///
+    /// - Parameter size: The size to resize the image to.
+    /// - Returns: The resized image.
+    func resize(toSize targetSize: NSSize) -> NSImage? {
+        let frame = NSRect(x: 0, y: 0, width: targetSize.width, height: targetSize.height)
+        guard let representation = self.bestRepresentation(for: frame, context: nil, hints: nil) else {
+            return nil
+        }
+        let image = NSImage(size: targetSize, flipped: false, drawingHandler: { (_) -> Bool in
+            return representation.draw(in: frame)
+        })
+
+        return image
+    }
+
+    /// Copy the image and resize it to the supplied size, while maintaining it's
+    /// original aspect ratio.
+    ///
+    /// - Parameter size: The target size of the image.
+    /// - Returns: The resized image.
+    private func resizeMaintainingAspectRatio(withSize targetSize: NSSize) -> NSImage? {
+        let newSize: NSSize
+        let widthRatio  = targetSize.width / self.width
+        let heightRatio = targetSize.height / self.height
+
+        if widthRatio > heightRatio {
+            newSize = NSSize(width: floor(self.width * widthRatio),
+                             height: floor(self.height * widthRatio))
+        } else {
+            newSize = NSSize(width: floor(self.width * heightRatio),
+                             height: floor(self.height * heightRatio))
+        }
+        return self.resize(toSize: newSize)
     }
 
     // MARK: Saving
