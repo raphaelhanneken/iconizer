@@ -18,7 +18,7 @@ class ImageSetViewController: NSViewController, IconizerViewControllerProtocol {
 
     /// The name of the corresponding nib file.
     override var nibName: NSNib.Name {
-        return NSNib.Name("ImageSetView")
+        return "ImageSetView"
     }
 
     // MARK: Iconizer View Controller

@@ -42,7 +42,7 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
 
     /// The name of the corresponding nib file.
     override var nibName: NSNib.Name {
-        return NSNib.Name("LaunchImageView")
+        return "LaunchImageView"
     }
 
     // MARK: View Controller

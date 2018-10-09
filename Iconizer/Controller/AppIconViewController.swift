@@ -57,7 +57,7 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
 
     /// The name of the corresponding nib file.
     override var nibName: NSNib.Name {
-        return NSNib.Name("AppIconView")
+        return "AppIconView"
     }
 
     // MARK: View Controller

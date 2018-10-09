@@ -20,7 +20,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
 
     // Override the windowNibName property.
     override var windowNibName: NSNib.Name {
-        return NSNib.Name("MainWindow")
+        return "MainWindow"
     }
 
     // MARK: Window delegate
