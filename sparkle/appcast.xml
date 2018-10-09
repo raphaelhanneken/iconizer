@@ -7,6 +7,32 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.6.0</title>
+        <description>
+          <![CDATA[
+          <ul>
+            <li>Launch Image support for the iPhone XR &amp; XS Max</li>
+            <li>App Icon support for the Apple Watch Series 4</li>
+            <li>Fill Launch Image background appropriately when using Aspect Fit</li>
+          </ul>
+          <p>
+            Big thanks to <a href="https://github.com/wallisch">@wallisch</a>, for the amazing work!<br>
+            Build with Xcode Version 10.0 (10A255).
+          </p>
+          ]]>
+        </description>
+        <pubDate>Tue, 09 Oct 2018 22:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.6.0/Iconizer.dmg"
+          sparkle:version="277"
+          sparkle:shortVersionString="2.6.0"
+          sparkle:dsaSignature="MCwCFH+pBg89ekUm1L9ZldoyNZx1XMuWAhQBeMCbTTo9fWFSVZ7MCRxeo37j3w=="
+          length="9586329"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.5.1</title>
         <description>
           <![CDATA[
