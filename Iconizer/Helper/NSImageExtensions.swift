@@ -35,9 +35,17 @@ extension NSImage {
         let newSize     = self.calculateAspectSize(withTargetSize: targetSize, aspectMode: aspectMode) ?? targetSize
         let xCoordinate = round((targetSize.width - newSize.width) / 2)
         let yCoordinate = round((targetSize.height - newSize.height) / 2)
+        let targetFrame = NSRect(origin: NSPoint.zero, size: targetSize)
         let frame       = NSRect(origin: NSPoint(x: xCoordinate, y: yCoordinate), size: newSize)
 
+        var backColor   = NSColor.clear
+        if let tiff = self.tiffRepresentation, let tiffData = NSBitmapImageRep(data: tiff) {
+            backColor = tiffData.colorAt(x: 0, y: 0) ?? NSColor.clear
+        }
+
         return NSImage(size: targetSize, flipped: false) { (_: NSRect) -> Bool in
+            backColor.setFill()
+            NSBezierPath.fill(targetFrame)
             guard let rep = self.bestRepresentation(for: NSRect(origin: NSPoint.zero, size: newSize),
                                                     context: nil,
                                                     hints: nil) else {
