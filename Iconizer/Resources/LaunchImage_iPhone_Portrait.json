@@ -3,6 +3,28 @@
         {
             "extent" : "full-screen",
             "idiom" : "iphone",
+            "subtype" : "2688h",
+            "filename" : "iPhone-Portrait-2688h@3x.png",
+            "minimum-system-version" : "12.0",
+            "orientation" : "portrait",
+            "scale" : "3x",
+            "expected-width": "1242",
+            "expected-height": "2688"
+        },
+        {
+            "extent" : "full-screen",
+            "idiom" : "iphone",
+            "subtype" : "1792h",
+            "filename" : "iPhone-Portrait-1792h@2x.png",
+            "minimum-system-version" : "12.0",
+            "orientation" : "portrait",
+            "scale" : "2x",
+            "expected-width": "828",
+            "expected-height": "1792"
+        },
+        {
+            "extent" : "full-screen",
+            "idiom" : "iphone",
             "subtype" : "2436h",
             "filename" : "iPhone-Portrait-2436h@3x.png",
             "minimum-system-version" : "11.0",
