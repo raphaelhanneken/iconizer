@@ -7,6 +7,30 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.6.1</title>
+        <description>
+          <![CDATA[
+          <p>
+            Fix issue <a href="https://github.com/raphaelhanneken/iconizer/issues/23">#23</a> with the alpha channels of images, as app icons with alpha channel are not allowed in the AppStore.
+          </p>
+          <p>Build with Xcode version 10.1 (10B61)</p>
+          <p>
+            Thanks to <a href="https://github.com/fenglee594">@fenglee594</a> for reporting the issue.
+          </p>
+          ]]>
+        </description>
+        <pubDate>Fri, 22 Feb 2019 23:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.6.1/Iconizer.dmg"
+          sparkle:version="283"
+          sparkle:shortVersionString="2.6.1"
+          sparkle:dsaSignature="MCwCFAchNKuLmi3FckAS0MhmH8aORdgwAhQQkcarpMvPKPqoEpC/U59RWUyG2Q=="
+          length="9544253"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.6.0</title>
         <description>
           <![CDATA[
