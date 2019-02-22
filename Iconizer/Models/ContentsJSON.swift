@@ -37,8 +37,13 @@ struct ContentsJSON {
     /// - Throws: See ContentsJSONError for possible values.
     init(forType type: AssetType, andPlatforms platforms: [String]) throws {
         self.init()
+
         for platform in platforms {
             images += try arrayFromJson(forType: type, andPlatform: platform)
+        }
+
+        if platforms.contains(Platform.iPad.rawValue) || platforms.contains(Platform.iPhone.rawValue) {
+            images += try self.arrayFromJson(forType: type, andPlatform: Platform.iOS.rawValue)
         }
     }
 

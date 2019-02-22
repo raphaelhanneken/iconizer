@@ -70,18 +70,16 @@ class AppIcon: NSObject {
                                                     withIntermediateDirectories: true,
                                                     attributes: nil)
 
-            let contentsJson: ContentsJSON?
-            if platform == iPhonePlatformName || platform == iPadPlatformName {
-                try self.saveAsset(images: self.images[iOSPlatformName]!, toUrl: saveUrl)
-                contentsJson = try ContentsJSON(forType: AssetType.appIcon,
-                                            andPlatforms: [platform, iOSPlatformName])
+            var contentsJson = try ContentsJSON(forType: AssetType.appIcon, andPlatforms: [platform])
+            try contentsJson.saveToURL(saveUrl)
+
+            if platform == Platform.macOS.rawValue {
+                try self.saveAsset(images: images, toUrl: saveUrl)
             } else {
-                contentsJson = try ContentsJSON(forType: AssetType.appIcon,
-                                            andPlatforms: [platform])
+                try self.saveAssetWithoutAlphaChannel(images: images, toUrl: saveUrl)
             }
-            try contentsJson?.saveToURL(saveUrl)
-            try self.saveAsset(images: images, toUrl: saveUrl)
         }
+
         self.images = [:]
     }
 
@@ -103,7 +101,7 @@ class AppIcon: NSObject {
                                                 andPlatforms: Array(self.images.keys))
 
             try contentsJson.saveToURL(saveUrl)
-            if platform == macOSPlatformName {
+            if platform == Platform.macOS.rawValue {
                 try self.saveAsset(images: images, toUrl: saveUrl)
             } else {
                 try self.saveAssetWithoutAlphaChannel(images: images, toUrl: saveUrl)

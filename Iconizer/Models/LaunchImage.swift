@@ -98,7 +98,7 @@ class LaunchImage: NSObject {
         try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
         try json.saveToURL(url)
         for (filename, img) in images {
-            try img.savePngTo(url: url.appendingPathComponent(filename))
+            try img.savePngWithoutAlphaChannelTo(url: url.appendingPathComponent(filename))
         }
         images.removeAll()
     }

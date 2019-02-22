@@ -43,6 +43,7 @@
 		C57ED8C1205EB1350048B3D1 /* LaunchImage_iPad_Portrait.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */; };
 		C57ED8C2205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BE205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json */; };
 		C57ED8C4205EBAF70048B3D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8C3205EBAF70048B3D1 /* Images.xcassets */; };
+		C58CD0A72220145600D286C0 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0A62220145600D286C0 /* Platform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -96,6 +97,7 @@
 		C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPad_Portrait.json; path = Resources/LaunchImage_iPad_Portrait.json; sourceTree = "<group>"; };
 		C57ED8BE205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone_Portrait.json; path = Resources/LaunchImage_iPhone_Portrait.json; sourceTree = "<group>"; };
 		C57ED8C3205EBAF70048B3D1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
+		C58CD0A62220145600D286C0 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Iconizer/Helper/Platform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */,
 				8E2F995D1C01F17E00C2E2D8 /* NSImageExtensions.swift */,
 				8E2F995F1C01F17E00C2E2D8 /* StringExtensions.swift */,
+				C58CD0A62220145600D286C0 /* Platform.swift */,
 			);
 			name = Helper;
 			path = ..;
@@ -335,6 +338,7 @@
 				8E2F994E1C01F14E00C2E2D8 /* LaunchImage.swift in Sources */,
 				8E2F99601C01F17E00C2E2D8 /* Constants.swift in Sources */,
 				8E2F994D1C01F14E00C2E2D8 /* ImageSet.swift in Sources */,
+				C58CD0A72220145600D286C0 /* Platform.swift in Sources */,
 				C554C3E91F83786700747031 /* IconizerViewControllerProtocol.swift in Sources */,
 				8E5C00D41E0AA3260094FD0C /* DragDropImageView.swift in Sources */,
 				8E2F99431C01F13600C2E2D8 /* ImageSetViewController.swift in Sources */,
