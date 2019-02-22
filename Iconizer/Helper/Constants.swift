@@ -4,48 +4,26 @@
 // https://github.com/raphaelhanneken/iconizer
 //
 
-///  Nicely wrap up the integers from the NSSegmentedControl.
-///
-///  - appIconViewControllerTag:     Represents the tag for the AppIconView.
-///  - launchImageViewControllerTag: Represents the tag for the LaunchImageView.
-///  - imageSetViewControllerTag:    Represents the tag for the ImageSetView.
-enum ViewControllerTag: Int {
-    case appIconViewControllerTag = 0
-    case launchImageViewControllerTag = 1
-    case imageSetViewControllerTag = 2
-}
-
-enum AspectMode: String {
-    case fill
-    case fit
-    case none
-}
-
 // MARK: - Platform names
 
 /// Platform: Apple Watch
+@available(*, deprecated)
 let appleWatchPlatformName = "Watch"
 /// Platform: iPad
+@available(*, deprecated)
 let iPadPlatformName = "iPad"
 /// Platform: iPhone
+@available(*, deprecated)
 let iPhonePlatformName = "iPhone"
 /// Platform: OS X
+@available(*, deprecated)
 let macOSPlatformName = "Mac"
 /// Platform: Car Play
+@available(*, deprecated)
 let carPlayPlatformName = "Car"
 /// Platform: iOS – for icons that are needed on both, iPad and iPhone
+@available(*, deprecated)
 let iOSPlatformName = "iOS"
-
-// MARK: - Image Orientation names
-
-///  Possible image orientations.
-///
-///  - Portrait:  Portrait image.
-///  - Landscape: Landscape image.
-enum ImageOrientation: String {
-    case portrait
-    case landscape
-}
 
 // MARK: - Directory names
 
@@ -55,19 +33,6 @@ let appIconDir = "Iconizer Assets/App Icons"
 let launchImageDir = "Iconizer Assets/Launch Images"
 /// Default url for image sets.
 let imageSetDir = "Iconizer Assets/Image Sets"
-
-// MARK: - Asset Types
-
-///  Nicely wrap the different asset types into an enum.
-///
-///  - AppIcon:     Represents the AppIcon model
-///  - ImageSet:    Represents the ImageSet model
-///  - LaunchImage: Represents the LaunchImage model
-enum AssetType: Int {
-    case appIcon = 0
-    case imageSet = 1
-    case launchImage = 2
-}
 
 // MARK: - Keys to access the user defaults
 

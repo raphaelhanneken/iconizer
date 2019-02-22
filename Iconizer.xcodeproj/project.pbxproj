@@ -44,6 +44,10 @@
 		C57ED8C2205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BE205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json */; };
 		C57ED8C4205EBAF70048B3D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8C3205EBAF70048B3D1 /* Images.xcassets */; };
 		C58CD0A72220145600D286C0 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0A62220145600D286C0 /* Platform.swift */; };
+		C58CD0A92220ABF800D286C0 /* AspectMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0A82220ABF800D286C0 /* AspectMode.swift */; };
+		C58CD0AB2220ACD700D286C0 /* ViewControllerTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0AA2220ACD700D286C0 /* ViewControllerTag.swift */; };
+		C58CD0AD2220AD0500D286C0 /* ImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0AC2220AD0500D286C0 /* ImageOrientation.swift */; };
+		C58CD0AF2220AD5700D286C0 /* AssetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0AE2220AD5700D286C0 /* AssetType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -98,6 +102,10 @@
 		C57ED8BE205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone_Portrait.json; path = Resources/LaunchImage_iPhone_Portrait.json; sourceTree = "<group>"; };
 		C57ED8C3205EBAF70048B3D1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
 		C58CD0A62220145600D286C0 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Iconizer/Helper/Platform.swift; sourceTree = "<group>"; };
+		C58CD0A82220ABF800D286C0 /* AspectMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AspectMode.swift; path = Iconizer/Helper/AspectMode.swift; sourceTree = "<group>"; };
+		C58CD0AA2220ACD700D286C0 /* ViewControllerTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerTag.swift; path = Iconizer/Helper/ViewControllerTag.swift; sourceTree = "<group>"; };
+		C58CD0AC2220AD0500D286C0 /* ImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageOrientation.swift; path = Iconizer/Helper/ImageOrientation.swift; sourceTree = "<group>"; };
+		C58CD0AE2220AD5700D286C0 /* AssetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AssetType.swift; path = Iconizer/Helper/AssetType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +218,10 @@
 				8E2F995D1C01F17E00C2E2D8 /* NSImageExtensions.swift */,
 				8E2F995F1C01F17E00C2E2D8 /* StringExtensions.swift */,
 				C58CD0A62220145600D286C0 /* Platform.swift */,
+				C58CD0A82220ABF800D286C0 /* AspectMode.swift */,
+				C58CD0AA2220ACD700D286C0 /* ViewControllerTag.swift */,
+				C58CD0AC2220AD0500D286C0 /* ImageOrientation.swift */,
+				C58CD0AE2220AD5700D286C0 /* AssetType.swift */,
 			);
 			name = Helper;
 			path = ..;
@@ -343,15 +355,19 @@
 				8E5C00D41E0AA3260094FD0C /* DragDropImageView.swift in Sources */,
 				8E2F99431C01F13600C2E2D8 /* ImageSetViewController.swift in Sources */,
 				8E2F99451C01F13600C2E2D8 /* MainWindowController.swift in Sources */,
+				C58CD0AD2220AD0500D286C0 /* ImageOrientation.swift in Sources */,
 				8E2F99441C01F13600C2E2D8 /* LaunchImageViewController.swift in Sources */,
 				8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */,
 				8E2F99621C01F17E00C2E2D8 /* NSImageExtensions.swift in Sources */,
 				8E2F994F1C01F14E00C2E2D8 /* PreferenceManager.swift in Sources */,
 				8E2F994C1C01F14E00C2E2D8 /* ContentsJSON.swift in Sources */,
 				8E2F99421C01F13600C2E2D8 /* AppIconViewController.swift in Sources */,
+				C58CD0A92220ABF800D286C0 /* AspectMode.swift in Sources */,
 				8E2F99641C01F17E00C2E2D8 /* StringExtensions.swift in Sources */,
 				8E2F99611C01F17E00C2E2D8 /* ErrorTypes.swift in Sources */,
 				8E2F994B1C01F14E00C2E2D8 /* AppIcon.swift in Sources */,
+				C58CD0AB2220ACD700D286C0 /* ViewControllerTag.swift in Sources */,
+				C58CD0AF2220AD5700D286C0 /* AssetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
