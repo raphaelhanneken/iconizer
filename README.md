@@ -10,6 +10,7 @@ Visit the [homepage](http://raphaelhanneken.github.io/iconizer/index.html) for m
 1. Download the latest [release](https://github.com/raphaelhanneken/Iconizer/releases) and drop into your Application's folder.
 2. Download the source code and it compile yourself.
     - You will need [Carthage](https://github.com/Carthage/Carthage) for this, to install Sparkle.
+3. Via Homebrew Cask `brew cask install iconizer`
 
 
 
