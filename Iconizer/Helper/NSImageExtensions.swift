@@ -27,6 +27,17 @@ extension NSImage {
         return nil
     }
 
+    /// A PNG representation of the image, but without the alpha channel
+    var pngRepresentationWithoutAlpha: Data? {
+        guard let tiff = self.tiffRepresentation,
+              let imgDataWithoutAlpha = NSBitmapImageRep(data: tiff)?.representation(using: .jpeg, properties: [:])
+        else {
+            return nil
+        }
+
+        return NSBitmapImageRep(data: imgDataWithoutAlpha)?.representation(using: .png, properties: [:])
+    }
+
     /// Resize the image to the given size.
     ///
     /// - Parameter size: The size to resize the image to.
@@ -62,6 +73,18 @@ extension NSImage {
     ///           An error in the Cocoa domain, if there is an error writing to the URL.
     func savePngTo(url: URL) throws {
         guard let png = self.PNGRepresentation else {
+            throw NSImageExtensionError.unwrappingPNGRepresentationFailed
+        }
+        try png.write(to: url, options: .atomicWrite)
+    }
+
+    /// Saves the PNG representation of the image to the supplied URL parameter.
+    ///
+    /// - Parameter url: The URL to save the image data to.
+    /// - Throws: An NSImageExtensionError if unwrapping the image data fails.
+    ///           An error in the Cocoa domain, if there is an error writing to the URL.
+    func savePngWithoutAlphaChannelTo(url: URL) throws {
+        guard let png = self.pngRepresentationWithoutAlpha else {
             throw NSImageExtensionError.unwrappingPNGRepresentationFailed
         }
         try png.write(to: url, options: .atomicWrite)

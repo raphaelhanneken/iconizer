@@ -94,7 +94,7 @@ class AppIcon: NSObject {
     func saveCombinedAssetCatalog(named name: String, toUrl url: URL) throws {
         let saveUrl = url.appendingPathComponent("\(appIconDir)/Combined/\(name).appiconset", isDirectory: true)
 
-        for (_, images) in images {
+        for (platform, images) in images {
             try FileManager.default.createDirectory(at: saveUrl,
                                                     withIntermediateDirectories: true,
                                                     attributes: nil)
@@ -103,7 +103,11 @@ class AppIcon: NSObject {
                                                 andPlatforms: Array(self.images.keys))
 
             try contentsJson.saveToURL(saveUrl)
-            try self.saveAsset(images: images, toUrl: saveUrl)
+            if platform == macOSPlatformName {
+                try self.saveAsset(images: images, toUrl: saveUrl)
+            } else {
+                try self.saveAssetWithoutAlphaChannel(images: images, toUrl: saveUrl)
+            }
         }
         self.images = [:]
     }
@@ -120,6 +124,22 @@ class AppIcon: NSObject {
                 throw AppIconError.missingImage
             }
             try img.savePngTo(url: url.appendingPathComponent(filename, isDirectory: false))
+        }
+    }
+
+    /// Saves the supplied images as png, without alpha channel, to the supplied file url
+    ///
+    /// - Parameters:
+    ///   - images: The images to be saved
+    ///   - url: The file URL to save the images to
+    /// - Throws: See AppIconError and NSImageExtensionError
+    private func saveAssetWithoutAlphaChannel(images: [String: NSImage?], toUrl url: URL) throws {
+        for (filename, image) in images {
+            guard let img = image else {
+                throw AppIconError.missingImage
+            }
+
+            try img.savePngWithoutAlphaChannelTo(url: url.appendingPathComponent(filename, isDirectory: false))
         }
     }
 }
