@@ -15,16 +15,18 @@ class ImageSet: NSObject {
     /// Create the @1x and @2x images from the supplied image.
     ///
     /// - Parameter image: The image to resize.
-    func generateScaledImagesFromImage(_ image: NSImage) {
-        // Define the new image sizes.
-        let scaleX1 = NSSize(width: ceil(image.width / 3), height: ceil(image.height / 3))
-        let scaleX2 = NSSize(width: ceil(image.width / 1.5), height: ceil(image.height / 1.5))
+    func generateScaledImagesFromImage(_ image: NSImage) throws {
+        // Get the image size in pixels, as calculating with the width and height values of the NSImage
+        // will produce wrong results. See GitHub issue #24
+        guard let imageSize = image.sizeInPixels else {
+            throw ImageSetError.rescalingImageFailed
+        }
 
-        // Calculate the 2x and 1x images.
-        images["1x"] = image.resize(toSize: scaleX1, aspectMode: .fit)
-        images["2x"] = image.resize(toSize: scaleX2, aspectMode: .fit)
+        let imageSize1x = NSSize(width: ceil(imageSize.width / 3), height: ceil(imageSize.height / 3))
+        let imageSize2x = NSSize(width: imageSize1x.width * 2, height: imageSize1x.height * 2)
 
-        // Assign the original images as the 3x image.
+        images["1x"] = image.resize(toSize: imageSize1x, aspectMode: .fit)
+        images["2x"] = image.resize(toSize: imageSize2x, aspectMode: .fit)
         images["3x"] = image
     }
 

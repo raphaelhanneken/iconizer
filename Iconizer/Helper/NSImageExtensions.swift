@@ -18,6 +18,15 @@ extension NSImage {
         return size.width
     }
 
+    /// The image size in pixels.
+    var sizeInPixels: NSSize? {
+        guard let imageRep = self.representations.first else {
+            return nil
+        }
+
+        return NSSize(width: imageRep.pixelsWide, height: imageRep.pixelsHigh)
+    }
+
     /// A PNG representation of the image.
     var PNGRepresentation: Data? {
         if let tiff = self.tiffRepresentation, let tiffData = NSBitmapImageRep(data: tiff) {
