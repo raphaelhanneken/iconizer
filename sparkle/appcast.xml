@@ -7,6 +7,27 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v2.6.2</title>
+        <description>
+          <![CDATA[
+          <p>
+            Fix calculation of Image Set image sizes. Thanks a lot <a href="https://github.com/saxija">@saxija</a> for reporting the issue.
+          </p>
+          <p>Build with Xcode version 10.1 (10B61)</p>
+          ]]>
+        </description>
+        <pubDate>Sun, 03 Mar 2019 13:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2.6.2/Iconizer.dmg"
+          sparkle:version="286"
+          sparkle:shortVersionString="2.6.2"
+          sparkle:dsaSignature="MCwCFFGRt8M7rkD1PwYanaPBYFqMFXm+AhQ3vwDzIzkTqoEMw4R9jMBegbnzMQ=="
+          length="9549290"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.6.1</title>
         <description>
           <![CDATA[
