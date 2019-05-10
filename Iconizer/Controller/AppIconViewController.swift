@@ -19,8 +19,6 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
     @IBOutlet weak var osx: NSButton!
     /// Create an App Icon for the Apple Watch.
     @IBOutlet weak var watch: NSButton!
-    /// Export the selected App Icons as comibined asset.
-    @IBOutlet weak var combined: NSButton!
     /// Holds the ImageView for the image to generate the App Icon from.
     @IBOutlet weak var imageView: NSImageView!
 
@@ -35,22 +33,22 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
         // String array of selected platforms.
         var tmp: [String] = []
         if carPlay.state == NSControl.StateValue.on {
-            tmp.append(carPlayPlatformName)
+            tmp.append(Platform.car.rawValue)
         }
         if iPad.state == NSControl.StateValue.on {
-            tmp.append(iPadPlatformName)
+            tmp.append(Platform.iPad.rawValue)
         }
         if iPhone.state == NSControl.StateValue.on {
-            tmp.append(iPhonePlatformName)
+            tmp.append(Platform.iPhone.rawValue)
         }
         if osx.state == NSControl.StateValue.on {
-            tmp.append(macOSPlatformName)
+            tmp.append(Platform.macOS.rawValue)
         }
         if watch.state == NSControl.StateValue.on {
-            tmp.append(appleWatchPlatformName)
+            tmp.append(Platform.watch.rawValue)
         }
         if iPad.state == NSControl.StateValue.on || iPhone.state == NSControl.StateValue.on {
-            tmp.append(iOSPlatformName)
+            tmp.append(Platform.iOS.rawValue)
         }
         return tmp
     }
@@ -69,7 +67,6 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
         iPad.state     = NSControl.StateValue(rawValue: prefManager.generateAppIconForIPad)
         osx.state      = NSControl.StateValue(rawValue: prefManager.generateAppIconForMac)
         carPlay.state  = NSControl.StateValue(rawValue: prefManager.generateAppIconForCar)
-        combined.state = NSControl.StateValue(rawValue: prefManager.combinedAppIconAsset)
     }
 
     override func viewWillDisappear() {
@@ -78,7 +75,6 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
         prefManager.generateAppIconForIPhone     = iPhone.state.rawValue
         prefManager.generateAppIconForMac        = osx.state.rawValue
         prefManager.generateAppIconForCar        = carPlay.state.rawValue
-        prefManager.combinedAppIconAsset         = combined.state.rawValue
     }
 
     // MARK: Iconizer View Controller
@@ -97,11 +93,7 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
     }
 
     func saveAssetCatalog(named name: String, toURL url: URL) throws {
-        if combined.state == NSControl.StateValue.on {
-            try appIcon.saveCombinedAssetCatalog(named: name, toUrl: url)
-        } else {
-            try appIcon.saveAssetCatalog(named: name, toURL: url)
-        }
+        try appIcon.saveCombinedAssetCatalog(named: name, toUrl: url)
     }
 
     func openSelectedImage(_ image: NSImage?) throws {
