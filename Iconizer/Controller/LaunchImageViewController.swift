@@ -29,8 +29,8 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
     /// Return the platforms selected by the user.
     var enabledPlatforms: [String] {
         var tmp: [String] = []
-        if iphone.state == NSControl.StateValue.on { tmp.append(iPhonePlatformName) }
-        if ipad.state == NSControl.StateValue.on { tmp.append(iPadPlatformName) }
+        if iphone.state == NSControl.StateValue.on { tmp.append(Platform.iPhone.rawValue) }
+        if ipad.state == NSControl.StateValue.on { tmp.append(Platform.iPad.rawValue) }
         return tmp
     }
 
