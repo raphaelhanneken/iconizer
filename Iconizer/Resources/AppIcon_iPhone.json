@@ -2,80 +2,43 @@
   "images" : [
     {
       "idiom" : "iphone",
-      "size" : "60x60",
-      "scale" : "3x",
-      "filename" : "iphone-appicon@3x.png",
-      "expected-size" : "180"
-    },
-    {
-      "idiom" : "iphone",
-      "size" : "40x40",
-      "scale" : "2x",
-      "filename" : "iphone-spotlight@2x.png",
-      "expected-size" : "80"
-    },
-    {
-      "idiom" : "iphone",
-      "size" : "40x40",
-      "scale" : "3x",
-      "filename" : "iphone-spotlight@3x.png",
-      "expected-size" : "120"
-    },
-    {
-      "idiom" : "iphone",
-      "size" : "60x60",
-      "scale" : "2x",
-      "filename" : "iphone-appicon@2x.png",
-      "expected-size" : "120"
-    },
-    {
-      "idiom" : "iphone",
-      "size" : "57x57",
-      "scale" : "1x",
-      "filename" : "iphone-oldAppicon@1x.png",
-      "expected-size" : "57"
-    },
-    {
-      "idiom" : "iphone",
-      "size" : "29x29",
-      "scale" : "2x",
-      "filename" : "iphone-settings@2x.png",
-      "expected-size" : "58"
-    },
-    {
-      "idiom" : "iphone",
-      "size" : "29x29",
-      "scale" : "1x",
-      "filename" : "iphone-settings@1x.png",
-      "expected-size" : "29"
-    },
-    {
-      "idiom" : "iphone",
-      "size" : "29x29",
-      "scale" : "3x",
-      "filename" : "iphone-settings@3x.png",
-      "expected-size" : "87"
-    },
-    {
-      "idiom" : "iphone",
-      "size" : "57x57",
-      "scale" : "2x",
-      "filename" : "iphone-oldAppicon@2x.png",
-      "expected-size" : "114"
+      "size" : "20x20",
+      "scale" : "2x"
     },
     {
       "idiom" : "iphone",
       "size" : "20x20",
-      "scale" : "2x",
-      "filename" : "iphone-notification@2x.png",
-      "expected-size" : "40"
+      "scale" : "3x"
     },
     {
       "idiom" : "iphone",
-      "size" : "20x20",
-      "scale" : "3x",
-      "filename" : "iphone-notification@3x.png",
-      "expected-size" : "60"
+      "size" : "29x29",
+      "scale" : "2x"
+    },
+    {
+      "size" : "29x29",
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "40x40",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "40x40",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "60x60",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "60x60",
+      "scale" : "3x"
     }
   ]
 }

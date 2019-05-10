@@ -11,6 +11,7 @@
 ///  - gettingImagesArrayFailed:      Getting the information which images to generate failed.
 ///  - writingContentsJSONFailed:     Saving the Contents.json for the asset catalog failed.
 enum ContentsJSONError: Error {
+    case outOfBounds
     case fileNotFound
     case castingJSONToDictionaryFailed
     case gettingImagesArrayFailed

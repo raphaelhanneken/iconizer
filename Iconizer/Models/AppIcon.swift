@@ -27,21 +27,10 @@ class AppIcon: NSObject {
             // Create a new JSON object for the current platform.
             let jsonData = try ContentsJSON(forType: AssetType.appIcon, andPlatforms: [platform])
 
-            for imageData in jsonData.images {
-                // Get the expected size, since App Icons are quadratic we only need one value.
-                guard let size = imageData["expected-size"] else {
-                    throw AppIconError.missingDataForImageSize
-                }
-                // Get the filename.
-                guard let filename = imageData["filename"] else {
-                    throw AppIconError.missingDataForImageName
-                }
-
-                if let size = Int(size) {
-                    // Append the generated image to the temporary images dict.
-                    tmpImages[filename] = image.resize(toSize: NSSize(width: size, height: size), aspectMode: .fit)
-                } else {
-                    throw AppIconError.formatError
+            for index in 0..<jsonData.images.count {
+                let file = try jsonData.filenameAt(index)
+                if images[file.name] == nil {
+                    tmpImages[file.name] = image.resize(toSize: NSSize(width: file.size, height: file.size), aspectMode: .fit)
                 }
             }
 

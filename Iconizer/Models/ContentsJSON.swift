@@ -115,9 +115,30 @@ struct ContentsJSON {
     /// - Parameter url: The file URL to save the Contents.json to.
     /// - Throws: See JSONSerialization for possible values.
     mutating func saveToURL(_ url: URL) throws {
+        for index in 0..<images.count {
+            images[index]["filename"] = try filenameAt(index).name
+        }
         contents["images"] = images
+
         let data = try JSONSerialization.data(withJSONObject: contents, options: .prettyPrinted)
         try data.write(to: url.appendingPathComponent("Contents.json", isDirectory: false), options: .atomic)
         images.removeAll()
+    }
+
+    func filenameAt(_ index: Int) throws -> (name: String, size: Int) {
+        guard index < images.count else {
+            throw ContentsJSONError.outOfBounds
+        }
+
+        guard let size = images[index]["size"], let scale = images[index]["scale"],
+              let sizeValue = Float(String(size[..<size.index(size.startIndex, offsetBy: (size.count - 1) / 2)])),
+              let scaleValue = Float(String(scale[..<scale.index(scale.endIndex, offsetBy: -1)])) else {
+            throw ContentsJSONError.castingJSONToDictionaryFailed
+        }
+
+        let fullSize = Int(sizeValue * scaleValue)
+        let filename = "icon-\(fullSize).png"
+
+        return (filename, fullSize)
     }
 }
