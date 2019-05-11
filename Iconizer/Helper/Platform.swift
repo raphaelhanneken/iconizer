@@ -13,6 +13,7 @@ enum Platform: String {
     case iOS = "iOS"
     case macOS = "Mac"
     case car = "Car"
+    case iMessage = "iMessage"
     case undefined = ""
 
     func name(forOrientation orientation: ImageOrientation) -> String {

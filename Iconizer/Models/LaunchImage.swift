@@ -86,7 +86,7 @@ extension LaunchImage: Asset {
     }
 
     static func directory(named: String) -> String {
-        return "\(Constants.Directory.launchImage)/\(named).launchimage"
+        return "\(Constants.Directory.launchImage)/\(named).\(Constants.AssetExtension.launchImage)"
     }
 
     func save(_ image: [ImageOrientation: NSImage], aspect: AspectMode?, to url: URL) throws {

@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61547115E26963B8850B6766 /* AppIcon_iMessage.json in Resources */ = {isa = PBXBuildFile; fileRef = 61547C662152E0FD90129D23 /* AppIcon_iMessage.json */; };
 		615474479E1DB785FB330534 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547EBDFC6B8AAD2ABA45D0 /* ImageSet.swift */; };
 		6154752D9E7B4680E54B8B94 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547EC2357DBABDED490912 /* AppIcon.swift */; };
+		615478BFF33EE77B113D9A2E /* iMessageIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6154728EE4ABE06BF6C6F01D /* iMessageIcon.swift */; };
 		61547989812FC26FB3917DEF /* LaunchImage_iPhone_Portrait.json in Resources */ = {isa = PBXBuildFile; fileRef = 615472EBBE8EE9453E90D31B /* LaunchImage_iPhone_Portrait.json */; };
 		61547B1BAB5AA958132ADCE7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547491B396897B2A4F1E2D /* Asset.swift */; };
 		61547F22829F35935EAA38C1 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6154771EF6D8D4122C664E15 /* LaunchImage.swift */; };
@@ -64,9 +66,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6154728EE4ABE06BF6C6F01D /* iMessageIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iMessageIcon.swift; sourceTree = "<group>"; };
 		615472EBBE8EE9453E90D31B /* LaunchImage_iPhone_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone_Portrait.json; path = Resources/LaunchImage_iPhone_Portrait.json; sourceTree = "<group>"; };
 		61547491B396897B2A4F1E2D /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = Helper/Asset.swift; sourceTree = "<group>"; };
 		6154771EF6D8D4122C664E15 /* LaunchImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchImage.swift; path = Models/LaunchImage.swift; sourceTree = "<group>"; };
+		61547C662152E0FD90129D23 /* AppIcon_iMessage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_iMessage.json; path = Resources/AppIcon_iMessage.json; sourceTree = "<group>"; };
 		61547EBDFC6B8AAD2ABA45D0 /* ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSet.swift; path = Models/ImageSet.swift; sourceTree = "<group>"; };
 		61547EC2357DBABDED490912 /* AppIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIcon.swift; path = Models/AppIcon.swift; sourceTree = "<group>"; };
 		8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIconViewController.swift; path = Controller/AppIconViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				61547EC2357DBABDED490912 /* AppIcon.swift */,
 				61547EBDFC6B8AAD2ABA45D0 /* ImageSet.swift */,
 				61547491B396897B2A4F1E2D /* Asset.swift */,
+				6154728EE4ABE06BF6C6F01D /* iMessageIcon.swift */,
 			);
 			name = Asset;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */,
 				8E3F8F691B23488F0096E9EC /* Info.plist */,
 				615472EBBE8EE9453E90D31B /* LaunchImage_iPhone_Portrait.json */,
+				61547C662152E0FD90129D23 /* AppIcon_iMessage.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -330,6 +336,7 @@
 				C52DA9731FE5BD5C0011E3C5 /* AppIcon_iOS.json in Resources */,
 				8E2F99761C01F19400C2E2D8 /* ImageSet.json in Resources */,
 				61547989812FC26FB3917DEF /* LaunchImage_iPhone_Portrait.json in Resources */,
+				61547115E26963B8850B6766 /* AppIcon_iMessage.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +384,7 @@
 				6154752D9E7B4680E54B8B94 /* AppIcon.swift in Sources */,
 				615474479E1DB785FB330534 /* ImageSet.swift in Sources */,
 				61547B1BAB5AA958132ADCE7 /* Asset.swift in Sources */,
+				615478BFF33EE77B113D9A2E /* iMessageIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

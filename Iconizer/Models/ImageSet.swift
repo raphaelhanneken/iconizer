@@ -59,7 +59,7 @@ extension ImageSet: Asset {
     }
 
     static func directory(named: String) -> String {
-        return "\(Constants.Directory.imageSet)/\(named).imageset"
+        return "\(Constants.Directory.imageSet)/\(named).\(Constants.AssetExtension.imageSet)"
     }
 
     func save(_ image: [ImageOrientation: NSImage], aspect: AspectMode?, to url: URL) throws {

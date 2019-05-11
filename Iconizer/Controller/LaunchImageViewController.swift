@@ -50,8 +50,8 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        iphone.state = NSControl.StateValue(rawValue: prefManager.generateLaunchImageForIPhone)
-        ipad.state = NSControl.StateValue(rawValue: prefManager.generateLaunchImageForIPad)
+        iphone.state = .init(rawValue: prefManager.generateLaunchImageForIPhone)
+        ipad.state = .init(rawValue: prefManager.generateLaunchImageForIPad)
     }
 
     override func viewWillDisappear() {

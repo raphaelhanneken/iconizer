@@ -91,4 +91,10 @@ struct AssetSize {
 
         throw AssetCatalogError.invalidFormat(format: .size)
     }
+
+    func multiply(_ scale: AssetScale) -> NSSize {
+        let width = Int(self.width * Float(scale.value))
+        let height = Int(self.height * Float(scale.value))
+        return NSSize(width: width, height: height)
+    }
 }

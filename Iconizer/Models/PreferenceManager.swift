@@ -42,6 +42,12 @@ class PreferenceManager {
         set(newValue) { userDefaults.set(newValue, forKey: Constants.SettingKeys.generateAppIconForCarKey) }
     }
 
+    /// Generate app icon set for iMessages?
+    var generateMessagesIcon: Int {
+        get { return userDefaults.integer(forKey: Constants.SettingKeys.generateMessagesIconKey) }
+        set(newValue) { userDefaults.set(newValue, forKey: Constants.SettingKeys.generateMessagesIconKey) }
+    }
+
     /// Generate launch image for iPhone?
     var generateLaunchImageForIPhone: Int {
         get { return userDefaults.integer(forKey: Constants.SettingKeys.generateLaunchImageForIPhoneKey) }

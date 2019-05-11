@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="AppIconViewController" customModule="Iconizer" customModuleProvider="target">
             <connections>
                 <outlet property="carPlay" destination="C6B-hx-8ZR" id="NLq-tK-smr"/>
+                <outlet property="iMessage" destination="WLm-uc-jZc" id="nNX-um-WFt"/>
                 <outlet property="iPad" destination="dbD-KW-pvm" id="beM-if-nMZ"/>
                 <outlet property="iPhone" destination="aOl-TX-AxG" id="WCp-3V-dtO"/>
                 <outlet property="imageView" destination="Y4m-ks-fHe" id="Fx7-Pd-fX4"/>
@@ -69,6 +70,14 @@
                                 <rect key="frame" x="126" y="35" width="93" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="iPad" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="eQw-F8-Nwe">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WLm-uc-jZc">
+                                <rect key="frame" x="219" y="12" width="94" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="iMessage" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cxm-kb-kbT">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>

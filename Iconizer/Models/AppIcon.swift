@@ -6,21 +6,27 @@
 
 import Cocoa
 
-struct AppIcon: Codable {
-    private static let marketing = "ios-marketing"
+class AppIcon: Codable {
+    private static let marketing = "marketing"
+
+    class var directory: String {
+        return Constants.Directory.appIcon
+    }
+
+    class var `extension`: String {
+        return Constants.AssetExtension.appIcon
+    }
 
     let idiom: String
     let size: AssetSize
     let scale: AssetScale
-    let role: String?    //Apple Watch
-    let subtype: String? //Apple Watch
+    let role: String?       //Apple Watch
+    let subtype: String?    //Apple Watch
+    let platform: String?   //iMessage
 
     var filename: String {
-        return "icon-\(pixelSize).png"
-    }
-
-    private var pixelSize: Int {
-        return Int(size.width * Float(scale.value))
+        let scaledWidth = Int(size.width * Float(scale.value))
+        return "icon-\(scaledWidth).png"
     }
 
     private enum ReadKeys: String, CodingKey {
@@ -29,6 +35,7 @@ struct AppIcon: Codable {
         case scale
         case role
         case subtype
+        case platform
     }
 
     private enum WriteKeys: String, CodingKey {
@@ -37,18 +44,21 @@ struct AppIcon: Codable {
         case scale
         case role
         case subtype
+        case platform
         case filename
     }
 
-    init(idiom: String, size: AssetSize, scale: AssetScale, role: String? = nil, subtype: String? = nil) {
+    init(idiom: String, size: AssetSize, scale: AssetScale, role: String? = nil,
+         subtype: String? = nil, platform: String?) {
         self.idiom = idiom
         self.size = size
         self.scale = scale
         self.role = role
         self.subtype = subtype
+        self.platform = platform
     }
 
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: ReadKeys.self)
         let idiom = try container.decode(String.self, forKey: .idiom)
 
@@ -57,16 +67,13 @@ struct AppIcon: Codable {
         }
         let size = try AssetSize(size: try container.decode(String.self, forKey: .size))
 
-        guard size.width == size.height else {
-            throw AssetCatalogError.invalidFormat(format: .size)
-        }
-
         self.idiom = idiom
         self.size = size
         self.scale = scale
 
         self.role = try container.decodeIfPresent(String.self, forKey: .role)
         self.subtype = try container.decodeIfPresent(String.self, forKey: .subtype)
+        self.platform = try container.decodeIfPresent(String.self, forKey: .platform)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -77,6 +84,7 @@ struct AppIcon: Codable {
         try container.encode(filename, forKey: .filename)
         try container.encodeIfPresent(role, forKey: .role)
         try container.encodeIfPresent(subtype, forKey: .subtype)
+        try container.encodeIfPresent(platform, forKey: .platform)
     }
 }
 
@@ -86,7 +94,7 @@ extension AppIcon: Asset {
     }
 
     static func directory(named: String) -> String {
-        return "\(Constants.Directory.appIcon)/\(named).appiconset"
+        return "\(directory)/\(named).\(self.extension)"
     }
 
     func save(_ image: [ImageOrientation: NSImage], aspect: AspectMode?, to url: URL) throws {
@@ -102,12 +110,12 @@ extension AppIcon: Asset {
             return
         }
         //resize icon
-        let size = pixelSize
-        guard let resized = image.resize(toSize: NSSize(width: size, height: size), aspectMode: aspect ?? .fit) else {
+
+        guard let resized = image.resize(toSize: size.multiply(scale), aspectMode: aspect ?? .fit) else {
             throw AssetCatalogError.rescalingImageFailed
         }
         //save to filesystem
         //no alpha for `ios-marketing` 1024x1024
-        try resized.savePng(url: url, withoutAlpha: idiom == AppIcon.marketing)
+        try resized.savePng(url: url, withoutAlpha: idiom.contains(AppIcon.marketing))
     }
 }
