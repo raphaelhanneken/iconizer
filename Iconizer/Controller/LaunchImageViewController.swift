@@ -96,7 +96,7 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
             }
         }
 
-        try catalog.saveAssetCatalog(named: name, toURL: url, fromImage: images, aspect: mode)
+        try catalog.save(images, named: name, toURL: url, aspect: mode)
     }
     // swiftlint:enable cyclomatic_complexity
 

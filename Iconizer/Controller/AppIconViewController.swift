@@ -91,7 +91,7 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
             try catalog.addPlatform(platform)
         }
 
-        try catalog.saveAssetCatalog(named: name, toURL: url, fromImage: [.none: image])
+        try catalog.save([.none: image], named: name, toURL: url)
     }
 
     func openSelectedImage(_ image: NSImage?) throws {

@@ -6,7 +6,6 @@
 
 import Cocoa
 
-///  Possible asset types to generate asset catalogs for.
 protocol Asset {
     static func resourceName(forPlatform platform: String) -> String
     static func directory(named: String) -> String
@@ -36,6 +35,7 @@ extension Asset where Self: Decodable {
         return try decoder.decode([Self].self, from: data)
     }
 }
+
 // swiftlint:disable identifier_name
 enum AssetScale: String {
     case x1 = "1x"
