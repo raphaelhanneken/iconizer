@@ -68,14 +68,9 @@ extension ImageSet: Asset {
         }
 
         let url = url.appendingPathComponent(filename, isDirectory: false)
-        // Get the image size in pixels, as calculating with the width and height values of the NSImage
-        // will produce wrong results. See GitHub issue #24
-        guard let imageSize = image.sizeInPixels else {
-            throw AssetCatalogError.rescalingImageFailed
-        }
 
         let coef = CGFloat(scale.value) / ImageSet.inputScale
-        let size = NSSize(width: ceil(imageSize.width * coef), height: ceil(imageSize.height * coef))
+        let size = NSSize(width: ceil(image.size.width * coef), height: ceil(image.size.height * coef))
         guard let resized = image.resize(toSize: size, aspectMode: aspect ?? .fit) else {
             throw AssetCatalogError.rescalingImageFailed
         }
