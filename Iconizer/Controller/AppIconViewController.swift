@@ -22,35 +22,32 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
     /// Holds the ImageView for the image to generate the App Icon from.
     @IBOutlet weak var imageView: NSImageView!
 
-    /// Responsible for creating and saving the asset catalog.
-    let appIcon = AppIcon()
-
     /// Manage the user's preferences.
     let prefManager = PreferenceManager()
 
     /// Check which platforms are selected.
-    var enabledPlatforms: [String] {
+    var enabledPlatforms: [Platform] {
         // String array of selected platforms.
-        var tmp: [String] = []
+        var platform = [Platform]()
         if carPlay.state == NSControl.StateValue.on {
-            tmp.append(Platform.car.rawValue)
+            platform.append(Platform.car)
         }
         if iPad.state == NSControl.StateValue.on {
-            tmp.append(Platform.iPad.rawValue)
+            platform.append(Platform.iPad)
         }
         if iPhone.state == NSControl.StateValue.on {
-            tmp.append(Platform.iPhone.rawValue)
+            platform.append(Platform.iPhone)
         }
         if osx.state == NSControl.StateValue.on {
-            tmp.append(Platform.macOS.rawValue)
+            platform.append(Platform.macOS)
         }
         if watch.state == NSControl.StateValue.on {
-            tmp.append(Platform.watch.rawValue)
+            platform.append(Platform.watch)
         }
         if iPad.state == NSControl.StateValue.on || iPhone.state == NSControl.StateValue.on {
-            tmp.append(Platform.iOS.rawValue)
+            platform.append(Platform.iOS)
         }
-        return tmp
+        return platform
     }
 
     /// The name of the corresponding nib file.
@@ -62,24 +59,24 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        watch.state    = NSControl.StateValue(rawValue: prefManager.generateAppIconForAppleWatch)
-        iPhone.state   = NSControl.StateValue(rawValue: prefManager.generateAppIconForIPhone)
-        iPad.state     = NSControl.StateValue(rawValue: prefManager.generateAppIconForIPad)
-        osx.state      = NSControl.StateValue(rawValue: prefManager.generateAppIconForMac)
-        carPlay.state  = NSControl.StateValue(rawValue: prefManager.generateAppIconForCar)
+
+        watch.state = .init(rawValue: prefManager.generateAppIconForAppleWatch)
+        iPhone.state = .init(rawValue: prefManager.generateAppIconForIPhone)
+        iPad.state = .init(rawValue: prefManager.generateAppIconForIPad)
+        osx.state = .init(rawValue: prefManager.generateAppIconForMac)
+        carPlay.state = .init(rawValue: prefManager.generateAppIconForCar)
     }
 
     override func viewWillDisappear() {
         prefManager.generateAppIconForAppleWatch = watch.state.rawValue
-        prefManager.generateAppIconForIPad       = iPad.state.rawValue
-        prefManager.generateAppIconForIPhone     = iPhone.state.rawValue
-        prefManager.generateAppIconForMac        = osx.state.rawValue
-        prefManager.generateAppIconForCar        = carPlay.state.rawValue
+        prefManager.generateAppIconForIPad = iPad.state.rawValue
+        prefManager.generateAppIconForIPhone = iPhone.state.rawValue
+        prefManager.generateAppIconForMac = osx.state.rawValue
+        prefManager.generateAppIconForCar = carPlay.state.rawValue
     }
 
     // MARK: Iconizer View Controller
-
-    func generateRequiredImages() throws {
+    func saveAssetCatalog(named name: String, toURL url: URL) throws {
         guard let image = imageView.image else {
             throw IconizerViewControllerError.missingImage
         }
@@ -88,17 +85,18 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
             throw IconizerViewControllerError.missingPlatform
         }
 
-        // Generate the necessary images.
-        try appIcon.generateImagesForPlatforms(enabledPlatforms, fromImage: image)
-    }
+        let catalog = AssetCatalog<AppIcon>()
 
-    func saveAssetCatalog(named name: String, toURL url: URL) throws {
-        try appIcon.saveCombinedAssetCatalog(named: name, toUrl: url)
+        try enabledPlatforms.forEach { platform in
+            try catalog.addPlatform(platform)
+        }
+
+        try catalog.saveAssetCatalog(named: name, toURL: url, fromImage: [.none: image])
     }
 
     func openSelectedImage(_ image: NSImage?) throws {
         guard let img = image else {
-            throw AppIconError.selectedImageNotFound
+            throw IconizerViewControllerError.selectedImageNotFound
         }
 
         imageView.image = img

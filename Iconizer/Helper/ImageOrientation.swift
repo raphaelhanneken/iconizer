@@ -11,4 +11,13 @@
 enum ImageOrientation: String {
     case portrait
     case landscape
+    case none
+
+    var suffix: String {
+        switch self {
+        case .portrait:  return "_Portrait"
+        case .landscape: return "_Landscape"
+        case .none: return ""
+        }
+    }
 }

@@ -27,18 +27,19 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
     @IBOutlet weak var aspectMode: NSPopUpButton!
 
     /// Return the platforms selected by the user.
-    var enabledPlatforms: [String] {
-        var tmp: [String] = []
-        if iphone.state == NSControl.StateValue.on { tmp.append(Platform.iPhone.rawValue) }
-        if ipad.state == NSControl.StateValue.on { tmp.append(Platform.iPad.rawValue) }
-        return tmp
+    var enabledPlatforms: [Platform] {
+        var platforms = [Platform]()
+        if iphone.state == NSControl.StateValue.on {
+            platforms.append(Platform.iPhone)
+        }
+        if ipad.state == NSControl.StateValue.on {
+            platforms.append(Platform.iPad)
+        }
+        return platforms
     }
 
-    /// Responsible for creating and saving the asset catalog.
-    let launchImage = LaunchImage()
-
     /// Manage the user's preferences.
-    let userPrefs = PreferenceManager()
+    let prefManager = PreferenceManager()
 
     /// The name of the corresponding nib file.
     override var nibName: NSNib.Name {
@@ -49,41 +50,61 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        iphone.state = NSControl.StateValue(rawValue: userPrefs.generateLaunchImageForIPhone)
-        ipad.state = NSControl.StateValue(rawValue: userPrefs.generateLaunchImageForIPad)
+        iphone.state = NSControl.StateValue(rawValue: prefManager.generateLaunchImageForIPhone)
+        ipad.state = NSControl.StateValue(rawValue: prefManager.generateLaunchImageForIPad)
     }
 
     override func viewWillDisappear() {
-        userPrefs.generateLaunchImageForIPad = ipad.state.rawValue
-        userPrefs.generateLaunchImageForIPhone = iphone.state.rawValue
+        prefManager.generateLaunchImageForIPad = ipad.state.rawValue
+        prefManager.generateLaunchImageForIPhone = iphone.state.rawValue
     }
 
     // MARK: Iconizer View Controller
 
-    func generateRequiredImages() throws {
+    func saveAssetCatalog(named name: String, toURL url: URL) throws {
         guard enabledPlatforms.count > 0 else {
             throw IconizerViewControllerError.missingPlatform
         }
 
-        if let selectedAspectMode = aspectMode.selectedItem?.identifier?.rawValue {
-            try launchImage.generateImagesForPlatforms(enabledPlatforms,
-                                                       fromPortrait: self.portrait.image,
-                                                       andLandscape: self.landscape.image,
-                                                       mode: AspectMode(rawValue: selectedAspectMode))
+        guard let selectedAspectMode = aspectMode.selectedItem?.identifier?.rawValue,
+              let mode = AspectMode(rawValue: selectedAspectMode) else {
+            throw IconizerViewControllerError.missingAspectMode
         }
-    }
 
-    func saveAssetCatalog(named name: String, toURL url: URL) throws {
-        try launchImage.saveAssetCatalogNamed(name, toURL: url)
+        var images = [ImageOrientation: NSImage]()
+        if let portrait = self.portrait.image {
+            images[.portrait] = portrait
+        }
+        if let landscape = self.landscape.image {
+            images[.landscape] = landscape
+        }
+
+        guard images.count > 0 else {
+            throw IconizerViewControllerError.missingImage
+        }
+
+        let catalog = AssetCatalog<LaunchImage>()
+
+        try enabledPlatforms.forEach { platform in
+            if images[.landscape] != nil {
+                try catalog.addPlatform(platform, orientation: .landscape)
+            }
+
+            if images[.portrait] != nil {
+                try catalog.addPlatform(platform, orientation: .portrait)
+            }
+        }
+
+        try catalog.saveAssetCatalog(named: name, toURL: url, fromImage: images, aspect: mode)
     }
 
     func openSelectedImage(_ image: NSImage?) throws {
         guard let img = image else {
-            throw LaunchImageError.selectedImageNotFound
+            throw IconizerViewControllerError.selectedImageNotFound
         }
         let ratio = img.height / img.width
         if 1 <= ratio {
-            portrait.image  = img
+            portrait.image = img
         }
         if 1 >= ratio {
             landscape.image = img

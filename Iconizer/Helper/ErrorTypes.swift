@@ -4,66 +4,23 @@
 // https://github.com/raphaelhanneken/iconizer
 //
 
-///  Error Types for ContentsJSON.
+///  Error Types for AssetCatalog.
 ///
+///  - rescalingImageFailed:           Rescaling the given image failed.
+///  - gettingJSONDataFailed:          Getting image information from the given JSON file failed.
 ///  - fileNotFound:                  The supplied JSON file could not be found.
 ///  - castingJSONToDictionaryFailed: Casting the supplied JSON file to a Dictionary failed.
 ///  - gettingImagesArrayFailed:      Getting the information which images to generate failed.
 ///  - writingContentsJSONFailed:     Saving the Contents.json for the asset catalog failed.
-enum ContentsJSONError: Error {
-    case outOfBounds
-    case fileNotFound
-    case castingJSONToDictionaryFailed
-    case gettingImagesArrayFailed
-    case writingContentsJSONFailed
-}
-
-///  Error Types for ImageSet.
-///
-///  - rescalingImageFailed:           Rescaling the given image failed.
-///  - gettingJSONDataFailed:          Getting image information from the given JSON file failed.
-///  - missingImage:                   The user didn't supply an image.
-///  - gettingPNGRepresentationFailed: Creating the png representation failed.
-enum ImageSetError: Error {
+enum AssetCatalogError: Error {
+    enum Format {
+        case size, scale, orientation
+    }
+    case missingImage
     case rescalingImageFailed
     case gettingJSONDataFailed
-    case missingImage
-    case gettingPNGRepresentationFailed
-    case selectedImageNotFound
-}
-
-///  Error Types for LaunchImage.
-///
-///  - missingImage:                   The user didn't supply an image.
-///  - missingDataForImageWidth:       Missing information about the width for the new image.
-///  - missingDataForImageHeight:      Missing information about the height for the new image.
-///  - missingDataForImageName:        Missing information about the name for the new image.
-///  - missingDataForImageOrientation: Missing information about the orientation for the new image.
-///  - missingDataForImageIdiom:       Missing information about the idiom for the new image.
-///  - formatError:                    Image format error.
-enum LaunchImageError: Error {
-    case missingImage
-    case missingDataForImageWidth
-    case missingDataForImageHeight
-    case missingDataForImageName
-    case missingDataForImageOrientation
-    case missingDataForImageIdiom
-    case formatError
-    case selectedImageNotFound
-}
-
-///  Error Types for AppIcon
-///
-///  - missingImage:            The user didn't supply an image.
-///  - missingDataForImageSize: Missing information about the size of the new image.
-///  - missingDataForImageName: Missing information about the name of the new image.
-///  - formatError:             Image format error.
-enum AppIconError: Error {
-    case missingImage
-    case missingDataForImageSize
-    case missingDataForImageName
-    case formatError
-    case selectedImageNotFound
+    case invalidFormat(format: Format)
+    case missingPlatformJSON
 }
 
 /// Error Types for the IconizerViewControllerProtocol
@@ -73,6 +30,8 @@ enum AppIconError: Error {
 enum IconizerViewControllerError: Error {
     case missingImage
     case missingPlatform
+    case missingAspectMode
+    case selectedImageNotFound
 }
 
 /// Error types for NSImageExtension

@@ -13,9 +13,6 @@ class ImageSetViewController: NSViewController, IconizerViewControllerProtocol {
     /// the Image Set from.
     @IBOutlet weak var imageView: NSImageView!
 
-    /// Responsible for creating and saving the asset catalog.
-    let imageSet = ImageSet()
-
     /// The name of the corresponding nib file.
     override var nibName: NSNib.Name {
         return "ImageSetView"
@@ -23,20 +20,19 @@ class ImageSetViewController: NSViewController, IconizerViewControllerProtocol {
 
     // MARK: Iconizer View Controller
 
-    func generateRequiredImages() throws {
+    func saveAssetCatalog(named name: String, toURL url: URL) throws {
         guard let image = imageView.image else {
             throw IconizerViewControllerError.missingImage
         }
-        try imageSet.generateScaledImagesFromImage(image)
-    }
 
-    func saveAssetCatalog(named name: String, toURL url: URL) throws {
-        try imageSet.saveAssetCatalogNamed(name, toURL: url)
+        let catalog = AssetCatalog<ImageSet>()
+        try catalog.addPlatform(.undefined)
+        try catalog.saveAssetCatalog(named: name, toURL: url, fromImage: [.none: image])
     }
 
     func openSelectedImage(_ image: NSImage?) throws {
         guard let img = image else {
-            throw ImageSetError.selectedImageNotFound
+            throw IconizerViewControllerError.selectedImageNotFound
         }
         imageView.image = img
     }

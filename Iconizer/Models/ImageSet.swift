@@ -6,57 +6,80 @@
 
 import Cocoa
 
-/// Creates and saves an Image Set asset catalog.
-class ImageSet: NSObject {
+struct ImageSet: Codable {
+    //scale of input image
+    static let inputScale: CGFloat = 3
 
-    /// The resized images.
-    var images: [String: NSImage] = [:]
+    let idiom: String
+    let scale: AssetScale
 
-    /// Create the @1x and @2x images from the supplied image.
-    ///
-    /// - Parameter image: The image to resize.
-    func generateScaledImagesFromImage(_ image: NSImage) throws {
+    var filename: String {
+        return "image@\(scale.rawValue).png"
+    }
+
+    private enum ReadKeys: String, CodingKey {
+        case idiom
+        case scale
+    }
+
+    private enum WriteKeys: String, CodingKey {
+        case idiom
+        case scale
+        case filename
+    }
+
+    init(idiom: String, scale: AssetScale) {
+        self.idiom = idiom
+        self.scale = scale
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: ReadKeys.self)
+        let idiom = try container.decode(String.self, forKey: .idiom)
+
+        guard let scale = AssetScale(rawValue: try container.decode(String.self, forKey: .scale)) else {
+            throw AssetCatalogError.invalidFormat(format: .scale)
+        }
+
+        self.idiom = idiom
+        self.scale = scale
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: WriteKeys.self)
+        try container.encode(idiom, forKey: .idiom)
+        try container.encode(scale.rawValue, forKey: .scale)
+        try container.encode(filename, forKey: .filename)
+    }
+}
+
+extension ImageSet: Asset {
+    static func resourceName(forPlatform platform: String) -> String {
+        return "ImageSet"
+    }
+
+    static func directory(named: String) -> String {
+        return "\(Constants.Directory.imageSet)/\(named).imageset"
+    }
+
+    func save(_ image: [ImageOrientation: NSImage], aspect: AspectMode?, to url: URL) throws {
+        guard let image = image[.none] else {
+            throw AssetCatalogError.missingImage
+        }
+
+        let url = url.appendingPathComponent(filename, isDirectory: false)
         // Get the image size in pixels, as calculating with the width and height values of the NSImage
         // will produce wrong results. See GitHub issue #24
         guard let imageSize = image.sizeInPixels else {
-            throw ImageSetError.rescalingImageFailed
+            throw AssetCatalogError.rescalingImageFailed
         }
 
-        let imageSize1x = NSSize(width: ceil(imageSize.width / 3), height: ceil(imageSize.height / 3))
-        let imageSize2x = NSSize(width: imageSize1x.width * 2, height: imageSize1x.height * 2)
-
-        images["1x"] = image.resize(toSize: imageSize1x, aspectMode: .fit)
-        images["2x"] = image.resize(toSize: imageSize2x, aspectMode: .fit)
-        images["3x"] = image
-    }
-
-    /// Write the Image Set to the supplied file url.
-    ///
-    /// - Parameters:
-    ///   - name: The name of the asset catalog.
-    ///   - url: The URL to save the catalog to.
-    /// - Throws: See ImageSetError for possible values.
-    func saveAssetCatalogNamed(_ name: String, toURL url: URL) throws {
-        let url = url.appendingPathComponent("\(imageSetDir)/\(name).imageset", isDirectory: true)
-        try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true,
-                                                attributes: nil)
-
-        // Manage the Contents.json with an empty platforms array since we don't care
-        // about platforms for Image Sets.
-        var jsonFile = try ContentsJSON(forType: AssetType.imageSet, andPlatforms: [""])
-        for image in jsonFile.images {
-            // Unwrap the information we need.
-            guard let scale = image["scale"], let filename = image["filename"] else {
-                throw ImageSetError.gettingJSONDataFailed
-            }
-            // Get the correct image.
-            guard let img = self.images[scale] else {
-                throw ImageSetError.missingImage
-            }
-            // Save the png representation to the supplied url.
-            try img.savePngTo(url: url.appendingPathComponent(filename))
+        let coef = CGFloat(scale.value) / ImageSet.inputScale
+        let size = NSSize(width: ceil(imageSize.width * coef), height: ceil(imageSize.height * coef))
+        guard let resized = image.resize(toSize: size, aspectMode: aspect ?? .fit) else {
+            throw AssetCatalogError.rescalingImageFailed
         }
-        try jsonFile.saveToURL(url)
-        images = [:]
+
+        try resized.savePng(url: url)
     }
 }

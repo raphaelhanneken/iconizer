@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		615474479E1DB785FB330534 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547EBDFC6B8AAD2ABA45D0 /* ImageSet.swift */; };
+		6154752D9E7B4680E54B8B94 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547EC2357DBABDED490912 /* AppIcon.swift */; };
+		61547989812FC26FB3917DEF /* LaunchImage_iPhone_Portrait.json in Resources */ = {isa = PBXBuildFile; fileRef = 615472EBBE8EE9453E90D31B /* LaunchImage_iPhone_Portrait.json */; };
+		61547B1BAB5AA958132ADCE7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547491B396897B2A4F1E2D /* Asset.swift */; };
+		61547F22829F35935EAA38C1 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6154771EF6D8D4122C664E15 /* LaunchImage.swift */; };
 		8E2F99421C01F13600C2E2D8 /* AppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */; };
 		8E2F99431C01F13600C2E2D8 /* ImageSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */; };
 		8E2F99441C01F13600C2E2D8 /* LaunchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99401C01F13600C2E2D8 /* LaunchImageViewController.swift */; };
 		8E2F99451C01F13600C2E2D8 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99411C01F13600C2E2D8 /* MainWindowController.swift */; };
-		8E2F994B1C01F14E00C2E2D8 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99461C01F14E00C2E2D8 /* AppIcon.swift */; };
-		8E2F994C1C01F14E00C2E2D8 /* ContentsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99471C01F14E00C2E2D8 /* ContentsJSON.swift */; };
-		8E2F994D1C01F14E00C2E2D8 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99481C01F14E00C2E2D8 /* ImageSet.swift */; };
-		8E2F994E1C01F14E00C2E2D8 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99491C01F14E00C2E2D8 /* LaunchImage.swift */; };
+		8E2F994C1C01F14E00C2E2D8 /* AssetCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99471C01F14E00C2E2D8 /* AssetCatalog.swift */; };
 		8E2F994F1C01F14E00C2E2D8 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F994A1C01F14E00C2E2D8 /* PreferenceManager.swift */; };
 		8E2F99541C01F16000C2E2D8 /* AppIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99501C01F16000C2E2D8 /* AppIconView.xib */; };
 		8E2F99551C01F16000C2E2D8 /* ImageSetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99511C01F16000C2E2D8 /* ImageSetView.xib */; };
@@ -41,13 +43,11 @@
 		C57ED8BF205EB1350048B3D1 /* LaunchImage_iPad_Landscape.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BB205EB1340048B3D1 /* LaunchImage_iPad_Landscape.json */; };
 		C57ED8C0205EB1350048B3D1 /* LaunchImage_iPhone_Landscape.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BC205EB1340048B3D1 /* LaunchImage_iPhone_Landscape.json */; };
 		C57ED8C1205EB1350048B3D1 /* LaunchImage_iPad_Portrait.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */; };
-		C57ED8C2205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BE205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json */; };
 		C57ED8C4205EBAF70048B3D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8C3205EBAF70048B3D1 /* Images.xcassets */; };
 		C58CD0A72220145600D286C0 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0A62220145600D286C0 /* Platform.swift */; };
 		C58CD0A92220ABF800D286C0 /* AspectMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0A82220ABF800D286C0 /* AspectMode.swift */; };
 		C58CD0AB2220ACD700D286C0 /* ViewControllerTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0AA2220ACD700D286C0 /* ViewControllerTag.swift */; };
 		C58CD0AD2220AD0500D286C0 /* ImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0AC2220AD0500D286C0 /* ImageOrientation.swift */; };
-		C58CD0AF2220AD5700D286C0 /* AssetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0AE2220AD5700D286C0 /* AssetType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,14 +64,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		615472EBBE8EE9453E90D31B /* LaunchImage_iPhone_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone_Portrait.json; path = Resources/LaunchImage_iPhone_Portrait.json; sourceTree = "<group>"; };
+		61547491B396897B2A4F1E2D /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = Helper/Asset.swift; sourceTree = "<group>"; };
+		6154771EF6D8D4122C664E15 /* LaunchImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchImage.swift; path = Models/LaunchImage.swift; sourceTree = "<group>"; };
+		61547EBDFC6B8AAD2ABA45D0 /* ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSet.swift; path = Models/ImageSet.swift; sourceTree = "<group>"; };
+		61547EC2357DBABDED490912 /* AppIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIcon.swift; path = Models/AppIcon.swift; sourceTree = "<group>"; };
 		8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIconViewController.swift; path = Controller/AppIconViewController.swift; sourceTree = "<group>"; };
 		8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSetViewController.swift; path = Controller/ImageSetViewController.swift; sourceTree = "<group>"; };
 		8E2F99401C01F13600C2E2D8 /* LaunchImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchImageViewController.swift; path = Controller/LaunchImageViewController.swift; sourceTree = "<group>"; };
 		8E2F99411C01F13600C2E2D8 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainWindowController.swift; path = Controller/MainWindowController.swift; sourceTree = "<group>"; };
-		8E2F99461C01F14E00C2E2D8 /* AppIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIcon.swift; path = Models/AppIcon.swift; sourceTree = "<group>"; };
-		8E2F99471C01F14E00C2E2D8 /* ContentsJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentsJSON.swift; path = Models/ContentsJSON.swift; sourceTree = "<group>"; };
-		8E2F99481C01F14E00C2E2D8 /* ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSet.swift; path = Models/ImageSet.swift; sourceTree = "<group>"; };
-		8E2F99491C01F14E00C2E2D8 /* LaunchImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchImage.swift; path = Models/LaunchImage.swift; sourceTree = "<group>"; };
+		8E2F99471C01F14E00C2E2D8 /* AssetCatalog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssetCatalog.swift; path = Models/AssetCatalog.swift; sourceTree = "<group>"; };
 		8E2F994A1C01F14E00C2E2D8 /* PreferenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferenceManager.swift; path = Models/PreferenceManager.swift; sourceTree = "<group>"; };
 		8E2F99501C01F16000C2E2D8 /* AppIconView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AppIconView.xib; path = Views/AppIconView.xib; sourceTree = "<group>"; };
 		8E2F99511C01F16000C2E2D8 /* ImageSetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageSetView.xib; path = Views/ImageSetView.xib; sourceTree = "<group>"; };
@@ -99,13 +101,11 @@
 		C57ED8BB205EB1340048B3D1 /* LaunchImage_iPad_Landscape.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPad_Landscape.json; path = Resources/LaunchImage_iPad_Landscape.json; sourceTree = "<group>"; };
 		C57ED8BC205EB1340048B3D1 /* LaunchImage_iPhone_Landscape.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone_Landscape.json; path = Resources/LaunchImage_iPhone_Landscape.json; sourceTree = "<group>"; };
 		C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPad_Portrait.json; path = Resources/LaunchImage_iPad_Portrait.json; sourceTree = "<group>"; };
-		C57ED8BE205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone_Portrait.json; path = Resources/LaunchImage_iPhone_Portrait.json; sourceTree = "<group>"; };
 		C57ED8C3205EBAF70048B3D1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
 		C58CD0A62220145600D286C0 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Iconizer/Helper/Platform.swift; sourceTree = "<group>"; };
 		C58CD0A82220ABF800D286C0 /* AspectMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AspectMode.swift; path = Iconizer/Helper/AspectMode.swift; sourceTree = "<group>"; };
 		C58CD0AA2220ACD700D286C0 /* ViewControllerTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerTag.swift; path = Iconizer/Helper/ViewControllerTag.swift; sourceTree = "<group>"; };
 		C58CD0AC2220AD0500D286C0 /* ImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageOrientation.swift; path = Iconizer/Helper/ImageOrientation.swift; sourceTree = "<group>"; };
-		C58CD0AE2220AD5700D286C0 /* AssetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AssetType.swift; path = Iconizer/Helper/AssetType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +120,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		615475D57726B691A06CA76C /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				6154771EF6D8D4122C664E15 /* LaunchImage.swift */,
+				61547EC2357DBABDED490912 /* AppIcon.swift */,
+				61547EBDFC6B8AAD2ABA45D0 /* ImageSet.swift */,
+				61547491B396897B2A4F1E2D /* Asset.swift */,
+			);
+			name = Asset;
+			sourceTree = "<group>";
+		};
 		8E3F8F5C1B23488F0096E9EC = {
 			isa = PBXGroup;
 			children = (
@@ -167,8 +178,8 @@
 				C57ED8BB205EB1340048B3D1 /* LaunchImage_iPad_Landscape.json */,
 				C57ED8BC205EB1340048B3D1 /* LaunchImage_iPhone_Landscape.json */,
 				C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */,
-				C57ED8BE205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json */,
 				8E3F8F691B23488F0096E9EC /* Info.plist */,
+				615472EBBE8EE9453E90D31B /* LaunchImage_iPhone_Portrait.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -200,11 +211,9 @@
 		8E3F8F871B2348A80096E9EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8E2F99461C01F14E00C2E2D8 /* AppIcon.swift */,
-				8E2F99481C01F14E00C2E2D8 /* ImageSet.swift */,
-				8E2F99491C01F14E00C2E2D8 /* LaunchImage.swift */,
-				8E2F99471C01F14E00C2E2D8 /* ContentsJSON.swift */,
+				8E2F99471C01F14E00C2E2D8 /* AssetCatalog.swift */,
 				8E2F994A1C01F14E00C2E2D8 /* PreferenceManager.swift */,
+				615475D57726B691A06CA76C /* Asset */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -221,7 +230,6 @@
 				C58CD0A82220ABF800D286C0 /* AspectMode.swift */,
 				C58CD0AA2220ACD700D286C0 /* ViewControllerTag.swift */,
 				C58CD0AC2220AD0500D286C0 /* ImageOrientation.swift */,
-				C58CD0AE2220AD5700D286C0 /* AssetType.swift */,
 			);
 			name = Helper;
 			path = ..;
@@ -314,7 +322,6 @@
 				8E2F996F1C01F19400C2E2D8 /* AppIcon_Car.json in Resources */,
 				C57ED8C1205EB1350048B3D1 /* LaunchImage_iPad_Portrait.json in Resources */,
 				C57ED8C4205EBAF70048B3D1 /* Images.xcassets in Resources */,
-				C57ED8C2205EB1350048B3D1 /* LaunchImage_iPhone_Portrait.json in Resources */,
 				C57ED8C0205EB1350048B3D1 /* LaunchImage_iPhone_Landscape.json in Resources */,
 				8E2F99711C01F19400C2E2D8 /* AppIcon_iPhone.json in Resources */,
 				8E2F99701C01F19400C2E2D8 /* AppIcon_iPad.json in Resources */,
@@ -322,6 +329,7 @@
 				8E2F99731C01F19400C2E2D8 /* AppIcon_Watch.json in Resources */,
 				C52DA9731FE5BD5C0011E3C5 /* AppIcon_iOS.json in Resources */,
 				8E2F99761C01F19400C2E2D8 /* ImageSet.json in Resources */,
+				61547989812FC26FB3917DEF /* LaunchImage_iPhone_Portrait.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,9 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E2F994E1C01F14E00C2E2D8 /* LaunchImage.swift in Sources */,
 				8E2F99601C01F17E00C2E2D8 /* Constants.swift in Sources */,
-				8E2F994D1C01F14E00C2E2D8 /* ImageSet.swift in Sources */,
 				C58CD0A72220145600D286C0 /* Platform.swift in Sources */,
 				C554C3E91F83786700747031 /* IconizerViewControllerProtocol.swift in Sources */,
 				8E5C00D41E0AA3260094FD0C /* DragDropImageView.swift in Sources */,
@@ -361,14 +367,16 @@
 				8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */,
 				8E2F99621C01F17E00C2E2D8 /* NSImageExtensions.swift in Sources */,
 				8E2F994F1C01F14E00C2E2D8 /* PreferenceManager.swift in Sources */,
-				8E2F994C1C01F14E00C2E2D8 /* ContentsJSON.swift in Sources */,
+				8E2F994C1C01F14E00C2E2D8 /* AssetCatalog.swift in Sources */,
 				8E2F99421C01F13600C2E2D8 /* AppIconViewController.swift in Sources */,
 				C58CD0A92220ABF800D286C0 /* AspectMode.swift in Sources */,
 				8E2F99641C01F17E00C2E2D8 /* StringExtensions.swift in Sources */,
 				8E2F99611C01F17E00C2E2D8 /* ErrorTypes.swift in Sources */,
-				8E2F994B1C01F14E00C2E2D8 /* AppIcon.swift in Sources */,
 				C58CD0AB2220ACD700D286C0 /* ViewControllerTag.swift in Sources */,
-				C58CD0AF2220AD5700D286C0 /* AssetType.swift in Sources */,
+				61547F22829F35935EAA38C1 /* LaunchImage.swift in Sources */,
+				6154752D9E7B4680E54B8B94 /* AppIcon.swift in Sources */,
+				615474479E1DB785FB330534 /* ImageSet.swift in Sources */,
+				61547B1BAB5AA958132ADCE7 /* Asset.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
