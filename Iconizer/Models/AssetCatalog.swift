@@ -26,12 +26,18 @@ class AssetCatalog<T: Codable & Asset>: Encodable {
     ///   - name: The name of the asset catalog
     ///   - url: The URL to save the catalog to
     /// - Throws: An AppIconError
-    func saveAssetCatalog(named name: String, toURL url: URL, fromImage image: [ImageOrientation: NSImage], aspect: AspectMode? = nil) throws {
+    func saveAssetCatalog(named name: String, toURL url: URL,
+                          fromImage image: [ImageOrientation: NSImage],
+                          aspect: AspectMode? = nil) throws {
         let destination = url.appendingPathComponent(T.directory(named: name), isDirectory: true)
         try FileManager.default.createDirectory(at: destination, withIntermediateDirectories: true, attributes: nil)
 
         for assetItem in images {
-            try assetItem.save(image, aspect: aspect, to: destination)
+            //remove images from memory after it was saved
+            try autoreleasepool {
+                try assetItem.save(image, aspect: aspect, to: destination)
+            }
+
         }
 
         try saveContentsJson(to: destination)

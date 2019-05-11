@@ -61,6 +61,7 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
 
     // MARK: Iconizer View Controller
 
+    // swiftlint:disable cyclomatic_complexity
     func saveAssetCatalog(named name: String, toURL url: URL) throws {
         guard enabledPlatforms.count > 0 else {
             throw IconizerViewControllerError.missingPlatform
@@ -97,6 +98,7 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
 
         try catalog.saveAssetCatalog(named: name, toURL: url, fromImage: images, aspect: mode)
     }
+    // swiftlint:enable cyclomatic_complexity
 
     func openSelectedImage(_ image: NSImage?) throws {
         guard let img = image else {

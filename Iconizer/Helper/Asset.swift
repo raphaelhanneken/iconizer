@@ -36,7 +36,7 @@ extension Asset where Self: Decodable {
         return try decoder.decode([Self].self, from: data)
     }
 }
-
+// swiftlint:disable identifier_name
 enum AssetScale: String {
     case x1 = "1x"
     case x2 = "2x"
@@ -50,6 +50,7 @@ enum AssetScale: String {
         }
     }
 }
+// swiftlint:enable identifier_name
 
 //(width)x(height)
 //must be for scale x1
