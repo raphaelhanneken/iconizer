@@ -4,21 +4,18 @@
 // https://github.com/raphaelhanneken/iconizer
 //
 
-///  Possible image orientations for a launch image.
-///
-///  - Portrait:  Portrait image.
-///  - Landscape: Landscape image.
+///  Possible image orientations
 enum ImageOrientation: String {
     case portrait
     case landscape
-    case none
+    case all
 
     //used to generate .json filename
     var suffix: String {
         switch self {
         case .portrait:  return "_Portrait"
         case .landscape: return "_Landscape"
-        case .none: return ""
+        case .all: return ""
         }
     }
 }

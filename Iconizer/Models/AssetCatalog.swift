@@ -15,7 +15,7 @@ class AssetCatalog<T: Codable & Asset>: Encodable {
     private let author = "Iconizer"
     private let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 
-    func add(_ platform: Platform, orientation: ImageOrientation = .none) throws {
+    func add(_ platform: Platform, orientation: ImageOrientation = .all) throws {
         let images = try T.images(forPlatform: platform, orientation: orientation)
         items.append(contentsOf: images)
     }

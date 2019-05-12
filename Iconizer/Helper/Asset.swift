@@ -25,7 +25,7 @@ extension Asset {
 }
 
 extension Asset where Self: Decodable {
-    static func images(forPlatform platform: Platform, orientation: ImageOrientation = .none) throws -> [Self] {
+    static func images(forPlatform platform: Platform, orientation: ImageOrientation = .all) throws -> [Self] {
         //.json file
         let url = try resourceURL(name: resourcePrefix + platform.name(forOrientation: orientation))
         let data = try Data(contentsOf: url)

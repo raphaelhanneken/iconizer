@@ -61,7 +61,7 @@ extension ImageSet: Asset {
     }
 
     func save(_ image: [ImageOrientation: NSImage], aspect: AspectMode?, to url: URL) throws {
-        guard let image = image[.none] else {
+        guard let image = image[.all] else {
             throw AssetCatalogError.missingImage
         }
 
