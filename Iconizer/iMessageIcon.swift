@@ -1,6 +1,7 @@
 //
-// Created by Kirow Onet on 2019-05-11.
-// Copyright (c) 2019 Raphael Hanneken. All rights reserved.
+// MessagesIcon.swift
+// Iconizer
+// https://github.com/raphaelhanneken/iconizer
 //
 
 import Foundation
@@ -14,6 +15,7 @@ class MessagesIcon: AppIcon {
     override class var `extension`: String {
         return Constants.AssetExtension.iMessageIcon
     }
+
     override var filename: String {
         let realSize = size.multiply(scale)
         return "icon-\(realSize.width)x\(realSize.height).png"

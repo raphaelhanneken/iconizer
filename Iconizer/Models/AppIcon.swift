@@ -79,7 +79,7 @@ class AppIcon: Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: WriteKeys.self)
         try container.encode(idiom, forKey: .idiom)
-        try container.encode(size.name, forKey: .size)
+        try container.encode(size.string, forKey: .size)
         try container.encode(scale.rawValue, forKey: .scale)
         try container.encode(filename, forKey: .filename)
         try container.encodeIfPresent(role, forKey: .role)
@@ -89,9 +89,7 @@ class AppIcon: Codable {
 }
 
 extension AppIcon: Asset {
-    static func resourceName(forPlatform platform: String) -> String {
-        return "AppIcon_" + platform
-    }
+    static let resourcePrefix = "AppIcon_"
 
     static func directory(named: String) -> String {
         return "\(directory)/\(named).\(self.extension)"

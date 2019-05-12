@@ -6,7 +6,7 @@
 
 import Cocoa
 
-struct LaunchImage: Codable {
+class LaunchImage: Codable {
     let extent: String
     let idiom: String
     let subtype: String?
@@ -19,7 +19,7 @@ struct LaunchImage: Codable {
     let size: AssetSize
 
     var filename: String {
-        return "LaunchImage-\(size.name).png"
+        return "LaunchImage-\(size.string).png"
     }
 
     private enum ReadKeys: String, CodingKey {
@@ -42,7 +42,7 @@ struct LaunchImage: Codable {
         case filename
     }
 
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let decoder = try decoder.container(keyedBy: ReadKeys.self)
         let extent = try decoder.decode(String.self, forKey: .extent)
         let idiom = try decoder.decode(String.self, forKey: .idiom)
@@ -81,9 +81,7 @@ struct LaunchImage: Codable {
 }
 
 extension LaunchImage: Asset {
-    static func resourceName(forPlatform platform: String) -> String {
-        return "LaunchImage_" + platform
-    }
+    static let resourcePrefix = "LaunchImage_"
 
     static func directory(named: String) -> String {
         return "\(Constants.Directory.launchImage)/\(named).\(Constants.AssetExtension.launchImage)"

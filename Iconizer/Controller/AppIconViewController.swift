@@ -97,10 +97,10 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
         try appPlatforms.forEach { platform in
             if platform == .iMessage {
                 let iMessageCatalog = AssetCatalog<MessagesIcon>()
-                try iMessageCatalog.addPlatform(.iMessage)
+                try iMessageCatalog.add(.iMessage)
                 try iMessageCatalog.save([.none: image], named: name, toURL: url)
             } else {
-                try catalog.addPlatform(platform)
+                try catalog.add(platform)
             }
         }
 

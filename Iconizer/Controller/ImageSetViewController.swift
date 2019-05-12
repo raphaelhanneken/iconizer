@@ -26,7 +26,7 @@ class ImageSetViewController: NSViewController, IconizerViewControllerProtocol {
         }
 
         let catalog = AssetCatalog<ImageSet>()
-        try catalog.addPlatform(.undefined)
+        try catalog.add(.undefined)
         try catalog.save([.none: image], named: name, toURL: url)
     }
 

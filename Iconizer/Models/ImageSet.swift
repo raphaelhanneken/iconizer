@@ -6,7 +6,7 @@
 
 import Cocoa
 
-struct ImageSet: Codable {
+class ImageSet: Codable {
     //scale of input image
     static let inputScale: CGFloat = 3
 
@@ -33,7 +33,7 @@ struct ImageSet: Codable {
         self.scale = scale
     }
 
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: ReadKeys.self)
         let idiom = try container.decode(String.self, forKey: .idiom)
 
@@ -54,9 +54,7 @@ struct ImageSet: Codable {
 }
 
 extension ImageSet: Asset {
-    static func resourceName(forPlatform platform: String) -> String {
-        return "ImageSet"
-    }
+    static let resourcePrefix = "ImageSet"
 
     static func directory(named: String) -> String {
         return "\(Constants.Directory.imageSet)/\(named).\(Constants.AssetExtension.imageSet)"

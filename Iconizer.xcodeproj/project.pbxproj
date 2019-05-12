@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		61547115E26963B8850B6766 /* AppIcon_iMessage.json in Resources */ = {isa = PBXBuildFile; fileRef = 61547C662152E0FD90129D23 /* AppIcon_iMessage.json */; };
+		61547374EBB2AD6A8638F823 /* ImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6154785D298698C27CBBF9DA /* ImageOrientation.swift */; };
 		615474479E1DB785FB330534 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547EBDFC6B8AAD2ABA45D0 /* ImageSet.swift */; };
+		615474EBBA949D837E57B37B /* AssetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547F235EFD2AB677299655 /* AssetSize.swift */; };
 		6154752D9E7B4680E54B8B94 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547EC2357DBABDED490912 /* AppIcon.swift */; };
+		615476129210A99C68C1529B /* AspectMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615472CF3B9100EEC7A67F35 /* AspectMode.swift */; };
 		615478BFF33EE77B113D9A2E /* iMessageIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6154728EE4ABE06BF6C6F01D /* iMessageIcon.swift */; };
+		615479408052AD88EF3F1375 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615470E5E6246DA215022584 /* Platform.swift */; };
 		61547989812FC26FB3917DEF /* LaunchImage_iPhone_Portrait.json in Resources */ = {isa = PBXBuildFile; fileRef = 615472EBBE8EE9453E90D31B /* LaunchImage_iPhone_Portrait.json */; };
 		61547B1BAB5AA958132ADCE7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547491B396897B2A4F1E2D /* Asset.swift */; };
+		61547B9CD09513803896420B /* AssetScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547BD61AE7FFB120E33CFC /* AssetScale.swift */; };
 		61547F22829F35935EAA38C1 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6154771EF6D8D4122C664E15 /* LaunchImage.swift */; };
 		8E2F99421C01F13600C2E2D8 /* AppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */; };
 		8E2F99431C01F13600C2E2D8 /* ImageSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */; };
@@ -46,10 +51,7 @@
 		C57ED8C0205EB1350048B3D1 /* LaunchImage_iPhone_Landscape.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BC205EB1340048B3D1 /* LaunchImage_iPhone_Landscape.json */; };
 		C57ED8C1205EB1350048B3D1 /* LaunchImage_iPad_Portrait.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */; };
 		C57ED8C4205EBAF70048B3D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8C3205EBAF70048B3D1 /* Images.xcassets */; };
-		C58CD0A72220145600D286C0 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0A62220145600D286C0 /* Platform.swift */; };
-		C58CD0A92220ABF800D286C0 /* AspectMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0A82220ABF800D286C0 /* AspectMode.swift */; };
 		C58CD0AB2220ACD700D286C0 /* ViewControllerTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0AA2220ACD700D286C0 /* ViewControllerTag.swift */; };
-		C58CD0AD2220AD0500D286C0 /* ImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0AC2220AD0500D286C0 /* ImageOrientation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,13 +68,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		615470E5E6246DA215022584 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		6154728EE4ABE06BF6C6F01D /* iMessageIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iMessageIcon.swift; sourceTree = "<group>"; };
+		615472CF3B9100EEC7A67F35 /* AspectMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectMode.swift; sourceTree = "<group>"; };
 		615472EBBE8EE9453E90D31B /* LaunchImage_iPhone_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone_Portrait.json; path = Resources/LaunchImage_iPhone_Portrait.json; sourceTree = "<group>"; };
 		61547491B396897B2A4F1E2D /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = Helper/Asset.swift; sourceTree = "<group>"; };
 		6154771EF6D8D4122C664E15 /* LaunchImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchImage.swift; path = Models/LaunchImage.swift; sourceTree = "<group>"; };
+		6154785D298698C27CBBF9DA /* ImageOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageOrientation.swift; sourceTree = "<group>"; };
+		61547BD61AE7FFB120E33CFC /* AssetScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetScale.swift; sourceTree = "<group>"; };
 		61547C662152E0FD90129D23 /* AppIcon_iMessage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_iMessage.json; path = Resources/AppIcon_iMessage.json; sourceTree = "<group>"; };
 		61547EBDFC6B8AAD2ABA45D0 /* ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSet.swift; path = Models/ImageSet.swift; sourceTree = "<group>"; };
 		61547EC2357DBABDED490912 /* AppIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIcon.swift; path = Models/AppIcon.swift; sourceTree = "<group>"; };
+		61547F235EFD2AB677299655 /* AssetSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetSize.swift; sourceTree = "<group>"; };
 		8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIconViewController.swift; path = Controller/AppIconViewController.swift; sourceTree = "<group>"; };
 		8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSetViewController.swift; path = Controller/ImageSetViewController.swift; sourceTree = "<group>"; };
 		8E2F99401C01F13600C2E2D8 /* LaunchImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchImageViewController.swift; path = Controller/LaunchImageViewController.swift; sourceTree = "<group>"; };
@@ -106,10 +113,7 @@
 		C57ED8BC205EB1340048B3D1 /* LaunchImage_iPhone_Landscape.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone_Landscape.json; path = Resources/LaunchImage_iPhone_Landscape.json; sourceTree = "<group>"; };
 		C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPad_Portrait.json; path = Resources/LaunchImage_iPad_Portrait.json; sourceTree = "<group>"; };
 		C57ED8C3205EBAF70048B3D1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
-		C58CD0A62220145600D286C0 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Iconizer/Helper/Platform.swift; sourceTree = "<group>"; };
-		C58CD0A82220ABF800D286C0 /* AspectMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AspectMode.swift; path = Iconizer/Helper/AspectMode.swift; sourceTree = "<group>"; };
 		C58CD0AA2220ACD700D286C0 /* ViewControllerTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerTag.swift; path = Iconizer/Helper/ViewControllerTag.swift; sourceTree = "<group>"; };
-		C58CD0AC2220AD0500D286C0 /* ImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageOrientation.swift; path = Iconizer/Helper/ImageOrientation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,18 @@
 				6154728EE4ABE06BF6C6F01D /* iMessageIcon.swift */,
 			);
 			name = Asset;
+			sourceTree = "<group>";
+		};
+		615478E5B6D62E43DD5EEF11 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				6154785D298698C27CBBF9DA /* ImageOrientation.swift */,
+				615472CF3B9100EEC7A67F35 /* AspectMode.swift */,
+				615470E5E6246DA215022584 /* Platform.swift */,
+				61547BD61AE7FFB120E33CFC /* AssetScale.swift */,
+				61547F235EFD2AB677299655 /* AssetSize.swift */,
+			);
+			path = Asset;
 			sourceTree = "<group>";
 		};
 		8E3F8F5C1B23488F0096E9EC = {
@@ -232,10 +248,8 @@
 				8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */,
 				8E2F995D1C01F17E00C2E2D8 /* NSImageExtensions.swift */,
 				8E2F995F1C01F17E00C2E2D8 /* StringExtensions.swift */,
-				C58CD0A62220145600D286C0 /* Platform.swift */,
-				C58CD0A82220ABF800D286C0 /* AspectMode.swift */,
 				C58CD0AA2220ACD700D286C0 /* ViewControllerTag.swift */,
-				C58CD0AC2220AD0500D286C0 /* ImageOrientation.swift */,
+				615478E5B6D62E43DD5EEF11 /* Asset */,
 			);
 			name = Helper;
 			path = ..;
@@ -364,19 +378,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E2F99601C01F17E00C2E2D8 /* Constants.swift in Sources */,
-				C58CD0A72220145600D286C0 /* Platform.swift in Sources */,
 				C554C3E91F83786700747031 /* IconizerViewControllerProtocol.swift in Sources */,
 				8E5C00D41E0AA3260094FD0C /* DragDropImageView.swift in Sources */,
 				8E2F99431C01F13600C2E2D8 /* ImageSetViewController.swift in Sources */,
 				8E2F99451C01F13600C2E2D8 /* MainWindowController.swift in Sources */,
-				C58CD0AD2220AD0500D286C0 /* ImageOrientation.swift in Sources */,
 				8E2F99441C01F13600C2E2D8 /* LaunchImageViewController.swift in Sources */,
 				8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */,
 				8E2F99621C01F17E00C2E2D8 /* NSImageExtensions.swift in Sources */,
 				8E2F994F1C01F14E00C2E2D8 /* PreferenceManager.swift in Sources */,
 				8E2F994C1C01F14E00C2E2D8 /* AssetCatalog.swift in Sources */,
 				8E2F99421C01F13600C2E2D8 /* AppIconViewController.swift in Sources */,
-				C58CD0A92220ABF800D286C0 /* AspectMode.swift in Sources */,
 				8E2F99641C01F17E00C2E2D8 /* StringExtensions.swift in Sources */,
 				8E2F99611C01F17E00C2E2D8 /* ErrorTypes.swift in Sources */,
 				C58CD0AB2220ACD700D286C0 /* ViewControllerTag.swift in Sources */,
@@ -385,6 +396,11 @@
 				615474479E1DB785FB330534 /* ImageSet.swift in Sources */,
 				61547B1BAB5AA958132ADCE7 /* Asset.swift in Sources */,
 				615478BFF33EE77B113D9A2E /* iMessageIcon.swift in Sources */,
+				61547374EBB2AD6A8638F823 /* ImageOrientation.swift in Sources */,
+				615476129210A99C68C1529B /* AspectMode.swift in Sources */,
+				615479408052AD88EF3F1375 /* Platform.swift in Sources */,
+				61547B9CD09513803896420B /* AssetScale.swift in Sources */,
+				615474EBBA949D837E57B37B /* AssetSize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

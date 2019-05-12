@@ -13,6 +13,7 @@ enum ImageOrientation: String {
     case landscape
     case none
 
+    //used to generate .json filename
     var suffix: String {
         switch self {
         case .portrait:  return "_Portrait"

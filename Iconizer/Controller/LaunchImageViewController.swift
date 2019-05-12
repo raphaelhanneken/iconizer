@@ -88,11 +88,11 @@ class LaunchImageViewController: NSViewController, IconizerViewControllerProtoco
 
         try enabledPlatforms.forEach { platform in
             if images[.landscape] != nil {
-                try catalog.addPlatform(platform, orientation: .landscape)
+                try catalog.add(platform, orientation: .landscape)
             }
 
             if images[.portrait] != nil {
-                try catalog.addPlatform(platform, orientation: .portrait)
+                try catalog.add(platform, orientation: .portrait)
             }
         }
 
