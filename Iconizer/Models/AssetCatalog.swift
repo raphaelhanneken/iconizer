@@ -9,15 +9,14 @@ import Cocoa
 /// Reads and writes the Contents.json files.
 class AssetCatalog<T: Codable & Asset>: Encodable {
     /// The image information from <Asset>.json
-    var items = [T]()
+    var images = [T]()
 
     //general information for Contents.json
     private let author = "Iconizer"
     private let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 
     func add(_ platform: Platform, orientation: ImageOrientation = .all) throws {
-        let images = try T.images(forPlatform: platform, orientation: orientation)
-        items.append(contentsOf: images)
+        images.append(contentsOf: try T.images(forPlatform: platform, orientation: orientation))
     }
 
     /// Writes the App Icon for all selected platforms to the supplied file url.
@@ -31,7 +30,7 @@ class AssetCatalog<T: Codable & Asset>: Encodable {
         let destination = url.appendingPathComponent(T.directory(named: named), isDirectory: true)
         try FileManager.default.createDirectory(at: destination, withIntermediateDirectories: true, attributes: nil)
 
-        for assetItem in items {
+        for assetItem in images {
             //remove images from memory after it was saved
             try autoreleasepool {
                 try assetItem.save(image, aspect: aspect, to: destination)
