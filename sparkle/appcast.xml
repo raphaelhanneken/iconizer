@@ -7,6 +7,28 @@
       <language>en</language>
 
       <item>
+        <title>Iconizer v3.0.0</title>
+        <description>
+          <![CDATA[
+          <ul>
+          <li>A lot of under the hood rework, thanks <a href="https://github.com/Kirow">@Kirow</a></li>
+          <li>Added support for iMessage sticker sets, thanks <a href="https://github.com/pionl">@pionl</a></li>
+          </ul>
+          <p>Build with Xcode 10.2.1 (10E1001)</p>
+          ]]>
+        </description>
+        <pubDate>Wed, 22 May 2019 20:00:00 +0100</pubDate>
+        <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+        <enclosure
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/3.0.0/Iconizer.dmg"
+          sparkle:version="304"
+          sparkle:shortVersionString="3.0.0"
+          sparkle:dsaSignature="MCwCFCJpzNwZvNuysyzed5PPrW3T1yTFAhR00GTY86UkP30Sh5gQbJaWtf2c+g=="
+          length="9508705"
+          type="application/octet-stream" />
+      </item>
+
+      <item>
         <title>Iconizer v2.6.3</title>
         <description>
           <![CDATA[
