@@ -27,7 +27,7 @@ class ImageSetViewController: NSViewController, IconizerViewControllerProtocol {
 
         let catalog = AssetCatalog<ImageSet>()
         try catalog.add(.undefined)
-        try catalog.save([.none: image], named: name, toURL: url)
+        try catalog.save([.all: image], named: name, toURL: url)
     }
 
     func openSelectedImage(_ image: NSImage?) throws {

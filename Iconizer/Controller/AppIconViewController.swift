@@ -98,13 +98,13 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
             if platform == .iMessage {
                 let iMessageCatalog = AssetCatalog<MessagesIcon>()
                 try iMessageCatalog.add(.iMessage)
-                try iMessageCatalog.save([.none: image], named: name, toURL: url)
+                try iMessageCatalog.save([.all: image], named: name, toURL: url)
             } else {
                 try catalog.add(platform)
             }
         }
 
-        try catalog.save([.none: image], named: name, toURL: url)
+        try catalog.save([.all: image], named: name, toURL: url)
     }
 
     func openSelectedImage(_ image: NSImage?) throws {
