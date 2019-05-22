@@ -14,8 +14,9 @@ class LaunchImage: Codable {
     let orientation: ImageOrientation
     let scale: AssetScale
 
-    //pre-scaled in json, manually added
-    //TODO: remove from json. Need calculation algorithm
+    // pre-scaled in json, manually added
+    // swiftlint:disable:next todo
+    // TODO: remove from json. Need calculation algorithm
     let size: AssetSize
 
     var filename: String {
