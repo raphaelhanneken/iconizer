@@ -11,11 +11,6 @@ protocol IconizerViewControllerProtocol {
 
     var view: NSView { get set }
 
-    ///  Generate the images for the current asset type.
-    ///
-    ///  - Throws: An asset catalog specific error.
-    func generateRequiredImages() throws
-
     /// Save the asset catalog.
     ///
     /// - Parameters:

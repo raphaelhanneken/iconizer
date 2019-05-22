@@ -4,53 +4,42 @@
 // https://github.com/raphaelhanneken/iconizer
 //
 
-// MARK: - Platform names
+struct Constants {
+    // MARK: - Directory names
+    struct Directory {
+        static let root = "Iconizer Assets"
+        static let appIcon = root + "/App Icons"
+        static let iMessageIcon = root + "/iMessage Icons"
+        static let launchImage = root + "/Launch Images"
+        static let imageSet = root + "/Image Sets"
+    }
 
-/// Platform: Apple Watch
-@available(*, deprecated)
-let appleWatchPlatformName = "Watch"
-/// Platform: iPad
-@available(*, deprecated)
-let iPadPlatformName = "iPad"
-/// Platform: iPhone
-@available(*, deprecated)
-let iPhonePlatformName = "iPhone"
-/// Platform: OS X
-@available(*, deprecated)
-let macOSPlatformName = "Mac"
-/// Platform: Car Play
-@available(*, deprecated)
-let carPlayPlatformName = "Car"
-/// Platform: iOS – for icons that are needed on both, iPad and iPhone
-@available(*, deprecated)
-let iOSPlatformName = "iOS"
+    struct AssetExtension {
+        static let appIcon = "appiconset"
+        static let iMessageIcon = "stickersiconset"
+        static let imageSet = "imageset"
+        static let launchImage = "launchimage"
+    }
 
-// MARK: - Directory names
-
-/// Default url for app icons.
-let appIconDir = "Iconizer Assets/App Icons"
-/// Default url for launch images.
-let launchImageDir = "Iconizer Assets/Launch Images"
-/// Default url for image sets.
-let imageSetDir = "Iconizer Assets/Image Sets"
-
-// MARK: - Keys to access the user defaults
-
-/// Generate an AppIcon for the Apple Watch.
-let generateAppIconForAppleWatchKey = "generateAppIconForAppleWatch"
-/// Generate an AppIcon for the iPhone.
-let generateAppIconForIPhoneKey = "generateAppIconForIPhone"
-/// Generate an AppIcon for the iPad.
-let generateAppIconForIPadKey = "generateAppIconForIPad"
-/// Generate an AppIcon for OS X.
-let generateAppIconForMacKey = "generateAppIconForMac"
-/// Generate an AppIcon for CarPlay
-let generateAppIconForCarKey = "generateAppIconForCar"
-/// Generate an AppIcon with multiple platforms (combined asset)
-let combinedAppIconAssetKey = "combinedAppIconAsset"
-/// Selected ExportTypeViewController (NSSegmentedControl)
-let selectedExportTypeKey = "selectedExportType"
-/// Generate a LaunchImage for the iPhone.
-let generateLaunchImageForIPhoneKey = "generateLaunchImageForIPhone"
-/// Generate a LaunchImage for the iPad.
-let generateLaunchImageForIPadKey = "generateLaunchImageForIPad"
+    // MARK: - Keys to access the user defaults
+    struct SettingKeys {
+        /// Generate an AppIcon for the Apple Watch.
+        static let generateAppIconForAppleWatchKey = "generateAppIconForAppleWatch"
+        /// Generate an AppIcon for the iPhone.
+        static let generateAppIconForIPhoneKey = "generateAppIconForIPhone"
+        /// Generate an AppIcon for the iPad.
+        static let generateAppIconForIPadKey = "generateAppIconForIPad"
+        /// Generate an AppIcon for OS X.
+        static let generateAppIconForMacKey = "generateAppIconForMac"
+        /// Generate an AppIcon for CarPlay
+        static let generateAppIconForCarKey = "generateAppIconForCar"
+        /// Generate an AppIcon for CarPlay
+        static let generateMessagesIconKey = "generateIMessageIconKey"
+        /// Selected ExportTypeViewController (NSSegmentedControl)
+        static let selectedExportTypeKey = "selectedExportType"
+        /// Generate a LaunchImage for the iPhone.
+        static let generateLaunchImageForIPhoneKey = "generateLaunchImageForIPhone"
+        /// Generate a LaunchImage for the iPad.
+        static let generateLaunchImageForIPadKey = "generateLaunchImageForIPad"
+    }
+}

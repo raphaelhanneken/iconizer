@@ -19,40 +19,40 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
     @IBOutlet weak var osx: NSButton!
     /// Create an App Icon for the Apple Watch.
     @IBOutlet weak var watch: NSButton!
-    /// Export the selected App Icons as comibined asset.
-    @IBOutlet weak var combined: NSButton!
+    /// Create an Icon for the iMessage.
+    @IBOutlet weak var iMessage: NSButton!
     /// Holds the ImageView for the image to generate the App Icon from.
     @IBOutlet weak var imageView: NSImageView!
-
-    /// Responsible for creating and saving the asset catalog.
-    let appIcon = AppIcon()
 
     /// Manage the user's preferences.
     let prefManager = PreferenceManager()
 
     /// Check which platforms are selected.
-    var enabledPlatforms: [String] {
+    var appPlatforms: [Platform] {
         // String array of selected platforms.
-        var tmp: [String] = []
-        if carPlay.state == NSControl.StateValue.on {
-            tmp.append(carPlayPlatformName)
+        var platform = [Platform]()
+        if carPlay.state == .on {
+            platform.append(Platform.car)
         }
-        if iPad.state == NSControl.StateValue.on {
-            tmp.append(iPadPlatformName)
+        if iPad.state == .on {
+            platform.append(Platform.iPad)
         }
-        if iPhone.state == NSControl.StateValue.on {
-            tmp.append(iPhonePlatformName)
+        if iPhone.state == .on {
+            platform.append(Platform.iPhone)
         }
-        if osx.state == NSControl.StateValue.on {
-            tmp.append(macOSPlatformName)
+        if osx.state == .on {
+            platform.append(Platform.macOS)
         }
-        if watch.state == NSControl.StateValue.on {
-            tmp.append(appleWatchPlatformName)
+        if watch.state == .on {
+            platform.append(Platform.watch)
         }
-        if iPad.state == NSControl.StateValue.on || iPhone.state == NSControl.StateValue.on {
-            tmp.append(iOSPlatformName)
+        if iPad.state == .on || iPhone.state == .on {
+            platform.append(Platform.iOS)
         }
-        return tmp
+        if iMessage.state == .on {
+            platform.append(Platform.iMessage)
+        }
+        return platform
     }
 
     /// The name of the corresponding nib file.
@@ -64,49 +64,52 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        watch.state    = NSControl.StateValue(rawValue: prefManager.generateAppIconForAppleWatch)
-        iPhone.state   = NSControl.StateValue(rawValue: prefManager.generateAppIconForIPhone)
-        iPad.state     = NSControl.StateValue(rawValue: prefManager.generateAppIconForIPad)
-        osx.state      = NSControl.StateValue(rawValue: prefManager.generateAppIconForMac)
-        carPlay.state  = NSControl.StateValue(rawValue: prefManager.generateAppIconForCar)
-        combined.state = NSControl.StateValue(rawValue: prefManager.combinedAppIconAsset)
+
+        watch.state = .init(rawValue: prefManager.generateAppIconForAppleWatch)
+        iPhone.state = .init(rawValue: prefManager.generateAppIconForIPhone)
+        iPad.state = .init(rawValue: prefManager.generateAppIconForIPad)
+        osx.state = .init(rawValue: prefManager.generateAppIconForMac)
+        carPlay.state = .init(rawValue: prefManager.generateAppIconForCar)
+        iMessage.state = .init(rawValue: prefManager.generateMessagesIcon)
     }
 
     override func viewWillDisappear() {
         prefManager.generateAppIconForAppleWatch = watch.state.rawValue
-        prefManager.generateAppIconForIPad       = iPad.state.rawValue
-        prefManager.generateAppIconForIPhone     = iPhone.state.rawValue
-        prefManager.generateAppIconForMac        = osx.state.rawValue
-        prefManager.generateAppIconForCar        = carPlay.state.rawValue
-        prefManager.combinedAppIconAsset         = combined.state.rawValue
+        prefManager.generateAppIconForIPad = iPad.state.rawValue
+        prefManager.generateAppIconForIPhone = iPhone.state.rawValue
+        prefManager.generateAppIconForMac = osx.state.rawValue
+        prefManager.generateAppIconForCar = carPlay.state.rawValue
+        prefManager.generateMessagesIcon = iMessage.state.rawValue
     }
 
     // MARK: Iconizer View Controller
-
-    func generateRequiredImages() throws {
+    func saveAssetCatalog(named name: String, toURL url: URL) throws {
         guard let image = imageView.image else {
             throw IconizerViewControllerError.missingImage
         }
 
-        guard enabledPlatforms.count > 0 else {
+        guard appPlatforms.count > 0 else {
             throw IconizerViewControllerError.missingPlatform
         }
 
-        // Generate the necessary images.
-        try appIcon.generateImagesForPlatforms(enabledPlatforms, fromImage: image)
-    }
+        let catalog = AssetCatalog<AppIcon>()
 
-    func saveAssetCatalog(named name: String, toURL url: URL) throws {
-        if combined.state == NSControl.StateValue.on {
-            try appIcon.saveCombinedAssetCatalog(named: name, toUrl: url)
-        } else {
-            try appIcon.saveAssetCatalog(named: name, toURL: url)
+        try appPlatforms.forEach { platform in
+            if platform == .iMessage {
+                let iMessageCatalog = AssetCatalog<MessagesIcon>()
+                try iMessageCatalog.add(.iMessage)
+                try iMessageCatalog.save([.all: image], named: name, toURL: url)
+            } else {
+                try catalog.add(platform)
+            }
         }
+
+        try catalog.save([.all: image], named: name, toURL: url)
     }
 
     func openSelectedImage(_ image: NSImage?) throws {
         guard let img = image else {
-            throw AppIconError.selectedImageNotFound
+            throw IconizerViewControllerError.selectedImageNotFound
         }
 
         imageView.image = img

@@ -69,8 +69,6 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                     guard let url = exportSheet.url?.deletingLastPathComponent() else {
                         return
                     }
-                    // Generate the required images.
-                    try currentView.generateRequiredImages()
                     // Save the generated asset catalog to the selected file URL.
                     try currentView.saveAssetCatalog(named: exportSheet.nameFieldStringValue, toURL: url)
                     // Open the generated asset catalog in Finder.
@@ -83,9 +81,6 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                 } catch IconizerViewControllerError.missingPlatform {
                     self.displayAlertModal(withMessage: "Missing Platform",
                                            andText: "You have to at least select one platform.")
-                } catch ContentsJSONError.fileNotFound {
-                    self.displayAlertModal(withMessage: "File not Found",
-                                           andText: "The JSON file for generating the necessary images is missing.")
                 } catch {
                     self.displayAlertModal(withMessage: "Oh Snap!",
                                            andText: "This should not have happened.")

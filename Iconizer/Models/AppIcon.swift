@@ -6,117 +6,114 @@
 
 import Cocoa
 
-/// Creates and saves an App Icon asset catalog.
-class AppIcon: NSObject {
+class AppIcon: Codable {
+    private static let marketing = "marketing"
 
-    /// The resized images.
-    var images: [String: [String: NSImage?]] = [:]
-
-    /// Generate the necessary images for the selected platforms.
-    ///
-    /// - Parameters:
-    ///   - platforms: The platforms to generate icon for.
-    ///   - image: The image to generate the icon from.
-    /// - Throws: See AppIconError for possible values.
-    func generateImagesForPlatforms(_ platforms: [String], fromImage image: NSImage) throws {
-        // Loop through the selected platforms
-        for platform in platforms {
-            // Temporary dict to hold the generated images.
-            var tmpImages: [String: NSImage?] = [:]
-
-            // Create a new JSON object for the current platform.
-            let jsonData = try ContentsJSON(forType: AssetType.appIcon, andPlatforms: [platform])
-
-            for imageData in jsonData.images {
-                // Get the expected size, since App Icons are quadratic we only need one value.
-                guard let size = imageData["expected-size"] else {
-                    throw AppIconError.missingDataForImageSize
-                }
-                // Get the filename.
-                guard let filename = imageData["filename"] else {
-                    throw AppIconError.missingDataForImageName
-                }
-
-                if let size = Int(size) {
-                    // Append the generated image to the temporary images dict.
-                    tmpImages[filename] = image.resize(toSize: NSSize(width: size, height: size), aspectMode: .fit)
-                } else {
-                    throw AppIconError.formatError
-                }
-            }
-
-            // Write back the images to self.images
-            images[platform] = tmpImages
-        }
+    class var directory: String {
+        return Constants.Directory.appIcon
     }
 
-    /// Writes the App Icon for all selected platforms to the supplied file url.
-    ///
-    /// - Parameters:
-    ///   - name: The name of the asset catalog
-    ///   - url: The URL to save the catalog to
-    /// - Throws: An AppIconError
-    func saveAssetCatalog(named name: String, toURL url: URL) throws {
-        for (platform, images) in self.images {
-            // Ignore pseudo platform iOS
-            if platform == Platform.iOS.rawValue {
-                continue
-            }
-
-            let saveUrl = url.appendingPathComponent("\(appIconDir)/\(platform)/\(name).appiconset",
-                                                     isDirectory: true)
-
-            try FileManager.default.createDirectory(at: saveUrl,
-                                                    withIntermediateDirectories: true,
-                                                    attributes: nil)
-
-            var contentsJson = try ContentsJSON(forType: AssetType.appIcon, andPlatforms: [platform])
-            try contentsJson.saveToURL(saveUrl)
-            try self.saveAsset(images: images, toUrl: saveUrl)
-        }
-
-        self.images = [:]
+    class var `extension`: String {
+        return Constants.AssetExtension.appIcon
     }
 
-    /// Writes the App Icon for all selected platforms, as combined asset, to the supplied file url.
-    ///
-    /// - Parameters:
-    ///   - name: The name of the asset catalog
-    ///   - url: The URL to save the catalog to
-    /// - Throws: An AppIconError
-    func saveCombinedAssetCatalog(named name: String, toUrl url: URL) throws {
-        let saveUrl = url.appendingPathComponent("\(appIconDir)/Combined/\(name).appiconset", isDirectory: true)
+    let idiom: String
+    let size: AssetSize
+    let scale: AssetScale
+    let role: String?       //Apple Watch
+    let subtype: String?    //Apple Watch
+    let platform: String?   //iMessage
 
-        for (_, images) in images {
-            try FileManager.default.createDirectory(at: saveUrl,
-                                                    withIntermediateDirectories: true,
-                                                    attributes: nil)
-
-            var contentsJson = try ContentsJSON(forType: AssetType.appIcon,
-                                                andPlatforms: Array(self.images.keys))
-
-            try contentsJson.saveToURL(saveUrl)
-            try self.saveAsset(images: images, toUrl: saveUrl)
-        }
-        self.images = [:]
+    var filename: String {
+        let scaledWidth = Int(size.width * Float(scale.value))
+        return "icon-\(scaledWidth).png"
     }
 
-    /// Saves the supplied images as png to the supplied file url
-    ///
-    /// - Parameters:
-    ///   - images: The images to be saved
-    ///   - url: The file URL to save the images to
-    /// - Throws: See AppIconError and NSImageExtensionError
-    private func saveAsset(images: [String: NSImage?], toUrl url: URL) throws {
-        for (filename, image) in images {
-            guard let img = image else {
-                throw AppIconError.missingImage
-            }
-            if filename == "ios-marketing.png" {
-                try img.savePngWithoutAlphaChannelTo(url: url.appendingPathComponent(filename, isDirectory: false))
-            } else {
-                try img.savePngTo(url: url.appendingPathComponent(filename, isDirectory: false))
-            }
+    private enum ReadKeys: String, CodingKey {
+        case idiom
+        case size
+        case scale
+        case role
+        case subtype
+        case platform
+    }
+
+    private enum WriteKeys: String, CodingKey {
+        case idiom
+        case size
+        case scale
+        case role
+        case subtype
+        case platform
+        case filename
+    }
+
+    init(idiom: String, size: AssetSize, scale: AssetScale, role: String? = nil,
+         subtype: String? = nil, platform: String?) {
+        self.idiom = idiom
+        self.size = size
+        self.scale = scale
+        self.role = role
+        self.subtype = subtype
+        self.platform = platform
+    }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: ReadKeys.self)
+        let idiom = try container.decode(String.self, forKey: .idiom)
+
+        guard let scale = AssetScale(rawValue: try container.decode(String.self, forKey: .scale)) else {
+            throw AssetCatalogError.invalidFormat(format: .scale)
         }
+        let size = try AssetSize(size: try container.decode(String.self, forKey: .size))
+
+        self.idiom = idiom
+        self.size = size
+        self.scale = scale
+
+        self.role = try container.decodeIfPresent(String.self, forKey: .role)
+        self.subtype = try container.decodeIfPresent(String.self, forKey: .subtype)
+        self.platform = try container.decodeIfPresent(String.self, forKey: .platform)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: WriteKeys.self)
+        try container.encode(idiom, forKey: .idiom)
+        try container.encode(size.string, forKey: .size)
+        try container.encode(scale.rawValue, forKey: .scale)
+        try container.encode(filename, forKey: .filename)
+        try container.encodeIfPresent(role, forKey: .role)
+        try container.encodeIfPresent(subtype, forKey: .subtype)
+        try container.encodeIfPresent(platform, forKey: .platform)
+    }
+}
+
+extension AppIcon: Asset {
+    static let resourcePrefix = "AppIcon_"
+
+    static func directory(named: String) -> String {
+        return "\(directory)/\(named).\(self.extension)"
+    }
+
+    func save(_ image: [ImageOrientation: NSImage], aspect: AspectMode?, to url: URL) throws {
+        guard let image = image[.all] else {
+            throw AssetCatalogError.missingImage
+        }
+
+        //append filename to asset folder path
+        let url = url.appendingPathComponent(filename, isDirectory: false)
+        //skip if already exist
+        //filename based on size, so we will reuse same images in Contents.json
+        guard !FileManager.default.fileExists(atPath: url.path) else {
+            return
+        }
+        //resize icon
+
+        guard let resized = image.resize(toSize: size.multiply(scale), aspectMode: aspect ?? .fit) else {
+            throw AssetCatalogError.rescalingImageFailed
+        }
+        //save to filesystem
+        //no alpha for `ios-marketing` 1024x1024
+        try resized.savePng(url: url, withoutAlpha: idiom.contains(AppIcon.marketing))
     }
 }

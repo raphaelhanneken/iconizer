@@ -1,48 +1,38 @@
-{
-    "images" : [
-        {
-            "extent" : "full-screen",
-            "idiom" : "iphone",
-            "subtype" : "2688h",
-            "filename" : "iPhone-Landscape-2688h@3x.png",
-            "minimum-system-version" : "12.0",
-            "orientation" : "landscape",
-            "scale" : "3x",
-            "expected-width": "2688",
-            "expected-height": "1242"
-        },
-        {
-            "extent" : "full-screen",
-            "idiom" : "iphone",
-            "subtype" : "1792h",
-            "filename" : "iPhone-Landscape-1792h@2x.png",
-            "minimum-system-version" : "12.0",
-            "orientation" : "landscape",
-            "scale" : "2x",
-            "expected-width": "1792",
-            "expected-height": "828"
-        },
-        {
-            "extent" : "full-screen",
-            "idiom" : "iphone",
-            "subtype" : "2436h",
-            "filename" : "iPhone-Landscape-2436h@3x.png",
-            "minimum-system-version" : "11.0",
-            "orientation" : "landscape",
-            "scale" : "3x",
-            "expected-width": "2436",
-            "expected-height": "1125"
-        },
-        {
-            "extent" : "full-screen",
-            "idiom" : "iphone",
-            "subtype" : "736h",
-            "filename" : "iPhone-Landscape-736h@3x.png",
-            "minimum-system-version" : "8.0",
-            "orientation" : "landscape",
-            "scale" : "3x",
-            "expected-width": "2208",
-            "expected-height": "1242"
-        }
-    ]
-}
+[
+    {
+        "extent" : "full-screen",
+        "idiom" : "iphone",
+        "subtype" : "2688h",
+        "minimum-system-version" : "12.0",
+        "orientation" : "landscape",
+        "scale" : "3x",
+        "size": "2688x1242"
+    },
+    {
+        "extent" : "full-screen",
+        "idiom" : "iphone",
+        "subtype" : "1792h",
+        "minimum-system-version" : "12.0",
+        "orientation" : "landscape",
+        "scale" : "2x",
+        "size": "1792x828"
+    },
+    {
+        "extent" : "full-screen",
+        "idiom" : "iphone",
+        "subtype" : "2436h",
+        "minimum-system-version" : "11.0",
+        "orientation" : "landscape",
+        "scale" : "3x",
+        "size": "2436x1125"
+    },
+    {
+        "extent" : "full-screen",
+        "idiom" : "iphone",
+        "subtype" : "736h",
+        "minimum-system-version" : "8.0",
+        "orientation" : "landscape",
+        "scale" : "3x",
+        "size": "2208x1242"
+    }
+]

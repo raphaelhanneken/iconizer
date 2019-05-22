@@ -1,95 +1,47 @@
-{
-  "images" : [
-    {
-      "idiom" : "ipad",
-      "size" : "40x40",
-      "scale" : "2x",
-      "filename" : "ipad-spotlight@2x.png",
-      "expected-size" : "80"
-    },
-    {
-      "idiom" : "ipad",
-      "size" : "72x72",
-      "scale" : "1x",
-      "filename" : "ipad-oldAppicon@1x.png",
-      "expected-size": "72"
-    },
-    {
-      "idiom" : "ipad",
-      "size" : "76x76",
-      "scale" : "2x",
-      "filename" : "ipad-appicon@2x.png",
-      "expected-size": "152"
-    },
-    {
-      "idiom" : "ipad",
-      "size" : "50x50",
-      "scale" : "2x",
-      "filename" : "ipad-oldSpotlight@2x.png",
-      "expected-size": "100"
-    },
-    {
-      "idiom" : "ipad",
-      "size" : "29x29",
-      "scale" : "2x",
-      "filename" : "ipad-settings@2x.png",
-      "expected-size": "58"
-    },
-    {
-      "idiom" : "ipad",
-      "size" : "76x76",
-      "scale" : "1x",
-      "filename" : "ipad-appicon@1x.png",
-      "expected-size": "76"
-    },
-    {
-      "idiom" : "ipad",
-      "size" : "29x29",
-      "scale" : "1x",
-      "filename" : "ipad-settings@1x.png",
-      "expected-size": "29"
-    },
-    {
-      "idiom" : "ipad",
-      "size" : "50x50",
-      "scale" : "1x",
-      "filename" : "ipad-oldSpotlight@1x.png",
-      "expected-size": "50"
-    },
-    {
-      "idiom" : "ipad",
-      "size" : "72x72",
-      "scale" : "2x",
-      "filename" : "ipad-oldAppicon@2x.png",
-      "expected-size": "144"
-    },
-    {
-      "idiom" : "ipad",
-      "size" : "40x40",
-      "scale" : "1x",
-      "filename" : "ipad-spotlight@1x.png",
-      "expected-size": "40"
-    },
-    {
-      "idiom" : "ipad",
-      "size" : "83.5x83.5",
-      "scale" : "2x",
-      "filename" : "ipad-pro-appicon@1x.png",
-      "expected-size": "167"
-    },
-    {
-      "idiom" : "ipad",
-      "size" : "20x20",
-      "scale" : "1x",
-      "filename" : "ipad-notification@2x.png",
-      "expected-size" : "20"
-    },
-    {
-      "idiom" : "ipad",
-      "size" : "20x20",
-      "scale" : "2x",
-      "filename" : "ipad-notification@3x.png",
-      "expected-size" : "40"
-    }
-  ]
-}
+[
+  {
+    "idiom" : "ipad",
+    "size" : "20x20",
+    "scale" : "1x"
+  },
+  {
+    "idiom" : "ipad",
+    "size" : "20x20",
+    "scale" : "2x"
+  },
+  {
+    "idiom" : "ipad",
+    "size" : "29x29",
+    "scale" : "1x"
+  },
+  {
+    "idiom" : "ipad",
+    "size" : "29x29",
+    "scale" : "2x"
+  },
+  {
+    "idiom" : "ipad",
+    "size" : "40x40",
+    "scale" : "1x"
+  },
+  {
+    "idiom" : "ipad",
+    "size" : "40x40",
+    "scale" : "2x"
+  },
+  {
+    "idiom" : "ipad",
+    "size" : "76x76",
+    "scale" : "1x"
+  },
+  {
+    "idiom" : "ipad",
+    "size" : "76x76",
+    "scale" : "2x"
+  },
+  {
+    "idiom" : "ipad",
+    "size" : "83.5x83.5",
+    "scale" : "2x"
+  }
+]

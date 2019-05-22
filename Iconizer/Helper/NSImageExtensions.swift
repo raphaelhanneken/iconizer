@@ -20,7 +20,7 @@ extension NSImage {
 
     /// The image size in pixels.
     var sizeInPixels: NSSize? {
-        guard let imageRep = self.representations.first else {
+        guard let imageRep = representations.first else {
             return nil
         }
 
@@ -80,20 +80,8 @@ extension NSImage {
     /// - Parameter url: The URL to save the image data to.
     /// - Throws: An NSImageExtensionError if unwrapping the image data fails.
     ///           An error in the Cocoa domain, if there is an error writing to the URL.
-    func savePngTo(url: URL) throws {
-        guard let png = self.PNGRepresentation else {
-            throw NSImageExtensionError.unwrappingPNGRepresentationFailed
-        }
-        try png.write(to: url, options: .atomicWrite)
-    }
-
-    /// Saves the PNG representation of the image to the supplied URL parameter.
-    ///
-    /// - Parameter url: The URL to save the image data to.
-    /// - Throws: An NSImageExtensionError if unwrapping the image data fails.
-    ///           An error in the Cocoa domain, if there is an error writing to the URL.
-    func savePngWithoutAlphaChannelTo(url: URL) throws {
-        guard let png = self.pngRepresentationWithoutAlpha else {
+    func savePng(url: URL, withoutAlpha: Bool = false) throws {
+        guard let png = withoutAlpha ? pngRepresentationWithoutAlpha : PNGRepresentation else {
             throw NSImageExtensionError.unwrappingPNGRepresentationFailed
         }
         try png.write(to: url, options: .atomicWrite)

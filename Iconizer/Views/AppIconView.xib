@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AppIconViewController" customModule="Iconizer" customModuleProvider="target">
             <connections>
                 <outlet property="carPlay" destination="C6B-hx-8ZR" id="NLq-tK-smr"/>
-                <outlet property="combined" destination="aki-cs-5RM" id="5NM-vS-y9L"/>
+                <outlet property="iMessage" destination="WLm-uc-jZc" id="nNX-um-WFt"/>
                 <outlet property="iPad" destination="dbD-KW-pvm" id="beM-if-nMZ"/>
                 <outlet property="iPhone" destination="aOl-TX-AxG" id="WCp-3V-dtO"/>
                 <outlet property="imageView" destination="Y4m-ks-fHe" id="Fx7-Pd-fX4"/>
@@ -26,11 +25,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y4m-ks-fHe" customClass="DragDropImageView" customModule="Iconizer" customModuleProvider="target">
-                    <rect key="frame" x="17" y="120" width="406" height="413"/>
+                    <rect key="frame" x="17" y="98" width="406" height="435"/>
                     <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="9GB-jD-Fdy"/>
                 </imageView>
                 <box autoresizesSubviews="NO" borderType="line" title="Platforms" translatesAutoresizingMaskIntoConstraints="NO" id="2hQ-CQ-YIT">
-                    <rect key="frame" x="17" y="38" width="406" height="77"/>
+                    <rect key="frame" x="17" y="16" width="406" height="77"/>
                     <view key="contentView" id="hhG-ng-c81">
                         <rect key="frame" x="1" y="1" width="404" height="61"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,31 +74,30 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WLm-uc-jZc">
+                                <rect key="frame" x="219" y="12" width="94" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="iMessage" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cxm-kb-kbT">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                     <constraints>
                         <constraint firstAttribute="height" constant="73" id="0N7-md-Wz0"/>
                     </constraints>
                 </box>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="aki-cs-5RM">
-                    <rect key="frame" x="18" y="18" width="183" height="18"/>
-                    <buttonCell key="cell" type="check" title="Export as Combined Asset" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Mvv-oF-t9p">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="2hQ-CQ-YIT" firstAttribute="top" secondItem="Y4m-ks-fHe" secondAttribute="bottom" constant="8" id="KLp-tF-kgr"/>
-                <constraint firstAttribute="bottom" secondItem="aki-cs-5RM" secondAttribute="bottom" constant="20" id="O3F-pM-Yag"/>
-                <constraint firstItem="aki-cs-5RM" firstAttribute="top" secondItem="2hQ-CQ-YIT" secondAttribute="bottom" constant="8" id="Vcm-mh-v0g"/>
                 <constraint firstAttribute="trailing" secondItem="Y4m-ks-fHe" secondAttribute="trailing" constant="20" id="WVq-cL-9e2"/>
                 <constraint firstItem="Y4m-ks-fHe" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="ZCY-AB-ATU"/>
                 <constraint firstItem="2hQ-CQ-YIT" firstAttribute="top" secondItem="Y4m-ks-fHe" secondAttribute="bottom" constant="8" id="aZW-bz-5Si"/>
                 <constraint firstAttribute="trailing" secondItem="2hQ-CQ-YIT" secondAttribute="trailing" constant="20" id="m9D-ZW-nZE"/>
+                <constraint firstAttribute="bottom" secondItem="2hQ-CQ-YIT" secondAttribute="bottom" constant="20" id="nn4-bG-1FC"/>
                 <constraint firstItem="2hQ-CQ-YIT" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="uGQ-ok-7gb"/>
                 <constraint firstItem="Y4m-ks-fHe" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="vee-2d-IdS"/>
-                <constraint firstItem="aki-cs-5RM" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="xG4-Pn-HRT"/>
             </constraints>
             <point key="canvasLocation" x="157" y="426.5"/>
         </customView>
