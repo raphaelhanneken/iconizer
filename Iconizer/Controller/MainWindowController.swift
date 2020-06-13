@@ -107,6 +107,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         openPanel.canChooseDirectories = false
         openPanel.canCreateDirectories = false
         openPanel.canChooseFiles = true
+        openPanel.allowedFileTypes = NSImage.imageTypes
         // Present the open panel to the user and get the selected file.
         let response = openPanel.runModal()
         if response == NSApplication.ModalResponse.OK {
@@ -117,6 +118,9 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                 }
                 // Open the selected image file.
                 try currentView.openSelectedImage(NSImage(contentsOf: url))
+                
+                //Save selected image path to recent files
+                NSDocumentController.shared.noteNewRecentDocumentURL(url)
             } catch {
                 if let error = error as? String {
                     NSLog(error)
