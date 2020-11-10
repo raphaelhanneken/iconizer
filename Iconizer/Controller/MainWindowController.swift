@@ -118,7 +118,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                 }
                 // Open the selected image file.
                 try currentView.openSelectedImage(NSImage(contentsOf: url))
-                
+
                 //Save selected image path to recent files
                 NSDocumentController.shared.noteNewRecentDocumentURL(url)
             } catch {
