@@ -118,9 +118,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                 // Open the selected image file.
                 try currentView.openSelectedImage(NSImage(contentsOf: url))
             } catch {
-                if let error = error as? String {
-                    NSLog(error)
-                }
+                NSLog(error.localizedDescription)
                 return
             }
         }
