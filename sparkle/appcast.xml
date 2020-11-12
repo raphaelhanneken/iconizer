@@ -18,7 +18,7 @@
         <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
         <enclosure
           url="https://github.com/raphaelhanneken/iconizer/releases/download/2020.11/Iconizer.dmg"
-          sparkle:version="311"
+          sparkle:version="314"
           sparkle:shortVersionString="2020.11"
           sparkle:dsaSignature="MCwCFFMjKm80FYM/F1oh/XCCBu9DNNbuAhR2vgfH4tjTxNb/eccZaFm5dS+gmw=="
           length="11605751"
