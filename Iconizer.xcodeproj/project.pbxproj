@@ -275,6 +275,7 @@
 				8E3F8F621B23488F0096E9EC /* Frameworks */,
 				8E3F8F631B23488F0096E9EC /* Resources */,
 				8E7163831B5455CB00A031AB /* CopyFiles */,
+				C566883A256166AE005D745C /* ShellScript */,
 				8E217D3C1CA2F77D000D344E /* ShellScript */,
 			);
 			buildRules = (
@@ -367,7 +368,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    swiftlint\nelse\n    echo \"Warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    swiftlint\nelse\n    echo \"Warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C566883A256166AE005D745C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Check for outdated dependencies\n/usr/local/bin/carthage outdated --xcode-warnings 2>/dev/null\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -540,7 +558,7 @@
 				INFOPLIST_FILE = Iconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 2020.11;
+				MARKETING_VERSION = 2020.11.0;
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.raphaelhanneken.iconizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -562,7 +580,7 @@
 				INFOPLIST_FILE = Iconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 2020.11;
+				MARKETING_VERSION = 2020.11.0;
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.raphaelhanneken.iconizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
