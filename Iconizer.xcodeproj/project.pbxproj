@@ -47,6 +47,8 @@
 		8E5C00D41E0AA3260094FD0C /* DragDropImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */; };
 		C52DA9731FE5BD5C0011E3C5 /* AppIcon_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = C52DA9721FE5BD5C0011E3C5 /* AppIcon_iOS.json */; };
 		C554C3E91F83786700747031 /* IconizerViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C554C3E81F83786700747031 /* IconizerViewControllerProtocol.swift */; };
+		C566883D25616992005D745C /* Sparkle.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C566883C25616992005D745C /* Sparkle.framework.dSYM */; };
+		C566883E25616999005D745C /* Sparkle.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = C566883C25616992005D745C /* Sparkle.framework.dSYM */; };
 		C57ED8BF205EB1350048B3D1 /* LaunchImage_iPad_Landscape.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BB205EB1340048B3D1 /* LaunchImage_iPad_Landscape.json */; };
 		C57ED8C0205EB1350048B3D1 /* LaunchImage_iPhone_Landscape.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BC205EB1340048B3D1 /* LaunchImage_iPhone_Landscape.json */; };
 		C57ED8C1205EB1350048B3D1 /* LaunchImage_iPad_Portrait.json in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */; };
@@ -65,11 +67,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C566883B25616978005D745C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				C566883E25616999005D745C /* Sparkle.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		615470E5E6246DA215022584 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = ../Iconizer/Asset/Platform.swift; sourceTree = "<group>"; };
-		6154728EE4ABE06BF6C6F01D /* iMessageIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iMessageIcon.swift; sourceTree = "<group>"; };
+		6154728EE4ABE06BF6C6F01D /* iMessageIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iMessageIcon.swift; path = Models/iMessageIcon.swift; sourceTree = "<group>"; };
 		615472CF3B9100EEC7A67F35 /* AspectMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AspectMode.swift; path = ../Iconizer/Asset/AspectMode.swift; sourceTree = "<group>"; };
 		615472EBBE8EE9453E90D31B /* LaunchImage_iPhone_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone_Portrait.json; path = Resources/LaunchImage_iPhone_Portrait.json; sourceTree = "<group>"; };
 		61547491B396897B2A4F1E2D /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = Helper/Asset.swift; sourceTree = "<group>"; };
@@ -109,6 +121,7 @@
 		8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DragDropImageView.swift; path = Iconizer/Helper/DragDropImageView.swift; sourceTree = "<group>"; };
 		C52DA9721FE5BD5C0011E3C5 /* AppIcon_iOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppIcon_iOS.json; path = Resources/AppIcon_iOS.json; sourceTree = "<group>"; };
 		C554C3E81F83786700747031 /* IconizerViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconizerViewControllerProtocol.swift; path = Controller/IconizerViewControllerProtocol.swift; sourceTree = "<group>"; };
+		C566883C25616992005D745C /* Sparkle.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Sparkle.framework.dSYM; path = Carthage/Build/Mac/Sparkle.framework.dSYM; sourceTree = SOURCE_ROOT; };
 		C57ED8BB205EB1340048B3D1 /* LaunchImage_iPad_Landscape.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPad_Landscape.json; path = Resources/LaunchImage_iPad_Landscape.json; sourceTree = "<group>"; };
 		C57ED8BC205EB1340048B3D1 /* LaunchImage_iPhone_Landscape.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPhone_Landscape.json; path = Resources/LaunchImage_iPhone_Landscape.json; sourceTree = "<group>"; };
 		C57ED8BD205EB1340048B3D1 /* LaunchImage_iPad_Portrait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaunchImage_iPad_Portrait.json; path = Resources/LaunchImage_iPad_Portrait.json; sourceTree = "<group>"; };
@@ -258,6 +271,7 @@
 		8EBD6F4B1B5449CF0062D62C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C566883C25616992005D745C /* Sparkle.framework.dSYM */,
 				8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */,
 			);
 			name = Frameworks;
@@ -275,8 +289,8 @@
 				8E3F8F621B23488F0096E9EC /* Frameworks */,
 				8E3F8F631B23488F0096E9EC /* Resources */,
 				8E7163831B5455CB00A031AB /* CopyFiles */,
+				C566883B25616978005D745C /* CopyFiles */,
 				C566883A256166AE005D745C /* ShellScript */,
-				8E217D3C1CA2F77D000D344E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -335,6 +349,7 @@
 				8E2F995A1C01F16D00C2E2D8 /* MainMenu.xib in Resources */,
 				8E2F99571C01F16000C2E2D8 /* MainWindow.xib in Resources */,
 				8E2F99551C01F16000C2E2D8 /* ImageSetView.xib in Resources */,
+				C566883D25616992005D745C /* Sparkle.framework.dSYM in Resources */,
 				8E2F99541C01F16000C2E2D8 /* AppIconView.xib in Resources */,
 				8E2F99561C01F16000C2E2D8 /* LaunchImageView.xib in Resources */,
 				8E2F99741C01F19400C2E2D8 /* dsa_pub.pem in Resources */,
@@ -357,19 +372,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8E217D3C1CA2F77D000D344E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    swiftlint\nelse\n    echo \"Warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 		C566883A256166AE005D745C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -560,7 +562,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 2020.11.0;
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.raphaelhanneken.iconizer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raphaelhanneken.iconizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -582,7 +584,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 2020.11.0;
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.raphaelhanneken.iconizer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raphaelhanneken.iconizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
