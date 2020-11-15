@@ -7,21 +7,25 @@
       <language>en</language>
 
       <item>
-        <title>Iconizer v2020.11</title>
+        <title>Iconizer v2020.11.0</title>
         <description>
           <![CDATA[
-          <p>Adds support for macOS Big Sur.</p>
-          <p>Build with Xcode 11.2 using Swift 5</p>
+          <ul>
+              <li>Support for macOS Big Sur</li>
+              <li>Support for Macs with Apple's new M1 chip</li>
+              <li>New application icon to match the new Big Sur icon style</li>
+          </ul>
+          <p>Build with Xcode Version 12.2 (12B45b) using Swift 5.3</p>
           ]]>
         </description>
-        <pubDate>Thu, 12 Nov 2020 23:00:00 +0100</pubDate>
+        <pubDate>Sun, 15 Nov 2020 15:00:00 +0100</pubDate>
         <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
         <enclosure
-          url="https://github.com/raphaelhanneken/iconizer/releases/download/2020.11/Iconizer.dmg"
-          sparkle:version="314"
-          sparkle:shortVersionString="2020.11"
-          sparkle:dsaSignature="MCwCFFMjKm80FYM/F1oh/XCCBu9DNNbuAhR2vgfH4tjTxNb/eccZaFm5dS+gmw=="
-          length="11605751"
+          url="https://github.com/raphaelhanneken/iconizer/releases/download/2020.11.0/Iconizer.dmg"
+          sparkle:version="319"
+          sparkle:shortVersionString="2020.11.0"
+          sparkle:dsaSignature="MCwCFCieDLX8alJhcpaivLVPh/9ipkU/AhRDAogPQno/5bAGKkK1QFIblZWilQ=="
+          length="14148034"
           type="application/octet-stream" />
       </item>
 
