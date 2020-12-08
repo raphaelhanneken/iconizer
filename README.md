@@ -3,7 +3,7 @@ Create Xcode image catalogs (xcassets) on the fly. Iconizer builds the necessary
 
 ![Iconizer](screenshot.png)
 
-Visit the [homepage](http://raphaelhanneken.github.io/iconizer/index.html) for more information. 
+Visit the [homepage](https://raphaelhanneken.com/iconizer/) for more information. 
 
 ## How do I install it? ##
 
