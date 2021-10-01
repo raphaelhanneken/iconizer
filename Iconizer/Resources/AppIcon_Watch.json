@@ -14,6 +14,13 @@
     "subtype" : "42mm"
   },
   {
+    "size" : "33x33",
+    "idiom" : "watch",
+    "scale" : "2x",
+    "role" : "notificationCenter",
+    "subtype" : "45mm"
+  },
+  {
     "size" : "29x29",
     "idiom" : "watch",
     "role" : "companionSettings",
@@ -47,6 +54,20 @@
     "subtype" : "44mm"
   },
   {
+    "size" : "46x46",
+    "idiom" : "watch",
+    "scale" : "2x",
+    "role" : "appLauncher",
+    "subtype" : "41mm"
+  },
+  {
+    "size" : "51x51",
+    "idiom" : "watch",
+    "scale" : "2x",
+    "role" : "appLauncher",
+    "subtype" : "45mm"
+  },
+  {
     "size" : "86x86",
     "idiom" : "watch",
     "scale" : "2x",
@@ -66,6 +87,13 @@
     "scale" : "2x",
     "role" : "quickLook",
     "subtype" : "44mm"
+  },
+  {
+    "size" : "117x117",
+    "idiom" : "watch",
+    "scale" : "2x",
+    "role" : "quickLook",
+    "subtype" : "45mm"
   },
   {
     "idiom" : "watch-marketing",
