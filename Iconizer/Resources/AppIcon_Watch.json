@@ -68,6 +68,13 @@
     "subtype" : "45mm"
   },
   {
+    "size" : "54x54",
+    "idiom" : "watch",
+    "scale" : "2x",
+    "role" : "appLauncher",
+    "subtype" : "49mm"
+  },
+  {
     "size" : "86x86",
     "idiom" : "watch",
     "scale" : "2x",
@@ -94,6 +101,13 @@
     "scale" : "2x",
     "role" : "quickLook",
     "subtype" : "45mm"
+  },
+  {
+    "size" : "129x129",
+    "idiom" : "watch",
+    "scale" : "2x",
+    "role" : "quickLook",
+    "subtype" : "49mm"
   },
   {
     "idiom" : "watch-marketing",
